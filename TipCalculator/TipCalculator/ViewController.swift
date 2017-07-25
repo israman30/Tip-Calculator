@@ -29,6 +29,11 @@ class ViewController: UIViewController {
 
     @IBAction func calculateTip(_ sender: Any) {
         
+        tipCalculations()
+    }
+    
+    // MARK:- Tip calculation function
+    func tipCalculations(){
         let tipPerc = [0.18, 0.20, 0.25]
         
         let bill =  Double(billTxt.text!) ?? 0
