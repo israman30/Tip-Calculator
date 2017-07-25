@@ -1,0 +1,43 @@
+//
+//  ViewController.swift
+//  TipCalculator
+//
+//  Created by Israel Manzo on 7/25/17.
+//  Copyright © 2017 Israel Manzo. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var tipLbl: UILabel!
+    
+    @IBOutlet weak var totalLbl: UILabel!
+    
+    @IBOutlet weak var billTxt: UITextField!
+    
+    @IBOutlet weak var tipPercentageCalculator: UISegmentedControl!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+
+    @IBAction func endTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+
+    @IBAction func calculateTip(_ sender: Any) {
+        
+        let tipPerc = [0.18, 0.20, 0.25]
+        
+        let bill =  Double(billTxt.text!) ?? 0
+        let tip = bill * tipPerc[tipPercentageCalculator.selectedSegmentIndex]
+        let total = bill + tip
+        
+        // Display the value of the tip and the total with two decimal digits
+        tipLbl.text = String(format: "$%.2f", tip)
+        totalLbl.text = String(format: "$%.2f", total)
+    }
+}
+
