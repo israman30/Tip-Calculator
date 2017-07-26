@@ -48,7 +48,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveTip(_ sender: Any) {
-        var bills = [String]()
         let userDefaults = UserDefaults.standard
         userDefaults.set(totalLbl.text, forKey: "tips")
         userDefaults.synchronize()

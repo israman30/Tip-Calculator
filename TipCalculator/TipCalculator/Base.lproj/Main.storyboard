@@ -117,6 +117,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="inO-zO-7sj">
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="dJo-md-Hhi">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="saveTip:" destination="BYZ-38-t0r" id="IBu-dE-nam"/>
                             </connections>

@@ -25,11 +25,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         
         if bills == "" {
-            print("Nothign here!")
-        } else {
+            
             bills = userDefaults.string(forKey: "tips")!
             values.append(bills)
             tableView.reloadData()
+        } else {
+            print("Nothign here!")
         }
         
     }
@@ -50,6 +51,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text = values[indexPath.row]
+        
         print(values)
         return cell
     }
