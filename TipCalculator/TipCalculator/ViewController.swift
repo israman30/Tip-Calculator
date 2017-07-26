@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tipPercentageCalculator: UISegmentedControl!
     
-    var tips = [Double]()
+    var tips = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +48,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveTip(_ sender: Any) {
+        var bills = [String]()
         let userDefaults = UserDefaults.standard
         userDefaults.set(totalLbl.text, forKey: "tips")
+        userDefaults.synchronize()
+        billTxt.text = ""
         print(userDefaults)
         
     }

@@ -24,8 +24,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
-        bills = userDefaults.string(forKey: "tips")!
-        values.append(bills)
+        if bills == "" {
+            print("Nothign here!")
+        } else {
+            bills = userDefaults.string(forKey: "tips")!
+            values.append(bills)
+            tableView.reloadData()
+        }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,6 +50,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text = values[indexPath.row]
+        print(values)
         return cell
     }
 
