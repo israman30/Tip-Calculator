@@ -13,6 +13,7 @@
 		8DDDFA7C1F277A77005CC1B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DDDFA7B1F277A77005CC1B5 /* Assets.xcassets */; };
 		8DDDFA7F1F277A77005CC1B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDDFA7D1F277A77005CC1B5 /* LaunchScreen.storyboard */; };
 		8DDDFA871F27BFCC005CC1B5 /* Bree_Serif in Resources */ = {isa = PBXBuildFile; fileRef = 8DDDFA861F27BFCC005CC1B5 /* Bree_Serif */; };
+		8DDDFA891F28CD36005CC1B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDFA881F28CD36005CC1B5 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8DDDFA7E1F277A77005CC1B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DDDFA801F277A77005CC1B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DDDFA861F27BFCC005CC1B5 /* Bree_Serif */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bree_Serif; sourceTree = "<group>"; };
+		8DDDFA881F28CD36005CC1B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				8DDDFA741F277A77005CC1B5 /* AppDelegate.swift */,
 				8DDDFA761F277A77005CC1B5 /* ViewController.swift */,
+				8DDDFA881F28CD36005CC1B5 /* SettingsViewController.swift */,
 				8DDDFA781F277A77005CC1B5 /* Main.storyboard */,
 				8DDDFA7B1F277A77005CC1B5 /* Assets.xcassets */,
 				8DDDFA861F27BFCC005CC1B5 /* Bree_Serif */,
@@ -143,6 +146,7 @@
 			files = (
 				8DDDFA771F277A77005CC1B5 /* ViewController.swift in Sources */,
 				8DDDFA751F277A77005CC1B5 /* AppDelegate.swift in Sources */,
+				8DDDFA891F28CD36005CC1B5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +310,7 @@
 				8DDDFA851F277A77005CC1B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="1170" y="139"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="Yge-hE-ktf">
             <objects>
-                <viewController id="khz-vj-Dz5" sceneMemberID="viewController">
+                <viewController id="khz-vj-Dz5" customClass="SettingsViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7n9-E3-Ugc"/>
                         <viewControllerLayoutGuide type="bottom" id="xnC-HY-AbK"/>
