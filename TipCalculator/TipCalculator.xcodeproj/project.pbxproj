@@ -14,6 +14,7 @@
 		8DDDFA7F1F277A77005CC1B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDDFA7D1F277A77005CC1B5 /* LaunchScreen.storyboard */; };
 		8DDDFA871F27BFCC005CC1B5 /* Bree_Serif in Resources */ = {isa = PBXBuildFile; fileRef = 8DDDFA861F27BFCC005CC1B5 /* Bree_Serif */; };
 		8DDDFA891F28CD36005CC1B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDFA881F28CD36005CC1B5 /* SettingsViewController.swift */; };
+		8DDDFA8B1F28D817005CC1B5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDFA8A1F28D817005CC1B5 /* SettingsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8DDDFA801F277A77005CC1B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DDDFA861F27BFCC005CC1B5 /* Bree_Serif */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bree_Serif; sourceTree = "<group>"; };
 		8DDDFA881F28CD36005CC1B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8DDDFA8A1F28D817005CC1B5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				8DDDFA741F277A77005CC1B5 /* AppDelegate.swift */,
 				8DDDFA761F277A77005CC1B5 /* ViewController.swift */,
 				8DDDFA881F28CD36005CC1B5 /* SettingsViewController.swift */,
+				8DDDFA8A1F28D817005CC1B5 /* SettingsTableViewCell.swift */,
 				8DDDFA781F277A77005CC1B5 /* Main.storyboard */,
 				8DDDFA7B1F277A77005CC1B5 /* Assets.xcassets */,
 				8DDDFA861F27BFCC005CC1B5 /* Bree_Serif */,
@@ -146,6 +149,7 @@
 			files = (
 				8DDDFA771F277A77005CC1B5 /* ViewController.swift in Sources */,
 				8DDDFA751F277A77005CC1B5 /* AppDelegate.swift in Sources */,
+				8DDDFA8B1F28D817005CC1B5 /* SettingsTableViewCell.swift in Sources */,
 				8DDDFA891F28CD36005CC1B5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

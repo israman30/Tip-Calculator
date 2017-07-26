@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tipPercentageCalculator: UISegmentedControl!
     
+    var tips = [Double]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,5 +46,13 @@ class ViewController: UIViewController {
         tipLbl.text = String(format: "$%.2f", tip)
         totalLbl.text = String(format: "$%.2f", total)
     }
+    
+    @IBAction func saveTip(_ sender: Any) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(totalLbl.text, forKey: "tips")
+        print(userDefaults)
+        
+    }
+    
 }
 
