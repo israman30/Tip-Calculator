@@ -18,6 +18,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var values = [String]()
     
+    let cell = "cell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +47,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cell, for: indexPath) as! SettingsTableViewCell
         
         let lastBill = values[indexPath.row]
         
