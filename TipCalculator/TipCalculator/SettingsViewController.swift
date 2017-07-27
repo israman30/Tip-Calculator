@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +20,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var values = [String]()
     
     let cell = "cell"
+    
+    var viewOneColor: CGFloat = 5.0
+    var red: CGFloat = 0.0
+    var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    var opacity: CGFloat = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +44,21 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             print("Nothign here!")
         }
     }
-    @IBAction func viewColorsChange(_ sender: Any) {
-        
+    @IBOutlet weak var viewOneSlider: UISlider!
+    
+    @IBAction func viewOneSldr(_ sender: Any) {
+        let slider = sender as! UISlider
+        viewOneColor = CGFloat(slider.value)
+        prevColor(red: red, green: green, blue: blue)
+        print(slider.value)
     }
     
+    func prevColor(red: CGFloat, green: CGFloat, blue: CGFloat){
+        let context = UIGraphicsGetCurrentContext()
+        context?.setStrokeColor(UIColor(red: red, green: green, blue: blue, alpha: opacity).cgColor)
+        context?.strokePath()
+        UIGraphicsEndImageContext()
+    }
     // MARK: - Delegates functions
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

@@ -18,11 +18,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tipPercentageCalculator: UISegmentedControl!
     
+    @IBOutlet weak var viewOne: UIView!
+    
     var tips = [String]()
+    
+    var red: CGFloat = 0.0
+    var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    var color: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
     }
 
     // MARK: - End tapping after enter bill info
@@ -63,5 +70,18 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let settingVC = segue.destination as! SettingsViewController
+        settingVC.red = red
+        settingVC.blue = blue
+        settingVC.green = green
+        
+    }
 }
+
+
+
+
 
