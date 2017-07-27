@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         
     }
 
+    // MARK: - End tapping after enter bill info
     @IBAction func endTap(_ sender: Any) {
         view.endEditing(true)
     }
@@ -34,7 +35,7 @@ class ViewController: UIViewController {
         tipCalculations()
     }
     
-    // MARK:- Tip calculation function
+    // MARK: - Tip calculation function
     func tipCalculations(){
         let tipPerc = [0.18, 0.20, 0.25]
         
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
         totalLbl.text = String(format: "$%.2f", total)
     }
     
+    // MARK: - We saving the last bill
     @IBAction func saveTip(_ sender: Any) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(totalLbl.text, forKey: "tips")

@@ -24,17 +24,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
+        // Mark: - We use a conditional to check if is data or not
         if bills == "" {
             
             bills = userDefaults.string(forKey: "tips")!
             values.append(bills)
             tableView.reloadData()
+            
         } else {
             print("Nothign here!")
         }
-        
     }
     
+    // MARK: - Delegates functions
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -49,7 +51,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.lastTotalBillLbl.text = lastBill
         
-        print(values)
         return cell
     }
 
