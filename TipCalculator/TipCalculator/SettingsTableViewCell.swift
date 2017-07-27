@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lastTotalBillLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

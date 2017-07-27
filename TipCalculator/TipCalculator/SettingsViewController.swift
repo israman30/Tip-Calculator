@@ -35,11 +35,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -48,9 +43,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingsTableViewCell
         
-        cell.textLabel?.text = values[indexPath.row]
+        let lastBill = values[indexPath.row]
+        
+        cell.lastTotalBillLbl.text = lastBill
         
         print(values)
         return cell
