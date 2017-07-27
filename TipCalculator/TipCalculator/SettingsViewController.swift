@@ -37,6 +37,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             print("Nothign here!")
         }
     }
+    @IBAction func viewColorsChange(_ sender: Any) {
+        
+    }
     
     // MARK: - Delegates functions
     func numberOfSections(in tableView: UITableView) -> Int {
