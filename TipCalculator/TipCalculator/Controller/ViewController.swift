@@ -55,9 +55,7 @@ class ViewController: UIViewController {
     }
     
     func saveAlert(){
-        let alert = UIAlertController(title: "Good Job!", message: "Your last bill had been saved", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        AlertController.alert(self, title: "Good Job!", message: "Your last bill had been saved")
     }
     
 }
