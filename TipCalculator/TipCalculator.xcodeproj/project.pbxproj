@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8D7E64892141A11300D8E76C /* SettingDataSource+Delegate+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E64882141A11300D8E76C /* SettingDataSource+Delegate+Ext.swift */; };
 		8D7E648B2141A20C00D8E76C /* AlertController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E648A2141A20B00D8E76C /* AlertController+Helper.swift */; };
+		8D7E648D2141A2FF00D8E76C /* CalculationsMethod+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E648C2141A2FF00D8E76C /* CalculationsMethod+Ext.swift */; };
+		8D7E648F2141A34E00D8E76C /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E648E2141A34E00D8E76C /* DefaultData.swift */; };
 		8DDDFA751F277A77005CC1B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDFA741F277A77005CC1B5 /* AppDelegate.swift */; };
 		8DDDFA771F277A77005CC1B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDFA761F277A77005CC1B5 /* ViewController.swift */; };
 		8DDDFA7A1F277A77005CC1B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDDFA781F277A77005CC1B5 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		8D7E64882141A11300D8E76C /* SettingDataSource+Delegate+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingDataSource+Delegate+Ext.swift"; sourceTree = "<group>"; };
 		8D7E648A2141A20B00D8E76C /* AlertController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertController+Helper.swift"; sourceTree = "<group>"; };
+		8D7E648C2141A2FF00D8E76C /* CalculationsMethod+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculationsMethod+Ext.swift"; sourceTree = "<group>"; };
+		8D7E648E2141A34E00D8E76C /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
 		8DDDFA711F277A77005CC1B5 /* TipCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DDDFA741F277A77005CC1B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DDDFA761F277A77005CC1B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 			children = (
 				8DDDFA741F277A77005CC1B5 /* AppDelegate.swift */,
 				8DDDFA761F277A77005CC1B5 /* ViewController.swift */,
+				8D7E648E2141A34E00D8E76C /* DefaultData.swift */,
+				8D7E648C2141A2FF00D8E76C /* CalculationsMethod+Ext.swift */,
 				8DDDFA881F28CD36005CC1B5 /* SettingsViewController.swift */,
 				8D7E64882141A11300D8E76C /* SettingDataSource+Delegate+Ext.swift */,
 			);
@@ -172,9 +178,11 @@
 				8D7E648B2141A20C00D8E76C /* AlertController+Helper.swift in Sources */,
 				8D7E64892141A11300D8E76C /* SettingDataSource+Delegate+Ext.swift in Sources */,
 				8DDDFA771F277A77005CC1B5 /* ViewController.swift in Sources */,
+				8D7E648F2141A34E00D8E76C /* DefaultData.swift in Sources */,
 				8DDDFA751F277A77005CC1B5 /* AppDelegate.swift in Sources */,
 				8DDDFA8B1F28D817005CC1B5 /* SettingsTableViewCell.swift in Sources */,
 				8DDDFA891F28CD36005CC1B5 /* SettingsViewController.swift in Sources */,
+				8D7E648D2141A2FF00D8E76C /* CalculationsMethod+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

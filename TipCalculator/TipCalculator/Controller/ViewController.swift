@@ -32,30 +32,9 @@ class ViewController: UIViewController {
         tipCalculations()
     }
     
-    // MARK: - Tip calculation function
-    func tipCalculations(){
-        let tipPerc = [0.18, 0.20, 0.25]
-        
-        let bill =  Double(billTxt.text!) ?? 0
-        let tip = bill * tipPerc[tipPercentageCalculator.selectedSegmentIndex]
-        let total = bill + tip
-        
-        // Display the value of the tip and the total with two decimal digits
-        tipLbl.text = String(format: "$%.2f", tip)
-        totalLbl.text = String(format: "$%.2f", total)
-    }
-    
     // MARK: - We saving the last bill
     @IBAction func saveTip(_ sender: Any) {
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(totalLbl.text, forKey: "tips")
-        userDefaults.synchronize()
-        billTxt.text = ""
-        saveAlert()
-    }
-    
-    func saveAlert(){
-        AlertController.alert(self, title: "Good Job!", message: "Your last bill had been saved")
+        saveUserDefaultData()
     }
     
 }
