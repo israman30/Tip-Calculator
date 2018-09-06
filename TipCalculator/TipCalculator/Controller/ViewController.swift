@@ -11,13 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tipLbl: UILabel!
-    
     @IBOutlet weak var totalLbl: UILabel!
-    
     @IBOutlet weak var billTxt: UITextField!
-    
     @IBOutlet weak var tipPercentageCalculator: UISegmentedControl!
-    
     @IBOutlet weak var viewOne: UIView!
     
     var tips = [String]()
@@ -33,7 +29,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculateTip(_ sender: Any) {
-        
         tipCalculations()
     }
     
