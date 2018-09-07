@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
 
+    // MARK: - Calculations 
     @IBAction func calculateTip(_ sender: Any) {
         tipCalculations()
     }
