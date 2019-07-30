@@ -56,7 +56,11 @@ extension MainController {
         view.addSubview(btn)
         btn.anchor(top: segment.bottomAnchor, left: segment.leftAnchor, bottom: nil, right: segment.rightAnchor, padding: .init(top: 20, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 30))
         
+        view.addSubview(tableView)
+        tableView.anchor(top: btn.bottomAnchor, left: btn.leftAnchor, bottom: view.bottomAnchor, right: btn.rightAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
     }
+    
+    
 }
 
 

@@ -15,6 +15,7 @@
 		4DD83CD922F089C2002933DE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CD822F089C2002933DE /* MainView.swift */; };
 		4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */; };
 		4DD83CDF22F08AEE002933DE /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CDE22F08AEE002933DE /* DetailsController.swift */; };
+		4DD83CE122F0AF43002933DE /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE022F0AF43002933DE /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4DD83CD822F089C2002933DE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainHandlers+Ext.swift"; sourceTree = "<group>"; };
 		4DD83CDE22F08AEE002933DE /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
+		4DD83CE022F0AF43002933DE /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				4DD83CD622EFD0A8002933DE /* AnchorsLayout.swift */,
 				4DD83CD822F089C2002933DE /* MainView.swift */,
+				4DD83CE022F0AF43002933DE /* AlertController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */,
 				4DD83CD922F089C2002933DE /* MainView.swift in Sources */,
 				4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */,
+				4DD83CE122F0AF43002933DE /* AlertController.swift in Sources */,
 				4DD83CDF22F08AEE002933DE /* DetailsController.swift in Sources */,
 				4DD83CC522EFCFC8002933DE /* AppDelegate.swift in Sources */,
 			);

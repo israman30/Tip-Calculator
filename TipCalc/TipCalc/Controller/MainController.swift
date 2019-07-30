@@ -16,6 +16,14 @@ struct Bill {
 
 class MainController: UIViewController {
     
+    let tableView: UITableView = {
+        let tv = UITableView()
+        tv.rowHeight = 100
+        return tv
+    }()
+    
+    var bills = [Bill]()
+    
     let valueInput: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Enter value"
@@ -53,21 +61,37 @@ class MainController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSaveBill))
         setMainView()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(BillCell.self, forCellReuseIdentifier: "cell")
+        print(bills)
+        
+        
     }
     
-    var bills = [Bill]()
-    
     @objc func handleSaveBill(){
-        let detailController = DetailController()
-        
-        guard let input = valueInput.text,
+        print(123)
+        guard let initialBill = valueInput.text,
               let tip = tipValue.text,
               let total = totalValue.text else { return }
-        let savedBill = Bill(input: "Bill: $\(input)", tip: "Tip: \(tip)", total: "Total: \(total)")
+        let newBill = Bill(input: initialBill, tip: tip, total: total)
+        bills.append(newBill)
+        tableView.reloadData()
+        print(bills)
+//        guard let input = valueInput.text,
+//              let tip = tipValue.text,
+//              let total = totalValue.text else { return }
+//
+//        if input.isEmpty || tip.isEmpty || total.isEmpty {
+//            AlertController.alert(self, title: "⚔️", message: "Save valid values")
+//        } else {
+//
+//            let savedBill = Bill(input: "Bill: $\(input)", tip: "Tip: \(tip)", total: "Total: \(total)")
+//
+//            bills.append(savedBill)
+//        }
         
-        bills.append(savedBill)
-        detailController.bill = bills
-        navigationController?.pushViewController(detailController, animated: true)
     }
     
     let segment: UISegmentedControl = {
@@ -77,7 +101,22 @@ class MainController: UIViewController {
         sc.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         return sc
     }()
+    
+    
 
 
 }
 
+extension MainController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bills.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BillCell
+        cell.bills = bills[indexPath.row]
+//        cell?.textLabel?.text = bills[indexPath.row].input
+        return cell
+    }
+}
