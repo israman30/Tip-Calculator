@@ -71,26 +71,18 @@ class MainController: UIViewController {
     }
     
     @objc func handleSaveBill(){
-        print(123)
+        
         guard let initialBill = valueInput.text,
               let tip = tipValue.text,
               let total = totalValue.text else { return }
-        let newBill = Bill(input: initialBill, tip: tip, total: total)
-        bills.append(newBill)
-        tableView.reloadData()
-        print(bills)
-//        guard let input = valueInput.text,
-//              let tip = tipValue.text,
-//              let total = totalValue.text else { return }
-//
-//        if input.isEmpty || tip.isEmpty || total.isEmpty {
-//            AlertController.alert(self, title: "⚔️", message: "Save valid values")
-//        } else {
-//
-//            let savedBill = Bill(input: "Bill: $\(input)", tip: "Tip: \(tip)", total: "Total: \(total)")
-//
-//            bills.append(savedBill)
-//        }
+        if initialBill.isEmpty || tip.isEmpty || total.isEmpty {
+            AlertController.alert(self, title: "⚔️", message: "Save valid values")
+        } else {
+            let newBill = Bill(input: "$\(initialBill): initial bill", tip: tip + ": tip", total: total + ": total bill")
+            bills.append(newBill)
+            tableView.reloadData()
+        }
+        
         
     }
     
@@ -116,7 +108,6 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BillCell
         cell.bills = bills[indexPath.row]
-//        cell?.textLabel?.text = bills[indexPath.row].input
         return cell
     }
 }
