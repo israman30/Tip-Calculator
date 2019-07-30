@@ -11,7 +11,7 @@ import UIKit
 
 class DetailController: UITableViewController {
     
-    var bill = [String]()
+    var bill = [Bill]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,34 +25,47 @@ class DetailController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BillCell
-        cell.totalLabel.text = bill[indexPath.row]
+        cell.bills = bill[indexPath.row]
         return cell
     }
 }
 
 class BillCell: UITableViewCell {
     
+    var bills: Bill? {
+        didSet {
+            guard let total = bills?.total,
+                   let bill = bills?.input,
+                   let tip = bills?.tip else { return }
+            totalLabel.text = total
+            billLabel.text = bill
+            tipLabel.text = tip
+        }
+    }
+    
     let billLabel: UILabel = {
         let label = UILabel()
-        label.text = "Bill"
+        label.text = "$0.0"
         return label
     }()
     
     let tipLabel: UILabel = {
         let label = UILabel()
-        label.text = "Tip"
+        label.text = "$0.0"
         return label
     }()
     
     let totalLabel: UILabel = {
         let label = UILabel()
-        label.text = "Total"
+        label.text = "$0.0"
         return label
     }()
     
     let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Date"
+        label.text = "12/07/2019"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .lightGray
         return label
     }()
     
@@ -61,10 +74,16 @@ class BillCell: UITableViewCell {
         
         addSubview(totalLabel)
         addSubview(billLabel)
+        addSubview(tipLabel)
+        addSubview(dateLabel)
         
         totalLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 30))
         
         billLabel.anchor(top: totalLabel.bottomAnchor, left: totalLabel.leftAnchor, bottom: nil, right: totalLabel.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
+        
+        tipLabel.anchor(top: billLabel.bottomAnchor, left: billLabel.leftAnchor, bottom: nil, right: billLabel.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 0))
+        
+        dateLabel.anchor(top: tipLabel.bottomAnchor, left: tipLabel.leftAnchor, bottom: nil, right: tipLabel.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {

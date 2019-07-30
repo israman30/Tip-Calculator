@@ -55,16 +55,18 @@ class MainController: UIViewController {
         setMainView()
     }
     
-    var bill = [String]()
+    var bills = [Bill]()
     
     @objc func handleSaveBill(){
         let detailController = DetailController()
         
-        let savedBill = Bill(input: valueInput.text!, tip: tipValue.text!, total: totalValue.text!)
+        guard let input = valueInput.text,
+              let tip = tipValue.text,
+              let total = totalValue.text else { return }
+        let savedBill = Bill(input: "Bill: $\(input)", tip: "Tip: \(tip)", total: "Total: \(total)")
         
-        let newBill = valueInput.text!
-        bill.append("$\(newBill)")
-        detailController.bill = bill
+        bills.append(savedBill)
+        detailController.bill = bills
         navigationController?.pushViewController(detailController, animated: true)
     }
     
