@@ -16,6 +16,7 @@ class DetailController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(BillCell.self, forCellReuseIdentifier: "cell")
+        tableView.rowHeight = 100
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,8 +60,11 @@ class BillCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubview(totalLabel)
+        addSubview(billLabel)
         
         totalLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 30))
+        
+        billLabel.anchor(top: totalLabel.bottomAnchor, left: totalLabel.leftAnchor, bottom: nil, right: totalLabel.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {
