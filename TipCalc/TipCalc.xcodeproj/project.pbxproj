@@ -19,7 +19,7 @@
 		4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */; };
 		4DD83CDF22F08AEE002933DE /* BillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CDE22F08AEE002933DE /* BillCell.swift */; };
 		4DD83CE122F0AF43002933DE /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE022F0AF43002933DE /* AlertController.swift */; };
-		4DD83CE422F124A4002933DE /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE322F124A4002933DE /* Bill.swift */; };
+		4DD83CE422F124A4002933DE /* PersistanceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE322F124A4002933DE /* PersistanceServices.swift */; };
 		4DD83CE622F124E7002933DE /* SaveHandlers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */; };
 		4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +39,7 @@
 		4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainHandlers+Ext.swift"; sourceTree = "<group>"; };
 		4DD83CDE22F08AEE002933DE /* BillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell.swift; sourceTree = "<group>"; };
 		4DD83CE022F0AF43002933DE /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		4DD83CE322F124A4002933DE /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		4DD83CE322F124A4002933DE /* PersistanceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceServices.swift; sourceTree = "<group>"; };
 		4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveHandlers+Ext.swift"; sourceTree = "<group>"; };
 		4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delegates+Datasource+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,8 +58,6 @@
 		4DD83CB822EFCFC8002933DE = {
 			isa = PBXGroup;
 			children = (
-				4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */,
-				4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */,
 				4DD83CC322EFCFC8002933DE /* TipCalc */,
 				4DD83CC222EFCFC8002933DE /* Products */,
 			);
@@ -113,7 +111,9 @@
 		4DD83CE222F12488002933DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4DD83CE322F124A4002933DE /* Bill.swift */,
+				4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */,
+				4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */,
+				4DD83CE322F124A4002933DE /* PersistanceServices.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D474AF822F252B30051E6F8 /* TipCalc.xcdatamodeld in Sources */,
-				4DD83CE422F124A4002933DE /* Bill.swift in Sources */,
+				4DD83CE422F124A4002933DE /* PersistanceServices.swift in Sources */,
 				4DD83CD722EFD0A8002933DE /* AnchorsLayout.swift in Sources */,
 				4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */,
 				4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */,
