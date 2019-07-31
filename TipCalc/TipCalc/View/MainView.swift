@@ -10,6 +10,11 @@ import UIKit
 
 extension MainController {
     
+    // MARK: - Keyboard dismiss
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func setNavbar() {
         navigationItem.title = "Calculate tip"
         navigationController?.navigationBar.prefersLargeTitles = true

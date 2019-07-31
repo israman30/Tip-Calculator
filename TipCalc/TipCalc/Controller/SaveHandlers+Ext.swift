@@ -25,6 +25,7 @@ extension MainController {
             let newBill = Bill(input: "$\(initialBill): initial bill", tip: tip + ": tip", total: total + ": total bill")
             bills.append(newBill)
             tableView.reloadData()
+            valueInput.resignFirstResponder()
         }
     }
 }
