@@ -18,11 +18,16 @@ extension MainController {
         saveBill(initialBill: initialBill, tip: tip, total: total)
     }
     
-    func saveBill(initialBill: String, tip: String, total: String){
+    func saveBill(initialBill: String, tip: String, total: String) {
+        
         if initialBill.isEmpty || tip.isEmpty || total.isEmpty {
             AlertController.alert(self, title: "⚔️", message: "Save valid values")
         } else {
-            let newBill = Bill(input: "$\(initialBill): initial bill", tip: tip + ": tip", total: total + ": total bill")
+            let newBill = Bill(
+                input: "$\(initialBill): initial bill",
+                tip: tip + ": tip",
+                total: total + ": total bill"
+            )
             bills.append(newBill)
             tableView.reloadData()
             valueInput.resignFirstResponder()

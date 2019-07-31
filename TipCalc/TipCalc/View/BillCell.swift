@@ -58,7 +58,7 @@ class BillCell: UITableViewCell {
         stackView.distribution = .fillProportionally
         
         addSubview(stackView)
-        stackView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
+        stackView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, padding: .init(top: 10, left: 0, bottom: 10, right: 0))
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
