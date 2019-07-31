@@ -17,7 +17,7 @@ class MainController: UIViewController {
         tv.allowsSelection = false
         return tv
     }()
-    
+    let userDefaults = UserDefaults.standard
     var bills = [Bill]()
     
     let valueInput: UITextField = {
@@ -62,6 +62,7 @@ class MainController: UIViewController {
         setNavbar()
         setMainView()
         tableViewHandlers()
+        
     }
     
 }
