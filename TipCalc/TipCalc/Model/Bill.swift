@@ -8,10 +8,10 @@
 
 import UIKit
 
-struct Bill {
-    let input: String
-    let tip: String
-    let total: String
-}
+//struct Bill {
+//    let input: String
+//    let tip: String
+//    let total: String
+//}
 
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D474AF822F252B30051E6F8 /* TipCalc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AF622F252B30051E6F8 /* TipCalc.xcdatamodeld */; };
+		4D474AFB22F253190051E6F8 /* Bill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */; };
+		4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */; };
 		4DD83CC522EFCFC8002933DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CC422EFCFC8002933DE /* AppDelegate.swift */; };
 		4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CC622EFCFC8002933DE /* MainController.swift */; };
 		4DD83CCC22EFCFCA002933DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD83CCB22EFCFCA002933DE /* Assets.xcassets */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D474AF722F252B30051E6F8 /* TipCalc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TipCalc.xcdatamodel; sourceTree = "<group>"; };
+		4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4DD83CC122EFCFC8002933DE /* TipCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD83CC422EFCFC8002933DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DD83CC622EFCFC8002933DE /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -52,6 +58,8 @@
 		4DD83CB822EFCFC8002933DE = {
 			isa = PBXGroup;
 			children = (
+				4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */,
+				4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */,
 				4DD83CC322EFCFC8002933DE /* TipCalc */,
 				4DD83CC222EFCFC8002933DE /* Products */,
 			);
@@ -72,6 +80,7 @@
 				4DD83CDD22F08AC5002933DE /* View */,
 				4DD83CDC22F08AB5002933DE /* Controller */,
 				4DD83CCB22EFCFCA002933DE /* Assets.xcassets */,
+				4D474AF622F252B30051E6F8 /* TipCalc.xcdatamodeld */,
 				4DD83CCD22EFCFCA002933DE /* LaunchScreen.storyboard */,
 				4DD83CD022EFCFCA002933DE /* Info.plist */,
 			);
@@ -179,11 +188,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D474AF822F252B30051E6F8 /* TipCalc.xcdatamodeld in Sources */,
 				4DD83CE422F124A4002933DE /* Bill.swift in Sources */,
 				4DD83CD722EFD0A8002933DE /* AnchorsLayout.swift in Sources */,
 				4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */,
 				4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */,
 				4DD83CD922F089C2002933DE /* MainView.swift in Sources */,
+				4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */,
+				4D474AFB22F253190051E6F8 /* Bill+CoreDataClass.swift in Sources */,
 				4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */,
 				4DD83CE122F0AF43002933DE /* AlertController.swift in Sources */,
 				4DD83CDF22F08AEE002933DE /* BillCell.swift in Sources */,
@@ -380,6 +392,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4D474AF622F252B30051E6F8 /* TipCalc.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4D474AF722F252B30051E6F8 /* TipCalc.xcdatamodel */,
+			);
+			currentVersion = 4D474AF722F252B30051E6F8 /* TipCalc.xcdatamodel */;
+			path = TipCalc.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4DD83CB922EFCFC8002933DE /* Project object */;
 }
