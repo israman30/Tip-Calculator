@@ -14,8 +14,11 @@
 		4DD83CD722EFD0A8002933DE /* AnchorsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CD622EFD0A8002933DE /* AnchorsLayout.swift */; };
 		4DD83CD922F089C2002933DE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CD822F089C2002933DE /* MainView.swift */; };
 		4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */; };
-		4DD83CDF22F08AEE002933DE /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CDE22F08AEE002933DE /* DetailsController.swift */; };
+		4DD83CDF22F08AEE002933DE /* BillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CDE22F08AEE002933DE /* BillCell.swift */; };
 		4DD83CE122F0AF43002933DE /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE022F0AF43002933DE /* AlertController.swift */; };
+		4DD83CE422F124A4002933DE /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE322F124A4002933DE /* Bill.swift */; };
+		4DD83CE622F124E7002933DE /* SaveHandlers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */; };
+		4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +31,11 @@
 		4DD83CD622EFD0A8002933DE /* AnchorsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorsLayout.swift; sourceTree = "<group>"; };
 		4DD83CD822F089C2002933DE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainHandlers+Ext.swift"; sourceTree = "<group>"; };
-		4DD83CDE22F08AEE002933DE /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
+		4DD83CDE22F08AEE002933DE /* BillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell.swift; sourceTree = "<group>"; };
 		4DD83CE022F0AF43002933DE /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		4DD83CE322F124A4002933DE /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveHandlers+Ext.swift"; sourceTree = "<group>"; };
+		4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delegates+Datasource+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 		4DD83CC322EFCFC8002933DE /* TipCalc */ = {
 			isa = PBXGroup;
 			children = (
+				4DD83CE222F12488002933DE /* Model */,
 				4DD83CDD22F08AC5002933DE /* View */,
 				4DD83CDC22F08AB5002933DE /* Controller */,
 				4DD83CCB22EFCFCA002933DE /* Assets.xcassets */,
@@ -76,7 +83,8 @@
 			children = (
 				4DD83CC422EFCFC8002933DE /* AppDelegate.swift */,
 				4DD83CC622EFCFC8002933DE /* MainController.swift */,
-				4DD83CDE22F08AEE002933DE /* DetailsController.swift */,
+				4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */,
+				4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */,
 				4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */,
 			);
 			path = Controller;
@@ -88,8 +96,17 @@
 				4DD83CD622EFD0A8002933DE /* AnchorsLayout.swift */,
 				4DD83CD822F089C2002933DE /* MainView.swift */,
 				4DD83CE022F0AF43002933DE /* AlertController.swift */,
+				4DD83CDE22F08AEE002933DE /* BillCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4DD83CE222F12488002933DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DD83CE322F124A4002933DE /* Bill.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,13 +179,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD83CE422F124A4002933DE /* Bill.swift in Sources */,
 				4DD83CD722EFD0A8002933DE /* AnchorsLayout.swift in Sources */,
 				4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */,
+				4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */,
 				4DD83CD922F089C2002933DE /* MainView.swift in Sources */,
 				4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */,
 				4DD83CE122F0AF43002933DE /* AlertController.swift in Sources */,
-				4DD83CDF22F08AEE002933DE /* DetailsController.swift in Sources */,
+				4DD83CDF22F08AEE002933DE /* BillCell.swift in Sources */,
 				4DD83CC522EFCFC8002933DE /* AppDelegate.swift in Sources */,
+				4DD83CE622F124E7002933DE /* SaveHandlers+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

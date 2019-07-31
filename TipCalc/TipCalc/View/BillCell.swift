@@ -1,5 +1,5 @@
 //
-//  DetailsController.swift
+//  BillCell.swift
 //  TipCalc
 //
 //  Created by Israel Manzo on 7/30/19.
@@ -7,28 +7,6 @@
 //
 
 import UIKit
-
-
-class DetailController: UITableViewController {
-    
-    var bill = [Bill]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.register(BillCell.self, forCellReuseIdentifier: "cell")
-        tableView.rowHeight = 100
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bill.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BillCell
-        cell.bills = bill[indexPath.row]
-        return cell
-    }
-}
 
 class BillCell: UITableViewCell {
     

@@ -8,17 +8,13 @@
 
 import UIKit
 
-struct Bill {
-    let input: String
-    let tip: String
-    let total: String
-}
-
 class MainController: UIViewController {
     
     let tableView: UITableView = {
         let tv = UITableView()
         tv.rowHeight = 100
+        tv.showsVerticalScrollIndicator = false
+        tv.allowsSelection = false
         return tv
     }()
     
@@ -53,39 +49,6 @@ class MainController: UIViewController {
         return label
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        navigationItem.title = "Calculate tip"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSaveBill))
-        setMainView()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(BillCell.self, forCellReuseIdentifier: "cell")
-        print(bills)
-        
-        
-    }
-    
-    @objc func handleSaveBill(){
-        
-        guard let initialBill = valueInput.text,
-              let tip = tipValue.text,
-              let total = totalValue.text else { return }
-        if initialBill.isEmpty || tip.isEmpty || total.isEmpty {
-            AlertController.alert(self, title: "⚔️", message: "Save valid values")
-        } else {
-            let newBill = Bill(input: "$\(initialBill): initial bill", tip: tip + ": tip", total: total + ": total bill")
-            bills.append(newBill)
-            tableView.reloadData()
-        }
-        
-        
-    }
-    
     let segment: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["18%", "20%", "25%"])
         sc.selectedSegmentIndex = 0
@@ -94,20 +57,13 @@ class MainController: UIViewController {
         return sc
     }()
     
-    
-
-
-}
-
-extension MainController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bills.count
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setNavbar()
+        setMainView()
+        tableViewHandlers()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BillCell
-        cell.bills = bills[indexPath.row]
-        return cell
-    }
 }
+
+

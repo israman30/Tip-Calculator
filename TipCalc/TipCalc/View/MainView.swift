@@ -10,7 +10,20 @@ import UIKit
 
 extension MainController {
     
+    func setNavbar() {
+        navigationItem.title = "Calculate tip"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Save",
+            style: .plain,
+            target: self,
+            action: #selector(handleSaveBill)
+        )
+    }
+    
     func setMainView(){
+        
+        view.backgroundColor = .white
         
         bottomView.backgroundColor = .lightGray
         
