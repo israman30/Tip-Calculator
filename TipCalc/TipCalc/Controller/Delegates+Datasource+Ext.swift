@@ -26,4 +26,14 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
         cell.bills = bills[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            bills.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
+            tableView.reloadData()
+        } else {
+            tableView.reloadData()
+        }
+    }
 }
