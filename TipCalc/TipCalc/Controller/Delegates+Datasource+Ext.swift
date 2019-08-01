@@ -9,7 +9,7 @@
 import UIKit
 
 extension MainController: UITableViewDataSource, UITableViewDelegate {
-    
+    // MARK: - TableView delegate and datasource + cell registration
     func tableViewHandlers(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -27,6 +27,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    // MARK: - Method delete from db with context then saveContext, when user swipe editingStyle.delete cell
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let index = bills.remove(at: indexPath.row)

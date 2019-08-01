@@ -14,12 +14,16 @@ extension MainController {
         calculateTip()
     }
     
+    // MARK: - This function calculate the entry with the percentage picked by the user, by defult the percentage is 18%
+    // Percentage is picked by the segmented controller selected index then is added to the entry
+    // guard statement check if the entry has a valid value if not, display default value of $0.0
     func calculateTip(){
         let tipPerc = [0.18, 0.20, 0.25]
         
         guard let input = valueInput.text else { return }
         
         let bill =  Double(input)
+        
         if let bill = bill {
             
             let tip = bill * tipPerc[segment.selectedSegmentIndex]
@@ -33,6 +37,7 @@ extension MainController {
         }
     }
     
+    // MARK: - Reset the fields when user needs to reset it or/and after entry is saved into db
     @objc func handleResetFields(){
         valueInput.text = ""
         tipValue.text = "$0.0"

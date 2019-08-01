@@ -18,11 +18,15 @@ extension MainController {
     func setNavbar() {
         navigationItem.title = "Calculate tip"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         let pin = UIImageView(image: #imageLiteral(resourceName: "pin"))
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        
         pinView.addSubViews(pin)
         pin.frame = pinView.frame
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pinView)
+        
         pin.isUserInteractionEnabled = true
         pin.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSaveBill)))
     }
@@ -73,7 +77,7 @@ extension MainController {
     func resetButton() {
         
         let btn = UIButton(type: .system)
-        btn.setTitle("RESET", for: .normal)
+        btn.setTitle("CLEAR", for: .normal)
         btn.setTitleColor(.red, for: .normal)
         btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
         

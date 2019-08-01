@@ -11,6 +11,7 @@ import CoreData
 
 class MainController: UIViewController {
     
+    // MARK: - TableView display list of saved bills
     let tableView: UITableView = {
         let tv = UITableView()
         tv.rowHeight = 100
@@ -32,6 +33,7 @@ class MainController: UIViewController {
         return tf
     }()
     
+    // MARK: - TextField bottom border
     let bottomView = UIView()
     
     let tipValue: UILabel = {
@@ -50,6 +52,7 @@ class MainController: UIViewController {
         return label
     }()
     
+    // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["18%", "20%", "25%"])
         sc.selectedSegmentIndex = 0
