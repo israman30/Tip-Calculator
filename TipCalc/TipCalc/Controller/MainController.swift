@@ -66,18 +66,5 @@ class MainController: UIViewController {
         fetchRequestFromDB()
     }
     
-    func fetchRequestFromDB() {
-        
-        let fetchRequest: NSFetchRequest<Bill> = Bill.fetchRequest()
-        
-        do {
-            let savedBills = try PersistanceServices.context.fetch(fetchRequest)
-            bills = savedBills
-            tableView.reloadData()
-        } catch let error {
-            print("Error", error.localizedDescription)
-        }
-    }
-    
 }
 
