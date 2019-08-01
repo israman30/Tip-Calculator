@@ -63,7 +63,11 @@ class MainController: UIViewController {
         setNavbar()
         setMainView()
         tableViewHandlers()
-        
+        fetchRequestFromDB()
+    
+    }
+    
+    func fetchRequestFromDB() {
         let fetchRequest: NSFetchRequest<Bill> = Bill.fetchRequest()
         
         do {
@@ -73,7 +77,6 @@ class MainController: UIViewController {
         } catch let error {
             print("Error", error.localizedDescription)
         }
-        
     }
     
 }

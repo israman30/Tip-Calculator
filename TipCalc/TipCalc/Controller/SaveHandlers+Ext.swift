@@ -13,13 +13,14 @@ extension MainController {
     @objc func handleSaveBill(){
         guard let input = valueInput.text, let tip = tipValue.text, let total = totalValue.text else { return }
         saveToDB(input: input, tip: tip, total: total)
+        valueInput.resignFirstResponder()
     }
     
     func saveToDB(input: String, tip: String, total: String) {
         let bill = Bill(context: PersistanceServices.context)
-        bill.input = input
-        bill.tip = tip
-        bill.total = total
+        bill.input = "$\(input) initial bill"
+        bill.tip = "\(tip) tip"
+        bill.total = "\(total) total"
         
         PersistanceServices.saveContext()
         bills.append(bill)
