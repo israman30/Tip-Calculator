@@ -29,9 +29,10 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            bills.remove(at: indexPath.row)
+            let index = bills.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
-            tableView.reloadData()
+            PersistanceServices.context.delete(index)
+            PersistanceServices.saveContext()
         } else {
             tableView.reloadData()
         }

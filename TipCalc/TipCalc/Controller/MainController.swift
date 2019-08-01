@@ -64,7 +64,6 @@ class MainController: UIViewController {
         setMainView()
         tableViewHandlers()
         fetchRequestFromDB()
-    
     }
     
     func fetchRequestFromDB() {
