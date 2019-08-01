@@ -18,12 +18,13 @@ extension MainController {
     func setNavbar() {
         navigationItem.title = "Calculate tip"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Save",
-            style: .plain,
-            target: self,
-            action: #selector(handleSaveBill)
-        )
+        let pin = UIImageView(image: #imageLiteral(resourceName: "pin"))
+        let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        pinView.addSubViews(pin)
+        pin.frame = pinView.frame
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pinView)
+        pin.isUserInteractionEnabled = true
+        pin.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSaveBill)))
     }
     
     func setMainView(){
