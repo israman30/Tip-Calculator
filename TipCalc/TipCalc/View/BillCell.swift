@@ -18,7 +18,17 @@ class BillCell: UITableViewCell {
             totalLabel.text = total
             billLabel.text = bill
             tipLabel.text = tip
+            
+            dateLabel.text = setDate()
         }
+    }
+    
+    func setDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "en_US")
+        return dateFormatter.string(from: Date())
     }
     
     let totalLabel: UILabel = {
