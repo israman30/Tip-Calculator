@@ -14,21 +14,13 @@ class BillCell: UITableViewCell {
         didSet {
             guard let total = bills?.total,
                   let bill = bills?.input,
-                  let tip = bills?.tip else { return }
+                  let tip = bills?.tip,
+                  let date = bills?.date else { return }
             totalLabel.text = total
             billLabel.text = bill
             tipLabel.text = tip
-            
-            dateLabel.text = setDate()
+            dateLabel.text = date
         }
-    }
-    
-    func setDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
-        dateFormatter.locale = Locale(identifier: "en_US")
-        return dateFormatter.string(from: Date())
     }
     
     let totalLabel: UILabel = {

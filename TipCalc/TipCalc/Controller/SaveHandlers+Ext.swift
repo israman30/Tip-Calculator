@@ -30,12 +30,20 @@ extension MainController {
         bill.input = "$\(input) initial bill"
         bill.tip = "\(tip) tip"
         bill.total = "\(total) total"
+        bill.date = setDate()
         
         PersistanceServices.saveContext()
         bills.append(bill)
         tableView.reloadData()
     }
     
+    func setDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "en_US")
+        return dateFormatter.string(from: Date())
+    }
     
     
 

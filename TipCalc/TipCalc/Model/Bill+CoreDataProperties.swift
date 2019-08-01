@@ -20,5 +20,6 @@ extension Bill {
     @NSManaged public var input: String?
     @NSManaged public var tip: String?
     @NSManaged public var total: String?
+    @NSManaged public var date: String?
 
 }
