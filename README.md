@@ -14,7 +14,7 @@
 
 - Core Data 
 
-- Some basic Maths
+- Some basic mathematics
 
 ### Launch :rocket:
 First release on early 2017
