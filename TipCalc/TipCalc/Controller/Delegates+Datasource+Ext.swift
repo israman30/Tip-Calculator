@@ -14,7 +14,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = false
-        tableView.register(BillCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(BillCell.self, forCellReuseIdentifier: CellId.cell.rawValue)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,7 +22,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BillCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
         cell.bills = bills[indexPath.row]
         return cell
     }

@@ -8,6 +8,12 @@
 
 import UIKit
 
+extension UIView {
+    func addSubViews(_ views: UIView...) {
+        views.forEach { addSubview($0) }
+    }
+}
+
 struct AnchoredConstraints {
     var top, left, bottom, right, width, height: NSLayoutConstraint?
 }

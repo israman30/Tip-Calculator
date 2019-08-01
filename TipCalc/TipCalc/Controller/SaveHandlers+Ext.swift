@@ -20,9 +20,7 @@ extension MainController {
             saveToDB(input: input, tip: tip, total: total)
         }
         valueInput.resignFirstResponder()
-        valueInput.text = ""
-        tipValue.text = "$0.0"
-        totalValue.text = "$0.0"
+        handleResetFields()
     }
     
     func saveToDB(input: String, tip: String, total: String) {

@@ -11,6 +11,7 @@
 		4D474AFB22F253190051E6F8 /* Bill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */; };
 		4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */; };
 		4D474AFE22F326660051E6F8 /* DB+FetchRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFD22F326660051E6F8 /* DB+FetchRequest+Ext.swift */; };
+		4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */; };
 		4DD83CC522EFCFC8002933DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CC422EFCFC8002933DE /* AppDelegate.swift */; };
 		4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CC622EFCFC8002933DE /* MainController.swift */; };
 		4DD83CCC22EFCFCA002933DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD83CCB22EFCFCA002933DE /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D474AFD22F326660051E6F8 /* DB+FetchRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+FetchRequest+Ext.swift"; sourceTree = "<group>"; };
+		4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellId+Enum.swift"; sourceTree = "<group>"; };
 		4DD83CC122EFCFC8002933DE /* TipCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD83CC422EFCFC8002933DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DD83CC622EFCFC8002933DE /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				4DD83CD822F089C2002933DE /* MainView.swift */,
 				4DD83CE022F0AF43002933DE /* AlertController.swift */,
 				4DD83CDE22F08AEE002933DE /* BillCell.swift */,
+				4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */,
 				4DD83CD922F089C2002933DE /* MainView.swift in Sources */,
 				4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */,
+				4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */,
 				4D474AFB22F253190051E6F8 /* Bill+CoreDataClass.swift in Sources */,
 				4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */,
 				4DD83CE122F0AF43002933DE /* AlertController.swift in Sources */,

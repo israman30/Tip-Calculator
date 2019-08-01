@@ -13,8 +13,8 @@ class BillCell: UITableViewCell {
     var bills: Bill? {
         didSet {
             guard let total = bills?.total,
-                   let bill = bills?.input,
-                   let tip = bills?.tip else { return }
+                  let bill = bills?.input,
+                  let tip = bills?.tip else { return }
             totalLabel.text = total
             billLabel.text = bill
             tipLabel.text = tip
