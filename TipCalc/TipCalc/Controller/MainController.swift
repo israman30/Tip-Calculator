@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainController: UIViewController {
     
@@ -62,6 +63,16 @@ class MainController: UIViewController {
         setNavbar()
         setMainView()
         tableViewHandlers()
+        
+        let fetchRequest: NSFetchRequest<Bill> = Bill.fetchRequest()
+        
+        do {
+            let savedBills = try PersistanceServices.context.fetch(fetchRequest)
+            bills = savedBills
+            tableView.reloadData()
+        } catch let error {
+            print("Error", error.localizedDescription)
+        }
         
     }
     

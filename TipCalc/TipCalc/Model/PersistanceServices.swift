@@ -31,7 +31,6 @@ class PersistanceServices {
         if context.hasChanges {
             do {
                 try context.save()
-                print("saved")
             } catch let error {
                 fatalError("Error loading a container \(error)")
             }
