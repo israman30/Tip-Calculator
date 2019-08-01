@@ -67,6 +67,7 @@ class MainController: UIViewController {
     }
     
     func fetchRequestFromDB() {
+        
         let fetchRequest: NSFetchRequest<Bill> = Bill.fetchRequest()
         
         do {
@@ -79,5 +80,4 @@ class MainController: UIViewController {
     }
     
 }
-
 
