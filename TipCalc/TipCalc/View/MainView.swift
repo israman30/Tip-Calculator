@@ -10,11 +10,12 @@ import UIKit
 
 extension MainController {
     
-    // MARK: - Keyboard dismiss
+    // MARK: - Keyboard dismiss when touch view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
         navigationItem.title = "Calculate tip"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -31,6 +32,7 @@ extension MainController {
         pin.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSaveBill)))
     }
     
+    // MARK: - Set the MainView components
     func setMainView(){
         
         view.backgroundColor = .white
@@ -46,6 +48,7 @@ extension MainController {
         outputValues()
     }
     
+    // MARK: - Set the output components
     func outputValues() {
         
         let tipLabel = UILabel()
@@ -74,6 +77,7 @@ extension MainController {
         resetButton()
     }
     
+    // MARK: - set the dynamic components
     func resetButton() {
         
         let btn = UIButton(type: .system)

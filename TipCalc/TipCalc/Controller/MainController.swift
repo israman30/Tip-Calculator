@@ -22,6 +22,7 @@ class MainController: UIViewController {
     
     var bills = [Bill]()
     
+    // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
     let valueInput: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Enter value"

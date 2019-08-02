@@ -27,7 +27,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    // MARK: - Method delete from db with context then saveContext, when user swipe editingStyle.delete cell
+    // MARK: - Method delete from db with context then save what still in db, when user swipe editingStyle.delete cell using indexPath
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let index = bills.remove(at: indexPath.row)

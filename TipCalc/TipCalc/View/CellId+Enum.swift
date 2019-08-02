@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Cell Identifier enum
 enum CellId: String {
     case cell
 }
