@@ -22,7 +22,7 @@ extension MainController {
             bills = savedBills
             tableView.reloadData()
         } catch let error {
-            print("Error", error.localizedDescription)
+            print("Error fetching info from CDDB", error.localizedDescription)
         }
     }
     
