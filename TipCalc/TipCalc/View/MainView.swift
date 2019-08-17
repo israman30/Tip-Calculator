@@ -34,16 +34,28 @@ extension MainController {
     
     // MARK: - Set the MainView components
     func setMainView(){
-        
         view.backgroundColor = .white
-        
         bottomView.backgroundColor = .lightGray
         
         view.addSubViews(valueInput, bottomView)
         
-        valueInput.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 10, left: 20, bottom: 0, right: 20), size: .init(width: 0, height: 50))
+        valueInput.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            left: view.leftAnchor,
+            bottom: nil,
+            right: view.rightAnchor,
+            padding: .init(top: 10, left: 20, bottom: 0, right: 20),
+            size: .init(width: 0, height: 50)
+        )
         
-        bottomView.anchor(top: valueInput.bottomAnchor, left: valueInput.leftAnchor, bottom: nil, right: valueInput.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 2))
+        bottomView.anchor(
+            top: valueInput.bottomAnchor,
+            left: valueInput.leftAnchor,
+            bottom: nil,
+            right: valueInput.rightAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 0),
+            size: .init(width: 0, height: 2)
+        )
         
         outputValues()
     }
@@ -62,7 +74,7 @@ extension MainController {
         totalLabel.textColor = .lightGray
         
         let stackView = UIStackView(arrangedSubviews:
-            [tipLabel, tipValue, totalLabel,totalValue]
+            [tipLabel, tipValue, totalLabel, totalValue]
         )
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
