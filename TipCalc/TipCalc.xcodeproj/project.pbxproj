@@ -12,6 +12,7 @@
 		4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */; };
 		4D474AFE22F326660051E6F8 /* DB+FetchRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFD22F326660051E6F8 /* DB+FetchRequest+Ext.swift */; };
 		4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */; };
+		4DC50CD0230858B3005AC185 /* TimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC50CCF230858B3005AC185 /* TimeString.swift */; };
 		4DD83CC522EFCFC8002933DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CC422EFCFC8002933DE /* AppDelegate.swift */; };
 		4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CC622EFCFC8002933DE /* MainController.swift */; };
 		4DD83CCC22EFCFCA002933DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD83CCB22EFCFCA002933DE /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D474AFD22F326660051E6F8 /* DB+FetchRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+FetchRequest+Ext.swift"; sourceTree = "<group>"; };
 		4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellId+Enum.swift"; sourceTree = "<group>"; };
+		4DC50CCF230858B3005AC185 /* TimeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeString.swift; sourceTree = "<group>"; };
 		4DD83CC122EFCFC8002933DE /* TipCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD83CC422EFCFC8002933DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DD83CC622EFCFC8002933DE /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */,
 				4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */,
 				4DD83CE322F124A4002933DE /* PersistanceServices.swift */,
+				4DC50CCF230858B3005AC185 /* TimeString.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D474AF822F252B30051E6F8 /* TipCalc.xcdatamodeld in Sources */,
+				4DC50CD0230858B3005AC185 /* TimeString.swift in Sources */,
 				4DD83CE422F124A4002933DE /* PersistanceServices.swift in Sources */,
 				4DD83CD722EFD0A8002933DE /* AnchorsLayout.swift in Sources */,
 				4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */,

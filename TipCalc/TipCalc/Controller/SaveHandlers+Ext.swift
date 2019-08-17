@@ -37,22 +37,11 @@ extension MainController {
         bill.input = "$\(input) initial bill"
         bill.tip = "\(tip) tip"
         bill.total = "\(total) total"
-        bill.date = setDate()
+        bill.date = TimeString.setDate()
         
         PersistanceServices.saveContext()
         bills.append(bill)
         tableView.reloadData()
     }
-    
-    // MARK: - setDate function returns a Date of type String that is assigned to the date object created by the context
-    func setDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
-        dateFormatter.locale = Locale(identifier: "en_US")
-        return dateFormatter.string(from: Date())
-    }
-    
-    
 
 }
