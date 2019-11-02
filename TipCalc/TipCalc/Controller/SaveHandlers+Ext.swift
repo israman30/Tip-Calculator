@@ -18,7 +18,7 @@ extension MainController {
               let tip = tipValue.text,
               let total = totalValue.text else { return }
         if input.isEmpty {
-            AlertController.alert(self, title: "😵", message: "Enter a value")
+            AlertController.alert(self, title: "😵", message: "No value to be saved!")
         } else {
             saveToDB(input: input, tip: tip, total: total)
         }
