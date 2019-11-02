@@ -30,7 +30,7 @@ extension MainController {
     // Functino uses Core Data Persistance class to save object created by the context
     // After the object is saved, is appended to an array container
     // MARK - NOTE: PersistanceServices.saveContext() is always called in the AppDelegate when application is terminated
-    func saveToDB(input: String, tip: String, total: String) {
+    fileprivate func saveToDB(input: String, tip: String, total: String) {
         
         let bill = Bill(context: PersistanceServices.context)
         
