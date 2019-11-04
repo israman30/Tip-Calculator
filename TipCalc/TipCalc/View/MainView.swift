@@ -93,8 +93,9 @@ extension MainController {
     func resetButton() {
         
         let btn = UIButton(type: .system)
-        btn.setTitle("CLEAR", for: .normal)
+        btn.setTitle("CLEAR INPUT VALUES", for: .normal)
         btn.setTitleColor(.red, for: .normal)
+        
         btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
         
         view.addSubViews(btn, tableView)

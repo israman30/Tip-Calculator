@@ -55,7 +55,7 @@ class MainController: UIViewController {
     
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["18%", "20%", "25%"])
+        let sc = UISegmentedControl(items: ["15%", "20%", "25%"])
         sc.selectedSegmentIndex = 0
         sc.tintColor = .darkGray
         sc.addTarget(self, action: #selector(changeValue), for: .valueChanged)
@@ -72,3 +72,23 @@ class MainController: UIViewController {
     
 }
 
+import SwiftUI
+@available(iOS 13.0.0, *)
+class PreviewTipCal: PreviewProvider {
+    
+    @available(iOS 13.0.0, *)
+    static var previews: some View {
+        ContainerView()
+    }
+    
+    struct ContainerView: UIViewControllerRepresentable {
+        
+        func makeUIViewController(context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) -> UIViewController {
+            return MainController()
+        }
+        
+        func updateUIViewController(_ uiViewController: PreviewTipCal.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) {
+            // Nothing
+        }
+    }
+}
