@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+/**
+ - TIP CALCULATOR USES CORE DATA  API AS DATABASE
+ - USING SWIFTUI API TO PREVIEW APP VIEW
+ */
+
 class MainController: UIViewController {
     
     // MARK: - TableView display list of saved bills
@@ -72,7 +77,11 @@ class MainController: UIViewController {
     
 }
 
+
+// MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
 import SwiftUI
+
+// MARK: - SWIFT UI PREVIEW CLASS HELPER WITH CONTAINER VIEW
 @available(iOS 13.0.0, *)
 class PreviewTipCal: PreviewProvider {
     
@@ -82,7 +91,7 @@ class PreviewTipCal: PreviewProvider {
     }
     
     struct ContainerView: UIViewControllerRepresentable {
-        
+        // MARK: - MAKE UI VIEW CONTROLLER OVERRITED METHOD TO RETURN HOME VIEW CONTROLLER
         func makeUIViewController(context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) -> UIViewController {
             return MainController()
         }
