@@ -3,7 +3,7 @@
 > Calculate your tip, selecting the bill amount the application will give you a detail of how much you tip, the total amount of your tip and the original bill. Save the bill for future reference then delete on your need. 💵
 
 <p align="center">
-<img src="/img/cal.png" width="250"> <img src="/img/two.png" width="250"> <img src="/img/three.png" width="250">
+<img src="/img/one.png" width="250"> <img src="/img/two.png" width="250"> <img src="/img/three.png" width="250">
 </p>
 
 ## Thecnology
