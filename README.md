@@ -16,12 +16,14 @@
 
 - Some basic mathematics
 
+- SwiftUI API preview class
+
 ### Launch :rocket:
 First release on early 2017
 
 Second release on later 2019
 
-[My New News](https://itunes.apple.com/us/app/my-new-news/id1210234219?mt=8).
+[Tip Calculator](https://itunes.apple.com/us/app/my-new-news/id1210234219?mt=8).
 
 ## Author
 -  [Israel Manzo ®](http://israelmanzo.com)
