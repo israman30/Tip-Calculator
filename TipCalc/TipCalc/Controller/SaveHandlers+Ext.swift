@@ -13,7 +13,7 @@ extension MainController {
     // MARK: - Handler checks for input before saves on db
     // saveToBD function handles to save input after input is authentificated
     // After input is saved into db, the fields are reseted and keyboard dismissed
-    @objc func handleSaveBill(){
+    @objc func handleSaveBill() {
         guard let input = valueInput.text,
               let tip = tipValue.text,
               let total = totalValue.text else { return }

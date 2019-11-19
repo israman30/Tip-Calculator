@@ -10,7 +10,7 @@ import UIKit
 
 extension MainController {
     
-    @objc func changeValue(){
+    @objc func changeValue() {
         calculateTip()
     }
     
