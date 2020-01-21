@@ -95,6 +95,7 @@ extension MainController {
         let btn = UIButton(type: .system)
         btn.setTitle("CLEAR INPUT VALUES", for: .normal)
         btn.setTitleColor(.red, for: .normal)
+        btn.titleLabel?.font = .boldSystemFont(ofSize: 18)
         
         btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
         

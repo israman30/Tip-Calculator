@@ -45,7 +45,7 @@ class MainController: UIViewController {
     let tipValue: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.font = UIFont.systemFont(ofSize: 50)
+        label.font = UIFont.boldSystemFont(ofSize: 60)
         label.textAlignment = .right
         return label
     }()
@@ -53,7 +53,7 @@ class MainController: UIViewController {
     let totalValue: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.font = UIFont.systemFont(ofSize: 50)
+        label.font = UIFont.boldSystemFont(ofSize: 60)
         label.textAlignment = .right
         return label
     }()
