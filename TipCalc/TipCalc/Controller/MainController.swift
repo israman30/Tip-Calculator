@@ -93,7 +93,8 @@ class PreviewTipCal: PreviewProvider {
     struct ContainerView: UIViewControllerRepresentable {
         // MARK: - MAKE UI VIEW CONTROLLER OVERRITED METHOD TO RETURN HOME VIEW CONTROLLER
         func makeUIViewController(context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) -> UIViewController {
-            return MainController()
+            return UINavigationController(rootViewController: MainController())
+            
         }
         
         func updateUIViewController(_ uiViewController: PreviewTipCal.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) {
