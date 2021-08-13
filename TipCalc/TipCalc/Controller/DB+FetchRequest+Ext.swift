@@ -9,17 +9,19 @@
 import Foundation
 import CoreData
 
-extension MainController {
+protocol FetchSavedBillsDelegate {
+    func fetchItems()
+}
+
+extension MainController: FetchSavedBillsDelegate {
     
     // MARK: - This function fetch data saved from db using the context the assigned to the array container to be display it in the UI
-    // This function is called everytime the application is loaded - viewDidLoad()
-    func fetchRequestFromDB() {
-        
+    func fetchItems() {
         let fetchRequest: NSFetchRequest<Bill> = Bill.fetchRequest()
         
         do {
             let savedBills = try PersistanceServices.context.fetch(fetchRequest)
-            bills = savedBills
+            saveViewModel.bills = savedBills
             tableView.reloadData()
         } catch let error {
             print("Error fetching info from CDDB", error.localizedDescription)
@@ -27,4 +29,5 @@ extension MainController {
     }
     
 }
+
 

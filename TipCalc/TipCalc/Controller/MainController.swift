@@ -25,8 +25,6 @@ class MainController: UIViewController {
         return tv
     }()
     
-    var bills = [Bill]()
-    
     // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
     let valueInput: UITextField = {
         let tf = UITextField()
@@ -68,13 +66,14 @@ class MainController: UIViewController {
     }()
     
     let mainViewModel = MainViewModel()
+    let saveViewModel = SaveViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavbar()
         setMainView()
         tableViewHandlers()
-        fetchRequestFromDB()
+        fetchItems()
     }
     
 }

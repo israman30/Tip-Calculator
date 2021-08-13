@@ -26,6 +26,7 @@
 		4DD83CE622F124E7002933DE /* SaveHandlers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */; };
 		4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */; };
 		8DA6815226C613B10091DBD0 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6815126C613B10091DBD0 /* MainViewModel.swift */; };
+		8DA6815426C618610091DBD0 /* SaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6815326C618610091DBD0 /* SaveViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveHandlers+Ext.swift"; sourceTree = "<group>"; };
 		4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delegates+Datasource+Ext.swift"; sourceTree = "<group>"; };
 		8DA6815126C613B10091DBD0 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8DA6815326C618610091DBD0 /* SaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				8DA6815126C613B10091DBD0 /* MainViewModel.swift */,
+				8DA6815326C618610091DBD0 /* SaveViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */,
 				4DD83CD922F089C2002933DE /* MainView.swift in Sources */,
 				8DA6815226C613B10091DBD0 /* MainViewModel.swift in Sources */,
+				8DA6815426C618610091DBD0 /* SaveViewModel.swift in Sources */,
 				4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */,
 				4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */,
 				4D474AFB22F253190051E6F8 /* Bill+CoreDataClass.swift in Sources */,

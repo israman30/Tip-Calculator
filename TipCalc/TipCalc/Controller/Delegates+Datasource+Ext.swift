@@ -18,19 +18,19 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bills.count
+        return saveViewModel.bills.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
-        cell.bills = bills[indexPath.row]
+        cell.bills = saveViewModel.bills[indexPath.row]
         return cell
     }
     
     // MARK: - Method delete from db with context then save what still in db, when user swipe editingStyle.delete cell using indexPath
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let index = bills.remove(at: indexPath.row)
+            let index = saveViewModel.bills.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
             PersistanceServices.context.delete(index)
             PersistanceServices.saveContext()
