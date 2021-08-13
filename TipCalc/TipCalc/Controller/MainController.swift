@@ -31,7 +31,7 @@ class MainController: UIViewController {
     let valueInput: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Enter value"
-        tf.font = UIFont.systemFont(ofSize: 30)
+        tf.font = .systemFont(ofSize: 30)
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
         tf.keyboardType = .decimalPad
@@ -45,7 +45,7 @@ class MainController: UIViewController {
     let tipValue: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.font = UIFont.boldSystemFont(ofSize: 60)
+        label.font = .boldSystemFont(ofSize: 60)
         label.textAlignment = .right
         return label
     }()
@@ -53,7 +53,7 @@ class MainController: UIViewController {
     let totalValue: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.font = UIFont.boldSystemFont(ofSize: 60)
+        label.font = .boldSystemFont(ofSize: 60)
         label.textAlignment = .right
         return label
     }()
@@ -66,6 +66,8 @@ class MainController: UIViewController {
         sc.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         return sc
     }()
+    
+    let mainViewModel = MainViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
