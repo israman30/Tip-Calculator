@@ -11,11 +11,11 @@ import UIKit
 extension MainController {
     
     @objc func changeValue() {
-        mainViewModel.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
+        calculationsViewModel.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
     }
     
     @objc func handleResetFields(){
-        mainViewModel.reset(valueInput: valueInput, tipValue: tipValue, totalValue: totalValue)
+        calculationsViewModel.reset(valueInput: valueInput, tipValue: tipValue, totalValue: totalValue)
     }
     
 }

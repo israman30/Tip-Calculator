@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewModel {
+class CalculationsViewModel {
     
     // MARK: - This function calculate the entry with the percentage picked by the user, by defult the percentage is 18%
     // Percentage is picked by the segmented controller selected index then is added to the entry

@@ -15,7 +15,7 @@ class SaveViewModel {
     // MARK: - Handler checks for input before saves on db
     // saveToBD function handles to save input after input is authentificated
     // After input is saved into db, the fields are reseted and keyboard dismissed
-    func save(_ vc: UIViewController,valueInput: UITextField, tipValue: UILabel, totalValue: UILabel) {
+    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel) {
         guard let input = valueInput.text,
               let tip = tipValue.text,
               let total = totalValue.text else { return }

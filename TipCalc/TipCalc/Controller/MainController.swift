@@ -65,7 +65,7 @@ class MainController: UIViewController {
         return sc
     }()
     
-    let mainViewModel = MainViewModel()
+    let calculationsViewModel = CalculationsViewModel()
     let saveViewModel = SaveViewModel()
     
     override func viewDidLoad() {
