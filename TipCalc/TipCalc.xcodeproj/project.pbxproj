@@ -84,6 +84,7 @@
 		4DD83CC322EFCFC8002933DE /* TipCalc */ = {
 			isa = PBXGroup;
 			children = (
+				8D8E7B1A26D9C6AB000BB252 /* Utils */,
 				8DA6815026C613A00091DBD0 /* ViewModel */,
 				4DD83CE222F12488002933DE /* Model */,
 				4DD83CDD22F08AC5002933DE /* View */,
@@ -130,6 +131,13 @@
 				4DC50CCF230858B3005AC185 /* TimeString.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8D8E7B1A26D9C6AB000BB252 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		8DA6815026C613A00091DBD0 /* ViewModel */ = {
