@@ -65,7 +65,7 @@ extension MainController {
     }
     
     // MARK: - Set the output components
-    func outputValues() {
+    private func outputValues() {
         
         let tipLabel = UILabel()
         tipLabel.text = "Tip"
@@ -98,7 +98,7 @@ extension MainController {
     }
     
     // MARK: - set the dynamic components
-    func resetButton() {
+    private func resetButton() {
         
         let btn = UIButton(type: .system)
         btn.setTitle("CLEAR VALUES", for: .normal)
