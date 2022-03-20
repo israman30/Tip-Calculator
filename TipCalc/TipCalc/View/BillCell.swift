@@ -23,36 +23,44 @@ class BillCell: UITableViewCell {
         }
     }
     
-    let totalLabel: UILabel = {
+    private let totalLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 20)
+        label.font = .preferredFont(forTextStyle: .title3)
+        label.adjustsFontForContentSizeCategory = true
         label.text = "$0.0"
         return label
     }()
     
-    let billLabel: UILabel = {
+    private let billLabel: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
         label.font = .systemFont(ofSize: 13)
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
-    let tipLabel: UILabel = {
+    private let tipLabel: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
         label.font = .systemFont(ofSize: 13)
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
-    let dateLabel: UILabel = {
+    private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "12/07/2019"
         label.font = .systemFont(ofSize: 11)
+        label.font = .preferredFont(forTextStyle: .footnote)
+        label.adjustsFontForContentSizeCategory = true
         label.textColor = .lightGray
         return label
     }()
     
-    func setLabels() {
+    private func setLabels() {
         let stackView = UIStackView(arrangedSubviews:
             [totalLabel, billLabel, tipLabel, dateLabel]
         )
