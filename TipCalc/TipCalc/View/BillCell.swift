@@ -25,6 +25,7 @@ class BillCell: UITableViewCell {
     
     private let totalLabel: UILabel = {
         let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 20)
         label.font = .preferredFont(forTextStyle: .title3)
         label.adjustsFontForContentSizeCategory = true
         label.text = "$0.0"
@@ -34,6 +35,7 @@ class BillCell: UITableViewCell {
     private let billLabel: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
+        label.font = .systemFont(ofSize: 13)
         label.font = .preferredFont(forTextStyle: .subheadline)
         label.adjustsFontForContentSizeCategory = true
         return label
@@ -42,6 +44,7 @@ class BillCell: UITableViewCell {
     private let tipLabel: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
+        label.font = .systemFont(ofSize: 13)
         label.font = .preferredFont(forTextStyle: .subheadline)
         label.adjustsFontForContentSizeCategory = true
         return label
@@ -50,6 +53,7 @@ class BillCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "12/07/2019"
+        label.font = .systemFont(ofSize: 11)
         label.font = .preferredFont(forTextStyle: .footnote)
         label.adjustsFontForContentSizeCategory = true
         label.textColor = .lightGray

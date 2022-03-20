@@ -14,7 +14,7 @@ extension MainController {
         calculationsViewModel.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
     }
     
-    @objc func handleResetFields(){
+    @objc func handleResetFields() {
         calculationsViewModel.reset(valueInput: valueInput, tipValue: tipValue, totalValue: totalValue)
     }
     

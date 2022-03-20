@@ -10,7 +10,7 @@ import UIKit
 
 extension MainController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - TableView delegate and datasource + cell registration
-    func tableViewHandlers(){
+    func tableViewHandlers() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = false
