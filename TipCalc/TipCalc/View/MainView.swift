@@ -33,7 +33,7 @@ extension MainController {
     }
     
     // MARK: - Set the MainView components
-    func setMainView(){
+    func setMainView() {
         view.backgroundColor = .white
         bottomView.backgroundColor = .lightGray
         

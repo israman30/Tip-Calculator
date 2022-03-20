@@ -33,7 +33,6 @@ class MainController: UIViewController {
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
         tf.keyboardType = .decimalPad
-        tf.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         return tf
     }()
     
@@ -61,7 +60,6 @@ class MainController: UIViewController {
         let sc = UISegmentedControl(items: ["15%", "20%", "25%"])
         sc.selectedSegmentIndex = 0
         sc.tintColor = .darkGray
-        sc.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         return sc
     }()
     
@@ -70,6 +68,8 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
+        segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         setNavbar()
         setMainView()
         tableViewHandlers()
@@ -95,7 +95,6 @@ class PreviewTipCal: PreviewProvider {
         // MARK: - MAKE UI VIEW CONTROLLER OVERRITED METHOD TO RETURN HOME VIEW CONTROLLER
         func makeUIViewController(context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) -> UIViewController {
             return UINavigationController(rootViewController: MainController())
-            
         }
         
         func updateUIViewController(_ uiViewController: PreviewTipCal.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) {
