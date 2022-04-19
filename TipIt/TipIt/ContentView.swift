@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State var input = ""
+    @State var tipValue = ""
+    @State var totalValue = ""
     @State var selectedPercentage = "15%"
     var percentages = ["15%", "20%", "25%"]
     
@@ -74,6 +76,11 @@ struct ContentView: View {
         if let bill = bill {
             let tip = bill * tipPercentage[index]
             let total = bill + tip
+            tipValue = String(format: "$%.2f", tip)
+            totalValue = String(format: "$%.2f", total)
+        } else {
+            tipValue = "$0.0"
+            totalValue = "$0.0"
         }
     }
 }
