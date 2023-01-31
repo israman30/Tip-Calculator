@@ -10,7 +10,23 @@ import UIKit
 
 extension UILabel {
     
-    func makeFontAccessible() {
-        
+    func makeFontAccessible(textStyle: UIFont.TextStyle, label: String? = nil, hint: String? = nil, trait: UIAccessibilityTraits? = nil) {
+        guard let label = label, let hint = hint, let trait = trait else { return }
+        adjustsFontForContentSizeCategory = true
+        font = .preferredFont(forTextStyle: textStyle)
+        accessibilityLabel = label
+        accessibilityHint = hint
+        accessibilityTraits.insert(trait)
+    }
+}
+
+extension UITextField {
+    func makeFontAccessible(textStyle: UIFont.TextStyle, label: String? = nil, hint: String? = nil, trait: UIAccessibilityTraits? = nil) {
+        guard let label = label, let hint = hint, let trait = trait else { return }
+        adjustsFontForContentSizeCategory = true
+        font = .preferredFont(forTextStyle: textStyle)
+        accessibilityLabel = label
+        accessibilityHint = hint
+        accessibilityTraits.insert(trait)
     }
 }
