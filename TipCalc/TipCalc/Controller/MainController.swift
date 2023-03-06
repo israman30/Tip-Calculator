@@ -29,9 +29,8 @@ class MainController: UIViewController {
     let valueInput: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Enter value"
-        tf.font = .preferredFont(forTextStyle: .title1)
-        tf.adjustsFontForContentSizeCategory = true
         tf.accessibilityHint = "Input bill value"
+        tf.setDynamicFont(font: .preferredFont(forTextStyle: .title1))
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
         tf.keyboardType = .decimalPad
@@ -44,9 +43,8 @@ class MainController: UIViewController {
     let tipValue: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-        label.adjustsFontForContentSizeCategory = true
         label.accessibilityHint = "Tip value"
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
         label.textAlignment = .right
         return label
     }()
@@ -54,9 +52,8 @@ class MainController: UIViewController {
     let totalValue: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-        label.adjustsFontForContentSizeCategory = true
         label.accessibilityHint = "Total value, tip plus initial value"
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
         label.textAlignment = .right
         return label
     }()

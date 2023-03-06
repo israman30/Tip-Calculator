@@ -18,14 +18,14 @@ extension MainController {
     // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
         navigationItem.title = "Calculate tip"
+        navigationItem.accessibilityLabel = "Calculate tip Level 1"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let pin = UIImageView(image: #imageLiteral(resourceName: "pin"))
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         pinView.isAccessibilityElement = true
         pinView.accessibilityHint = "Pin Icon"
-        pinView.accessibilityLabel = "Pin"
-        pinView.accessibilityValue = "Pin"
+        pinView.accessibilityTraits.insert(.button)
         
         pinView.addSubViews(pin)
         pin.frame = pinView.frame
@@ -71,15 +71,13 @@ extension MainController {
         tipLabel.text = "Tip"
         tipLabel.textAlignment = .right
         tipLabel.textColor = .lightGray
-        tipLabel.font = .preferredFont(forTextStyle: .callout)
-        tipLabel.adjustsFontForContentSizeCategory = true
+        tipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let totalLabel = UILabel()
         totalLabel.text = "Total"
         totalLabel.textAlignment = .right
         totalLabel.textColor = .lightGray
-        totalLabel.font = .preferredFont(forTextStyle: .callout)
-        totalLabel.adjustsFontForContentSizeCategory = true
+        totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let stackView = UIStackView(arrangedSubviews:
             [tipLabel, tipValue, totalLabel, totalValue]
@@ -103,7 +101,7 @@ extension MainController {
         let btn = UIButton(type: .system)
         btn.setTitle("CLEAR VALUES", for: .normal)
         btn.setTitleColor(.red, for: .normal)
-        btn.titleLabel?.font = .preferredFont(forTextStyle: .headline)
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
         btn.titleLabel?.adjustsFontForContentSizeCategory = true
         
         btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
