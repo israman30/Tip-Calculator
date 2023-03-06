@@ -23,7 +23,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
-        cell.bills = saveViewModel.bills[indexPath.row]
+        cell.configure(bill: saveViewModel.bills[indexPath.row])
         return cell
     }
     

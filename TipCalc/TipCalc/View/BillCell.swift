@@ -10,19 +10,6 @@ import UIKit
 
 class BillCell: UITableViewCell {
     
-    var bills: Bill? {
-        didSet {
-            guard let total = bills?.total,
-                  let bill = bills?.input,
-                  let tip = bills?.tip,
-                  let date = bills?.date else { return }
-            totalLabel.text = total
-            billLabel.text = bill
-            tipLabel.text = tip
-            dateLabel.text = date
-        }
-    }
-    
     private let totalLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 20)
@@ -59,6 +46,14 @@ class BillCell: UITableViewCell {
         label.textColor = .lightGray
         return label
     }()
+    
+    func configure(bill: Bill?) {
+        guard let total = bill?.total, let inputBill = bill?.input, let tip = bill?.tip, let date = bill?.date else { return }
+        totalLabel.text = total
+        billLabel.text = inputBill
+        tipLabel.text = tip
+        dateLabel.text = date
+    }
     
     private func setLabels() {
         let stackView = UIStackView(arrangedSubviews:
