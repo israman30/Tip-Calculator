@@ -30,3 +30,36 @@ extension UITextField {
         accessibilityTraits.insert(trait)
     }
 }
+
+
+extension UILabel {
+    func makeFontDynamic() {
+        adjustsFontForContentSizeCategory = true
+        
+        font = UIFontMetrics.default.scaledFont(for: font)
+    }
+    func sizedDynamicFont() {
+        let pointSize = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+        font = font.withSize(pointSize)
+        adjustsFontForContentSizeCategory = true
+    }
+}
+extension UIView {
+    func setDynamicFont(font: UIFont) {
+        if  let adjustable = self as? UIContentSizeCategoryAdjusting {
+            adjustable.adjustsFontForContentSizeCategory = true
+        }
+        
+        if let label = self as? UILabel {
+            label.font = font
+        } else if let button = self as? UIButton {
+            button.titleLabel?.font = font
+        } else if let textField = self as? UITextField {
+            textField.font = font
+        } else if let textView = self as? UITextView {
+            textView.font = font
+        } else {
+            
+        }
+    }
+}
