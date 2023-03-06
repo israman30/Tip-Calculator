@@ -19,7 +19,7 @@ class MainController: UIViewController {
     // MARK: - TableView display list of saved bills
     let tableView: UITableView = {
         let tv = UITableView()
-        tv.rowHeight = 100
+        tv.rowHeight = UITableView.automaticDimension
         tv.showsVerticalScrollIndicator = false
         tv.allowsSelection = false
         return tv
