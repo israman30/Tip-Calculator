@@ -10,24 +10,9 @@ import UIKit
 
 class BillCell: UITableViewCell {
     
-    var bills: Bill? {
-        didSet {
-            guard let total = bills?.total,
-                  let bill = bills?.input,
-                  let tip = bills?.tip,
-                  let date = bills?.date else { return }
-            totalLabel.text = total
-            billLabel.text = bill
-            tipLabel.text = tip
-            dateLabel.text = date
-        }
-    }
-    
     private let totalLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 20)
-        label.font = .preferredFont(forTextStyle: .title3)
-        label.adjustsFontForContentSizeCategory = true
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .title3))
         label.text = "$0.0"
         return label
     }()
@@ -35,30 +20,32 @@ class BillCell: UITableViewCell {
     private let billLabel: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.font = .systemFont(ofSize: 13)
-        label.font = .preferredFont(forTextStyle: .subheadline)
-        label.adjustsFontForContentSizeCategory = true
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         return label
     }()
     
     private let tipLabel: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.font = .systemFont(ofSize: 13)
-        label.font = .preferredFont(forTextStyle: .subheadline)
-        label.adjustsFontForContentSizeCategory = true
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         return label
     }()
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "12/07/2019"
-        label.font = .systemFont(ofSize: 11)
-        label.font = .preferredFont(forTextStyle: .footnote)
-        label.adjustsFontForContentSizeCategory = true
+        label.text = "00/00/2019"
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .caption2))
         label.textColor = .lightGray
         return label
     }()
+    
+    func configure(bill: Bill?) {
+        guard let total = bill?.total, let inputBill = bill?.input, let tip = bill?.tip, let date = bill?.date else { return }
+        totalLabel.text = total
+        billLabel.text = inputBill
+        tipLabel.text = tip
+        dateLabel.text = date
+    }
     
     private func setLabels() {
         let stackView = UIStackView(arrangedSubviews:
