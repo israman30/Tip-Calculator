@@ -8,7 +8,12 @@
 
 import UIKit
 
-class CalculationsViewModel {
+protocol ViewModelBillCalculationsProtocol {
+    func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel)
+    func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel)
+}
+
+class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     
     // MARK: - This function calculate the entry with the percentage picked by the user, by defult the percentage is 18%
     // Percentage is picked by the segmented controller selected index then is added to the entry
