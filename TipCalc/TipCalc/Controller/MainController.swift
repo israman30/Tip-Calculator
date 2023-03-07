@@ -78,7 +78,7 @@ class MainController: UIViewController {
         setNavbar()
         setMainView()
         tableViewHandlers()
-        fetchItems()
+        saveViewModel.fetchItems()
     }
     
 }
