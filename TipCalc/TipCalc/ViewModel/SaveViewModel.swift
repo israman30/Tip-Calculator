@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
-class SaveViewModel {
+protocol ViewModelBillImplementationProtocol {
+    func fetchItems()
+    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel)
+}
+
+class SaveViewModel: ViewModelBillImplementationProtocol {
     
     var bills = [Bill]()
     
@@ -42,6 +48,17 @@ class SaveViewModel {
         
         PersistanceServices.saveContext()
         bills.append(bill)
+    }
+    
+    // MARK: - This function fetch data saved from db using the context the assigned to the array container to be display it in the UI
+    func fetchItems() {
+        let fetchRequest: NSFetchRequest<Bill> = Bill.fetchRequest()
+        do {
+            let savedBills = try PersistanceServices.context.fetch(fetchRequest)
+            bills = savedBills
+        } catch let error {
+            print("Error fetching info from CDDB", error.localizedDescription)
+        }
     }
     
 }

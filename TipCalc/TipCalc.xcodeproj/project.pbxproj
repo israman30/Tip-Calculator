@@ -11,7 +11,6 @@
 		4D474AF822F252B30051E6F8 /* TipCalc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AF622F252B30051E6F8 /* TipCalc.xcdatamodeld */; };
 		4D474AFB22F253190051E6F8 /* Bill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */; };
 		4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */; };
-		4D474AFE22F326660051E6F8 /* DB+FetchRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFD22F326660051E6F8 /* DB+FetchRequest+Ext.swift */; };
 		4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */; };
 		4D60E3F729871C4E00C8C95F /* AccessibilityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60E3F629871C4E00C8C95F /* AccessibilityUtils.swift */; };
 		4DC50CD0230858B3005AC185 /* TimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC50CCF230858B3005AC185 /* TimeString.swift */; };
@@ -37,7 +36,6 @@
 		4D474AF722F252B30051E6F8 /* TipCalc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TipCalc.xcdatamodel; sourceTree = "<group>"; };
 		4D474AF922F253190051E6F8 /* Bill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		4D474AFD22F326660051E6F8 /* DB+FetchRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+FetchRequest+Ext.swift"; sourceTree = "<group>"; };
 		4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellId+Enum.swift"; sourceTree = "<group>"; };
 		4D60E3F629871C4E00C8C95F /* AccessibilityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityUtils.swift; sourceTree = "<group>"; };
 		4DC50CCF230858B3005AC185 /* TimeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeString.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				4DD83CC622EFCFC8002933DE /* MainController.swift */,
 				4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */,
 				4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */,
-				4D474AFD22F326660051E6F8 /* DB+FetchRequest+Ext.swift */,
 				4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */,
 			);
 			path = Controller;
@@ -241,7 +238,6 @@
 				4DD83CE422F124A4002933DE /* PersistanceServices.swift in Sources */,
 				4DD83CD722EFD0A8002933DE /* AnchorsLayout.swift in Sources */,
 				4DD83CDB22F08A35002933DE /* MainHandlers+Ext.swift in Sources */,
-				4D474AFE22F326660051E6F8 /* DB+FetchRequest+Ext.swift in Sources */,
 				4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */,
 				4DD83CD922F089C2002933DE /* MainView.swift in Sources */,
 				8DA6815226C613B10091DBD0 /* CalculationsViewModel.swift in Sources */,
