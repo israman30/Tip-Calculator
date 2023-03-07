@@ -20,7 +20,7 @@ class SaveViewModel {
               let tip = tipValue.text,
               let total = totalValue.text else { return }
         if input.isEmpty {
-            AlertController.alert(vc, title: "😵", message: "No value to be saved!")
+            AlertController.alert(vc, title: "😵", message: NSLocalizedString("No_value_to_be_saved", comment: "No value to be saved!"))
         } else {
             saveToDB(input: input, tip: tip, total: total)
         }
@@ -35,7 +35,7 @@ class SaveViewModel {
         
         let bill = Bill(context: PersistanceServices.context)
         
-        bill.input = "$\(input) initial bill"
+        bill.input = "$\(input) \(NSLocalizedString("initial_bill", comment: "initial bill"))"
         bill.tip = "\(tip) tip"
         bill.total = "\(total) total"
         bill.date = TimeString.setDate()

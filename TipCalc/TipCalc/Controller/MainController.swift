@@ -28,8 +28,8 @@ class MainController: UIViewController {
     // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
     let valueInput: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Enter value"
-        tf.accessibilityHint = "Input bill value"
+        tf.placeholder = NSLocalizedString("Enter_value", comment: "Enter value") 
+        tf.accessibilityHint = NSLocalizedString("Input_bill_value", comment: "Input the bill value") 
         tf.setDynamicFont(font: .preferredFont(forTextStyle: .title1))
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
@@ -43,7 +43,7 @@ class MainController: UIViewController {
     let tipValue: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.accessibilityHint = "Tip value"
+        label.accessibilityHint = NSLocalizedString("Tip_value", comment: "Tip value")
         label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
         label.textAlignment = .right
         return label
@@ -52,7 +52,7 @@ class MainController: UIViewController {
     let totalValue: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.accessibilityHint = "Total value, tip plus initial value"
+        label.accessibilityHint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
         label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
         label.textAlignment = .right
         return label
@@ -65,7 +65,6 @@ class MainController: UIViewController {
         sc.setTitleTextAttributes([NSAttributedString.Key.font : font], for: .normal)
         sc.selectedSegmentIndex = 0
         sc.tintColor = .darkGray
-        sc.accessibilityHint = "Segmented values"
         return sc
     }()
     
