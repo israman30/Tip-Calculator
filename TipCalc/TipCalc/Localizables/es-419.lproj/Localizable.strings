@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  TipCalc
+
+  Created by Israel Manzo on 3/6/23.
+  Copyright © 2023 Israel Manzo. All rights reserved.
+*/
+"Calculate_tip" = "Calcula el tip";
+"Enter_value" = "Entre un valor";
+"Input_bill_value" = "Entre el valor de la cuenta";
+"Tip_value" = "Valor del tip";
+"Total_value_tip" = "Valor total del tip, mas valor inicial";
+"Clear_values" = "BORRAR VALORES";
+"initial_bill" = "cuenta inicial";
+"No_value_to_be_saved" = "Ningun valor para salvar!";

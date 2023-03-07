@@ -17,7 +17,7 @@ extension MainController {
     
     // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
-        navigationItem.title = "Calculate tip"
+        navigationItem.title = NSLocalizedString("Calculate_tip", comment: "Calculate tip") 
         navigationItem.accessibilityLabel = "Calculate tip Level 1"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -99,7 +99,7 @@ extension MainController {
     private func resetButton() {
         
         let btn = UIButton(type: .system)
-        btn.setTitle("CLEAR VALUES", for: .normal)
+        btn.setTitle(NSLocalizedString("Clear_values", comment: "CLEAR VALUES"), for: .normal)
         btn.setTitleColor(.red, for: .normal)
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
         btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
