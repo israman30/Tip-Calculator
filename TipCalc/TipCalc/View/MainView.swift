@@ -102,7 +102,7 @@ extension MainController {
         btn.setTitle("CLEAR VALUES", for: .normal)
         btn.setTitleColor(.red, for: .normal)
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
-        btn.titleLabel?.adjustsFontForContentSizeCategory = true
+        btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         
         btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
         
