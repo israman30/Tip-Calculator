@@ -30,12 +30,13 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
             let tip = bill * tipPerc[segment.selectedSegmentIndex]
             let total = bill + tip
             
-            tipValue.text = String(format: "$%.2f", tip)
-            totalValue.text = String(format: "$%.2f", total)
+            tipValue.text = String(format: "$%.2f", tip).currencyInputFormatting()
+            totalValue.text = String(format: "$%.2f", total).currencyInputFormatting()
         } else {
             tipValue.text = "$0.0"
             totalValue.text = "$0.0"
         }
+        
     }
     
     // MARK: - Reset the fields when user needs to reset it or/and after entry is saved into db
@@ -43,5 +44,33 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
         valueInput.text = ""
         tipValue.text = "$0.0"
         totalValue.text = "$0.0"
+    }
+}
+
+extension String {
+
+/// formatting text for currency textField
+    func currencyInputFormatting() -> String {
+        var number: NSNumber!
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyAccounting
+        formatter.currencySymbol = "$"
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        
+        var amountWithPrefix = self
+        
+        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count), withTemplate: "")
+        
+        let double = (amountWithPrefix as NSString).doubleValue
+        number = NSNumber(value: (double / 100))
+        
+        
+        guard number != 0 as NSNumber else {
+            return ""
+        }
+        
+        return formatter.string(from: number)!
     }
 }
