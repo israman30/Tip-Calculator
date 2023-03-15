@@ -19,7 +19,7 @@ extension MainController {
     func setNavbar() {
         navigationItem.title = NSLocalizedString("Calculate_tip", comment: "Calculate tip") 
         navigationItem.accessibilityLabel = "Calculate tip Level 1"
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.prefersLargeTitles = true
         
         let pin = UIImageView(image: #imageLiteral(resourceName: "pin"))
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -79,18 +79,23 @@ extension MainController {
         totalLabel.textColor = .lightGray
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
+        let tipStackView = UIStackView(arrangedSubviews: [tipLabel, tipValue])
+        tipStackView.axis = .horizontal
+        let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, totalValue])
+        totalpStackView.axis = .horizontal
+        
         let stackView = UIStackView(arrangedSubviews:
-            [tipLabel, tipValue, totalLabel, totalValue]
+            [tipStackView, totalpStackView]
         )
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
         stackView.axis = .vertical
-        stackView.spacing = 2
+        stackView.spacing = -5
         
         view.addSubViews(stackView, segment)
 
-        stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 180))
+        stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 140))
         
-        segment.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: stackView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 44))
+        segment.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: stackView.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 44))
         
         resetButton()
     }
