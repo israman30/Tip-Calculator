@@ -19,7 +19,7 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     // Percentage is picked by the segmented controller selected index then is added to the entry
     // guard statement check if the entry has a valid value if not, display default value of $0.0
     func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel) {
-        let tipPerc = [0.15, 0.20, 0.25]
+        let tipPerc = [0.10, 0.15, 0.20, 0.25]
         
         guard let input = valueInput.text else { return }
         
