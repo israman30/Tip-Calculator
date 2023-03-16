@@ -52,7 +52,8 @@ class BillCell: UITableViewCell {
             [totalLabel, billLabel, tipLabel, dateLabel]
         )
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
+        stackView.spacing = -5
         
         addSubview(stackView)
         stackView.anchor(
