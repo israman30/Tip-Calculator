@@ -34,6 +34,7 @@ class MainController: UIViewController {
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
         tf.keyboardType = .decimalPad
+        tf.textColor = .label
         return tf
     }()
     

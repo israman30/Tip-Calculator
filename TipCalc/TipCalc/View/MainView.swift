@@ -17,9 +17,7 @@ extension MainController {
     
     // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
-        navigationItem.title = NSLocalizedString("Calculate_tip", comment: "Calculate tip") 
-        navigationItem.accessibilityLabel = "Calculate tip Level 1"
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = NSLocalizedString("Calculate_tip", comment: "Calculate tip")
         
         let pin = UIImageView(image: #imageLiteral(resourceName: "pin"))
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
