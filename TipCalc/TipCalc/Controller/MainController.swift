@@ -59,6 +59,24 @@ class MainController: UIViewController {
         return label
     }()
     
+    let splitValueLabel: UILabel = {
+        let label = UILabel()
+        label.text = "$0.0"
+//        label.accessibilityHint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let peopleSplitValueLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+//        label.accessibilityHint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        label.textAlignment = .right
+        return label
+    }()
+    
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["10%","15%", "20%", "25%"])
@@ -69,6 +87,19 @@ class MainController: UIViewController {
         return sc
     }()
     
+    let splitPeopleLabel: UILabel = {
+        let slider = UILabel()
+        slider.text = "1"
+        return slider
+    }()
+    
+    let splitStepper: UIStepper = {
+        let stepper = UIStepper()
+        stepper.minimumValue = 1
+        stepper.maximumValue = 10
+        return stepper
+    }()
+    
     let calculationsViewModel = CalculationsViewModel()
     let saveViewModel = SaveViewModel()
     
@@ -76,10 +107,15 @@ class MainController: UIViewController {
         super.viewDidLoad()
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
+        splitStepper.addTarget(self, action: #selector(changeStepperValue), for: .valueChanged)
         setNavbar()
         setMainView()
         tableViewHandlers()
         saveViewModel.fetchItems()
+    }
+    
+    @objc func changeStepperValue() {
+        peopleSplitValueLabel.text = "\(Int(splitStepper.value))"
     }
     
 }
