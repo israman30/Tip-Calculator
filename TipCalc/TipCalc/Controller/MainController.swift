@@ -45,7 +45,7 @@ class MainController: UIViewController {
         let label = UILabel()
         label.text = "$0.0"
         label.accessibilityHint = NSLocalizedString("Tip_value", comment: "Tip value")
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
+        label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
         return label
     }()
@@ -54,7 +54,7 @@ class MainController: UIViewController {
         let label = UILabel()
         label.text = "$0.0"
         label.accessibilityHint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
+        label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
         return label
     }()
@@ -74,6 +74,7 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         setNavbar()

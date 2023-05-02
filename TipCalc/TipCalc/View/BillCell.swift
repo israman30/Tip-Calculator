@@ -12,7 +12,7 @@ class BillCell: UITableViewCell {
     
     private let totalLabel: UILabel = {
         let label = UILabel()
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .title3))
+        label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .title1))
         label.text = "$0.0"
         return label
     }()
@@ -20,14 +20,14 @@ class BillCell: UITableViewCell {
     private let billLabel: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         return label
     }()
     
     private let tipLabel: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         return label
     }()
     
@@ -52,8 +52,8 @@ class BillCell: UITableViewCell {
             [totalLabel, billLabel, tipLabel, dateLabel]
         )
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = -5
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 3
         
         addSubview(stackView)
         stackView.anchor(
