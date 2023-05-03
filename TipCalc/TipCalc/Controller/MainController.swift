@@ -62,8 +62,11 @@ class MainController: UIViewController {
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["10%","15%", "20%", "25%"])
-        let font = UIFont.preferredFont(forTextStyle: .callout)
-        sc.setTitleTextAttributes([NSAttributedString.Key.font : font], for: .normal)
+        let font = UIFont.preferredFont(forTextStyle: .title2)
+        sc.setTitleTextAttributes([
+            NSAttributedString.Key.font : font,
+            NSAttributedString.Key.foregroundColor: UIColor.darkText
+            ], for: .selected)
         sc.selectedSegmentIndex = 0
         sc.tintColor = .darkGray
         return sc
