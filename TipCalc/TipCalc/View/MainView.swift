@@ -19,7 +19,8 @@ extension MainController {
     func setNavbar() {
         navigationItem.title = NSLocalizedString("Calculate_tip", comment: "Calculate tip")
         
-        let pin = UIImageView(image: #imageLiteral(resourceName: "pin"))
+        let pin = UIImageView(image: UIImage(systemName: "pin.circle"))
+        pin.tintColor = .black
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         pinView.isAccessibilityElement = true
         pinView.accessibilityHint = "Pin Icon"
@@ -104,7 +105,7 @@ extension MainController {
         let btn = UIButton(type: .system)
         btn.setTitle(NSLocalizedString("Clear_values", comment: "CLEAR VALUES"), for: .normal)
         btn.setTitleColor(.red, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         
         btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
