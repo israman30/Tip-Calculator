@@ -62,4 +62,33 @@ extension UIView {
             
         }
     }
+    
+    func setBoldDynamicFont(font: UIFont) {
+        if  let adjustable = self as? UIContentSizeCategoryAdjusting {
+            adjustable.adjustsFontForContentSizeCategory = true
+        }
+        var font = font
+        font = .boldSystemFont(ofSize: font.pointSize)
+        
+        if let label = self as? UILabel {
+            label.font = font
+        } else if let button = self as? UIButton {
+            button.titleLabel?.font = font
+        } else if let textField = self as? UITextField {
+            textField.font = font
+        } else if let textView = self as? UITextView {
+            textView.font = font
+        } else {
+            
+        }
+    }
+}
+
+extension UILabel {
+    func setSizeFont (sizeFont: Double) {
+        guard let sizeFont = UIFont(name: "ArialRoundedMTBold", size: sizeFont) else { return }
+        adjustsFontForContentSizeCategory = true
+        font = sizeFont
+        sizeToFit()
+    }
 }

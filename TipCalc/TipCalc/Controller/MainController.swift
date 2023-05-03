@@ -45,7 +45,7 @@ class MainController: UIViewController {
         let label = UILabel()
         label.text = "$0.0"
         label.accessibilityHint = NSLocalizedString("Tip_value", comment: "Tip value")
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
+        label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
         return label
     }()
@@ -54,7 +54,7 @@ class MainController: UIViewController {
         let label = UILabel()
         label.text = "$0.0"
         label.accessibilityHint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
+        label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
         return label
     }()
@@ -62,8 +62,11 @@ class MainController: UIViewController {
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["10%","15%", "20%", "25%"])
-        let font = UIFont.preferredFont(forTextStyle: .callout)
-        sc.setTitleTextAttributes([NSAttributedString.Key.font : font], for: .normal)
+        let font = UIFont.preferredFont(forTextStyle: .title2)
+        sc.setTitleTextAttributes([
+            NSAttributedString.Key.font : font,
+            NSAttributedString.Key.foregroundColor: UIColor.darkText
+            ], for: .selected)
         sc.selectedSegmentIndex = 0
         sc.tintColor = .darkGray
         return sc
@@ -74,6 +77,7 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         setNavbar()

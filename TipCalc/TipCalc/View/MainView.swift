@@ -19,7 +19,8 @@ extension MainController {
     func setNavbar() {
         navigationItem.title = NSLocalizedString("Calculate_tip", comment: "Calculate tip")
         
-        let pin = UIImageView(image: #imageLiteral(resourceName: "pin"))
+        let pin = UIImageView(image: UIImage(systemName: "pin.circle"))
+        pin.tintColor = .black
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         pinView.isAccessibilityElement = true
         pinView.accessibilityHint = "Pin Icon"
@@ -87,13 +88,13 @@ extension MainController {
         )
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
-        stackView.spacing = -5
+        stackView.spacing = 5
         
         view.addSubViews(stackView, segment)
 
-        stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 140))
+        stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 140))
         
-        segment.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: stackView.rightAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
+        segment.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: stackView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
         
         resetButton()
     }
@@ -104,7 +105,7 @@ extension MainController {
         let btn = UIButton(type: .system)
         btn.setTitle(NSLocalizedString("Clear_values", comment: "CLEAR VALUES"), for: .normal)
         btn.setTitleColor(.red, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         
         btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
