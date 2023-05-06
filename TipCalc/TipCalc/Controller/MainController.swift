@@ -21,7 +21,7 @@ class MainController: UIViewController {
         let tv = UITableView()
         tv.rowHeight = UITableView.automaticDimension
         tv.showsVerticalScrollIndicator = false
-        tv.allowsSelection = false
+//        tv.allowsSelection = false
         return tv
     }()
     
@@ -59,6 +59,26 @@ class MainController: UIViewController {
         return label
     }()
     
+    let splitPeopleQuantity: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let splitTotal: UILabel = {
+        let label = UILabel()
+        label.text = "$0.0"
+        return label
+    }()
+    
+    let splitStepper: UIStepper = {
+        let st = UIStepper()
+        st.minimumValue = 1
+        st.maximumValue = 10
+        st.autorepeat = true
+        st.value = 1
+        return st
+    }()
+    
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["10%","15%", "20%", "25%"])
@@ -80,6 +100,8 @@ class MainController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
+        splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
+        splitPeopleQuantity.text = "People: \(splitStepper.value)"
         setNavbar()
         setMainView()
         tableViewHandlers()

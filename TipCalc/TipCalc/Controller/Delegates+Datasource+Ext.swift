@@ -38,4 +38,9 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
             tableView.reloadData()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        present(SplitViewController(), animated: true)
+    }
 }
