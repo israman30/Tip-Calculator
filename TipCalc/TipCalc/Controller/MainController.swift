@@ -61,12 +61,14 @@ class MainController: UIViewController {
     
     let splitPeopleQuantity: UILabel = {
         let label = UILabel()
+        label.setSizeFont(sizeFont: 25)
         return label
     }()
     
     let splitTotal: UILabel = {
         let label = UILabel()
         label.text = "$0.0"
+        label.setSizeFont(sizeFont: 25)
         return label
     }()
     
@@ -101,7 +103,7 @@ class MainController: UIViewController {
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
-        splitPeopleQuantity.text = "People: \(splitStepper.value)"
+        splitPeopleQuantity.text = "People: \(Int(splitStepper.value))"
         setNavbar()
         setMainView()
         tableViewHandlers()

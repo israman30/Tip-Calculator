@@ -48,11 +48,11 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
         totalValue.text = "$0.0"
         peopleQuantity.text = "People: 1"
         totalByPerson.text = "$0.0"
-        mainBill = 0.0
+        mainBill = 0
     }
     
     func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel) {
-        people.text = "People: \(bill)"
+        people.text = "People: \(Int(bill))"
         totalByPerson.text = String(format: "$%.2f", (mainBill / bill)).currencyInputFormatting()
     }
 }
