@@ -103,7 +103,7 @@ class MainController: UIViewController {
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
-        splitPeopleQuantity.text = "People: \(Int(splitStepper.value))"
+        splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
         setNavbar()
         setMainView()
         tableViewHandlers()

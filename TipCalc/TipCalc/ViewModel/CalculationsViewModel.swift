@@ -46,13 +46,13 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
         valueInput.text = ""
         tipValue.text = "$0.0"
         totalValue.text = "$0.0"
-        peopleQuantity.text = "People: 1"
+        peopleQuantity.text = "1x"
         totalByPerson.text = "$0.0"
         mainBill = 0
     }
     
     func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel) {
-        people.text = "People: \(Int(bill))"
+        people.text = "\(Int(bill))x"
         totalByPerson.text = String(format: "$%.2f", (mainBill / bill)).currencyInputFormatting()
     }
 }

@@ -88,11 +88,14 @@ extension MainController {
         tipStackView.axis = .horizontal
         let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, totalValue])
         totalpStackView.axis = .horizontal
-        let splitBillStackView = UIStackView(arrangedSubviews: [splitPeopleQuantity, UIView(), splitTotal])
+        let splitValuesStackView = UIStackView(arrangedSubviews: [splitTotal, splitPeopleQuantity])
+        splitValuesStackView.axis = .horizontal
+        splitValuesStackView.spacing = 25
+        let splitBillStackView = UIStackView(arrangedSubviews: [splitLabel, UIView(), splitValuesStackView])
         splitBillStackView.axis = .horizontal
         
         let stackView = UIStackView(arrangedSubviews:
-            [tipStackView, totalpStackView, splitLabel, splitBillStackView, splitStepper]
+            [tipStackView, totalpStackView, splitBillStackView, splitStepper]
         )
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
