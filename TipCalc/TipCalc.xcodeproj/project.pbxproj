@@ -14,6 +14,7 @@
 		4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */; };
 		4D60E3F729871C4E00C8C95F /* AccessibilityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60E3F629871C4E00C8C95F /* AccessibilityUtils.swift */; };
 		4DC50CD0230858B3005AC185 /* TimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC50CCF230858B3005AC185 /* TimeString.swift */; };
+		4DCA1F292A03520300107312 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA1F282A03520300107312 /* SplitViewController.swift */; };
 		4DD83CC522EFCFC8002933DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CC422EFCFC8002933DE /* AppDelegate.swift */; };
 		4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CC622EFCFC8002933DE /* MainController.swift */; };
 		4DD83CCC22EFCFCA002933DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD83CCB22EFCFCA002933DE /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellId+Enum.swift"; sourceTree = "<group>"; };
 		4D60E3F629871C4E00C8C95F /* AccessibilityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityUtils.swift; sourceTree = "<group>"; };
 		4DC50CCF230858B3005AC185 /* TimeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeString.swift; sourceTree = "<group>"; };
+		4DCA1F282A03520300107312 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		4DD83CC122EFCFC8002933DE /* TipCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD83CC422EFCFC8002933DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DD83CC622EFCFC8002933DE /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				4DD83CC422EFCFC8002933DE /* AppDelegate.swift */,
 				4DD83CC622EFCFC8002933DE /* MainController.swift */,
 				4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */,
+				4DCA1F282A03520300107312 /* SplitViewController.swift */,
 				4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */,
 				4DD83CDA22F08A35002933DE /* MainHandlers+Ext.swift */,
 			);
@@ -250,6 +253,7 @@
 				4DD83CE122F0AF43002933DE /* AlertController.swift in Sources */,
 				4DD83CDF22F08AEE002933DE /* BillCell.swift in Sources */,
 				4DD83CC522EFCFC8002933DE /* AppDelegate.swift in Sources */,
+				4DCA1F292A03520300107312 /* SplitViewController.swift in Sources */,
 				4DD83CE622F124E7002933DE /* SaveHandlers+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

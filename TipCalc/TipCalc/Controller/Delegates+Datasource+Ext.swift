@@ -38,4 +38,10 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
             tableView.reloadData()
         }
     }
+    
+    // MARK: - Find the way for display the tableView when tap in a arrow row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(indexPath.row)
+//        present(SplitViewController(), animated: true)
+    }
 }

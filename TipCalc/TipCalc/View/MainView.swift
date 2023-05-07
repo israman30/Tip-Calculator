@@ -78,21 +78,32 @@ extension MainController {
         totalLabel.textColor = .lightGray
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
+        let splitLabel = UILabel()
+        splitLabel.text = "Split bill"
+        splitLabel.textAlignment = .left
+        splitLabel.textColor = .lightGray
+        splitLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        
         let tipStackView = UIStackView(arrangedSubviews: [tipLabel, tipValue])
         tipStackView.axis = .horizontal
         let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, totalValue])
         totalpStackView.axis = .horizontal
+        let splitValuesStackView = UIStackView(arrangedSubviews: [splitTotal, splitPeopleQuantity])
+        splitValuesStackView.axis = .horizontal
+        splitValuesStackView.spacing = 25
+        let splitBillStackView = UIStackView(arrangedSubviews: [splitLabel, UIView(), splitValuesStackView])
+        splitBillStackView.axis = .horizontal
         
         let stackView = UIStackView(arrangedSubviews:
-            [tipStackView, totalpStackView]
+            [tipStackView, totalpStackView, splitBillStackView, splitStepper]
         )
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = 0
         
         view.addSubViews(stackView, segment)
 
-        stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 140))
+        stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 280))
         
         segment.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: stackView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
         

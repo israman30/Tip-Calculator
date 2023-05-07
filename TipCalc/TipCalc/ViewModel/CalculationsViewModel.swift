@@ -10,11 +10,12 @@ import UIKit
 
 protocol ViewModelBillCalculationsProtocol {
     func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel)
-    func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel)
+    func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, totalByPerson: UILabel, peopleQuantity: UILabel)
+    func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel)
 }
 
 class CalculationsViewModel: ViewModelBillCalculationsProtocol {
-    
+    var mainBill: Double = 0.0
     // MARK: - This function calculate the entry with the percentage picked by the user, by defult the percentage is 18%
     // Percentage is picked by the segmented controller selected index then is added to the entry
     // guard statement check if the entry has a valid value if not, display default value of $0.0
@@ -29,6 +30,7 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
             
             let tip = bill * tipPerc[segment.selectedSegmentIndex]
             let total = bill + tip
+            mainBill = total
             
             tipValue.text = String(format: "$%.2f", tip).currencyInputFormatting()
             totalValue.text = String(format: "$%.2f", total).currencyInputFormatting()
@@ -40,10 +42,18 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     }
     
     // MARK: - Reset the fields when user needs to reset it or/and after entry is saved into db
-    func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel) {
+    func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, totalByPerson: UILabel, peopleQuantity: UILabel) {
         valueInput.text = ""
         tipValue.text = "$0.0"
         totalValue.text = "$0.0"
+        peopleQuantity.text = "1x"
+        totalByPerson.text = "$0.0"
+        mainBill = 0
+    }
+    
+    func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel) {
+        people.text = "\(Int(bill))x"
+        totalByPerson.text = String(format: "$%.2f", (mainBill / bill)).currencyInputFormatting()
     }
 }
 
