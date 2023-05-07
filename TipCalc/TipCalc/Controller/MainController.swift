@@ -21,7 +21,7 @@ class MainController: UIViewController {
         let tv = UITableView()
         tv.rowHeight = UITableView.automaticDimension
         tv.showsVerticalScrollIndicator = false
-//        tv.allowsSelection = false
+        tv.allowsSelection = false
         return tv
     }()
     
