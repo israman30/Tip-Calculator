@@ -94,6 +94,15 @@ class MainController: UIViewController {
         return sc
     }()
     
+    let clearValuesButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle(NSLocalizedString("Clear_values", comment: "CLEAR VALUES"), for: .normal)
+        btn.setTitleColor(.red, for: .normal)
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
+        btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        return btn
+    }()
+    
     let calculationsViewModel = CalculationsViewModel()
     let saveViewModel = SaveViewModel()
     
@@ -103,6 +112,8 @@ class MainController: UIViewController {
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
+        clearValuesButton.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
+        
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
         setNavbar()
         setMainView()
