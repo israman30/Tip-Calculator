@@ -94,6 +94,9 @@ class MainController: UIViewController {
         return sc
     }()
     
+    let containerView = UIView()
+    let scrollView = UIScrollView()
+    
     let calculationsViewModel = CalculationsViewModel()
     let saveViewModel = SaveViewModel()
     

@@ -40,13 +40,27 @@ extension MainController {
         view.backgroundColor = .white
         bottomView.backgroundColor = .lightGray
         
-        view.addSubViews(valueInput, bottomView)
+        view.addSubview(scrollView)
+//        scrollView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor),
+        ])
+        
+        scrollView.alwaysBounceVertical = true
+//        scrollView.addSubview(containerView)
+//        containerView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: scrollView.bottomAnchor, right: scrollView.rightAnchor)
+        scrollView.addSubViews(valueInput, bottomView)
         
         valueInput.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
+            top: scrollView.safeAreaLayoutGuide.topAnchor,
+            left: scrollView.leftAnchor,
             bottom: nil,
-            right: view.rightAnchor,
+            right: scrollView.rightAnchor,
             padding: .init(top: 10, left: 20, bottom: 0, right: 20),
             size: .init(width: 0, height: 50)
         )
@@ -101,7 +115,7 @@ extension MainController {
         stackView.axis = .vertical
         stackView.spacing = 0
         
-        view.addSubViews(stackView, segment)
+        scrollView.addSubViews(stackView, segment)
 
         stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 280))
         
@@ -121,7 +135,7 @@ extension MainController {
         
         btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
         
-        view.addSubViews(btn, tableView)
+        scrollView.addSubViews(btn, tableView)
         
         btn.anchor(top: segment.bottomAnchor, left: segment.leftAnchor, bottom: nil, right: segment.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
         
