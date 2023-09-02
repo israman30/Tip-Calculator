@@ -19,6 +19,10 @@ extension MainController {
     }
     
     @objc func changeStepperQuantity() {
+        guard let input = valueInput.text else { return }
+        guard !input.isEmpty else {
+            return
+        }
         calculationsViewModel.splitBiil(people: splitPeopleQuantity, bill: splitStepper.value, totalByPerson: splitTotal)
     }
 }
