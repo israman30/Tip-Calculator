@@ -44,6 +44,15 @@ class BillCell: UITableViewCell {
         return view
     }()
     
+    private let splitedTag: UIButton = {
+        var configuredButton = UIButton.Configuration.plain()
+        configuredButton.title = "Splitted 2x"
+        let button = UIButton(configuration: configuredButton)
+        button.isSelected = true
+        button.titleLabel?.makeFontAccessible(textStyle: .footnote)
+        return button
+    }()
+    
     func configure(bill: Bill?) {
         guard let total = bill?.total, let inputBill = bill?.input, let tip = bill?.tip, let date = bill?.date else { return }
         totalLabel.text = total
@@ -61,8 +70,12 @@ class BillCell: UITableViewCell {
         bodyStackView.distribution = .fillProportionally
         bodyStackView.spacing = 3
         
+        let totalStackView = UIStackView(arrangedSubviews: [totalLabel, splitedTag])
+        totalStackView.axis = .horizontal
+        totalStackView.distribution = .fillProportionally
+        
         let stackView = UIStackView(arrangedSubviews:
-            [totalLabel, bodyStackView]
+            [totalStackView, bodyStackView]
         )
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
