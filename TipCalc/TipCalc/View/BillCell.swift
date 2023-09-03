@@ -39,6 +39,11 @@ class BillCell: UITableViewCell {
         return label
     }()
     
+    private let lineView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     func configure(bill: Bill?) {
         guard let total = bill?.total, let inputBill = bill?.input, let tip = bill?.tip, let date = bill?.date else { return }
         totalLabel.text = total
@@ -48,20 +53,33 @@ class BillCell: UITableViewCell {
     }
     
     private func setLabels() {
+        
+        lineView.frame = .init(x: 0, y: 0, width: 5, height: frame.height)
+        
+        let bodyStackView = UIStackView(arrangedSubviews: [billLabel, tipLabel, dateLabel])
+        bodyStackView.axis = .vertical
+        bodyStackView.distribution = .fillProportionally
+        bodyStackView.spacing = 3
+        
         let stackView = UIStackView(arrangedSubviews:
-            [totalLabel, billLabel, tipLabel, dateLabel]
+            [totalLabel, bodyStackView]
         )
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.spacing = 3
         
         addSubview(stackView)
+        addSubview(lineView)
+        
+        lineView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, padding: .init(top: 5, left: 0, bottom: 5, right: 0), size: .init(width: 3, height: 0))
+        lineView.backgroundColor = .random
+        
         stackView.anchor(
-            top: topAnchor,
-            left: leftAnchor,
-            bottom: bottomAnchor,
+            top: lineView.topAnchor,
+            left: lineView.rightAnchor,
+            bottom: lineView.bottomAnchor,
             right: rightAnchor,
-            padding: .init(top: 10, left: 0, bottom: 10, right: 0)
+            padding: .init(top: 10, left: 10, bottom: 10, right: 0)
         )
     }
     
@@ -72,5 +90,17 @@ class BillCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension CGFloat {
+    static var random: CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+
+extension UIColor {
+    static var random: UIColor {
+        return UIColor(red: .random, green: .random, blue: .random, alpha: 1.0)
     }
 }

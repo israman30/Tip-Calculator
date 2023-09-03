@@ -11,7 +11,7 @@ import CoreData
 
 protocol ViewModelBillImplementationProtocol {
     func fetchItems()
-    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel)
+    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?)
 }
 
 class SaveViewModel: ViewModelBillImplementationProtocol {
@@ -21,14 +21,15 @@ class SaveViewModel: ViewModelBillImplementationProtocol {
     // MARK: - Handler checks for input before saves on db
     // saveToBD function handles to save input after input is authentificated
     // After input is saved into db, the fields are reseted and keyboard dismissed
-    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel) {
+    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?) {
         guard let input = valueInput.text,
               let tip = tipValue.text,
               let total = totalValue.text else { return }
+        guard let splitTotal = splitTotal?.text, let splitPeopleQuantity = splitPeopleQuantity?.text else { return }
         if input.isEmpty {
             AlertController.alert(vc, title: "😵", message: NSLocalizedString("No_value_to_be_saved", comment: "No value to be saved!"))
         } else {
-            saveToDB(input: input, tip: tip, total: total)
+            saveToDB(input: input, tip: tip, total: total, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity)
         }
         valueInput.resignFirstResponder()
     }
@@ -37,7 +38,7 @@ class SaveViewModel: ViewModelBillImplementationProtocol {
     // Functino uses Core Data Persistance class to save object created by the context
     // After the object is saved, is appended to an array container
     // MARK - NOTE: PersistanceServices.saveContext() is always called in the AppDelegate when application is terminated
-    private func saveToDB(input: String, tip: String, total: String) {
+    private func saveToDB(input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?) {
         
         let bill = Bill(context: PersistanceServices.context)
         
