@@ -50,7 +50,9 @@ class BillCell: UITableViewCell {
         label.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
         label.textAlignment = .center
         label.textColor = .label
-        label.backgroundColor = .black.withAlphaComponent(0.1)
+        label.backgroundColor = .black.withAlphaComponent(0.05)
+        label.layer.cornerRadius = 10
+        label.clipsToBounds = true
         return label
     }()
     
