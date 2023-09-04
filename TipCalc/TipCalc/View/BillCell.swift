@@ -44,21 +44,27 @@ class BillCell: UITableViewCell {
         return view
     }()
     
-    private let splitedTag: UIButton = {
-        var configuredButton = UIButton.Configuration.plain()
-        configuredButton.title = "Splitted 2x"
-        let button = UIButton(configuration: configuredButton)
-        button.isSelected = true
-        button.titleLabel?.makeFontAccessible(textStyle: .footnote)
-        return button
+    private let tagSplitLabel: UILabel = {
+        let label = UILabel()
+        label.text = "$0.0"
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
+        label.textAlignment = .center
+        label.textColor = .label
+        label.backgroundColor = .black.withAlphaComponent(0.1)
+        return label
     }()
     
     func configure(bill: Bill?) {
-        guard let total = bill?.total, let inputBill = bill?.input, let tip = bill?.tip, let date = bill?.date else { return }
+        guard let total = bill?.total, let inputBill = bill?.input, let tip = bill?.tip, let date = bill?.date, let splitTotal = bill?.splitTotal, let splitQuantity = bill?.splitPeopleQuantity else { return }
         totalLabel.text = total
         billLabel.text = inputBill
         tipLabel.text = tip
         dateLabel.text = date
+        if splitQuantity == "1x" {
+            tagSplitLabel.text = ""
+        } else {
+            tagSplitLabel.text = "\(splitTotal.currencyInputFormatting()) \(splitQuantity)"
+        }
     }
     
     private func setLabels() {
@@ -70,7 +76,7 @@ class BillCell: UITableViewCell {
         bodyStackView.distribution = .fillProportionally
         bodyStackView.spacing = 3
         
-        let totalStackView = UIStackView(arrangedSubviews: [totalLabel, splitedTag])
+        let totalStackView = UIStackView(arrangedSubviews: [totalLabel, tagSplitLabel])
         totalStackView.axis = .horizontal
         totalStackView.distribution = .fillProportionally
         

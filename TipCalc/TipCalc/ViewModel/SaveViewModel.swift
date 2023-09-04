@@ -46,6 +46,8 @@ class SaveViewModel: ViewModelBillImplementationProtocol {
         bill.tip = "\(tip) tip"
         bill.total = "\(total) total"
         bill.date = TimeString.setDate()
+        bill.splitPeopleQuantity = splitPeopleQuantity
+        bill.splitTotal = splitTotal
         
         PersistanceServices.saveContext()
         bills.append(bill)
