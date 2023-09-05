@@ -21,5 +21,6 @@ extension Bill {
     @NSManaged public var tip: String?
     @NSManaged public var total: String?
     @NSManaged public var date: String?
-
+    @NSManaged public var splitTotal: String?
+    @NSManaged public var splitPeopleQuantity: String?
 }

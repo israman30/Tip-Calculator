@@ -11,7 +11,7 @@ import UIKit
 extension MainController {
     
     @objc func handleSaveBill() {
-        saveViewModel.save(self, valueInput: valueInput, tipValue: tipValue, totalValue: totalValue)
+        saveViewModel.save(self, valueInput: valueInput, tipValue: tipValue, totalValue: totalValue, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity)
         handleResetFields()
         tableView.reloadData()
     }
