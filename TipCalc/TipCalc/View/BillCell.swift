@@ -57,11 +57,17 @@ class BillCell: UITableViewCell {
     }()
     
     func configure(bill: Bill?) {
-        guard let total = bill?.total, let inputBill = bill?.input, let tip = bill?.tip, let date = bill?.date, let splitTotal = bill?.splitTotal, let splitQuantity = bill?.splitPeopleQuantity else { return }
+        guard let total = bill?.total,
+              let inputBill = bill?.input,
+              let tip = bill?.tip,
+              let date = bill?.date,
+              let splitTotal = bill?.splitTotal,
+              let splitQuantity = bill?.splitPeopleQuantity else { return }
         totalLabel.text = total
         billLabel.text = inputBill
         tipLabel.text = tip
         dateLabel.text = date
+        /// Statement checks if bill is been splitted by number of people or none
         if splitQuantity == "1x" {
             tagSplitLabel.text = ""
         } else {
@@ -114,6 +120,7 @@ class BillCell: UITableViewCell {
     }
 }
 
+// --- Extensions help to create a ramdon lineView for each cell ---
 extension CGFloat {
     static var random: CGFloat {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
