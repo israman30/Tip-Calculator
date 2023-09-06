@@ -81,6 +81,11 @@ class MainController: UIViewController {
         return st
     }()
     
+    let headerContainerView: UIView = {
+        let view = UIView(frame: .zero)
+        return view
+    }()
+    
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["10%","15%", "20%", "25%"])

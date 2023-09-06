@@ -76,7 +76,6 @@ extension String {
         let double = (amountWithPrefix as NSString).doubleValue
         number = NSNumber(value: (double / 100))
         
-        
         guard number != 0 as NSNumber else {
             return ""
         }
