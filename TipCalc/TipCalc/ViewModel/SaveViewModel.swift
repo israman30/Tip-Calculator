@@ -27,7 +27,7 @@ class SaveViewModel: ViewModelBillImplementationProtocol {
               let total = totalValue.text else { return }
         guard let splitTotal = splitTotal?.text, let splitPeopleQuantity = splitPeopleQuantity?.text else { return }
         if input.isEmpty {
-            AlertController.alert(vc, title: "😵", message: NSLocalizedString("No_value_to_be_saved", comment: "No value to be saved!"))
+            AlertController.alert(vc, title: "😵", message: NSLocalizedString("No_value_to_be_saved", comment: "Blank entry. No information worth saving."))
         } else {
             saveToDB(input: input, tip: tip, total: total, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity)
         }
