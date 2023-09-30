@@ -14,7 +14,7 @@ protocol ViewModelBillCalculationsProtocol {
     func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel)
 }
 
-class CalculationsViewModel: ViewModelBillCalculationsProtocol {
+final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     var mainBill: Double = 0.0
     // MARK: - This function calculate the entry with the percentage picked by the user, by defult the percentage is 18%
     // Percentage is picked by the segmented controller selected index then is added to the entry

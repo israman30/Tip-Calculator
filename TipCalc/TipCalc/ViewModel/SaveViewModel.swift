@@ -14,7 +14,7 @@ protocol ViewModelBillImplementationProtocol {
     func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?)
 }
 
-class SaveViewModel: ViewModelBillImplementationProtocol {
+final class SaveViewModel: ViewModelBillImplementationProtocol {
     
     var bills = [Bill]()
     
