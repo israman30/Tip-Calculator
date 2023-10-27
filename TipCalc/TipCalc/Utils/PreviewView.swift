@@ -22,9 +22,7 @@ struct UIViewControllerPreview<ViewController: UIViewController>: UIViewControll
         return viewController
     }
     
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
-    }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
 }
 
 struct UIViewPreview<View: UIView>: UIViewRepresentable {
@@ -39,8 +37,6 @@ struct UIViewPreview<View: UIView>: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
-    }
+    func updateUIView(_ uiView: UIViewType, context: Context) { }
     
 }

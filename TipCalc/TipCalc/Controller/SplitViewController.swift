@@ -14,27 +14,27 @@ class SplitViewController: UIViewController {
     private let totalLabel: UITextField = {
         let label = UITextField()
         label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .title1))
-        label.text = Constants.zero
+        label.text = Constant.zero
         return label
     }()
     
     private let billLabel: UITextField = {
         let label = UITextField()
-        label.text = Constants.zero
+        label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         return label
     }()
     
     private let tipLabel: UITextField = {
         let label = UITextField()
-        label.text = Constants.zero
+        label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         return label
     }()
     
     private let dateLabel: UITextField = {
         let label = UITextField()
-        label.text = Constants.defaultDate
+        label.text = Constant.defaultDate
         label.setDynamicFont(font: .preferredFont(forTextStyle: .caption2))
         label.textColor = .lightGray
         return label

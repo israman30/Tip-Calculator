@@ -28,8 +28,8 @@ class MainController: UIViewController {
     // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
     let valueInput: UITextField = {
         let tf = UITextField()
-        tf.placeholder = NSLocalizedString("Enter_value", comment: "Enter value") 
-        tf.accessibilityHint = NSLocalizedString("Input_bill_value", comment: "Input the bill value") 
+        tf.placeholder = LocalizedString.textField_placeholder
+        tf.accessibilityHint = LocalizedString.textField_hint
         tf.setDynamicFont(font: .preferredFont(forTextStyle: .title1))
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
@@ -43,8 +43,8 @@ class MainController: UIViewController {
     
     let tipValue: UILabel = {
         let label = UILabel()
-        label.text = Constants.zero
-        label.accessibilityHint = NSLocalizedString("Tip_value", comment: "Tip value")
+        label.text = Constant.zero
+        label.accessibilityHint = LocalizedString.tip_value_hint
         label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
         return label
@@ -52,8 +52,8 @@ class MainController: UIViewController {
     
     let totalValue: UILabel = {
         let label = UILabel()
-        label.text = Constants.zero
-        label.accessibilityHint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
+        label.text = Constant.zero
+        label.accessibilityHint = LocalizedString.total_value_hint
         label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
         return label
@@ -67,7 +67,7 @@ class MainController: UIViewController {
     
     let splitTotal: UILabel = {
         let label = UILabel()
-        label.text = Constants.zero
+        label.text = Constant.zero
         label.setSizeFont(sizeFont: 25)
         return label
     }()
@@ -96,7 +96,7 @@ class MainController: UIViewController {
     
     let clearValuesButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(NSLocalizedString("Clear_values", comment: "CLEAR VALUES"), for: .normal)
+        btn.setTitle(LocalizedString.clear_value_button_title, for: .normal)
         btn.setTitleColor(.red, for: .normal)
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
