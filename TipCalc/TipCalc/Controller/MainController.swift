@@ -133,23 +133,10 @@ class MainController: UIViewController {
 // MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
 import SwiftUI
 
-// MARK: - SWIFT UI PREVIEW CLASS HELPER WITH CONTAINER VIEW
-@available(iOS 13.0.0, *)
-class PreviewTipCal: PreviewProvider {
-    
-    @available(iOS 13.0.0, *)
+struct Preview_MainController: PreviewProvider {
     static var previews: some View {
-        ContainerView()
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        // MARK: - MAKE UI VIEW CONTROLLER OVERRITED METHOD TO RETURN HOME VIEW CONTROLLER
-        func makeUIViewController(context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) -> UIViewController {
-            return UINavigationController(rootViewController: MainController())
-        }
-        
-        func updateUIViewController(_ uiViewController: PreviewTipCal.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) {
-            // Nothing
+        UIViewControllerPreview {
+            MainController()
         }
     }
 }
