@@ -13,27 +13,27 @@ class BillCell: UITableViewCell {
     private let totalLabel: UILabel = {
         let label = UILabel()
         label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .title1))
-        label.text = "$0.0"
+        label.text = Constants.zero
         return label
     }()
     
     private let billLabel: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
+        label.text = Constants.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         return label
     }()
     
     private let tipLabel: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
+        label.text = Constants.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         return label
     }()
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "00/00/2019"
+        label.text = Constants.defaultDate
         label.setDynamicFont(font: .preferredFont(forTextStyle: .caption2))
         label.textColor = .lightGray
         return label
@@ -46,7 +46,7 @@ class BillCell: UITableViewCell {
     
     private let tagSplitLabel: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
+        label.text = Constants.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
         label.textAlignment = .center
         label.textColor = .label

@@ -19,11 +19,11 @@ extension MainController {
     func setNavbar() {
         navigationItem.title = NSLocalizedString("Calculate_tip", comment: "Calculate tip")
         
-        let pin = UIImageView(image: UIImage(systemName: "pin.circle"))
+        let pin = UIImageView(image: UIImage(systemName: Constants.pin_circle))
         pin.tintColor = .black
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         pinView.isAccessibilityElement = true
-        pinView.accessibilityHint = "Pin Icon"
+        pinView.accessibilityHint = Constants.pin_icon
         pinView.accessibilityTraits.insert(.button)
         
         pinView.addSubViews(pin)
@@ -67,19 +67,19 @@ extension MainController {
     private func outputValues() {
         
         let tipLabel = UILabel()
-        tipLabel.text = "Tip"
+        tipLabel.text = Constants.tip
         tipLabel.textAlignment = .right
         tipLabel.textColor = .lightGray
         tipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let totalLabel = UILabel()
-        totalLabel.text = "Total"
+        totalLabel.text = Constants.total
         totalLabel.textAlignment = .right
         totalLabel.textColor = .lightGray
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let splitLabel = UILabel()
-        splitLabel.text = "Split bill"
+        splitLabel.text = Constants.split_bill
         splitLabel.textAlignment = .left
         splitLabel.textColor = .lightGray
         splitLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))

@@ -43,7 +43,7 @@ class MainController: UIViewController {
     
     let tipValue: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
+        label.text = Constants.zero
         label.accessibilityHint = NSLocalizedString("Tip_value", comment: "Tip value")
         label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
@@ -52,7 +52,7 @@ class MainController: UIViewController {
     
     let totalValue: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
+        label.text = Constants.zero
         label.accessibilityHint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
         label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
@@ -67,7 +67,7 @@ class MainController: UIViewController {
     
     let splitTotal: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
+        label.text = Constants.zero
         label.setSizeFont(sizeFont: 25)
         return label
     }()
