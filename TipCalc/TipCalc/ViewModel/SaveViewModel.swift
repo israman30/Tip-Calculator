@@ -27,7 +27,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol {
               let total = totalValue.text else { return }
         guard let splitTotal = splitTotal?.text, let splitPeopleQuantity = splitPeopleQuantity?.text else { return }
         if input.isEmpty {
-            AlertController.alert(vc, title: "😵", message: NSLocalizedString("No_value_to_be_saved", comment: "No value to be saved!"))
+            AlertController.alert(vc, title: "😵", message: LocalizedString.no_value_to_be_saved)
         } else {
             saveToDB(input: input, tip: tip, total: total, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity)
         }
@@ -42,7 +42,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol {
         
         let bill = Bill(context: PersistanceServices.context)
         
-        bill.input = "$\(input) \(NSLocalizedString("initial_bill", comment: "initial bill"))"
+        bill.input = "$\(input) \(LocalizedString.initial_bill)"
         bill.tip = "\(tip) tip"
         bill.total = "\(total) total"
         bill.date = TimeString.setDate()

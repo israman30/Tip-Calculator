@@ -35,8 +35,8 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
             tipValue.text = String(format: "$%.2f", tip).currencyInputFormatting()
             totalValue.text = String(format: "$%.2f", total).currencyInputFormatting()
         } else {
-            tipValue.text = "$0.0"
-            totalValue.text = "$0.0"
+            tipValue.text = Constant.zero
+            totalValue.text = Constant.zero
         }
         
     }
@@ -44,10 +44,10 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     // MARK: - Reset the fields when user needs to reset it or/and after entry is saved into db
     func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, totalByPerson: UILabel, peopleQuantity: UILabel) {
         valueInput.text = ""
-        tipValue.text = "$0.0"
-        totalValue.text = "$0.0"
+        tipValue.text = Constant.zero
+        totalValue.text = Constant.zero
         peopleQuantity.text = "1x"
-        totalByPerson.text = "$0.0"
+        totalByPerson.text = Constant.zero
         mainBill = 0
     }
     
