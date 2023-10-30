@@ -13,6 +13,26 @@ import CoreData
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
  - USING SWIFTUI API TO PREVIEW APP VIEW
  */
+//["10%", "15%", "20%", "25%"]
+enum Percentages: Int, CaseIterable {
+    case ten_percent = 0
+    case fifteen_percent = 1
+    case twienty_percent = 2
+    case twientyfive_percent = 3
+    
+    var description: String {
+        switch self {
+        case .ten_percent:
+            return "10%"
+        case .fifteen_percent:
+            return "15%"
+        case .twienty_percent:
+            return "20%"
+        case .twientyfive_percent:
+            return "25%"
+        }
+    }
+}
 
 class MainController: UIViewController {
     
@@ -83,7 +103,7 @@ class MainController: UIViewController {
     
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["10%","15%", "20%", "25%"])
+        let sc = UISegmentedControl(items: Percentages.allCases.map { $0.description.capitalized })
         let font = UIFont.preferredFont(forTextStyle: .title2)
         sc.setTitleTextAttributes([
             NSAttributedString.Key.font : font,
