@@ -40,13 +40,30 @@ extension MainController {
         view.backgroundColor = .white
         bottomView.backgroundColor = .lightGray
         
-        view.addSubViews(valueInput, bottomView)
+        view.addSubview(mainScrollView)
+        mainScrollView.contentSize = .init(width: view.bounds.width, height: view.bounds.height)
+        mainScrollView.frame = view.bounds
+        mainScrollView.isUserInteractionEnabled = true
+        
+//        mainScrollView.addSubview(containerView)
+//        containerView.translatesAutoresizingMaskIntoConstraints = false
+//        containerView.isUserInteractionEnabled = true
+        NSLayoutConstraint.activate([
+            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+//            mainScrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            mainScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            mainScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+        containerView.backgroundColor = .yellow
+        
+        mainScrollView.addSubViews(valueInput, bottomView)
         
         valueInput.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
+            top: mainScrollView.safeAreaLayoutGuide.topAnchor,
+            left: mainScrollView.leftAnchor,
             bottom: nil,
-            right: view.rightAnchor,
+            right: mainScrollView.rightAnchor,
             padding: .init(top: 10, left: 20, bottom: 0, right: 20),
             size: .init(width: 0, height: 50)
         )
@@ -101,7 +118,7 @@ extension MainController {
         stackView.axis = .vertical
         stackView.spacing = 0
         
-        view.addSubViews(stackView, segment)
+        mainScrollView.addSubViews(stackView, segment)
 
         stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 280))
         
@@ -112,7 +129,7 @@ extension MainController {
     
     // MARK: - set the dynamic components
     private func resetButton() {
-        view.addSubViews(clearValuesButton, tableView)
+        mainScrollView.addSubViews(clearValuesButton, tableView)
         
         clearValuesButton.anchor(top: segment.bottomAnchor, left: segment.leftAnchor, bottom: nil, right: segment.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
         

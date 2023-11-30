@@ -123,6 +123,17 @@ class MainController: UIViewController {
         return btn
     }()
     
+    let mainScrollView: UIScrollView = {
+        let sv = UIScrollView(frame: .zero)
+        sv.alwaysBounceVertical = true
+        return sv
+    }()
+    
+    let containerView: UIView = {
+        let view = UIView(frame: .zero)
+        return view
+    }()
+    
     let calculationsViewModel = CalculationsViewModel()
     let saveViewModel = SaveViewModel()
     
@@ -139,6 +150,7 @@ class MainController: UIViewController {
         setMainView()
         tableViewHandlers()
         saveViewModel.fetchItems()
+        mainScrollView.contentSize = .init(width: view.frame.width, height: view.frame.height)
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
