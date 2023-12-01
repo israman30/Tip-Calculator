@@ -26,3 +26,5 @@ Compute your tip effortlessly by entering the bill amount. The application provi
 -  [Israel Manzo ®](http://israelmanzo.com)
 - [LinkedIn](https://www.linkedin.com/in/israel-manzo/) 
 - [Twitter](https://twitter.com/israman30)
+
+_Copyright &copy; 2023, Israel Manzo_
