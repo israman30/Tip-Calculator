@@ -1,4 +1,7 @@
 # Tip-Calculator
+
+### Description
+
 Compute your tip effortlessly by entering the bill amount. The application provides a breakdown of your tip, the total tip amount, and the original bill. Additionally, you can save the bill for future reference and delete it as needed.
 
 <p align="center">
@@ -7,11 +10,19 @@ Compute your tip effortlessly by entering the bill amount. The application provi
 
 ## Thecnology
 
-- Xcode & UIKit for autolayout
+- ```Xcode``` & ```UIKit``` for autolayout
 
-- Persist list data with Core Data 
+- Persist list data with ```Core Data``` 
 
-- SwiftUI components 
+- ```SwiftUI``` components
+
+### Architecture
+
+- ```MVVM``` structure, Model (Object), View (Controller where user interact with the App), ViewModel (Where logic lives, calculations and saving data handlers)
+
+- ```protocol``` and ```delegates``` communication pattern
+
+- No Modularity (coming soon) 
 
 ### Launch :rocket:
 - First release on early 2017
