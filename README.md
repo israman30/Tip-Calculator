@@ -8,7 +8,7 @@ Compute your tip effortlessly by entering the bill amount. The application provi
 <img src="/img/one.png" width="250"> <img src="/img/two.png" width="250"> <img src="/img/three.png" width="250">
 </p>
 
-## Thecnology
+## Technology
 
 - ```Xcode``` & ```UIKit``` for autolayout
 
