@@ -22,7 +22,9 @@ Compute your tip effortlessly by entering the bill amount. The application provi
 
 - ```protocol``` and ```delegates``` communication pattern
 
-- No Modularity (coming soon) 
+- No Modularity (coming soon)
+
+- ```Unit Testing``` 
 
 ### Launch :rocket:
 - First release on early 2017
