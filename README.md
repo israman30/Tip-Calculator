@@ -7,9 +7,9 @@ Compute your tip effortlessly by entering the bill amount. The application provi
 
 ## Thecnology
 
-- Xcode & UIKit
+- Xcode & UIKit for autolayout
 
-- Persist data with Core Data 
+- Persist list data with Core Data 
 
 - SwiftUI components 
 
@@ -22,8 +22,7 @@ Compute your tip effortlessly by entering the bill amount. The application provi
 
 [Tip Calculator](https://itunes.apple.com/us/app/my-new-news/id1210234219?mt=8).
 
-## Author
--  [Israel Manzo ®](http://israelmanzo.com)
+### Media
 - [LinkedIn](https://www.linkedin.com/in/israel-manzo/) 
 - [Twitter](https://twitter.com/israman30)
 
