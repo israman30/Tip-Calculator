@@ -1,5 +1,7 @@
 # Tip-Calculator
 
+[![Build](https://github.com/israman30/Tip-Calculator/actions/workflows/build.yml/badge.svg)](https://github.com/israman30/Tip-Calculator/actions/workflows/build.yml)
+
 ### Description
 
 Compute your tip effortlessly by entering the bill amount. The application provides a breakdown of your tip, the total tip amount, and the original bill. Additionally, you can save the bill for future reference and delete it as needed.
