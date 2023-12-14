@@ -8,25 +8,82 @@ Compute your tip effortlessly by entering the bill amount. The application provi
 <img src="/img/one.png" width="250"> <img src="/img/two.png" width="250"> <img src="/img/three.png" width="250">
 </p>
 
-## Technology
+#### Description of the project:
 
 - ```Xcode``` & ```UIKit``` for autolayout
 
-- Persist list data with ```Core Data``` 
+- Persist data with ```Core Data``` when saving some numbers
+    ```swift
+        private func saveToDB(input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?) { ... }
+    ```
 
-- ```SwiftUI``` components
+- ```MVVM``` as Architecture structure
+- ```protocols```and```delegate```
+    <strong>_Calculating data_</strong>
+    ```swift
+    protocol ViewModelBillCalculationsProtocol {
+        func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel)
+        func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, totalByPerson: UILabel, peopleQuantity: UILabel)
+        func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel)
+    }
+    ```
+    ```swift
+    final class CalculationsViewModel: ViewModelBillCalculationsProtocol { ... }
+    ```
+    <strong>_Saving data_</strong>
+    ```swift
+    protocol ViewModelBillImplementationProtocol {
+        func fetchItems()
+        func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?)
+    }
+    ```
+    ```swift
+    final class SaveViewModel: ViewModelBillImplementationProtocol { ... }
+    ```
+- ```SwiftUI``` preview implemented for ```UIViewController``` and ```UIVIew```
+    ```swift
+    struct UIViewControllerPreview<ViewController: UIViewController>: UIViewControllerRepresentable {
+    
+        let viewController: ViewController
+    
+        init(with builder: @escaping() -> ViewController) {
+            self.viewController = builder()
+        }
+    
+        func makeUIViewController(context: Context) -> UIViewController {
+            return viewController
+        }
+        
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
+    }
+    ```
+    ```swift
+    struct UIViewPreview<View: UIView>: UIViewRepresentable {
+   
+        let view: View
+        
+        init(with builder: @escaping() -> View) {
+            self.view = builder()
+        }
+        
+        func makeUIView(context: Context) -> UIView {
+            return view
+        }
+        
+        func updateUIView(_ uiView: UIViewType, context: Context) { }
+    }
+    ```
+- Accessibility
 
-### Architecture
-
-- ```MVVM``` structure, Model (Object), View (Controller where user interact with the App), ViewModel (Where logic lives, calculations and saving data handlers)
-
-- ```protocol``` and ```delegates``` communication pattern
+- Localized language
 
 - No Modularity (coming soon)
 
 - ```Unit Testing``` 
 
-### Launch :rocket:
+ _Build <strong>GitHub</strong> CI/CD_
+
+#### Launch :rocket:
 - First release on early 2017
 
 - Second release on later 2019
@@ -35,7 +92,7 @@ Compute your tip effortlessly by entering the bill amount. The application provi
 
 [Tip Calculator](https://itunes.apple.com/us/app/my-new-news/id1210234219?mt=8).
 
-### Media
+#### Media
 - [LinkedIn](https://www.linkedin.com/in/israel-manzo/) 
 - [Twitter](https://twitter.com/israman30)
 
