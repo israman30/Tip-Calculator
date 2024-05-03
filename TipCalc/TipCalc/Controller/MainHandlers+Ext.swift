@@ -15,7 +15,13 @@ extension MainController {
     }
     
     @objc func handleResetFields() {
-        calculationsViewModel.reset(valueInput: valueInput, tipValue: tipValue, totalValue: totalValue, totalByPerson: splitTotal, peopleQuantity: splitPeopleQuantity)
+        calculationsViewModel.reset(
+            valueInput: valueInput,
+            tipValue: tipValue,
+            totalValue: totalValue,
+            totalByPerson: splitTotal,
+            peopleQuantity: splitPeopleQuantity
+        )
     }
     
     @objc func changeStepperQuantity() {

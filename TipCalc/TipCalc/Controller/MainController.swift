@@ -153,10 +153,8 @@ class MainController: UIViewController {
 // MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
 import SwiftUI
 
-struct Preview_MainController: PreviewProvider {
-    static var previews: some View {
-        UIViewControllerPreview {
-            MainController()
-        }
+#Preview {
+    UIViewControllerPreview {
+        MainController()
     }
 }
