@@ -1,0 +1,53 @@
+{
+    "sensoryMixer.trustedDevices": "iPhone|EF3B7B03-8D29-4AED-B868-A64A883FEC6D\niPhone 15 Pro|D8C42A55-79EA-449C-B67E-227BA64E9FE9",
+    "accessibility.signals.debouncePositionChanges": true,
+    "accessibility.signals.diffLineDeleted": {
+        "sound": "auto"
+    },
+    "accessibility.signals.diffLineInserted": {
+        "sound": "auto"
+    },
+    "accessibility.signals.diffLineModified": {
+        "sound": "auto"
+    },
+    "accessibility.signals.lineHasBreakpoint": {
+        "sound": "auto"
+    },
+    "accessibility.signals.lineHasError": {
+        "sound": "auto"
+    },
+    "accessibility.signals.lineHasFoldedArea": {
+        "sound": "auto"
+    },
+    "accessibility.signals.lineHasInlineSuggestion": {
+        "sound": "auto"
+    },
+    "accessibility.signals.lineHasWarning": {
+        "sound": "auto"
+    },
+    "accessibility.signals.noInlayHints": {
+        "sound": "auto"
+    },
+    "accessibility.signals.notebookCellCompleted": {
+        "sound": "auto"
+    },
+    "accessibility.signals.notebookCellFailed": {
+        "sound": "auto"
+    },
+    "accessibility.signals.onDebugBreak": {
+        "sound": "auto"
+    },
+    "accessibility.signals.taskCompleted": {
+        "sound": "auto"
+    },
+    "accessibility.signals.taskFailed": {
+        "sound": "auto"
+    },
+    "accessibility.signals.terminalCommandFailed": {
+        "sound": "auto"
+    },
+    "accessibility.signals.terminalQuickFix": {
+        "sound": "auto"
+    },
+    "accessibility.signals.sounds.volume": 70
+}

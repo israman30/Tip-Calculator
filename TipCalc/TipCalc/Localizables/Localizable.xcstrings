@@ -1,0 +1,142 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Calculate_tip" : {
+      "comment" : "Calculate tip",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calculate tip"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calcula el tip"
+          }
+        }
+      }
+    },
+    "Clear_values" : {
+      "comment" : "CLEAR VALUES",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CLEAR VALUES"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BORRAR VALORES"
+          }
+        }
+      }
+    },
+    "Enter_value" : {
+      "comment" : "Enter value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter value"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entre un valor"
+          }
+        }
+      }
+    },
+    "initial_bill" : {
+      "comment" : "initial bill",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "initial bill"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cuenta inicial"
+          }
+        }
+      }
+    },
+    "Input_bill_value" : {
+      "comment" : "Input the bill value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Input bill value"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entre el valor de la cuenta"
+          }
+        }
+      }
+    },
+    "No_value_to_be_saved" : {
+      "comment" : "No value to be saved!",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No value to be saved!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ningun valor para salvar!"
+          }
+        }
+      }
+    },
+    "Tip_value" : {
+      "comment" : "Tip value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tip value"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valor del tip"
+          }
+        }
+      }
+    },
+    "Total_value_tip" : {
+      "comment" : "Total value, tip plus initial value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total value, tip plus initial value"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valor total del tip, mas valor inicial"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
