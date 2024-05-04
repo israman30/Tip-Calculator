@@ -62,10 +62,10 @@ final class TipCalcTests: XCTestCase {
         
         // Then
         XCTAssertEqual(valueInput.text, "", "Value input should be cleared")
-        XCTAssertEqual(tipValue.text, "0.0", "Tip value should be reset to 0.0")
-        XCTAssertEqual(totalValue.text, "0.0", "Total value should be reset to 0.0")
-        XCTAssertEqual(totalByPerson.text, "0.0", "Total per person value should be reset to 0.0")
-        XCTAssertEqual(peopleQuantity.text, "1", "People quantity should be reset to 1")
+        XCTAssertEqual(tipValue.text, "$0.0", "Tip value should be reset to 0.0")
+        XCTAssertEqual(totalValue.text, "$0.0", "Total value should be reset to 0.0")
+        XCTAssertEqual(totalByPerson.text, "$0.0", "Total per person value should be reset to 0.0")
+        XCTAssertEqual(peopleQuantity.text, "1x", "People quantity should be reset to 1")
     }
 
     func testExample() throws {
