@@ -39,6 +39,34 @@ final class TipCalcTests: XCTestCase {
         XCTAssertEqual(tipValue.text, "$10.00", "Tip value should be calculated correctly")
         XCTAssertEqual(totalValue.text, "$110.00", "Total value should be calculated correctly")
     }
+    
+    func test_Reset_Values_WithNoError() {
+        // Given
+        let valueInput = UITextField()
+        valueInput.text = "100"
+        
+        let tipValue = UILabel()
+        tipValue.text = "10.0"
+        
+        let totalValue = UILabel()
+        totalValue.text = "110.0"
+        
+        let totalByPerson = UILabel()
+        totalByPerson.text = "27.5"
+        
+        let peopleQuantity = UILabel()
+        peopleQuantity.text = "4"
+        
+        // When
+        calculationsSUT.reset(valueInput: valueInput, tipValue: tipValue, totalValue: totalValue, totalByPerson: totalByPerson, peopleQuantity: peopleQuantity)
+        
+        // Then
+        XCTAssertEqual(valueInput.text, "", "Value input should be cleared")
+        XCTAssertEqual(tipValue.text, "0.0", "Tip value should be reset to 0.0")
+        XCTAssertEqual(totalValue.text, "0.0", "Total value should be reset to 0.0")
+        XCTAssertEqual(totalByPerson.text, "0.0", "Total per person value should be reset to 0.0")
+        XCTAssertEqual(peopleQuantity.text, "1", "People quantity should be reset to 1")
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
