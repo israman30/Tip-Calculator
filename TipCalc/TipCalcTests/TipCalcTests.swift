@@ -20,6 +20,25 @@ final class TipCalcTests: XCTestCase {
     override func tearDownWithError() throws {
         calculationsSUT = nil
     }
+    
+    func test_CalculateTip_Method() {
+        // Given
+        let valueInput = UITextField()
+        valueInput.text = "100"
+        
+        let segment = UISegmentedControl(items: ["10%", "15%", "20%"])
+        segment.selectedSegmentIndex = 0
+        
+        let tipValue = UILabel()
+        let totalValue = UILabel()
+        
+        // When
+        calculationsSUT.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
+        
+        // Then
+        XCTAssertEqual(tipValue.text, "$10.00", "Tip value should be calculated correctly")
+        XCTAssertEqual(totalValue.text, "$110.00", "Total value should be calculated correctly")
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
