@@ -11,14 +11,17 @@ import XCTest
 
 final class TipCalcTests: XCTestCase {
     
-    var calculationsSUT: CalculationsViewModel!
+    var calculationsProtocolSUT: CalculationsViewModel!
+    var calculationVMSUT: CalculationsViewModel!
 
     override func setUpWithError() throws {
-        calculationsSUT = CalculationsViewModel()
+        calculationsProtocolSUT = CalculationsViewModel()
+        calculationVMSUT = CalculationsViewModel()
     }
 
     override func tearDownWithError() throws {
-        calculationsSUT = nil
+        calculationsProtocolSUT = nil
+        calculationVMSUT = nil
     }
     
     func test_CalculateTip_Method() {
@@ -33,7 +36,7 @@ final class TipCalcTests: XCTestCase {
         let totalValue = UILabel()
         
         // When
-        calculationsSUT.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
+        calculationsProtocolSUT.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
         
         // Then
         XCTAssertEqual(tipValue.text, "$10.00", "Tip value should be calculated correctly")
@@ -58,7 +61,7 @@ final class TipCalcTests: XCTestCase {
         peopleQuantity.text = "4"
         
         // When
-        calculationsSUT.reset(valueInput: valueInput, tipValue: tipValue, totalValue: totalValue, totalByPerson: totalByPerson, peopleQuantity: peopleQuantity)
+        calculationsProtocolSUT.reset(valueInput: valueInput, tipValue: tipValue, totalValue: totalValue, totalByPerson: totalByPerson, peopleQuantity: peopleQuantity)
         
         // Then
         XCTAssertEqual(valueInput.text, "", "Value input should be cleared")
@@ -79,10 +82,20 @@ final class TipCalcTests: XCTestCase {
         totalByPersonLabel.text = "25.0"
         
         // When
-        calculationsSUT.splitBiil(people: peopleLabel, bill: billAmount, totalByPerson: totalByPersonLabel)
+        calculationsProtocolSUT.splitBiil(people: peopleLabel, bill: billAmount, totalByPerson: totalByPersonLabel)
         
         // Then
         XCTAssertEqual(totalByPersonLabel.text, "", "Total per person should remain the same if the number of people is unchanged")
+    }
+    
+    func test_MainBill_Initialization() {
+        // Given
+        let mainBill = calculationVMSUT.mainBill
+        
+        // Then
+        XCTAssertEqual(mainBill, 0.0, "Initial value of mainBill should be 0.0")
+        XCTAssertTrue(!mainBill.isNaN)
+        XCTAssertTrue(mainBill.isZero)
     }
 
     func testExample() throws {
