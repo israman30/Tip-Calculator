@@ -97,6 +97,25 @@ final class TipCalcTests: XCTestCase {
         XCTAssertTrue(!mainBill.isNaN)
         XCTAssertTrue(mainBill.isZero)
     }
+    
+    func test_Calculate_Tip() {
+        // Given
+        let valueInput = UITextField()
+        valueInput.text = "100"
+        
+        let segment = UISegmentedControl(items: ["10%", "15%", "20%", "25%"])
+        segment.selectedSegmentIndex = 0
+        
+        let tipValue = UILabel()
+        let totalValue = UILabel()
+        
+        // When
+        calculationVMSUT.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
+        
+        // Then
+        XCTAssertEqual(tipValue.text, "$10.00", "Tip value should be calculated correctly")
+        XCTAssertEqual(totalValue.text, "$110.00", "Total value should be calculated correctly")
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
