@@ -136,6 +136,20 @@ final class TipCalcTests: XCTestCase {
         XCTAssertEqual(totalByPerson.text, "$0.0", "Total per person value should be reset to $0.0")
         XCTAssertEqual(calculationVMSUT.mainBill, 0, "Main bill should be reset to 0")
     }
+    
+    func test_SplitBill_VMMethod() {
+        // Given
+        let peopleLabel = UILabel()
+        let bill: Double = 100.0
+        let totalByPersonLabel = UILabel()
+        
+        // When
+        calculationVMSUT.splitBiil(people: peopleLabel, bill: bill, totalByPerson: totalByPersonLabel)
+        
+        // Then
+        XCTAssertEqual(peopleLabel.text, "100x", "People label should be set to '100x'")
+        XCTAssertEqual(totalByPersonLabel.text, "$1.00", "Total per person value should be calculated correctly")
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
