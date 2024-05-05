@@ -14,6 +14,7 @@
 		4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */; };
 		4D55C9A12BE6EDDE00E7C5EF /* TipCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55C9A02BE6EDDE00E7C5EF /* TipCalcTests.swift */; };
 		4D55C9A82BE70A3200E7C5EF /* CurrencyStringExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55C9A72BE70A3200E7C5EF /* CurrencyStringExtensionTest.swift */; };
+		4D55C9AA2BE70BAC00E7C5EF /* SaveViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55C9A92BE70BAC00E7C5EF /* SaveViewModelTests.swift */; };
 		4D60E3F729871C4E00C8C95F /* AccessibilityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60E3F629871C4E00C8C95F /* AccessibilityUtils.swift */; };
 		4DC50CD0230858B3005AC185 /* TimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC50CCF230858B3005AC185 /* TimeString.swift */; };
 		4DCA1F292A03520300107312 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA1F282A03520300107312 /* SplitViewController.swift */; };
@@ -53,6 +54,7 @@
 		4D55C99E2BE6EDDE00E7C5EF /* TipCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D55C9A02BE6EDDE00E7C5EF /* TipCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalcTests.swift; sourceTree = "<group>"; };
 		4D55C9A72BE70A3200E7C5EF /* CurrencyStringExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyStringExtensionTest.swift; sourceTree = "<group>"; };
+		4D55C9A92BE70BAC00E7C5EF /* SaveViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewModelTests.swift; sourceTree = "<group>"; };
 		4D60E3F629871C4E00C8C95F /* AccessibilityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityUtils.swift; sourceTree = "<group>"; };
 		4DC50CCF230858B3005AC185 /* TimeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeString.swift; sourceTree = "<group>"; };
 		4DCA1F282A03520300107312 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				4D55C9A02BE6EDDE00E7C5EF /* TipCalcTests.swift */,
 				4D55C9A72BE70A3200E7C5EF /* CurrencyStringExtensionTest.swift */,
+				4D55C9A92BE70BAC00E7C5EF /* SaveViewModelTests.swift */,
 			);
 			path = TipCalcTests;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D55C9A12BE6EDDE00E7C5EF /* TipCalcTests.swift in Sources */,
+				4D55C9AA2BE70BAC00E7C5EF /* SaveViewModelTests.swift in Sources */,
 				4D55C9A82BE70A3200E7C5EF /* CurrencyStringExtensionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
