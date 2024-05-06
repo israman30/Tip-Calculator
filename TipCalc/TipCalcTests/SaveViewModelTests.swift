@@ -46,6 +46,21 @@ final class SaveViewModelTests: XCTestCase {
         let savedTotalValue = viewController.view.subviews.first { $0 === totalValue } as? UILabel
         XCTAssertEqual(savedTotalValue?.text, nil, "Saved total value should have the same text as the original")
     }
+    
+    func test_Bills_Initialization() {
+        XCTAssertTrue(saveVMSUT.bills.isEmpty, "Bills array should be empty initially")
+    }
+    
+    func test_AddBill() {
+        // Given
+        let bill = Bill()
+        
+        // When
+        saveVMSUT.bills.append(bill)
+        
+        // Then
+        XCTAssertEqual(saveVMSUT.bills.count, 1, "Adding a bill should increase the count of bills array")
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
