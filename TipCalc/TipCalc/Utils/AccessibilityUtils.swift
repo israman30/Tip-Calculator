@@ -85,7 +85,7 @@ extension UIView {
 }
 
 extension UILabel {
-    func setSizeFont (sizeFont: Double) {
+    func setSizeFont(sizeFont: Double) {
         guard let sizeFont = UIFont(name: "ArialRoundedMTBold", size: sizeFont) else { return }
         adjustsFontForContentSizeCategory = true
         font = sizeFont

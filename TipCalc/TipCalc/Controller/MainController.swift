@@ -13,6 +13,26 @@ import CoreData
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
  - USING SWIFTUI API TO PREVIEW APP VIEW
  */
+//["10%", "15%", "20%", "25%"]
+enum Percentages: Int, CaseIterable {
+    case ten_percent = 0
+    case fifteen_percent = 1
+    case twienty_percent = 2
+    case twientyfive_percent = 3
+    
+    var description: String {
+        switch self {
+        case .ten_percent:
+            return "10%"
+        case .fifteen_percent:
+            return "15%"
+        case .twienty_percent:
+            return "20%"
+        case .twientyfive_percent:
+            return "25%"
+        }
+    }
+}
 
 class MainController: UIViewController {
     
@@ -28,8 +48,8 @@ class MainController: UIViewController {
     // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
     let valueInput: UITextField = {
         let tf = UITextField()
-        tf.placeholder = NSLocalizedString("Enter_value", comment: "Enter value") 
-        tf.accessibilityHint = NSLocalizedString("Input_bill_value", comment: "Input the bill value") 
+        tf.placeholder = LocalizedString.textField_placeholder
+        tf.accessibilityHint = LocalizedString.textField_hint
         tf.setDynamicFont(font: .preferredFont(forTextStyle: .title1))
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
@@ -43,8 +63,8 @@ class MainController: UIViewController {
     
     let tipValue: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
-        label.accessibilityHint = NSLocalizedString("Tip_value", comment: "Tip value")
+        label.text = Constant.zero
+        label.accessibilityHint = LocalizedString.tip_value_hint
         label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
         return label
@@ -52,8 +72,8 @@ class MainController: UIViewController {
     
     let totalValue: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
-        label.accessibilityHint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
+        label.text = Constant.zero
+        label.accessibilityHint = LocalizedString.total_value_hint
         label.setSizeFont(sizeFont: 70)
         label.textAlignment = .right
         return label
@@ -67,7 +87,7 @@ class MainController: UIViewController {
     
     let splitTotal: UILabel = {
         let label = UILabel()
-        label.text = "$0.0"
+        label.text = Constant.zero
         label.setSizeFont(sizeFont: 25)
         return label
     }()
@@ -83,7 +103,7 @@ class MainController: UIViewController {
     
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["10%","15%", "20%", "25%"])
+        let sc = UISegmentedControl(items: Percentages.allCases.map { $0.description.capitalized })
         let font = UIFont.preferredFont(forTextStyle: .title2)
         sc.setTitleTextAttributes([
             NSAttributedString.Key.font : font,
@@ -92,6 +112,15 @@ class MainController: UIViewController {
         sc.selectedSegmentIndex = 0
         sc.tintColor = .darkGray
         return sc
+    }()
+    
+    let clearValuesButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle(LocalizedString.clear_value_button_title, for: .normal)
+        btn.setTitleColor(.red, for: .normal)
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
+        btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        return btn
     }()
     
     let calculationsViewModel = CalculationsViewModel()
@@ -103,6 +132,8 @@ class MainController: UIViewController {
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
+        clearValuesButton.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
+        
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
         setNavbar()
         setMainView()
@@ -122,23 +153,8 @@ class MainController: UIViewController {
 // MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
 import SwiftUI
 
-// MARK: - SWIFT UI PREVIEW CLASS HELPER WITH CONTAINER VIEW
-@available(iOS 13.0.0, *)
-class PreviewTipCal: PreviewProvider {
-    
-    @available(iOS 13.0.0, *)
-    static var previews: some View {
-        ContainerView()
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        // MARK: - MAKE UI VIEW CONTROLLER OVERRITED METHOD TO RETURN HOME VIEW CONTROLLER
-        func makeUIViewController(context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) -> UIViewController {
-            return UINavigationController(rootViewController: MainController())
-        }
-        
-        func updateUIViewController(_ uiViewController: PreviewTipCal.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<PreviewTipCal.ContainerView>) {
-            // Nothing
-        }
+#Preview {
+    UIViewControllerPreview {
+        MainController()
     }
 }

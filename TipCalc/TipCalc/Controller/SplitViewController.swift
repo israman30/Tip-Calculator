@@ -14,27 +14,27 @@ class SplitViewController: UIViewController {
     private let totalLabel: UITextField = {
         let label = UITextField()
         label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .title1))
-        label.text = "$0.0"
+        label.text = Constant.zero
         return label
     }()
     
     private let billLabel: UITextField = {
         let label = UITextField()
-        label.text = "$0.0"
+        label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         return label
     }()
     
     private let tipLabel: UITextField = {
         let label = UITextField()
-        label.text = "$0.0"
+        label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         return label
     }()
     
     private let dateLabel: UITextField = {
         let label = UITextField()
-        label.text = "00/00/2019"
+        label.text = Constant.defaultDate
         label.setDynamicFont(font: .preferredFont(forTextStyle: .caption2))
         label.textColor = .lightGray
         return label
@@ -51,7 +51,14 @@ class SplitViewController: UIViewController {
         view.addSubview(stackView)
         stackView.backgroundColor = .red
         stackView.axis = .vertical
-        stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 10, left: 10, bottom: 0, right: 10), size: .init(width: 0, height: 120))
+        stackView.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            left: view.leftAnchor,
+            bottom: nil,
+            right: view.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 120)
+        )
     }
     
 }

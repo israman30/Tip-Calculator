@@ -17,13 +17,13 @@ extension MainController {
     
     // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
-        navigationItem.title = NSLocalizedString("Calculate_tip", comment: "Calculate tip")
+        navigationItem.title = LocalizedString.calculate_bill
         
-        let pin = UIImageView(image: UIImage(systemName: "pin.circle"))
+        let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
         pin.tintColor = .black
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         pinView.isAccessibilityElement = true
-        pinView.accessibilityHint = "Pin Icon"
+        pinView.accessibilityHint = Constant.pin_icon
         pinView.accessibilityTraits.insert(.button)
         
         pinView.addSubViews(pin)
@@ -67,19 +67,19 @@ extension MainController {
     private func outputValues() {
         
         let tipLabel = UILabel()
-        tipLabel.text = "Tip"
+        tipLabel.text = Constant.tip
         tipLabel.textAlignment = .right
         tipLabel.textColor = .lightGray
         tipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let totalLabel = UILabel()
-        totalLabel.text = "Total"
+        totalLabel.text = Constant.total
         totalLabel.textAlignment = .right
         totalLabel.textColor = .lightGray
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let splitLabel = UILabel()
-        splitLabel.text = "Split bill"
+        splitLabel.text = Constant.split_bill
         splitLabel.textAlignment = .left
         splitLabel.textColor = .lightGray
         splitLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
@@ -112,20 +112,11 @@ extension MainController {
     
     // MARK: - set the dynamic components
     private func resetButton() {
+        view.addSubViews(clearValuesButton, tableView)
         
-        let btn = UIButton(type: .system)
-        btn.setTitle(NSLocalizedString("Clear_values", comment: "CLEAR VALUES"), for: .normal)
-        btn.setTitleColor(.red, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
-        btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        clearValuesButton.anchor(top: segment.bottomAnchor, left: segment.leftAnchor, bottom: nil, right: segment.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
         
-        btn.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
-        
-        view.addSubViews(btn, tableView)
-        
-        btn.anchor(top: segment.bottomAnchor, left: segment.leftAnchor, bottom: nil, right: segment.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
-        
-        tableView.anchor(top: btn.bottomAnchor, left: btn.leftAnchor, bottom: view.bottomAnchor, right: btn.rightAnchor, padding: .init(top: 10, left: 0, bottom: 10, right: 0))
+        tableView.anchor(top: clearValuesButton.bottomAnchor, left: clearValuesButton.leftAnchor, bottom: view.bottomAnchor, right: clearValuesButton.rightAnchor, padding: .init(top: 10, left: 0, bottom: 10, right: 0))
     }
     
     

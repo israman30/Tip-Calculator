@@ -14,7 +14,7 @@ protocol ViewModelBillCalculationsProtocol {
     func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel)
 }
 
-class CalculationsViewModel: ViewModelBillCalculationsProtocol {
+final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     var mainBill: Double = 0.0
     // MARK: - This function calculate the entry with the percentage picked by the user, by defult the percentage is 18%
     // Percentage is picked by the segmented controller selected index then is added to the entry
@@ -35,8 +35,8 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
             tipValue.text = String(format: "$%.2f", tip).currencyInputFormatting()
             totalValue.text = String(format: "$%.2f", total).currencyInputFormatting()
         } else {
-            tipValue.text = "$0.0"
-            totalValue.text = "$0.0"
+            tipValue.text = Constant.zero
+            totalValue.text = Constant.zero
         }
         
     }
@@ -44,10 +44,10 @@ class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     // MARK: - Reset the fields when user needs to reset it or/and after entry is saved into db
     func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, totalByPerson: UILabel, peopleQuantity: UILabel) {
         valueInput.text = ""
-        tipValue.text = "$0.0"
-        totalValue.text = "$0.0"
+        tipValue.text = Constant.zero
+        totalValue.text = Constant.zero
         peopleQuantity.text = "1x"
-        totalByPerson.text = "$0.0"
+        totalByPerson.text = Constant.zero
         mainBill = 0
     }
     
@@ -71,7 +71,12 @@ extension String {
         var amountWithPrefix = self
         
         let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
-        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count), withTemplate: "")
+        amountWithPrefix = regex.stringByReplacingMatches(
+            in: amountWithPrefix,
+            options: NSRegularExpression.MatchingOptions(rawValue: 0),
+            range: NSMakeRange(0, self.count),
+            withTemplate: ""
+        )
         
         let double = (amountWithPrefix as NSString).doubleValue
         number = NSNumber(value: (double / 100))
