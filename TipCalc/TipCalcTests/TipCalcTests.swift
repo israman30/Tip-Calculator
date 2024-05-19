@@ -147,7 +147,7 @@ final class TipCalcTests: XCTestCase {
         formatter.minimumFractionDigits = 2
         
         for testCase in testCases {
-            let result = testCase.input.currencyInputFormatting()
+            _ = testCase.input.currencyInputFormatting()
             let expectedResult = formatter.string(from: NSNumber(value: (Double(testCase.input) ?? 0) / 100)) ?? ""
             
             // Then
