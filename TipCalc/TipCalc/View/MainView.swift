@@ -20,7 +20,6 @@ extension MainController {
         navigationItem.title = LocalizedString.calculate_bill
         
         let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
-        pin.tintColor = .black
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         pinView.isAccessibilityElement = true
         pinView.accessibilityHint = Constant.pin_icon
@@ -37,8 +36,7 @@ extension MainController {
     
     // MARK: - Set the MainView components
     func setMainView() {
-        view.backgroundColor = .white
-        bottomView.backgroundColor = .lightGray
+//        bottomView.backgroundColor = .lightGray
         
         view.addSubViews(valueInput, bottomView)
         
@@ -101,6 +99,7 @@ extension MainController {
         stackView.axis = .vertical
         stackView.spacing = 0
         
+//        valueInput.textColor = .label
         view.addSubViews(stackView, segment)
 
         stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 280))
