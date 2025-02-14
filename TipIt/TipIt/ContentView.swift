@@ -26,7 +26,8 @@ struct ContentView: View {
                 .multilineTextAlignment(.trailing)
                 .font(.title)
                 
-                VStack {}.frame(width: UIScreen.main.bounds.size.width - 100, height: 5).background(Color.secondary)
+                Divider()
+                    .background(Color.secondary)
                 
                 VStack {
                     VStack(alignment: .trailing) {
@@ -38,7 +39,7 @@ struct ContentView: View {
                         HStack {
                             Spacer()
                             Text(input.isEmpty ? "$0.0" : input)
-                                .font(.system(size: 45, weight: .bold, design: .rounded))
+                                .font(.largeTitle)
                         }
                     }
                     VStack(alignment: .trailing) {
