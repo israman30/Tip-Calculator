@@ -20,7 +20,7 @@ struct ContentView: View {
             VStack {
                 HStack {
                     TextField("Enter value..", text: $input)
-                    Image(systemName: "dollarsign.circle.fill")
+                    Image(systemName: "dollarsign.circle")
                         .foregroundColor(.secondary)
                 }
                 .multilineTextAlignment(.trailing)
