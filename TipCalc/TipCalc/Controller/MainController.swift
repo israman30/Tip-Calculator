@@ -112,14 +112,15 @@ class MainController: UIViewController {
     
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
-        let sc = UISegmentedControl(items: Percentages.allCases.map { $0.description.capitalized })
+        let sc = UISegmentedControl(
+            items: Percentages.allCases.map { $0.description.capitalized }
+        )
         let font = UIFont.preferredFont(forTextStyle: .title2)
         sc.setTitleTextAttributes([
             NSAttributedString.Key.font : font,
-            NSAttributedString.Key.foregroundColor: UIColor.customLabelColor
-            ], for: .selected)
+            NSAttributedString.Key.foregroundColor: UIColor.customControlLabelColor
+        ], for: .selected)
         sc.selectedSegmentIndex = 0
-//        sc.tintColor = .darkGray
         return sc
     }()
     
@@ -177,6 +178,7 @@ extension UIColor {
     }
     
     static let customTableViewColor: UIColor = .dynamicColor(light: .black, dark: .white)
+    static let customControlLabelColor: UIColor = .dynamicColor(light: .black, dark: .white)
     static let customLabelColor: UIColor = .dynamicColor(light: .white, dark: .black)
     static let customPlaceholderLabelColor: UIColor = .dynamicColor(light: .systemGray4, dark: .black)
 }
