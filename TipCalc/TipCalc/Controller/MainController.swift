@@ -48,13 +48,18 @@ class MainController: UIViewController {
     // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
     let valueInput: UITextField = {
         let tf = UITextField()
-        tf.placeholder = LocalizedString.textField_placeholder
+        tf.attributedPlaceholder = NSAttributedString(
+            string: LocalizedString.textField_placeholder,
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.customPlaceholderLabelColor
+            ]
+        )
         tf.accessibilityHint = LocalizedString.textField_hint
         tf.setDynamicFont(font: .preferredFont(forTextStyle: .title1))
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
         tf.keyboardType = .decimalPad
-        tf.textColor = .label
+        tf.textColor = .customLabelColor
         return tf
     }()
     
@@ -66,6 +71,7 @@ class MainController: UIViewController {
         label.text = Constant.zero
         label.accessibilityHint = LocalizedString.tip_value_hint
         label.setSizeFont(sizeFont: 70)
+        label.textColor = .customLabelColor
         label.textAlignment = .right
         return label
     }()
@@ -75,6 +81,7 @@ class MainController: UIViewController {
         label.text = Constant.zero
         label.accessibilityHint = LocalizedString.total_value_hint
         label.setSizeFont(sizeFont: 70)
+        label.textColor = .customLabelColor
         label.textAlignment = .right
         return label
     }()
@@ -82,6 +89,7 @@ class MainController: UIViewController {
     let splitPeopleQuantity: UILabel = {
         let label = UILabel()
         label.setSizeFont(sizeFont: 25)
+        label.textColor = .customLabelColor
         return label
     }()
     
@@ -89,6 +97,7 @@ class MainController: UIViewController {
         let label = UILabel()
         label.text = Constant.zero
         label.setSizeFont(sizeFont: 25)
+        label.textColor = .customLabelColor
         return label
     }()
     
@@ -103,14 +112,15 @@ class MainController: UIViewController {
     
     // MARK: - Segmented Controller with value changed event for tip percentage
     let segment: UISegmentedControl = {
-        let sc = UISegmentedControl(items: Percentages.allCases.map { $0.description.capitalized })
+        let sc = UISegmentedControl(
+            items: Percentages.allCases.map { $0.description.capitalized }
+        )
         let font = UIFont.preferredFont(forTextStyle: .title2)
         sc.setTitleTextAttributes([
             NSAttributedString.Key.font : font,
-            NSAttributedString.Key.foregroundColor: UIColor.darkText
-            ], for: .selected)
+            NSAttributedString.Key.foregroundColor: UIColor.customControlLabelColor
+        ], for: .selected)
         sc.selectedSegmentIndex = 0
-        sc.tintColor = .darkGray
         return sc
     }()
     
@@ -133,8 +143,10 @@ class MainController: UIViewController {
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
         clearValuesButton.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
+        tableView.backgroundColor = .customTableViewColor
         
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
+        splitStepper.tintColor = .customTableViewColor
         setNavbar()
         setMainView()
         tableViewHandlers()
@@ -157,4 +169,16 @@ import SwiftUI
     UIViewControllerPreview {
         MainController()
     }
+}
+
+extension UIColor {
+    static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
+        guard #available(iOS 13.0, *) else { return light }
+        return UIColor { $0.userInterfaceStyle == .dark ? dark : light }
+    }
+    
+    static let customTableViewColor: UIColor = .dynamicColor(light: .black, dark: .white)
+    static let customControlLabelColor: UIColor = .dynamicColor(light: .black, dark: .white)
+    static let customLabelColor: UIColor = .dynamicColor(light: .white, dark: .black)
+    static let customPlaceholderLabelColor: UIColor = .dynamicColor(light: .systemGray4, dark: .black)
 }

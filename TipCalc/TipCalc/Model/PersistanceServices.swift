@@ -9,6 +9,20 @@
 import UIKit
 import CoreData
 
+enum PersistenceError: Error {
+    case saveError(NSError, userInfo: [String:Any])
+    case loadPersistentStoreError(NSError, userInfo: [String:Any])
+    
+    var localizedDescription: String {
+        switch self {
+        case .saveError(let error, let userInfo):
+            return "Failed to save context: \(error.localizedDescription) and info: \(userInfo)"
+        case .loadPersistentStoreError(let error, let userInfo):
+            return "Failed to load persistent store: \(error.localizedDescription) and info: \(userInfo))"
+        }
+    }
+}
+
 class PersistanceServices {
     
     static var context: NSManagedObjectContext {
@@ -18,8 +32,8 @@ class PersistanceServices {
     static var persitantContrainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TipCalc")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error {
-                fatalError("Unceratain Error \(error)")
+            if let error = error as? NSError {
+                print(PersistenceError.saveError(error, userInfo: error.userInfo))
             }
             print(storeDescription)
         })
@@ -31,8 +45,8 @@ class PersistanceServices {
         if context.hasChanges {
             do {
                 try context.save()
-            } catch let error {
-                fatalError("Error loading a container \(error)")
+            } catch let error as NSError  {
+                print(PersistenceError.saveError(error, userInfo: error.userInfo))
             }
         }
     }

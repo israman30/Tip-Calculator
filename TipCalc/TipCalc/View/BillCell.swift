@@ -14,6 +14,7 @@ class BillCell: UITableViewCell {
         let label = UILabel()
         label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .title1))
         label.text = Constant.zero
+        label.textColor = .customLabelColor
         return label
     }()
     
@@ -21,6 +22,7 @@ class BillCell: UITableViewCell {
         let label = UILabel()
         label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
+        label.textColor = .customLabelColor
         return label
     }()
     
@@ -28,6 +30,7 @@ class BillCell: UITableViewCell {
         let label = UILabel()
         label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
+        label.textColor = .customLabelColor
         return label
     }()
     
@@ -49,7 +52,7 @@ class BillCell: UITableViewCell {
         label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
         label.textAlignment = .center
-        label.textColor = .label
+        label.textColor = .customLabelColor
         label.backgroundColor = .black.withAlphaComponent(0.05)
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
@@ -76,7 +79,7 @@ class BillCell: UITableViewCell {
     }
     
     private func setLabels() {
-        
+        backgroundColor = .customTableViewColor
         lineView.frame = .init(x: 0, y: 0, width: 5, height: frame.height)
         
         let bodyStackView = UIStackView(arrangedSubviews: [billLabel, tipLabel, dateLabel])
