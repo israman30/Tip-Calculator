@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var input = ""
     @State var tipValue = ""
     @State var totalValue = ""
-    @State var selectedPercentage = 0
+    @State var selectedPercentage = 0.15
     var percentages = [0.15, 0.20, 0.25]
     
     var body: some View {
@@ -23,7 +23,7 @@ struct ContentView: View {
                         .keyboardType(.decimalPad)
                         .onChange(of: input) { _ , newValue in
                             if let amount = Double(newValue) {
-                                let tipAmount = amount * percentages[selectedPercentage]
+                                let tipAmount = amount * percentages[Int(selectedPercentage)]
                                 print(tipAmount)
                                 let totalAmount = amount + tipAmount
                                 self.tipValue = String(format: "%.2f", tipAmount)
@@ -67,7 +67,7 @@ struct ContentView: View {
                 }
                 Picker("Pick value", selection: $selectedPercentage) {
                     ForEach(percentages, id:\.self) {
-                        Text("\($0)")
+                        Text("\(Int($0 * 100))%")
                     }
                 }
                 .pickerStyle(.segmented)
@@ -80,8 +80,8 @@ struct ContentView: View {
     }
     
     func calculateTip() {
-        let tipPercentage = [0.15, 0.20, 0.25]
-        let bill = Double(input)
+//        let tipPercentage = [0.15, 0.20, 0.25]
+//        let bill = Double(input)
 //        guard let index = Int(selectedPercentage) else { return }
 //        
 //        if let bill = bill {
