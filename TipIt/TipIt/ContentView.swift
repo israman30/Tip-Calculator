@@ -20,6 +20,7 @@ struct ContentView: View {
             VStack {
                 HStack {
                     TextField("Enter value..", text: $input)
+                        .keyboardType(.decimalPad)
                         .onChange(of: input) { _ , newValue in
                             if let amount = Double(newValue) {
                                 let tipAmount = amount * 0.15
