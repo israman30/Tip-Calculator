@@ -23,6 +23,7 @@ struct ContentView: View {
                         .onChange(of: input) { _ , newValue in
                             if let amount = Double(newValue) {
                                 let tipAmount = amount * 0.15
+                                print(tipAmount)
                                 let totalAmount = amount + tipAmount
                                 self.tipValue = String(format: "%.2f", tipAmount)
                                 self.totalValue = String(format: "%.2f", totalAmount)
@@ -46,8 +47,8 @@ struct ContentView: View {
                         }
                         HStack {
                             Spacer()
-                            Text(input.isEmpty ? "$0.0" : input)
-                                .font(.largeTitle)
+                            Text(input.isEmpty ? "$0.0" : tipValue)
+                                .font(.system(size: 45, weight: .bold, design: .rounded))
                         }
                     }
                     VStack(alignment: .trailing) {
@@ -58,7 +59,7 @@ struct ContentView: View {
                         }
                         HStack {
                             Spacer()
-                            Text("$0.0")
+                            Text(input.isEmpty ? "$0.0" : totalValue)
                                 .font(.system(size: 45, weight: .bold, design: .rounded))
                         }
                     }
