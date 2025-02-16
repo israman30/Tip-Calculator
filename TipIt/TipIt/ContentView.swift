@@ -20,6 +20,14 @@ struct ContentView: View {
             VStack {
                 HStack {
                     TextField("Enter value..", text: $input)
+                        .onChange(of: input) { _ , newValue in
+                            if let amount = Double(newValue) {
+                                let tipAmount = amount * 0.15
+                                let totalAmount = amount + tipAmount
+                                self.tipValue = String(format: "%.2f", tipAmount)
+                                self.totalValue = String(format: "%.2f", totalAmount)
+                            }
+                        }
                     Image(systemName: "dollarsign.circle")
                         .foregroundColor(.secondary)
                 }
