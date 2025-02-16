@@ -12,8 +12,8 @@ struct ContentView: View {
     @State var input = ""
     @State var tipValue = ""
     @State var totalValue = ""
-    @State var selectedPercentage = "15%"
-    var percentages = ["15%", "20%", "25%"]
+    @State var selectedPercentage = 0
+    var percentages = [0.15, 0.20, 0.25]
     
     var body: some View {
         NavigationView {
@@ -23,7 +23,7 @@ struct ContentView: View {
                         .keyboardType(.decimalPad)
                         .onChange(of: input) { _ , newValue in
                             if let amount = Double(newValue) {
-                                let tipAmount = amount * 0.15
+                                let tipAmount = amount * percentages[selectedPercentage]
                                 print(tipAmount)
                                 let totalAmount = amount + tipAmount
                                 self.tipValue = String(format: "%.2f", tipAmount)
@@ -67,7 +67,7 @@ struct ContentView: View {
                 }
                 Picker("Pick value", selection: $selectedPercentage) {
                     ForEach(percentages, id:\.self) {
-                        Text($0)
+                        Text("\($0)")
                     }
                 }
                 .pickerStyle(.segmented)
@@ -82,17 +82,17 @@ struct ContentView: View {
     func calculateTip() {
         let tipPercentage = [0.15, 0.20, 0.25]
         let bill = Double(input)
-        guard let index = Int(selectedPercentage) else { return }
-        
-        if let bill = bill {
-            let tip = bill * tipPercentage[index]
-            let total = bill + tip
-            tipValue = String(format: "$%.2f", tip)
-            totalValue = String(format: "$%.2f", total)
-        } else {
-            tipValue = "$0.0"
-            totalValue = "$0.0"
-        }
+//        guard let index = Int(selectedPercentage) else { return }
+//        
+//        if let bill = bill {
+//            let tip = bill * tipPercentage[index]
+//            let total = bill + tip
+//            tipValue = String(format: "$%.2f", tip)
+//            totalValue = String(format: "$%.2f", total)
+//        } else {
+//            tipValue = "$0.0"
+//            totalValue = "$0.0"
+//        }
     }
 }
 
