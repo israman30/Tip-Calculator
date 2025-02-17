@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SplitViewController: UIViewController {
     
     private let totalLabel: UITextField = {
@@ -47,7 +46,11 @@ class SplitViewController: UIViewController {
     }
     
     func setDetailView() {
-        let stackView = UIStackView(arrangedSubviews: [totalLabel, billLabel, tipLabel, dateLabel])
+        let stackView = UIStackView(
+            arrangedSubviews: [
+                totalLabel, billLabel, tipLabel, dateLabel
+            ]
+        )
         view.addSubview(stackView)
         stackView.backgroundColor = .red
         stackView.axis = .vertical
