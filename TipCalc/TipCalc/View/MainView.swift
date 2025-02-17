@@ -102,9 +102,23 @@ extension MainController {
 //        valueInput.textColor = .label
         view.addSubViews(stackView, segment)
 
-        stackView.anchor(top: bottomView.bottomAnchor, left: bottomView.leftAnchor, bottom: nil, right: bottomView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 280))
+        stackView.anchor(
+            top: bottomView.bottomAnchor,
+            left: bottomView.leftAnchor,
+            bottom: nil,
+            right: bottomView.rightAnchor,
+            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
+            size: .init(width: 0, height: 280)
+        )
         
-        segment.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: stackView.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
+        segment.anchor(
+            top: stackView.bottomAnchor,
+            left: stackView.leftAnchor,
+            bottom: nil,
+            right: stackView.rightAnchor,
+            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
+            size: .init(width: 0, height: 35)
+        )
         
         resetButton()
     }
@@ -113,9 +127,22 @@ extension MainController {
     private func resetButton() {
         view.addSubViews(clearValuesButton, tableView)
         
-        clearValuesButton.anchor(top: segment.bottomAnchor, left: segment.leftAnchor, bottom: nil, right: segment.rightAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 35))
+        clearValuesButton.anchor(
+            top: segment.bottomAnchor,
+            left: segment.leftAnchor,
+            bottom: nil,
+            right: segment.rightAnchor,
+            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
+            size: .init(width: 0, height: 35)
+        )
         
-        tableView.anchor(top: clearValuesButton.bottomAnchor, left: clearValuesButton.leftAnchor, bottom: view.bottomAnchor, right: clearValuesButton.rightAnchor, padding: .init(top: 10, left: 0, bottom: 10, right: 0))
+        tableView.anchor(
+            top: clearValuesButton.bottomAnchor,
+            left: clearValuesButton.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: clearValuesButton.rightAnchor,
+            padding: .init(top: 10, left: 0, bottom: 10, right: 0)
+        )
     }
     
     

@@ -8,7 +8,17 @@
 
 import UIKit
 
-class BillCell: UITableViewCell {
+/// `BillCellProtocol` is responsible for configuring the appearance and content of table view cells within a `UITableView`.
+protocol BillCellProtocol {
+    func configure(bill: Bill?)
+}
+
+/// `SetUIProtocol` is responsible for defining and applying the user interface elements within a view.
+protocol SetUIProtocol {
+    func setUI()
+}
+
+class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     
     private let totalLabel: UILabel = {
         let label = UILabel()
@@ -78,21 +88,31 @@ class BillCell: UITableViewCell {
         }
     }
     
-    private func setLabels() {
+    func setUI() {
         backgroundColor = .customTableViewColor
         lineView.frame = .init(x: 0, y: 0, width: 5, height: frame.height)
         
-        let bodyStackView = UIStackView(arrangedSubviews: [billLabel, tipLabel, dateLabel])
+        let bodyStackView = UIStackView(
+            arrangedSubviews: [
+                billLabel, tipLabel, dateLabel
+            ]
+        )
         bodyStackView.axis = .vertical
         bodyStackView.distribution = .fillProportionally
         bodyStackView.spacing = 3
         
-        let totalStackView = UIStackView(arrangedSubviews: [totalLabel, tagSplitLabel])
+        let totalStackView = UIStackView(
+            arrangedSubviews: [
+                totalLabel, tagSplitLabel
+            ]
+        )
         totalStackView.axis = .horizontal
         totalStackView.distribution = .fillProportionally
         
-        let stackView = UIStackView(arrangedSubviews:
-            [totalStackView, bodyStackView]
+        let stackView = UIStackView(
+            arrangedSubviews: [
+                totalStackView, bodyStackView
+            ]
         )
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
@@ -115,23 +135,10 @@ class BillCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setLabels()
+        setUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-// --- Extensions help to create a ramdon lineView for each cell ---
-extension CGFloat {
-    static var random: CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
-}
-
-extension UIColor {
-    static var random: UIColor {
-        return UIColor(red: .random, green: .random, blue: .random, alpha: 1.0)
     }
 }

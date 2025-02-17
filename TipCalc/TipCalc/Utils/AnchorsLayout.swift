@@ -8,12 +8,42 @@
 
 import UIKit
 
+// --- Extensions help to create a ramdon lineView for each cell ---
+extension CGFloat {
+    static var random: CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+
+extension UIColor {
+    static var random: UIColor {
+        return UIColor(red: .random, green: .random, blue: .random, alpha: 1.0)
+    }
+}
+
+/// Extension component for managing `Light` and `Dark` themes.
+extension UIColor {
+    static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
+        guard #available(iOS 13.0, *) else { return light }
+        return UIColor { $0.userInterfaceStyle == .dark ? dark : light }
+    }
+    
+    static let customTableViewColor: UIColor = .dynamicColor(light: .black, dark: .white)
+    static let customControlLabelColor: UIColor = .dynamicColor(light: .black, dark: .white)
+    static let customLabelColor: UIColor = .dynamicColor(light: .white, dark: .black)
+    static let customPlaceholderLabelColor: UIColor = .dynamicColor(light: .systemGray4, dark: .black)
+}
+
+/// Extension helper to add multiple views in a single method.
 extension UIView {
     func addSubViews(_ views: UIView...) {
         views.forEach { addSubview($0) }
     }
 }
 
+/**
+ UIView extension with an anchor method for setting `constraints` on the view.
+ */
 struct AnchoredConstraints {
     var top, left, bottom, right, width, height: NSLayoutConstraint?
 }
@@ -71,7 +101,7 @@ extension UIView {
          anchoredConstraints.bottom,
          anchoredConstraints.right,
          anchoredConstraints.width,
-         anchoredConstraints.height].forEach{ $0?.isActive = true }
+         anchoredConstraints.height].forEach { $0?.isActive = true }
         
         return anchoredConstraints
     }
@@ -82,28 +112,28 @@ extension UIView {
             topAnchor.constraint(
                 equalTo: superviewTopAnchor,
                 constant: padding.top
-                ).isActive = true
+            ).isActive = true
         }
         
         if let superviewBottomAnchor = superview?.bottomAnchor {
             bottomAnchor.constraint(
                 equalTo: superviewBottomAnchor,
                 constant: -padding.bottom
-                ).isActive = true
+            ).isActive = true
         }
         
         if let superviewLeadingAnchor = superview?.leadingAnchor {
             leadingAnchor.constraint(
                 equalTo: superviewLeadingAnchor,
                 constant: padding.left
-                ).isActive = true
+            ).isActive = true
         }
         
         if let superviewTrailingAnchor = superview?.trailingAnchor {
             trailingAnchor.constraint(
                 equalTo: superviewTrailingAnchor,
                 constant: -padding.right
-                ).isActive = true
+            ).isActive = true
         }
     }
     
