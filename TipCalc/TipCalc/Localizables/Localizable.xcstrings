@@ -103,6 +103,9 @@
         }
       }
     },
+    "Split bill" : {
+
+    },
     "Tip_value" : {
       "comment" : "Tip value",
       "localizations" : {

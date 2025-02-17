@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftUI
 
 /**
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
@@ -158,6 +159,14 @@ class MainController: UIViewController {
                 action: #selector(UIInputViewController.dismissKeyboard)
             )
         )
+        setupStpepperView()
+    }
+    
+    func setupStpepperView() {
+        let hostingConttoller = UIHostingController(rootView: StepperView())
+        splitStepper.addSubview(hostingConttoller.view)
+        hostingConttoller.view.frame = splitStepper.bounds
+        hostingConttoller.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     @objc func dismissKeyboard() {
@@ -168,7 +177,7 @@ class MainController: UIViewController {
 
 
 // MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
-import SwiftUI
+
 
 #Preview {
     UIViewControllerPreview {
