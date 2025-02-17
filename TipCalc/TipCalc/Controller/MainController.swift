@@ -152,7 +152,12 @@ class MainController: UIViewController {
         tableViewHandlers()
         saveViewModel.fetchItems()
         
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        view.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(UIInputViewController.dismissKeyboard)
+            )
+        )
     }
     
     @objc func dismissKeyboard() {
