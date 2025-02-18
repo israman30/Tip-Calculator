@@ -51,7 +51,7 @@ class MainController: UIViewController {
         tf.attributedPlaceholder = NSAttributedString(
             string: LocalizedString.textField_placeholder,
             attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.customPlaceholderLabelColor
+                NSAttributedString.Key.foregroundColor: UIColor.label
             ]
         )
         tf.accessibilityHint = LocalizedString.textField_hint
@@ -59,7 +59,7 @@ class MainController: UIViewController {
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
         tf.keyboardType = .decimalPad
-        tf.textColor = .customLabelColor
+        tf.textColor = .label
         return tf
     }()
     
@@ -71,7 +71,7 @@ class MainController: UIViewController {
         label.text = Constant.zero
         label.accessibilityHint = LocalizedString.tip_value_hint
         label.setSizeFont(sizeFont: 70)
-        label.textColor = .customLabelColor
+        label.textColor = .label
         label.textAlignment = .right
         return label
     }()
@@ -81,7 +81,7 @@ class MainController: UIViewController {
         label.text = Constant.zero
         label.accessibilityHint = LocalizedString.total_value_hint
         label.setSizeFont(sizeFont: 70)
-        label.textColor = .customLabelColor
+        label.textColor = .label
         label.textAlignment = .right
         return label
     }()
@@ -89,7 +89,7 @@ class MainController: UIViewController {
     let splitPeopleQuantity: UILabel = {
         let label = UILabel()
         label.setSizeFont(sizeFont: 25)
-        label.textColor = .customLabelColor
+        label.textColor = .label
         return label
     }()
     
@@ -97,7 +97,7 @@ class MainController: UIViewController {
         let label = UILabel()
         label.text = Constant.zero
         label.setSizeFont(sizeFont: 25)
-        label.textColor = .customLabelColor
+        label.textColor = .label
         return label
     }()
     
@@ -118,7 +118,7 @@ class MainController: UIViewController {
         let font = UIFont.preferredFont(forTextStyle: .title2)
         sc.setTitleTextAttributes([
             NSAttributedString.Key.font : font,
-            NSAttributedString.Key.foregroundColor: UIColor.customControlLabelColor
+            NSAttributedString.Key.foregroundColor: UIColor.label
         ], for: .selected)
         sc.selectedSegmentIndex = 0
         return sc
@@ -138,15 +138,17 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(named: "backgroundPrimary")
+        view.backgroundColor = UIColor(named: "backgroundSecondary")
         navigationController?.navigationBar.prefersLargeTitles = true
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
         clearValuesButton.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
-        tableView.backgroundColor = .customTableViewColor
+//        tableView.backgroundColor = .customTableViewColor
         
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
-        splitStepper.tintColor = .customTableViewColor
+//        splitStepper.tintColor = .customTableViewColor
         setNavbar()
         setMainView()
         tableViewHandlers()
