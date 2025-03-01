@@ -48,7 +48,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         let label = UILabel()
         label.text = Constant.defaultDate
         label.setDynamicFont(font: .preferredFont(forTextStyle: .caption2))
-        label.textColor = .lightGray
+        label.textColor = .gray
         return label
     }()
     
