@@ -12,6 +12,7 @@
 		4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */; };
 		4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */; };
 		4D60E3F729871C4E00C8C95F /* AccessibilityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60E3F629871C4E00C8C95F /* AccessibilityUtils.swift */; };
+		4D7FA76E2D73F30F00EBFDEE /* PresentingTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA76D2D73F2FE00EBFDEE /* PresentingTipViewController.swift */; };
 		4D8EE8B32BE466E400E5BD28 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D8EE8B22BE466E400E5BD28 /* Localizable.xcstrings */; };
 		4D9778AA2BF6E31200809A8A /* TipCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9778A92BF6E31200809A8A /* TipCalcTests.swift */; };
 		4D9778B12BF9702D00809A8A /* SaveViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9778B02BF9702D00809A8A /* SaveViewModelTests.swift */; };
@@ -51,6 +52,7 @@
 		4D474AFA22F253190051E6F8 /* Bill+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D474AFF22F32E560051E6F8 /* CellId+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellId+Enum.swift"; sourceTree = "<group>"; };
 		4D60E3F629871C4E00C8C95F /* AccessibilityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityUtils.swift; sourceTree = "<group>"; };
+		4D7FA76D2D73F2FE00EBFDEE /* PresentingTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingTipViewController.swift; sourceTree = "<group>"; };
 		4D8EE8B22BE466E400E5BD28 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D9778A72BF6E31200809A8A /* TipCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9778A92BF6E31200809A8A /* TipCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalcTests.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				4DD83CC422EFCFC8002933DE /* AppDelegate.swift */,
 				4DD83CC622EFCFC8002933DE /* MainController.swift */,
+				4D7FA76D2D73F2FE00EBFDEE /* PresentingTipViewController.swift */,
 				4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */,
 				4DCA1F282A03520300107312 /* SplitViewController.swift */,
 				4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */,
@@ -326,6 +329,7 @@
 				8DA6815426C618610091DBD0 /* SaveViewModel.swift in Sources */,
 				4D474AFC22F253190051E6F8 /* Bill+CoreDataProperties.swift in Sources */,
 				4D474B0022F32E560051E6F8 /* CellId+Enum.swift in Sources */,
+				4D7FA76E2D73F30F00EBFDEE /* PresentingTipViewController.swift in Sources */,
 				4D474AFB22F253190051E6F8 /* Bill+CoreDataClass.swift in Sources */,
 				4DD83CC722EFCFC8002933DE /* MainController.swift in Sources */,
 				4D60E3F729871C4E00C8C95F /* AccessibilityUtils.swift in Sources */,

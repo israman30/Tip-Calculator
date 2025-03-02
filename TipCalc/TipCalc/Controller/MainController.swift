@@ -152,6 +152,7 @@ class MainController: UIViewController {
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
         clearValuesButton.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
+        presentSheetButton.addTarget(self, action: #selector(handlePresentSheet), for: .touchUpInside)
 //        tableView.backgroundColor = .customTableViewColor
         
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
@@ -171,6 +172,11 @@ class MainController: UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc func handlePresentSheet() {
+        let presentTipViewController = PresentingTipViewController()
+        present(presentTipViewController, animated: true)
     }
     
 }
