@@ -13,12 +13,19 @@ import SwiftUI
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
  - USING SWIFTUI API TO PREVIEW APP VIEW
  */
+protocol CalculationsViewModelProtocol {
+    var calculationsViewModel: CalculationsViewModel? { get set }
+}
+
+protocol SaveViewModelProtocol {
+    var saveViewModel: SaveViewModel? { get set }
+}
 
 protocol TableViewProtocol {
     var tableView: UITableView { get }
 }
 
-class MainController: UIViewController, TableViewProtocol, SetUIProtocol {
+class MainController: UIViewController, TableViewProtocol, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
     
     // MARK: - TableView display list of saved bills
     var tableView: UITableView = {

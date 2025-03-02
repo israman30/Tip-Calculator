@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIProtocol {
+class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIProtocol, SaveViewModelProtocol {
     
     let topView: UIView = {
         let view = UIView()
