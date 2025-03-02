@@ -63,7 +63,6 @@ extension MainController {
     
     // MARK: - Set the output components
     private func outputValues() {
-        
         let tipLabel = UILabel()
         tipLabel.text = Constant.tip
         tipLabel.textAlignment = .right
@@ -99,7 +98,6 @@ extension MainController {
         stackView.axis = .vertical
         stackView.spacing = 0
         
-//        valueInput.textColor = .label
         view.addSubViews(stackView, segment)
 
         stackView.anchor(
@@ -116,7 +114,7 @@ extension MainController {
             left: stackView.leftAnchor,
             bottom: nil,
             right: stackView.rightAnchor,
-            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
+            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
             size: .init(width: 0, height: 35)
         )
         
@@ -125,27 +123,33 @@ extension MainController {
     
     // MARK: - set the dynamic components
     private func resetButton() {
-        view.addSubViews(clearValuesButton, tableView)
+        let horizontalStackView = UIStackView(arrangedSubviews: [UIView(), presentSheetButton])
+        horizontalStackView.axis = .horizontal
         
-        clearValuesButton.anchor(
+        let stackView = UIStackView(arrangedSubviews: [clearValuesButton, horizontalStackView])
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        
+        
+        view.addSubViews(stackView, tableView)
+        
+        stackView.anchor(
             top: segment.bottomAnchor,
             left: segment.leftAnchor,
             bottom: nil,
             right: segment.rightAnchor,
             padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 35)
+            size: .init(width: 0, height: 65)
         )
         
         tableView.anchor(
-            top: clearValuesButton.bottomAnchor,
-            left: clearValuesButton.leftAnchor,
+            top: stackView.bottomAnchor,
+            left: stackView.leftAnchor,
             bottom: view.bottomAnchor,
-            right: clearValuesButton.rightAnchor,
-            padding: .init(top: 10, left: 0, bottom: 10, right: 0)
+            right: stackView.rightAnchor,
+            padding: .init(top: 0, left: 0, bottom: 10, right: 0)
         )
     }
-    
-    
 }
 
 

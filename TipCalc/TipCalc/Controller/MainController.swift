@@ -133,6 +133,13 @@ class MainController: UIViewController {
         return btn
     }()
     
+    let presentSheetButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("See all", for: .normal)
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
+        return btn
+    }()
+    
     let calculationsViewModel = CalculationsViewModel()
     let saveViewModel = SaveViewModel()
     
