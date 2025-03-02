@@ -6,6 +6,7 @@
 //  Copyright © 2025 Israel Manzo. All rights reserved.
 //
 import UIKit
+import SwiftUI
 
 class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIProtocol {
     
@@ -115,5 +116,11 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
         } else {
             tableView.reloadData()
         }
+    }
+}
+
+#Preview {
+    UIViewControllerPreview {
+        PresentingTipViewController()
     }
 }

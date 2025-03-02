@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreData
+import SwiftUI
 
 /**
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
@@ -174,7 +174,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol {
 
 
 // MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
-import SwiftUI
+
 
 #Preview {
     UIViewControllerPreview {
