@@ -12,6 +12,7 @@ struct Constant {
     
     static let pin_circle = "pin.circle"
     static let pin_icon = "Pin Icon"
+    static let xmark_circle = "xmark.circle"
     
     static let tip = "Tip"
     static let total = "Total"
@@ -34,4 +35,5 @@ struct LocalizedString {
     
     static let no_value_to_be_saved = NSLocalizedString("No_value_to_be_saved", comment: "No value to be saved!")
     static let initial_bill = NSLocalizedString("initial_bill", comment: "initial bill")
+    static let seeAll = NSLocalizedString("See all", comment: "")
 }

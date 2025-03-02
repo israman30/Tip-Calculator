@@ -119,7 +119,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol {
     
     let presentSheetButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("See all", for: .normal)
+        btn.setTitle(LocalizedString.seeAll, for: .normal)
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
         return btn
     }()
@@ -141,10 +141,8 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol {
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
         clearValuesButton.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
         presentSheetButton.addTarget(self, action: #selector(handlePresentSheet), for: .touchUpInside)
-//        tableView.backgroundColor = .customTableViewColor
         
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
-//        splitStepper.tintColor = .customTableViewColor
         setNavbar()
         setUI()
         tableViewHandlers()

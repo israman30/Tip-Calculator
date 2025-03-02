@@ -25,7 +25,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
     
     let dismissButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+        button.setImage(UIImage(systemName: Constant.xmark_circle), for: .normal)
         return button
     }()
     
@@ -39,7 +39,6 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
         dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         tableViewHandlers()
         saveViewModel?.fetchItems()
-        
     }
     
     deinit {
