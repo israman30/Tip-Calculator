@@ -13,7 +13,6 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     func tableViewHandlers() {
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.bounces = false
         tableView.register(BillCell.self, forCellReuseIdentifier: CellId.cell.rawValue)
     }
     
