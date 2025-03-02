@@ -22,14 +22,9 @@ struct ContentView: View {
                     TextField("Enter value..", text: $input)
                         .keyboardType(.decimalPad)
                         .onChange(of: input) { _ , newValue in
-                            if let amount = Double(newValue) {
-                                let tipAmount = amount * percentages[Int(selectedPercentage)]
-                                print(tipAmount)
-                                let totalAmount = amount + tipAmount
-                                self.tipValue = String(format: "%.2f", tipAmount)
-                                self.totalValue = String(format: "%.2f", totalAmount)
-                            }
+                            calculateTip(newValue)
                         }
+                    
                     Image(systemName: "dollarsign.circle")
                         .foregroundColor(.secondary)
                 }
@@ -70,6 +65,9 @@ struct ContentView: View {
                         Text("\(Int($0 * 100))%")
                     }
                 }
+                .onChange(of: selectedPercentage, { _, newValue in
+                    print("-->\(newValue)")
+                })
                 .pickerStyle(.segmented)
                 Text("Percentage: \(selectedPercentage)")
                 Spacer()
@@ -79,20 +77,20 @@ struct ContentView: View {
         }
     }
     
-    func calculateTip() {
-//        let tipPercentage = [0.15, 0.20, 0.25]
-//        let bill = Double(input)
-//        guard let index = Int(selectedPercentage) else { return }
-//        
-//        if let bill = bill {
-//            let tip = bill * tipPercentage[index]
-//            let total = bill + tip
-//            tipValue = String(format: "$%.2f", tip)
-//            totalValue = String(format: "$%.2f", total)
-//        } else {
-//            tipValue = "$0.0"
-//            totalValue = "$0.0"
-//        }
+    func calculateTip(_ input: String) {
+        let tipPercentage = [0.15, 0.20, 0.25]
+        let bill = Double(input)
+        guard Double(input) != nil else { return }
+        
+        if let bill = bill {
+            let tip = bill * tipPercentage[Int(selectedPercentage)]
+            let total = bill + tip
+            tipValue = String(format: "$%.2f", tip)
+            totalValue = String(format: "$%.2f", total)
+        } else {
+            totalValue = "$0.0"
+            tipValue = "$0.0"
+        }
     }
 }
 

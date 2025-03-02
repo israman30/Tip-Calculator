@@ -22,17 +22,17 @@ extension UIColor {
 }
 
 /// Extension component for managing `Light` and `Dark` themes.
-extension UIColor {
-    static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
-        guard #available(iOS 13.0, *) else { return light }
-        return UIColor { $0.userInterfaceStyle == .dark ? dark : light }
-    }
-    
-    static let customTableViewColor: UIColor = .dynamicColor(light: .black, dark: .white)
-    static let customControlLabelColor: UIColor = .dynamicColor(light: .black, dark: .white)
-    static let customLabelColor: UIColor = .dynamicColor(light: .white, dark: .black)
-    static let customPlaceholderLabelColor: UIColor = .dynamicColor(light: .systemGray4, dark: .black)
-}
+//extension UIColor {
+//    static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
+//        guard #available(iOS 13.0, *) else { return light }
+//        return UIColor { $0.userInterfaceStyle == .dark ? dark : light }
+//    }
+//    
+//    static let customTableViewColor: UIColor = .dynamicColor(light: .black, dark: .white)
+//    static let customControlLabelColor: UIColor = .dynamicColor(light: .black, dark: .white)
+//    static let customLabelColor: UIColor = .dynamicColor(light: .white, dark: .black)
+//    static let customPlaceholderLabelColor: UIColor = .dynamicColor(light: .systemGray4, dark: .black)
+//}
 
 /// Extension helper to add multiple views in a single method.
 extension UIView {

@@ -24,7 +24,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         let label = UILabel()
         label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .title1))
         label.text = Constant.zero
-        label.textColor = .customLabelColor
+        label.textColor = .label
         return label
     }()
     
@@ -32,7 +32,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         let label = UILabel()
         label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
-        label.textColor = .customLabelColor
+        label.textColor = .label
         return label
     }()
     
@@ -40,7 +40,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         let label = UILabel()
         label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .body))
-        label.textColor = .customLabelColor
+        label.textColor = .label
         return label
     }()
     
@@ -48,7 +48,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         let label = UILabel()
         label.text = Constant.defaultDate
         label.setDynamicFont(font: .preferredFont(forTextStyle: .caption2))
-        label.textColor = .lightGray
+        label.textColor = .gray
         return label
     }()
     
@@ -62,7 +62,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         label.text = Constant.zero
         label.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
         label.textAlignment = .center
-        label.textColor = .customLabelColor
+        label.textColor = .label
         label.backgroundColor = .black.withAlphaComponent(0.05)
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
@@ -89,7 +89,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     }
     
     func setUI() {
-        backgroundColor = .customTableViewColor
+//        backgroundColor = .customTableViewColor
         lineView.frame = .init(x: 0, y: 0, width: 5, height: frame.height)
         
         let bodyStackView = UIStackView(

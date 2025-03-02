@@ -67,19 +67,19 @@ extension MainController {
         let tipLabel = UILabel()
         tipLabel.text = Constant.tip
         tipLabel.textAlignment = .right
-        tipLabel.textColor = .lightGray
+        tipLabel.textColor = .gray
         tipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let totalLabel = UILabel()
         totalLabel.text = Constant.total
         totalLabel.textAlignment = .right
-        totalLabel.textColor = .lightGray
+        totalLabel.textColor = .gray
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let splitLabel = UILabel()
         splitLabel.text = Constant.split_bill
         splitLabel.textAlignment = .left
-        splitLabel.textColor = .lightGray
+        splitLabel.textColor = .gray
         splitLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         
         let tipStackView = UIStackView(arrangedSubviews: [tipLabel, tipValue])
