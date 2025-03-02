@@ -35,7 +35,7 @@ extension MainController {
     }
     
     // MARK: - Set the MainView components
-    func setMainView() {
+    func setUI() {
         bottomView.backgroundColor = .lightGray
         
         view.addSubViews(valueInput, bottomView)

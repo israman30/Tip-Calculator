@@ -34,10 +34,14 @@ enum Percentages: Int, CaseIterable {
     }
 }
 
-class MainController: UIViewController {
+protocol TableViewProtocol {
+    var tableView: UITableView { get }
+}
+
+class MainController: UIViewController, TableViewProtocol, SetUIProtocol {
     
     // MARK: - TableView display list of saved bills
-    let tableView: UITableView = {
+    var tableView: UITableView = {
         let tv = UITableView()
         tv.rowHeight = UITableView.automaticDimension
         tv.showsVerticalScrollIndicator = false
@@ -158,7 +162,7 @@ class MainController: UIViewController {
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
 //        splitStepper.tintColor = .customTableViewColor
         setNavbar()
-        setMainView()
+        setUI()
         tableViewHandlers()
         saveViewModel.fetchItems()
         

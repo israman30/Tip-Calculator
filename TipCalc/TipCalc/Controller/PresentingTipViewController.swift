@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class PresentingTipViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIProtocol {
     
     let topView: UIView = {
         let view = UIView()
@@ -15,7 +15,7 @@ class PresentingTipViewController: UIViewController, UITableViewDelegate, UITabl
         return view
     }()
     
-    let tableView: UITableView = {
+    var tableView: UITableView = {
         let tv = UITableView()
         tv.rowHeight = UITableView.automaticDimension
         tv.showsVerticalScrollIndicator = false
@@ -34,6 +34,14 @@ class PresentingTipViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        setUI()
+        dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+        tableViewHandlers()
+        saveViewModel.fetchItems()
+        
+    }
+    
+    func setUI() {
         view.backgroundColor = .systemBackground
         
         view.addSubViews(topView, tableView)
@@ -41,26 +49,43 @@ class PresentingTipViewController: UIViewController, UITableViewDelegate, UITabl
         topView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        topView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, size: .init(width: 0, height: 60))
-        tableView.anchor(top: topView.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        topView.anchor(
+            top: view.topAnchor,
+            left: view.leftAnchor,
+            bottom: nil,
+            right: view.rightAnchor,
+            size: .init(width: 0, height: 60)
+        )
+        tableView.anchor(
+            top: topView.bottomAnchor,
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor,
+            padding: .init(top: 0, left: 5, bottom: 0, right: 5)
+        )
         
-        let navBarStackView = UIStackView(arrangedSubviews: [UIView(), UIView(), dismissButton])
+        let navBarStackView = UIStackView(
+            arrangedSubviews: [UIView(), UIView(), dismissButton]
+        )
         navBarStackView.translatesAutoresizingMaskIntoConstraints = false
         topView.addSubview(navBarStackView)
         
-        navBarStackView.anchor(top: topView.topAnchor, left: topView.leftAnchor, bottom: topView.bottomAnchor, right: topView.rightAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 10))
-        
-        dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
-        
-        tableViewHandlers()
-        saveViewModel.fetchItems()
-        
+        navBarStackView.anchor(
+            top: topView.topAnchor,
+            left: topView.leftAnchor,
+            bottom: topView.bottomAnchor,
+            right: topView.rightAnchor,
+            padding: .init(top: 0, left: 10, bottom: 0, right: 10)
+        )
     }
     
     @objc func handleDismiss() {
         dismiss(animated: true)
     }
     
+}
+
+extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSource {
     func tableViewHandlers() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -75,5 +100,16 @@ class PresentingTipViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
         cell.configure(bill: saveViewModel.bills[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let index = saveViewModel.bills.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
+            PersistanceServices.context.delete(index)
+            PersistanceServices.saveContext()
+        } else {
+            tableView.reloadData()
+        }
     }
 }
