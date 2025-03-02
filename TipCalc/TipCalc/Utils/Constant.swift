@@ -26,14 +26,14 @@ struct Constant {
 }
 
 struct LocalizedString {
-    static let calculate_bill = NSLocalizedString("Calculate_tip", comment: "Calculate tip")
-    static let textField_placeholder = NSLocalizedString("Enter_value", comment: "Enter value")
-    static let textField_hint = NSLocalizedString("Input_bill_value", comment: "Input the bill value")
-    static let tip_value_hint = NSLocalizedString("Tip_value", comment: "Tip value")
-    static let total_value_hint = NSLocalizedString("Total_value_tip", comment: "Total value, tip plus initial value")
-    static let clear_value_button_title = NSLocalizedString("Clear_values", comment: "CLEAR VALUES")
+    static let calculate_bill = NSLocalizedString("Calculate tip", comment: "Calculate tip")
+    static let textField_placeholder = NSLocalizedString("Enter value", comment: "Enter value")
+    static let textField_hint = NSLocalizedString("Input bill value", comment: "Input the bill value")
+    static let tip_value_hint = NSLocalizedString("Tip value", comment: "Tip value")
+    static let total_value_hint = NSLocalizedString("Total value tip", comment: "Total value, tip plus initial value")
+    static let clear_value_button_title = NSLocalizedString("Clear values", comment: "CLEAR VALUES")
     
-    static let no_value_to_be_saved = NSLocalizedString("No_value_to_be_saved", comment: "No value to be saved!")
-    static let initial_bill = NSLocalizedString("initial_bill", comment: "initial bill")
+    static let no_value_to_be_saved = NSLocalizedString("No value to be saved", comment: "No value to be saved!")
+    static let initial_bill = NSLocalizedString("initial bill", comment: "initial bill")
     static let seeAll = NSLocalizedString("See all", comment: "")
 }

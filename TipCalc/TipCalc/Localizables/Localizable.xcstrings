@@ -1,141 +1,32 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Calculate_tip" : {
-      "comment" : "Calculate tip",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Calculate tip"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Calcula el tip"
-          }
-        }
-      }
+    "Calculate tip" : {
+      "comment" : "Calculate tip"
     },
-    "Clear_values" : {
-      "comment" : "CLEAR VALUES",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "CLEAR VALUES"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "BORRAR VALORES"
-          }
-        }
-      }
+    "Clear values" : {
+      "comment" : "CLEAR VALUES"
     },
-    "Enter_value" : {
-      "comment" : "Enter value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enter value"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entre un valor"
-          }
-        }
-      }
+    "Enter value" : {
+      "comment" : "Enter value"
     },
-    "initial_bill" : {
-      "comment" : "initial bill",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "initial bill"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "cuenta inicial"
-          }
-        }
-      }
+    "initial bill" : {
+      "comment" : "initial bill"
     },
-    "Input_bill_value" : {
-      "comment" : "Input the bill value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Input bill value"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entre el valor de la cuenta"
-          }
-        }
-      }
+    "Input bill value" : {
+      "comment" : "Input the bill value"
     },
-    "No_value_to_be_saved" : {
-      "comment" : "No value to be saved!",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No value to be saved!"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ningun valor para salvar!"
-          }
-        }
-      }
+    "No value to be saved" : {
+      "comment" : "No value to be saved!"
     },
-    "Tip_value" : {
-      "comment" : "Tip value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tip value"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Valor del tip"
-          }
-        }
-      }
+    "See all" : {
+
     },
-    "Total_value_tip" : {
-      "comment" : "Total value, tip plus initial value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Total value, tip plus initial value"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Valor total del tip, mas valor inicial"
-          }
-        }
-      }
+    "Tip value" : {
+      "comment" : "Tip value"
+    },
+    "Total value tip" : {
+      "comment" : "Total value, tip plus initial value"
     }
   },
   "version" : "1.0"
