@@ -11,11 +11,11 @@ import UIKit
 extension MainController {
     
     @objc func changeValue() {
-        calculationsViewModel.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
+        calculationsViewModel?.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
     }
     
     @objc func handleResetFields() {
-        calculationsViewModel.reset(
+        calculationsViewModel?.reset(
             valueInput: valueInput,
             tipValue: tipValue,
             totalValue: totalValue,
@@ -29,7 +29,7 @@ extension MainController {
         guard !input.isEmpty else {
             return
         }
-        calculationsViewModel.splitBiil(people: splitPeopleQuantity, bill: splitStepper.value, totalByPerson: splitTotal)
+        calculationsViewModel?.splitBiil(people: splitPeopleQuantity, bill: splitStepper.value, totalByPerson: splitTotal)
     }
 }
 

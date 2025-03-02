@@ -29,16 +29,21 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
         return button
     }()
     
-    let saveViewModel = SaveViewModel()
+    var saveViewModel: SaveViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveViewModel = SaveViewModel()
         tableView.reloadData()
         setUI()
         dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         tableViewHandlers()
-        saveViewModel.fetchItems()
+        saveViewModel?.fetchItems()
         
+    }
+    
+    deinit {
+        saveViewModel = nil
     }
     
     func setUI() {
@@ -93,18 +98,18 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return saveViewModel.bills.count
+        return saveViewModel?.bills.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
-        cell.configure(bill: saveViewModel.bills[indexPath.row])
+        cell.configure(bill: saveViewModel?.bills[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let index = saveViewModel.bills.remove(at: indexPath.row)
+            guard let index = saveViewModel?.bills.remove(at: indexPath.row) else { return }
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
             PersistanceServices.context.delete(index)
             PersistanceServices.saveContext()

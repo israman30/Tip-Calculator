@@ -11,7 +11,7 @@ import UIKit
 extension MainController {
     
     @objc func handleSaveBill() {
-        saveViewModel.save(
+        saveViewModel?.save(
             self,
             valueInput: valueInput,
             tipValue: tipValue,

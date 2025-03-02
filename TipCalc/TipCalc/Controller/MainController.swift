@@ -13,26 +13,6 @@ import CoreData
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
  - USING SWIFTUI API TO PREVIEW APP VIEW
  */
-//["10%", "15%", "20%", "25%"]
-enum Percentages: Int, CaseIterable {
-    case ten_percent = 0
-    case fifteen_percent = 1
-    case twienty_percent = 2
-    case twientyfive_percent = 3
-    
-    var description: String {
-        switch self {
-        case .ten_percent:
-            return "10%"
-        case .fifteen_percent:
-            return "15%"
-        case .twienty_percent:
-            return "20%"
-        case .twientyfive_percent:
-            return "25%"
-        }
-    }
-}
 
 protocol TableViewProtocol {
     var tableView: UITableView { get }
@@ -144,11 +124,15 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol {
         return btn
     }()
     
-    let calculationsViewModel = CalculationsViewModel()
-    let saveViewModel = SaveViewModel()
+    var calculationsViewModel: CalculationsViewModel?
+    var saveViewModel: SaveViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        calculationsViewModel = CalculationsViewModel()
+        saveViewModel = SaveViewModel()
+        
         view.backgroundColor = UIColor(named: "backgroundPrimary")
         view.backgroundColor = UIColor(named: "backgroundSecondary")
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -164,7 +148,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol {
         setNavbar()
         setUI()
         tableViewHandlers()
-        saveViewModel.fetchItems()
+        saveViewModel?.fetchItems()
         
         view.addGestureRecognizer(
             UITapGestureRecognizer(
@@ -172,6 +156,11 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol {
                 action: #selector(UIInputViewController.dismissKeyboard)
             )
         )
+    }
+    
+    deinit {
+        calculationsViewModel = nil
+        saveViewModel = nil
     }
     
     @objc func dismissKeyboard() {
