@@ -12,7 +12,7 @@ struct ToastMessage: View {
     var message: String?
     
     var body: some View {
-        Text(message ?? "Hello, World!")
+        Text(message ?? "Amount added!")
             .padding(.horizontal)
             .padding(.vertical, 8)
             .background(Color(.systemGray4))
