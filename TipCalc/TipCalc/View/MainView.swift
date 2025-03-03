@@ -49,6 +49,10 @@ extension MainController {
             size: .init(width: 0, height: 50)
         )
         
+        valueInput.addSubview(toastMessage.view)
+        toastMessage.view.translatesAutoresizingMaskIntoConstraints = true
+        toastMessage.view.fillSuperview()
+        
         bottomView.anchor(
             top: valueInput.bottomAnchor,
             left: valueInput.leftAnchor,

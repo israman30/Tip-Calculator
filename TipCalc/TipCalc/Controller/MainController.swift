@@ -27,6 +27,8 @@ protocol TableViewProtocol {
 
 class MainController: UIViewController, TableViewProtocol, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
     
+    let toastMessage = UIHostingController(rootView: ToastMessage())
+    
     // MARK: - TableView display list of saved bills
     var tableView: UITableView = {
         let tv = UITableView()
@@ -154,6 +156,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         setUI()
         tableViewHandlers()
         saveViewModel?.fetchItems()
+        toastMessage.view.alpha = 0.0
         
         view.addGestureRecognizer(
             UITapGestureRecognizer(
