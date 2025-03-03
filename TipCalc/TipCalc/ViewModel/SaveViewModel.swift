@@ -44,6 +44,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol {
                 }, completion: nil)
             }
         }
+        
         isTotastVisible = false
     }
     
