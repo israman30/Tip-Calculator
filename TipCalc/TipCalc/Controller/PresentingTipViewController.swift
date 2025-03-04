@@ -99,7 +99,7 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if saveViewModel?.bills.count == 0 {
-            tableView.tableViewEmpty(with: "There are currently no saved bills.", message: "To add a new bill, enter an amount and tap the pin button.")
+            tableView.tableViewEmpty(with: LocalizedString.emptyTableViewTitle, message: LocalizedString.emptyTableViewMessage)
         } else {
             tableView.restore()
         }
