@@ -17,6 +17,11 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if saveViewModel?.bills.count == 0 {
+            tableView.tableViewEmpty(with: LocalizedString.emptyTableViewTitle, message: LocalizedString.emptyTableViewMessage)
+        } else {
+            tableView.restore()
+        }
         return saveViewModel?.bills.count ?? 0
     }
     
@@ -42,5 +47,46 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print(indexPath.row)
 //        present(SplitViewController(), animated: true)
+    }
+}
+
+extension UITableView {
+    func tableViewEmpty(with title: String, message: String) {
+        let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
+        
+        let titleLabel = UILabel()
+        let messageLabel = UILabel()
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        titleLabel.textColor = .systemGray2
+        titleLabel.textAlignment = .center
+        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        titleLabel.numberOfLines = 2
+        messageLabel.textColor = .gray
+        messageLabel.textAlignment = .center
+        messageLabel.numberOfLines = 2
+        messageLabel.font = .preferredFont(forTextStyle: .body)
+        
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, messageLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        emptyView.addSubview(stackView)
+        stackView.centerInSuperview(size: .init(width: emptyView.bounds.size.width, height: 0))
+        
+        titleLabel.text = title
+        messageLabel.text = message
+        
+        self.backgroundView = emptyView
+        self.separatorStyle = .none
+    }
+    
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
     }
 }

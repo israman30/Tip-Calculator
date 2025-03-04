@@ -98,6 +98,11 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if saveViewModel?.bills.count == 0 {
+            tableView.tableViewEmpty(with: LocalizedString.emptyTableViewTitle, message: LocalizedString.emptyTableViewMessage)
+        } else {
+            tableView.restore()
+        }
         return saveViewModel?.bills.count ?? 0
     }
     

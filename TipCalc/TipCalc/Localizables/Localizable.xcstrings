@@ -2,31 +2,122 @@
   "sourceLanguage" : "en",
   "strings" : {
     "Calculate tip" : {
-      "comment" : "Calculate tip"
+      "comment" : "Calculate tip",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calcular propina"
+          }
+        }
+      }
     },
     "Clear values" : {
-      "comment" : "CLEAR VALUES"
+      "comment" : "CLEAR VALUES",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar valores"
+          }
+        }
+      }
     },
     "Enter value" : {
-      "comment" : "Enter value"
+      "comment" : "Enter value",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introducir valor"
+          }
+        }
+      }
     },
     "initial bill" : {
-      "comment" : "initial bill"
+      "comment" : "initial bill",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "factura inicial"
+          }
+        }
+      }
     },
     "Input bill value" : {
-      "comment" : "Input the bill value"
+      "comment" : "Input the bill value",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrese el valor de la factura"
+          }
+        }
+      }
     },
     "No value to be saved" : {
-      "comment" : "No value to be saved!"
+      "comment" : "No value to be saved!",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay ningún valor que guardar"
+          }
+        }
+      }
     },
     "See all" : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todo"
+          }
+        }
+      }
+    },
+    "There are currently no saved bills." : {
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualmente no hay facturas guardadas."
+          }
+        }
+      }
     },
     "Tip value" : {
-      "comment" : "Tip value"
+      "comment" : "Tip value",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valor de propina"
+          }
+        }
+      }
+    },
+    "To add a new bill, enter an amount and tap the pin button." : {
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para agregar una nueva factura, ingrese un monto y toque el botón PIN."
+          }
+        }
+      }
     },
     "Total value tip" : {
-      "comment" : "Total value, tip plus initial value"
+      "comment" : "Total value, tip plus initial value",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propina de valor total"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
