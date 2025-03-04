@@ -17,6 +17,7 @@ protocol ViewModelBillImplementationProtocol {
 final class SaveViewModel: ViewModelBillImplementationProtocol {
     
     var bills = [Bill]()
+    var isTotastVisible: Bool = false
     
     // MARK: - Handler checks for input before saves on db
     // saveToBD function handles to save input after input is authentificated
@@ -30,8 +31,21 @@ final class SaveViewModel: ViewModelBillImplementationProtocol {
             AlertController.alert(vc, title: "😵", message: LocalizedString.no_value_to_be_saved)
         } else {
             saveToDB(input: input, tip: tip, total: total, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity)
+            isTotastVisible = true
         }
         valueInput.resignFirstResponder()
+    }
+    
+    func displayToast(_ view: UIView) {
+        if isTotastVisible {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+                UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
+                    view.alpha = 0.0
+                }, completion: nil)
+            }
+        }
+        
+        isTotastVisible = false
     }
     
     // MARK: - This function saves into db input and calculations using context

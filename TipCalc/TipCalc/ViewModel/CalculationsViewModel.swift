@@ -7,6 +7,26 @@
 //
 
 import UIKit
+//["10%", "15%", "20%", "25%"]
+enum Percentages: Int, CaseIterable {
+    case ten_percent = 0
+    case fifteen_percent = 1
+    case twienty_percent = 2
+    case twientyfive_percent = 3
+    
+    var description: String {
+        switch self {
+        case .ten_percent:
+            return "10%"
+        case .fifteen_percent:
+            return "15%"
+        case .twienty_percent:
+            return "20%"
+        case .twientyfive_percent:
+            return "25%"
+        }
+    }
+}
 
 protocol ViewModelBillCalculationsProtocol {
     func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel)

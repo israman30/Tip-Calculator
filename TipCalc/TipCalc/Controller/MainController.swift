@@ -7,37 +7,30 @@
 //
 
 import UIKit
-import CoreData
+import SwiftUI
 
 /**
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
  - USING SWIFTUI API TO PREVIEW APP VIEW
  */
-//["10%", "15%", "20%", "25%"]
-enum Percentages: Int, CaseIterable {
-    case ten_percent = 0
-    case fifteen_percent = 1
-    case twienty_percent = 2
-    case twientyfive_percent = 3
-    
-    var description: String {
-        switch self {
-        case .ten_percent:
-            return "10%"
-        case .fifteen_percent:
-            return "15%"
-        case .twienty_percent:
-            return "20%"
-        case .twientyfive_percent:
-            return "25%"
-        }
-    }
+protocol CalculationsViewModelProtocol {
+    var calculationsViewModel: CalculationsViewModel? { get set }
 }
 
-class MainController: UIViewController {
+protocol SaveViewModelProtocol {
+    var saveViewModel: SaveViewModel? { get set }
+}
+
+protocol TableViewProtocol {
+    var tableView: UITableView { get }
+}
+
+class MainController: UIViewController, TableViewProtocol, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
+    
+    let toastMessage = UIHostingController(rootView: ToastMessage())
     
     // MARK: - TableView display list of saved bills
-    let tableView: UITableView = {
+    var tableView: UITableView = {
         let tv = UITableView()
         tv.rowHeight = UITableView.automaticDimension
         tv.showsVerticalScrollIndicator = false
@@ -133,11 +126,22 @@ class MainController: UIViewController {
         return btn
     }()
     
-    let calculationsViewModel = CalculationsViewModel()
-    let saveViewModel = SaveViewModel()
+    let presentSheetButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle(LocalizedString.seeAll, for: .normal)
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
+        return btn
+    }()
+    
+    var calculationsViewModel: CalculationsViewModel?
+    var saveViewModel: SaveViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        calculationsViewModel = CalculationsViewModel()
+        saveViewModel = SaveViewModel()
+        
         view.backgroundColor = UIColor(named: "backgroundPrimary")
         view.backgroundColor = UIColor(named: "backgroundSecondary")
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -145,14 +149,14 @@ class MainController: UIViewController {
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         splitStepper.addTarget(self, action: #selector(changeStepperQuantity), for: .valueChanged)
         clearValuesButton.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
-//        tableView.backgroundColor = .customTableViewColor
+        presentSheetButton.addTarget(self, action: #selector(handlePresentSheet), for: .touchUpInside)
         
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
-//        splitStepper.tintColor = .customTableViewColor
         setNavbar()
-        setMainView()
+        setUI()
         tableViewHandlers()
-        saveViewModel.fetchItems()
+        saveViewModel?.fetchItems()
+        toastMessage.view.alpha = 0.0
         
         view.addGestureRecognizer(
             UITapGestureRecognizer(
@@ -162,15 +166,25 @@ class MainController: UIViewController {
         )
     }
     
+    deinit {
+        calculationsViewModel = nil
+        saveViewModel = nil
+    }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc func handlePresentSheet() {
+        let presentTipViewController = PresentingTipViewController()
+        present(presentTipViewController, animated: true)
     }
     
 }
 
 
 // MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
-import SwiftUI
+
 
 #Preview {
     UIViewControllerPreview {
