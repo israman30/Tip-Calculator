@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "$25.00" : {
+
+    },
     "Calculate tip" : {
       "comment" : "Calculate tip",
       "localizations" : {
