@@ -23,7 +23,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     
     private let totalLabel: UILabel = {
         let label = UILabel()
-        label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .title1))
+        label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .extraLargeTitle2))
         label.text = Constant.zero
         label.textColor = .label
         return label
@@ -48,8 +48,8 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = Constant.defaultDate
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .caption2))
-        label.textColor = .gray
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        label.textColor = .darkGray
         return label
     }()
     
@@ -61,10 +61,10 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     private let tagSplitLabel: UILabel = {
         let label = UILabel()
         label.text = Constant.zero
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         label.textAlignment = .center
         label.textColor = .label
-        label.backgroundColor = .black.withAlphaComponent(0.05)
+        label.backgroundColor = .black.withAlphaComponent(0.07)
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
         return label
@@ -90,17 +90,19 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     }
     
     func setUI() {
-//        backgroundColor = .customTableViewColor
+        
         lineView.frame = .init(x: 0, y: 0, width: 5, height: frame.height)
+        
+        let horizontalViewTips = UIStackView(arrangedSubviews: [tipLabel, UIView(), dateLabel])
         
         let bodyStackView = UIStackView(
             arrangedSubviews: [
-                billLabel, tipLabel, dateLabel
+                billLabel, horizontalViewTips
             ]
         )
         bodyStackView.axis = .vertical
         bodyStackView.distribution = .fillProportionally
-        bodyStackView.spacing = 3
+        bodyStackView.spacing = 5
         
         let totalStackView = UIStackView(
             arrangedSubviews: [
@@ -147,6 +149,6 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
 #Preview {
     UIViewPreview {
         BillCell()
-            
-    }.frame(width: 375, height: 150)
+    }
+    .frame(width: 375, height: 150)
 }

@@ -1,7 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "$25.00" : {
+    "-" : {
+
+    },
+    "$8.90" : {
+
+    },
+    "$89.00" : {
+
+    },
+    "$97.00" : {
 
     },
     "Calculate tip" : {
@@ -48,6 +57,9 @@
         }
       }
     },
+    "Initial bill" : {
+
+    },
     "Input bill value" : {
       "comment" : "Input the bill value",
       "localizations" : {
@@ -58,6 +70,9 @@
           }
         }
       }
+    },
+    "Mar 4, 2025 at 1:100 PM" : {
+
     },
     "No value to be saved" : {
       "comment" : "No value to be saved!",
@@ -89,6 +104,9 @@
           }
         }
       }
+    },
+    "tip" : {
+
     },
     "Tip value" : {
       "comment" : "Tip value",
