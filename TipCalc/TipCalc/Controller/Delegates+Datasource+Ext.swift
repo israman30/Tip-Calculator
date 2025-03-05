@@ -27,7 +27,8 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
-        cell.configure(bill: saveViewModel?.bills[indexPath.row])
+        guard let sortedBills = saveViewModel?.bills.sorted(by: { $0.date ?? "" > $1.date ?? "" }) else { return cell }
+        cell.configure(bill: sortedBills[indexPath.row])
         return cell
     }
     
