@@ -18,12 +18,14 @@ extension MainController {
     // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
         navigationItem.title = LocalizedString.calculate_bill
+        navigationItem.accessibilityTraits.insert(.header)
         
         let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         pinView.isAccessibilityElement = true
         pinView.accessibilityHint = Constant.pin_icon
         pinView.accessibilityTraits.insert(.button)
+        pinView.accessibilityHint = AccessibilityLabels.pintButtonHint
         
         pinView.addSubViews(pin)
         pin.frame = pinView.frame

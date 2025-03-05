@@ -40,3 +40,7 @@ struct LocalizedString {
     static let emptyTableViewTitle = NSLocalizedString("There are currently no saved bills.", comment: "")
     static let emptyTableViewMessage = NSLocalizedString("To add a new bill, enter an amount and tap the pin button.", comment: "")
 }
+
+struct AccessibilityLabels {
+    static let pintButtonHint = NSLocalizedString("Tap for saving a bill.", comment: "")
+}
