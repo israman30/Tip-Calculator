@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 /// `BillCellProtocol` is responsible for configuring the appearance and content of table view cells within a `UITableView`.
 protocol BillCellProtocol {
@@ -141,4 +142,11 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+#Preview {
+    UIViewPreview {
+        BillCell()
+            
+    }.frame(width: 375, height: 150)
 }
