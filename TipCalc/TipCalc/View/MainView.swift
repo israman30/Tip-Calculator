@@ -74,12 +74,14 @@ extension MainController {
         tipLabel.textAlignment = .right
         tipLabel.textColor = .gray
         tipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        tipLabel.isAccessibilityElement = false
         
         let totalLabel = UILabel()
         totalLabel.text = Constant.total
         totalLabel.textAlignment = .right
         totalLabel.textColor = .gray
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        totalLabel.isAccessibilityElement = false
         
         let splitLabel = UILabel()
         splitLabel.text = Constant.split_bill
@@ -89,8 +91,12 @@ extension MainController {
         
         let tipStackView = UIStackView(arrangedSubviews: [tipLabel, tipValue])
         tipStackView.axis = .horizontal
+        tipStackView.accessibilityLabel = "\(tipLabel) \(tipValue)"
+        
         let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, totalValue])
         totalpStackView.axis = .horizontal
+        totalpStackView.accessibilityLabel = "\(totalLabel) \(totalValue)"
+        
         let splitValuesStackView = UIStackView(arrangedSubviews: [splitTotal, splitPeopleQuantity])
         splitValuesStackView.axis = .horizontal
         splitValuesStackView.spacing = 25
