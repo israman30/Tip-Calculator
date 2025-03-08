@@ -88,6 +88,7 @@ extension MainController {
         splitLabel.textAlignment = .left
         splitLabel.textColor = .gray
         splitLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        splitLabel.isAccessibilityElement = false
         
         let tipStackView = UIStackView(arrangedSubviews: [tipLabel, tipValue])
         tipStackView.axis = .horizontal
@@ -100,6 +101,7 @@ extension MainController {
         let splitValuesStackView = UIStackView(arrangedSubviews: [splitTotal, splitPeopleQuantity])
         splitValuesStackView.axis = .horizontal
         splitValuesStackView.spacing = 25
+        
         let splitBillStackView = UIStackView(arrangedSubviews: [splitLabel, UIView(), splitValuesStackView])
         splitBillStackView.axis = .horizontal
         
