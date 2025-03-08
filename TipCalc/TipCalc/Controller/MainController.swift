@@ -130,6 +130,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         let btn = UIButton(type: .system)
         btn.setTitle(LocalizedString.seeAll, for: .normal)
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
+        btn.accessibilityHint = AccessibilityLabels.seeAllButtonHint
         return btn
     }()
     
