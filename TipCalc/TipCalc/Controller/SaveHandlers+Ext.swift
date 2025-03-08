@@ -31,6 +31,12 @@ extension MainController {
                            
         saveViewModel?.displayToast(toastMessage.view)
     }
-
+    
+    /// `Accessibility announcement when bill is added`
+    func displayAccessibilityToastMessage() {
+        if saveViewModel?.isTotastVisible == true {
+            UIAccessibility.post(notification: .announcement, argument: toastMessage)
+        }
+    }
 }
 
