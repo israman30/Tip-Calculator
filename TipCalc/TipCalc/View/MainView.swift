@@ -141,7 +141,7 @@ extension MainController {
         horizontalStackView.axis = .horizontal
         
         let stackView = UIStackView(arrangedSubviews: [clearValuesButton, horizontalStackView])
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         stackView.axis = .vertical
         
         
