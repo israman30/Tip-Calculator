@@ -153,7 +153,7 @@ extension MainController {
             bottom: nil,
             right: segment.rightAnchor,
             padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 65)
+            size: .init(width: 0, height: 75)
         )
         
         tableView.anchor(

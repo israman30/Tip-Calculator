@@ -123,6 +123,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         btn.setTitleColor(.red, for: .normal)
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        btn.layer.cornerRadius = 8
         return btn
     }()
     
