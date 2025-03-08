@@ -38,7 +38,7 @@ extension MainController {
     
     // MARK: - Set the MainView components
     func setUI() {
-        bottomView.backgroundColor = .lightGray
+        bottomView.backgroundColor = .systemGray5
         
         view.addSubViews(valueInput, bottomView)
         
@@ -61,7 +61,7 @@ extension MainController {
             bottom: nil,
             right: valueInput.rightAnchor,
             padding: .init(top: 0, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 2)
+            size: .init(width: 0, height: 1)
         )
         
         outputValues()
