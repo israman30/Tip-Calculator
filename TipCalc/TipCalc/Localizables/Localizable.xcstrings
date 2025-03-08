@@ -78,10 +78,24 @@
       }
     },
     "Tap for saving a bill." : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque para guardar una factura."
+          }
+        }
+      }
     },
     "Tap to display the list of bills." : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque para mostrar la lista de facturas."
+          }
+        }
+      }
     },
     "There are currently no saved bills." : {
       "localizations" : {
