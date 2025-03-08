@@ -47,7 +47,7 @@ extension MainController {
             left: view.leftAnchor,
             bottom: nil,
             right: view.rightAnchor,
-            padding: .init(top: 10, left: 20, bottom: 0, right: 20),
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
             size: .init(width: 0, height: 50)
         )
         

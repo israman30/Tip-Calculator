@@ -132,7 +132,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
             left: lineView.rightAnchor,
             bottom: lineView.bottomAnchor,
             right: rightAnchor,
-            padding: .init(top: 10, left: 10, bottom: 10, right: 0)
+            padding: .init(top: 10, left: 5, bottom: 10, right: 5)
         )
     }
     
