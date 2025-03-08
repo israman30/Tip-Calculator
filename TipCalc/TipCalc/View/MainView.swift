@@ -18,12 +18,14 @@ extension MainController {
     // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
         navigationItem.title = LocalizedString.calculate_bill
+        navigationItem.accessibilityTraits.insert(.header)
         
         let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         pinView.isAccessibilityElement = true
         pinView.accessibilityHint = Constant.pin_icon
         pinView.accessibilityTraits.insert(.button)
+        pinView.accessibilityHint = AccessibilityLabels.pintButtonHint
         
         pinView.addSubViews(pin)
         pin.frame = pinView.frame
@@ -72,26 +74,34 @@ extension MainController {
         tipLabel.textAlignment = .right
         tipLabel.textColor = .gray
         tipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        tipLabel.isAccessibilityElement = false
         
         let totalLabel = UILabel()
         totalLabel.text = Constant.total
         totalLabel.textAlignment = .right
         totalLabel.textColor = .gray
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        totalLabel.isAccessibilityElement = false
         
         let splitLabel = UILabel()
         splitLabel.text = Constant.split_bill
         splitLabel.textAlignment = .left
         splitLabel.textColor = .gray
         splitLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        splitLabel.isAccessibilityElement = false
         
         let tipStackView = UIStackView(arrangedSubviews: [tipLabel, tipValue])
         tipStackView.axis = .horizontal
+        tipStackView.accessibilityLabel = "\(tipLabel) \(tipValue)"
+        
         let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, totalValue])
         totalpStackView.axis = .horizontal
+        totalpStackView.accessibilityLabel = "\(totalLabel) \(totalValue)"
+        
         let splitValuesStackView = UIStackView(arrangedSubviews: [splitTotal, splitPeopleQuantity])
         splitValuesStackView.axis = .horizontal
         splitValuesStackView.spacing = 25
+        
         let splitBillStackView = UIStackView(arrangedSubviews: [splitLabel, UIView(), splitValuesStackView])
         splitBillStackView.axis = .horizontal
         

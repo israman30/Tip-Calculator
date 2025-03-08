@@ -22,6 +22,7 @@ extension MainController {
         handleResetFields()
         tableView.reloadData()
         if saveViewModel?.isTotastVisible == true {
+            displayAccessibilityToastMessage()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
                     self.toastMessage.view.alpha = 1
@@ -31,6 +32,12 @@ extension MainController {
                            
         saveViewModel?.displayToast(toastMessage.view)
     }
-
+    
+    /// `Accessibility announcement when bill is added`
+    func displayAccessibilityToastMessage() {
+        if saveViewModel?.isTotastVisible == true {
+            UIAccessibility.post(notification: .announcement, argument: toastMessage)
+        }
+    }
 }
 

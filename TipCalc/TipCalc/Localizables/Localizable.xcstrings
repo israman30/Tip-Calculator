@@ -77,6 +77,12 @@
         }
       }
     },
+    "Tap for saving a bill." : {
+
+    },
+    "Tap to display the list of bills." : {
+
+    },
     "There are currently no saved bills." : {
       "localizations" : {
         "es-419" : {
