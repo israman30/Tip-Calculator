@@ -121,15 +121,16 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         let btn = UIButton(type: .system)
         btn.setTitle(LocalizedString.clear_value_button_title, for: .normal)
         btn.setTitleColor(.red, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        btn.layer.cornerRadius = 8
         return btn
     }()
     
     let presentSheetButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle(LocalizedString.seeAll, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .callout))
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         btn.accessibilityHint = AccessibilityLabels.seeAllButtonHint
         return btn
     }()

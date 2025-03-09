@@ -38,7 +38,7 @@ extension MainController {
     
     // MARK: - Set the MainView components
     func setUI() {
-        bottomView.backgroundColor = .lightGray
+        bottomView.backgroundColor = .systemGray5
         
         view.addSubViews(valueInput, bottomView)
         
@@ -47,7 +47,7 @@ extension MainController {
             left: view.leftAnchor,
             bottom: nil,
             right: view.rightAnchor,
-            padding: .init(top: 10, left: 20, bottom: 0, right: 20),
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
             size: .init(width: 0, height: 50)
         )
         
@@ -61,7 +61,7 @@ extension MainController {
             bottom: nil,
             right: valueInput.rightAnchor,
             padding: .init(top: 0, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 2)
+            size: .init(width: 0, height: 1)
         )
         
         outputValues()
@@ -141,9 +141,8 @@ extension MainController {
         horizontalStackView.axis = .horizontal
         
         let stackView = UIStackView(arrangedSubviews: [clearValuesButton, horizontalStackView])
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         stackView.axis = .vertical
-        
         
         view.addSubViews(stackView, tableView)
         
@@ -153,7 +152,7 @@ extension MainController {
             bottom: nil,
             right: segment.rightAnchor,
             padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 65)
+            size: .init(width: 0, height: 75)
         )
         
         tableView.anchor(
