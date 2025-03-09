@@ -144,7 +144,6 @@ extension MainController {
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
         
-        
         view.addSubViews(stackView, tableView)
         
         stackView.anchor(

@@ -121,8 +121,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         stackView.distribution = .fillProportionally
         stackView.spacing = 3
         
-        addSubview(stackView)
-        addSubview(lineView)
+        addSubViews(stackView, lineView)
         
         lineView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, padding: .init(top: 5, left: 0, bottom: 5, right: 0), size: .init(width: 3, height: 0))
         lineView.backgroundColor = .random
