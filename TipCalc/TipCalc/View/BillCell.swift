@@ -86,6 +86,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
             tagSplitLabel.text = ""
         } else {
             tagSplitLabel.text = "\(splitTotal.currencyInputFormatting()) \(splitQuantity)"
+            tagSplitLabel.accessibilityLabel = "\(splitTotal.currencyInputFormatting()) \(splitQuantity) people"
         }
     }
     

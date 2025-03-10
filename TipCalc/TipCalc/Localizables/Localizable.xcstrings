@@ -87,6 +87,9 @@
         }
       }
     },
+    "Tap to clear all saved bills." : {
+
+    },
     "Tap to display the list of bills." : {
       "localizations" : {
         "es-419" : {

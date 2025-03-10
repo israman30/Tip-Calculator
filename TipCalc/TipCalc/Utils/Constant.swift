@@ -44,4 +44,5 @@ struct LocalizedString {
 struct AccessibilityLabels {
     static let pintButtonHint = NSLocalizedString("Tap for saving a bill.", comment: "")
     static let seeAllButtonHint = NSLocalizedString("Tap to display the list of bills.", comment: "")
+    static let clearButtonHint = NSLocalizedString("Tap to clear all saved bills.", comment: "")
 }
