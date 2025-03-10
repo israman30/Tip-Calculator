@@ -124,6 +124,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         btn.layer.cornerRadius = 8
+        btn.accessibilityHint = AccessibilityLabels.clearButtonHint
         return btn
     }()
     
@@ -154,6 +155,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         presentSheetButton.addTarget(self, action: #selector(handlePresentSheet), for: .touchUpInside)
         
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
+        splitPeopleQuantity.accessibilityLabel = "\(Int(splitStepper.value)) people"
         setNavbar()
         setUI()
         tableViewHandlers()

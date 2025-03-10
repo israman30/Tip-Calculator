@@ -73,6 +73,7 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     
     func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel) {
         people.text = "\(Int(bill))x"
+        people.accessibilityLabel = "\(Int(bill)) people"
         totalByPerson.text = String(format: "$%.2f", (mainBill / bill)).currencyInputFormatting()
     }
 }
