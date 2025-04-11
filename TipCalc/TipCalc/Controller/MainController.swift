@@ -29,6 +29,8 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
     
+    private var speechAnalyzer = SpeechRecognitionController()
+    
     // MARK: - TableView display list of saved bills
     var tableView: UITableView = {
         let tv = UITableView()
@@ -36,6 +38,16 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         tv.showsVerticalScrollIndicator = false
         tv.allowsSelection = false
         return tv
+    }()
+    
+    let iconImage: UIImageView = {
+        let iv = UIImageView(image: UIImage(systemName: "microphone"))
+        iv.contentMode = .scaleAspectFit
+        iv.tintColor = .label
+        iv.clipsToBounds = true
+        iv.frame = .init(x: 0, y: 0, width: 0, height: 15)
+        iv.isUserInteractionEnabled = true
+        return iv
     }()
     
     // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
@@ -154,6 +166,8 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         clearValuesButton.addTarget(self, action: #selector(handleResetFields), for: .touchUpInside)
         presentSheetButton.addTarget(self, action: #selector(handlePresentSheet), for: .touchUpInside)
         
+        iconImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSpeechRecognition)))
+        
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
         splitPeopleQuantity.accessibilityLabel = "\(Int(splitStepper.value)) people"
         setNavbar()
@@ -184,6 +198,21 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         present(presentTipViewController, animated: true)
     }
     
+    @objc func handleSpeechRecognition() {
+        toggleSpeechRecognition()
+        valueInput.text = speechAnalyzer.recognizedText
+        print("Button Tapped")
+    }
+    
+    func toggleSpeechRecognition() {
+        if speechAnalyzer.isProcessing {
+            speechAnalyzer.stop()
+        } else {
+            speechAnalyzer.start()
+        }
+    }
+    
+    
 }
 
 
@@ -193,5 +222,105 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
 #Preview {
     UIViewControllerPreview {
         MainController()
+    }
+}
+
+import Speech
+
+class SpeechRecognitionController: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
+    private let audioEngine = AVAudioEngine()
+    private var inputNode: AVAudioInputNode?
+    private var speechRecognizer: SFSpeechRecognizer?
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private var audioSession: AVAudioSession?
+    
+    var recognizedText: String?
+    var isProcessing: Bool = false
+    
+    var inputValue: String = ""
+    
+    func start() {
+        audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession?.setCategory(.record, mode: .measurement, options: .duckOthers)
+            try audioSession?.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("Couldn't configure the audio session properly")
+        }
+        
+        inputNode = audioEngine.inputNode
+        
+        speechRecognizer = SFSpeechRecognizer()
+        print("Supports on device recognition: \(speechRecognizer?.supportsOnDeviceRecognition == true ? "✅" : "🔴")")
+        
+        // Force specified locale
+        // self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "pl_PL"))
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        
+        // Disable partial results
+        // recognitionRequest?.shouldReportPartialResults = false
+        
+        // Enable on-device recognition
+        // recognitionRequest?.requiresOnDeviceRecognition = true
+        
+        guard let speechRecognizer = speechRecognizer,
+              speechRecognizer.isAvailable,
+              let recognitionRequest = recognitionRequest,
+              let inputNode = inputNode
+        else {
+            assertionFailure("Unable to start the speech recognition!")
+            return
+        }
+        
+        speechRecognizer.delegate = self
+        
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+            recognitionRequest.append(buffer)
+        }
+        
+        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { [weak self] result, error in
+            self?.recognizedText = result?.bestTranscription.formattedString
+            
+            guard error != nil || result?.isFinal == true else { return }
+            self?.stop()
+        }
+        
+        audioEngine.prepare()
+        
+        do {
+            try audioEngine.start()
+            isProcessing = true
+        } catch {
+            print("Coudn't start audio engine!")
+            stop()
+        }
+    }
+    func stop() {
+        recognitionTask?.cancel()
+        
+        audioEngine.stop()
+        
+        inputNode?.removeTap(onBus: 0)
+        try? audioSession?.setActive(false)
+        audioSession = nil
+        inputNode = nil
+        
+        isProcessing = false
+        
+        recognitionRequest = nil
+        recognitionTask = nil
+        speechRecognizer = nil
+    }
+    
+    public func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        if available {
+            print("✅ Available")
+        } else {
+            print("🔴 Unavailable")
+            recognizedText = "Text recognition unavailable. Sorry!"
+            stop()
+        }
     }
 }

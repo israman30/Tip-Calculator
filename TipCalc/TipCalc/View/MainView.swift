@@ -40,9 +40,13 @@ extension MainController {
     func setUI() {
         bottomView.backgroundColor = .systemGray5
         
-        view.addSubViews(valueInput, bottomView)
+        let inputStackView = UIStackView(arrangedSubviews: [valueInput, iconImage])
+        inputStackView.spacing = 5
+        inputStackView.distribution = .fillProportionally
         
-        valueInput.anchor(
+        view.addSubViews(inputStackView, bottomView)
+        
+        inputStackView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             bottom: nil,
@@ -51,15 +55,15 @@ extension MainController {
             size: .init(width: 0, height: 50)
         )
         
-        valueInput.addSubview(toastMessage.view)
+        inputStackView.addSubview(toastMessage.view)
         toastMessage.view.translatesAutoresizingMaskIntoConstraints = true
-        toastMessage.view.anchor(top: valueInput.topAnchor, left: valueInput.leftAnchor, bottom: valueInput.bottomAnchor, right: valueInput.rightAnchor, padding: .init(top: 0, left: 0, bottom: 45, right: 0))
+        toastMessage.view.anchor(top: inputStackView.topAnchor, left: inputStackView.leftAnchor, bottom: inputStackView.bottomAnchor, right: inputStackView.rightAnchor, padding: .init(top: 0, left: 0, bottom: 45, right: 0))
         
         bottomView.anchor(
-            top: valueInput.bottomAnchor,
-            left: valueInput.leftAnchor,
+            top: inputStackView.bottomAnchor,
+            left: inputStackView.leftAnchor,
             bottom: nil,
-            right: valueInput.rightAnchor,
+            right: inputStackView.rightAnchor,
             padding: .init(top: 0, left: 0, bottom: 0, right: 0),
             size: .init(width: 0, height: 1)
         )
