@@ -12,9 +12,9 @@ extension UIView {
     func addConstrains(_ subview: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         let horizontalConstraint = NSLayoutConstraint(item: subview, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: multiplier, constant: constant)
-        let verticalConstraint = NSLayoutConstraint(item: subview, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: multiplier, constant: constant)
-        let widthConstraint = NSLayoutConstraint(item: subview, attribute: .width, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: multiplier, constant: constant)
-        let heightConstraint = NSLayoutConstraint(item: subview, attribute: .height, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: multiplier, constant: constant)
+        let verticalConstraint = NSLayoutConstraint(item: subview, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: multiplier, constant: constant)
+        let widthConstraint = NSLayoutConstraint(item: subview, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: multiplier, constant: constant)
+        let heightConstraint = NSLayoutConstraint(item: subview, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: multiplier, constant: constant)
         
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
