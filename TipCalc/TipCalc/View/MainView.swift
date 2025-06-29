@@ -38,15 +38,53 @@ extension MainController {
     
     // MARK: - Set the MainView components
     func setUI() {
+        // Create scroll view as main container
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Create content view for scroll view
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
         bottomView.backgroundColor = .systemGray5
         
-        view.addSubViews(valueInput, bottomView)
+        // Add scroll view to main view
+        view.addSubview(scrollView)
         
-        valueInput.anchor(
+        // Add content view to scroll view
+        scrollView.addSubview(contentView)
+        
+        // Add all UI elements to content view instead of main view
+        contentView.addSubViews(valueInput, bottomView)
+        
+        // Setup scroll view constraints
+        scrollView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
-            bottom: nil,
+            bottom: view.bottomAnchor,
             right: view.rightAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 0)
+        )
+        
+        // Setup content view constraints
+        contentView.anchor(
+            top: scrollView.topAnchor,
+            left: scrollView.leftAnchor,
+            bottom: scrollView.bottomAnchor,
+            right: scrollView.rightAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 0)
+        )
+        
+        // Ensure content view width matches scroll view width
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        
+        valueInput.anchor(
+            top: contentView.topAnchor,
+            left: contentView.leftAnchor,
+            bottom: nil,
+            right: contentView.rightAnchor,
             padding: .init(top: 10, left: 10, bottom: 0, right: 10),
             size: .init(width: 0, height: 50)
         )
@@ -64,11 +102,11 @@ extension MainController {
             size: .init(width: 0, height: 1)
         )
         
-        outputValues()
+        outputValues(contentView: contentView)
     }
     
     // MARK: - Set the output components
-    private func outputValues() {
+    private func outputValues(contentView: UIView) {
         let tipLabel = UILabel()
         tipLabel.text = Constant.tip
         tipLabel.textAlignment = .right
@@ -112,7 +150,7 @@ extension MainController {
         stackView.axis = .vertical
         stackView.spacing = 0
         
-        view.addSubViews(stackView, segment)
+        contentView.addSubViews(stackView, segment)
 
         stackView.anchor(
             top: bottomView.bottomAnchor,
@@ -132,11 +170,11 @@ extension MainController {
             size: .init(width: 0, height: 35)
         )
         
-        resetButton()
+        resetButton(contentView: contentView)
     }
     
     // MARK: - set the dynamic components
-    private func resetButton() {
+    private func resetButton(contentView: UIView) {
         let horizontalStackView = UIStackView(arrangedSubviews: [UIView(), presentSheetButton])
         horizontalStackView.axis = .horizontal
         
@@ -144,7 +182,7 @@ extension MainController {
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
         
-        view.addSubViews(stackView, tableView)
+        contentView.addSubViews(stackView, tableView)
         
         stackView.anchor(
             top: segment.bottomAnchor,
@@ -155,13 +193,37 @@ extension MainController {
             size: .init(width: 0, height: 75)
         )
         
+        // Update table view to not scroll independently and make height dynamic
+        tableView.isScrollEnabled = false
         tableView.anchor(
             top: stackView.bottomAnchor,
             left: stackView.leftAnchor,
-            bottom: view.bottomAnchor,
+            bottom: contentView.bottomAnchor,
             right: stackView.rightAnchor,
             padding: .init(top: 0, left: 0, bottom: 10, right: 0)
         )
+    }
+    
+    // MARK: - Update table view height based on content
+    func updateTableViewHeight() {
+        let numberOfRows = saveViewModel?.bills.count ?? 0
+        let cellHeight: CGFloat = 100 // Approximate height of BillCell including padding
+        let totalHeight = CGFloat(numberOfRows) * cellHeight
+        let minHeight: CGFloat = 200
+        
+        // Remove existing height constraints
+        tableView.constraints.forEach { constraint in
+            if constraint.firstAttribute == .height {
+                tableView.removeConstraint(constraint)
+            }
+        }
+        
+        // Add new height constraint
+        let newHeight = max(totalHeight, minHeight)
+        tableView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
+        
+        // Force layout update
+        view.layoutIfNeeded()
     }
 }
 

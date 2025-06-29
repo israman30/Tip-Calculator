@@ -21,6 +21,7 @@ extension MainController {
         )
         handleResetFields()
         tableView.reloadData()
+        updateTableViewHeight()
         if saveViewModel?.isTotastVisible == true {
             displayAccessibilityToastMessage()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

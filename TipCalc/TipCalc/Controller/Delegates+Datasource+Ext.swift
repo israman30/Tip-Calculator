@@ -39,8 +39,10 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
             PersistanceServices.context.delete(index)
             PersistanceServices.saveContext()
+            updateTableViewHeight()
         } else {
             tableView.reloadData()
+            updateTableViewHeight()
         }
     }
     

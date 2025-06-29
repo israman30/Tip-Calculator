@@ -160,6 +160,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         setUI()
         tableViewHandlers()
         saveViewModel?.fetchItems()
+        updateTableViewHeight()
         toastMessage.view.alpha = 0.0
         
         view.addGestureRecognizer(
