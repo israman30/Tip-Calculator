@@ -194,16 +194,16 @@ extension MainController {
         )
         
         // Configure table view for better scroll view integration
-        tableView.isScrollEnabled = false // Disable table view scrolling since it's in a scroll view
+//        tableView.isScrollEnabled = false // Disable table view scrolling since it's in a scroll view
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .singleLine
         
         tableView.anchor(
             top: stackView.bottomAnchor,
             left: stackView.leftAnchor,
-            bottom: contentView.bottomAnchor,
+            bottom: contentView.safeAreaLayoutGuide.bottomAnchor,
             right: stackView.rightAnchor,
-            padding: .init(top: 0, left: 0, bottom: 20, right: 0)
+            padding: .init(top: 0, left: 0, bottom: -50, right: 0)
         )
     }
     
