@@ -20,8 +20,16 @@ extension MainController {
             splitPeopleQuantity: splitPeopleQuantity
         )
         handleResetFields()
+        
+        // Update table view with animation to show new item at top
         tableView.reloadData()
         updateTableViewHeight()
+        
+        // Scroll to top to show the new item
+        if let sortedBills = saveViewModel?.sortedBills, !sortedBills.isEmpty {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+        
         if saveViewModel?.isTotastVisible == true {
             displayAccessibilityToastMessage()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

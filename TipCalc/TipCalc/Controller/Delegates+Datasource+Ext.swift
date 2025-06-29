@@ -17,17 +17,17 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if saveViewModel?.bills.count == 0 {
+        if saveViewModel?.sortedBills.count == 0 {
             tableView.tableViewEmpty(with: LocalizedString.emptyTableViewTitle, message: LocalizedString.emptyTableViewMessage)
         } else {
             tableView.restore()
         }
-        return saveViewModel?.bills.count ?? 0
+        return saveViewModel?.sortedBills.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
-        guard let sortedBills = saveViewModel?.bills.sorted(by: { $0.date ?? "" > $1.date ?? "" }) else { return cell }
+        guard let sortedBills = saveViewModel?.sortedBills else { return cell }
         cell.configure(bill: sortedBills[indexPath.row])
         return cell
     }
@@ -35,9 +35,17 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Method delete from db with context then save what still in db, when user swipe editingStyle.delete cell using indexPath
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let index = saveViewModel?.bills.remove(at: indexPath.row) else { return }
+            guard let sortedBills = saveViewModel?.sortedBills.sorted(by: { $0.date ?? "" < $1.date ?? "" }) else { return }
+            
+            let billToDelete = sortedBills[indexPath.row]
+            
+            // Remove from the original bills array
+            if let index = saveViewModel?.bills.firstIndex(of: billToDelete) {
+                saveViewModel?.bills.remove(at: index)
+            }
+            
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
-            PersistanceServices.context.delete(index)
+            PersistanceServices.context.delete(billToDelete)
             PersistanceServices.saveContext()
             updateTableViewHeight()
         } else {

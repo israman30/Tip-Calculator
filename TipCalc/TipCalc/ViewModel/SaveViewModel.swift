@@ -26,6 +26,11 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
     var bills = [Bill]()
     var isTotastVisible: Bool = false
     
+    // MARK: - Get sorted bills (newest first)
+    var sortedBills: [Bill] {
+        return bills.sorted(by: { $0.date ?? "" < $1.date ?? "" })
+    }
+    
     // MARK: - Handler checks for input before saves on local storage
     // saveToBD function handles to save input after input is authentificated
     // After input is saved into db, the fields are reseted and keyboard dismissed

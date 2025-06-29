@@ -59,11 +59,11 @@ extension MainController {
         // Add all UI elements to content view instead of main view
         contentView.addSubViews(valueInput, bottomView)
         
-        // Setup scroll view constraints
+        // Setup scroll view constraints - Fix: Use safeAreaLayoutGuide for bottom
         scrollView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
-            bottom: view.bottomAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
             right: view.rightAnchor,
             padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
@@ -193,23 +193,27 @@ extension MainController {
             size: .init(width: 0, height: 75)
         )
         
-        // Update table view to not scroll independently and make height dynamic
-        tableView.isScrollEnabled = false
+        // Configure table view for better scroll view integration
+        tableView.isScrollEnabled = false // Disable table view scrolling since it's in a scroll view
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .singleLine
+        
         tableView.anchor(
             top: stackView.bottomAnchor,
             left: stackView.leftAnchor,
             bottom: contentView.bottomAnchor,
             right: stackView.rightAnchor,
-            padding: .init(top: 0, left: 0, bottom: 10, right: 0)
+            padding: .init(top: 0, left: 0, bottom: 20, right: 0)
         )
     }
     
     // MARK: - Update table view height based on content
     func updateTableViewHeight() {
-        let numberOfRows = saveViewModel?.bills.count ?? 0
+        let numberOfRows = saveViewModel?.sortedBills.count ?? 0
         let cellHeight: CGFloat = 100 // Approximate height of BillCell including padding
         let totalHeight = CGFloat(numberOfRows) * cellHeight
         let minHeight: CGFloat = 200
+        let maxHeight: CGFloat = 600 // Maximum height to prevent excessive scrolling
         
         // Remove existing height constraints
         tableView.constraints.forEach { constraint in
@@ -218,12 +222,17 @@ extension MainController {
             }
         }
         
-        // Add new height constraint
-        let newHeight = max(totalHeight, minHeight)
+        // Add new height constraint with reasonable limits
+        let newHeight = min(max(totalHeight, minHeight), maxHeight)
         tableView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
         
         // Force layout update
         view.layoutIfNeeded()
+        
+        // Scroll to top if new item was added
+        if numberOfRows > 0 {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
 }
 
