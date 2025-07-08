@@ -38,22 +38,60 @@ extension MainController {
     
     // MARK: - Set the MainView components
     func setUI() {
+        // Create scroll view as main container
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Create content view for scroll view
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
         bottomView.backgroundColor = .systemGray5
         
-        view.addSubViews(valueInput, bottomView)
+        // Add scroll view to main view
+        view.addSubview(scrollView)
         
-        valueInput.anchor(
+        // Add content view to scroll view
+        scrollView.addSubview(contentView)
+        
+        // Add all UI elements to content view instead of main view
+        contentView.addSubViews(valueInput, bottomView)
+        
+        // Setup scroll view constraints - Fix: Use safeAreaLayoutGuide for bottom
+        scrollView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
-            bottom: nil,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
             right: view.rightAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 0)
+        )
+        
+        // Setup content view constraints
+        contentView.anchor(
+            top: scrollView.topAnchor,
+            left: scrollView.leftAnchor,
+            bottom: scrollView.bottomAnchor,
+            right: scrollView.rightAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 0)
+        )
+        
+        // Ensure content view width matches scroll view width
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        
+        valueInput.anchor(
+            top: contentView.topAnchor,
+            left: contentView.leftAnchor,
+            bottom: nil,
+            right: contentView.rightAnchor,
             padding: .init(top: 10, left: 10, bottom: 0, right: 10),
             size: .init(width: 0, height: 50)
         )
         
         valueInput.addSubview(toastMessage.view)
         toastMessage.view.translatesAutoresizingMaskIntoConstraints = true
-        toastMessage.view.anchor(top: valueInput.topAnchor, left: valueInput.leftAnchor, bottom: valueInput.bottomAnchor, right: valueInput.rightAnchor, padding: .init(top: 0, left: 0, bottom: 45, right: 0))
+        toastMessage.view.anchor(top: valueInput.topAnchor, left: valueInput.leftAnchor, bottom: valueInput.bottomAnchor, right: valueInput.rightAnchor, padding: .init(top: 0, left: 0, bottom: 35, right: 0))
         
         bottomView.anchor(
             top: valueInput.bottomAnchor,
@@ -64,11 +102,11 @@ extension MainController {
             size: .init(width: 0, height: 1)
         )
         
-        outputValues()
+        outputValues(contentView: contentView)
     }
     
     // MARK: - Set the output components
-    private func outputValues() {
+    private func outputValues(contentView: UIView) {
         let tipLabel = UILabel()
         tipLabel.text = Constant.tip
         tipLabel.textAlignment = .right
@@ -112,7 +150,7 @@ extension MainController {
         stackView.axis = .vertical
         stackView.spacing = 0
         
-        view.addSubViews(stackView, segment)
+        contentView.addSubViews(stackView, segment)
 
         stackView.anchor(
             top: bottomView.bottomAnchor,
@@ -132,11 +170,17 @@ extension MainController {
             size: .init(width: 0, height: 35)
         )
         
-        resetButton()
+        resetButton(contentView: contentView)
     }
     
     // MARK: - set the dynamic components
-    private func resetButton() {
+    private func resetButton(contentView: UIView) {
+        let mesageLabel = UILabel()
+        mesageLabel.numberOfLines = 0
+        mesageLabel.text = LocalizedString.messageView
+        mesageLabel.textColor = .systemGray
+        mesageLabel.font = .preferredFont(forTextStyle: .title2)
+        
         let horizontalStackView = UIStackView(arrangedSubviews: [UIView(), presentSheetButton])
         horizontalStackView.axis = .horizontal
         
@@ -144,7 +188,7 @@ extension MainController {
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
         
-        view.addSubViews(stackView, tableView)
+        contentView.addSubViews(stackView, mesageLabel)
         
         stackView.anchor(
             top: segment.bottomAnchor,
@@ -152,17 +196,19 @@ extension MainController {
             bottom: nil,
             right: segment.rightAnchor,
             padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 75)
+            size: .init(width: 0, height: 85)
         )
         
-        tableView.anchor(
+        mesageLabel.anchor(
             top: stackView.bottomAnchor,
             left: stackView.leftAnchor,
-            bottom: view.bottomAnchor,
+            bottom: contentView.bottomAnchor,
             right: stackView.rightAnchor,
-            padding: .init(top: 0, left: 0, bottom: 10, right: 0)
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10)
         )
+        
     }
+    
 }
 
 

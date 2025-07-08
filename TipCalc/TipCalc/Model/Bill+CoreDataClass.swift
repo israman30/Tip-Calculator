@@ -14,3 +14,10 @@ import CoreData
 public class Bill: NSManagedObject {
 
 }
+
+// MARK: - Equatable conformance for Bill
+extension Bill {
+    public static func == (lhs: Bill, rhs: Bill) -> Bool {
+        return lhs.objectID == rhs.objectID
+    }
+}

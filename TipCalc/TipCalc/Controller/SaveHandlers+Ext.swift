@@ -20,7 +20,7 @@ extension MainController {
             splitPeopleQuantity: splitPeopleQuantity
         )
         handleResetFields()
-        tableView.reloadData()
+        
         if saveViewModel?.isTotastVisible == true {
             displayAccessibilityToastMessage()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
