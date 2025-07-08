@@ -9,12 +9,6 @@
 import UIKit
 
 extension MainController: UITableViewDataSource, UITableViewDelegate {
-    // MARK: - TableView delegate and datasource + cell registration
-    func tableViewHandlers() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(BillCell.self, forCellReuseIdentifier: CellId.cell.rawValue)
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if saveViewModel?.sortedBills.count == 0 {
@@ -47,10 +41,8 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
             PersistanceServices.context.delete(billToDelete)
             PersistanceServices.saveContext()
-            updateTableViewHeight()
         } else {
             tableView.reloadData()
-            updateTableViewHeight()
         }
     }
     

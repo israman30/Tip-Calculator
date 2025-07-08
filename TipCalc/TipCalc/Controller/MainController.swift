@@ -25,18 +25,9 @@ protocol TableViewProtocol {
     var tableView: UITableView { get }
 }
 
-class MainController: UIViewController, TableViewProtocol, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
+class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
-    
-    // MARK: - TableView display list of saved bills
-    var tableView: UITableView = {
-        let tv = UITableView()
-        tv.rowHeight = UITableView.automaticDimension
-        tv.showsVerticalScrollIndicator = false
-        tv.allowsSelection = false
-        return tv
-    }()
     
     // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
     let valueInput: UITextField = {
@@ -158,9 +149,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         splitPeopleQuantity.accessibilityLabel = "\(Int(splitStepper.value)) people"
         setNavbar()
         setUI()
-        tableViewHandlers()
         saveViewModel?.fetchItems()
-        updateTableViewHeight()
         toastMessage.view.alpha = 0.0
         
         view.addGestureRecognizer(

@@ -91,7 +91,7 @@ extension MainController {
         
         valueInput.addSubview(toastMessage.view)
         toastMessage.view.translatesAutoresizingMaskIntoConstraints = true
-        toastMessage.view.anchor(top: valueInput.topAnchor, left: valueInput.leftAnchor, bottom: valueInput.bottomAnchor, right: valueInput.rightAnchor, padding: .init(top: 0, left: 0, bottom: 45, right: 0))
+        toastMessage.view.anchor(top: valueInput.topAnchor, left: valueInput.leftAnchor, bottom: valueInput.bottomAnchor, right: valueInput.rightAnchor, padding: .init(top: 0, left: 0, bottom: 35, right: 0))
         
         bottomView.anchor(
             top: valueInput.bottomAnchor,
@@ -209,33 +209,6 @@ extension MainController {
         
     }
     
-    // MARK: - Update table view height based on content
-    func updateTableViewHeight() {
-        let numberOfRows = saveViewModel?.sortedBills.count ?? 0
-        let cellHeight: CGFloat = 100 // Approximate height of BillCell including padding
-        let totalHeight = CGFloat(numberOfRows) * cellHeight
-        let minHeight: CGFloat = 200
-        let maxHeight: CGFloat = 600 // Maximum height to prevent excessive scrolling
-        
-        // Remove existing height constraints
-        tableView.constraints.forEach { constraint in
-            if constraint.firstAttribute == .height {
-                tableView.removeConstraint(constraint)
-            }
-        }
-        
-        // Add new height constraint with reasonable limits
-        let newHeight = min(max(totalHeight, minHeight), maxHeight)
-        tableView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
-        
-        // Force layout update
-        view.layoutIfNeeded()
-        
-        // Scroll to top if new item was added
-        if numberOfRows > 0 {
-            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        }
-    }
 }
 
 
