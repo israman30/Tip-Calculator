@@ -177,7 +177,7 @@ extension MainController {
     private func resetButton(contentView: UIView) {
         let mesageLabel = UILabel()
         mesageLabel.numberOfLines = 0
-        mesageLabel.text = "Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set asidet."
+        mesageLabel.text = LocalizedString.messageView
         mesageLabel.textColor = .systemGray
         mesageLabel.font = .preferredFont(forTextStyle: .title2)
         
