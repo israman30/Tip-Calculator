@@ -175,6 +175,12 @@ extension MainController {
     
     // MARK: - set the dynamic components
     private func resetButton(contentView: UIView) {
+        let mesageLabel = UILabel()
+        mesageLabel.numberOfLines = 0
+        mesageLabel.text = "Do not save what is left after spending, but spend what is left after saving\n\n-Warren Buffett"
+        mesageLabel.textColor = .systemGray
+        mesageLabel.font = .preferredFont(forTextStyle: .body)
+        
         let horizontalStackView = UIStackView(arrangedSubviews: [UIView(), presentSheetButton])
         horizontalStackView.axis = .horizontal
         
@@ -182,7 +188,7 @@ extension MainController {
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
         
-        contentView.addSubViews(stackView, tableView)
+        contentView.addSubViews(stackView, mesageLabel)
         
         stackView.anchor(
             top: segment.bottomAnchor,
@@ -190,21 +196,11 @@ extension MainController {
             bottom: nil,
             right: segment.rightAnchor,
             padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 75)
+            size: .init(width: 0, height: 85)
         )
         
-        // Configure table view for better scroll view integration
-//        tableView.isScrollEnabled = false // Disable table view scrolling since it's in a scroll view
-        tableView.backgroundColor = .clear
-        tableView.separatorStyle = .singleLine
+        mesageLabel.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: contentView.bottomAnchor, right: stackView.rightAnchor)
         
-        tableView.anchor(
-            top: stackView.bottomAnchor,
-            left: stackView.leftAnchor,
-            bottom: contentView.safeAreaLayoutGuide.bottomAnchor,
-            right: stackView.rightAnchor,
-            padding: .init(top: 0, left: 0, bottom: -50, right: 0)
-        )
     }
     
     // MARK: - Update table view height based on content

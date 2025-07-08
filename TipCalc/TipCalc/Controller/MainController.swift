@@ -44,7 +44,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         tf.attributedPlaceholder = NSAttributedString(
             string: LocalizedString.textField_placeholder,
             attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.label
+                NSAttributedString.Key.foregroundColor: UIColor.systemGray
             ]
         )
         tf.accessibilityHint = LocalizedString.textField_hint
@@ -81,7 +81,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
     
     let splitPeopleQuantity: UILabel = {
         let label = UILabel()
-        label.setSizeFont(sizeFont: 25)
+        label.setSizeFont(sizeFont: 35)
         label.textColor = .label
         return label
     }()
@@ -121,7 +121,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
         let btn = UIButton(type: .system)
         btn.setTitle(LocalizedString.clear_value_button_title, for: .normal)
         btn.setTitleColor(.red, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         btn.layer.cornerRadius = 8
         btn.accessibilityHint = AccessibilityLabels.clearButtonHint
@@ -131,7 +131,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
     let presentSheetButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle(LocalizedString.seeAll, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         btn.accessibilityHint = AccessibilityLabels.seeAllButtonHint
         return btn
     }()
