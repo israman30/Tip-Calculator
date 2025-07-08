@@ -177,9 +177,9 @@ extension MainController {
     private func resetButton(contentView: UIView) {
         let mesageLabel = UILabel()
         mesageLabel.numberOfLines = 0
-        mesageLabel.text = "Do not save what is left after spending, but spend what is left after saving\n\n-Warren Buffett"
+        mesageLabel.text = "Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set asidet."
         mesageLabel.textColor = .systemGray
-        mesageLabel.font = .preferredFont(forTextStyle: .body)
+        mesageLabel.font = .preferredFont(forTextStyle: .title2)
         
         let horizontalStackView = UIStackView(arrangedSubviews: [UIView(), presentSheetButton])
         horizontalStackView.axis = .horizontal
@@ -199,7 +199,13 @@ extension MainController {
             size: .init(width: 0, height: 85)
         )
         
-        mesageLabel.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: contentView.bottomAnchor, right: stackView.rightAnchor)
+        mesageLabel.anchor(
+            top: stackView.bottomAnchor,
+            left: stackView.leftAnchor,
+            bottom: contentView.bottomAnchor,
+            right: stackView.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10)
+        )
         
     }
     

@@ -89,7 +89,7 @@ class MainController: UIViewController, TableViewProtocol, SetUIProtocol, Calcul
     let splitTotal: UILabel = {
         let label = UILabel()
         label.text = Constant.zero
-        label.setSizeFont(sizeFont: 25)
+        label.setSizeFont(sizeFont: 35)
         label.textColor = .label
         return label
     }()
