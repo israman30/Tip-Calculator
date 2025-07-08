@@ -157,8 +157,8 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
             button.setImage(UIImage(systemName: "mic"), for: .normal)
         }
         button.tintColor = .systemBlue
-        button.accessibilityLabel = "Dictate bill value"
-        button.accessibilityHint = "Tap to dictate bill value using your voice"
+        button.accessibilityLabel = AccessibilityLabels.dictateBillValueLabel
+        button.accessibilityHint = AccessibilityLabels.dictateTipValueHint
         button.addTarget(self, action: #selector(handleMicButtonTapped), for: .touchUpInside)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         button.contentMode = .center
