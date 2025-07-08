@@ -41,5 +41,9 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>This app uses speech recognition to let you dictate the bill value.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs access to the microphone for voice dictation.</string>
 </dict>
 </plist>

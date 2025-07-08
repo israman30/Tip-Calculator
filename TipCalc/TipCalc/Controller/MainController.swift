@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Speech
 
 /**
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
@@ -130,6 +131,40 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     var calculationsViewModel: CalculationsViewModel?
     var saveViewModel: SaveViewModel?
     
+    // Speech recognition properties
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private let audioEngine = AVAudioEngine()
+    
+    private func imageWithPadding(image: UIImage, padding: UIEdgeInsets) -> UIImage? {
+        let newSize = CGSize(width: image.size.width + padding.left + padding.right,
+                             height: image.size.height + padding.top + padding.bottom)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, image.scale)
+        let origin = CGPoint(x: padding.left, y: padding.top)
+        image.draw(at: origin)
+        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return paddedImage
+    }
+    
+    private lazy var micButton: UIButton = {
+        let button = UIButton(type: .system)
+        if let micImage = UIImage(systemName: "mic"),
+           let paddedImage = imageWithPadding(image: micImage, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)) {
+            button.setImage(paddedImage, for: .normal)
+        } else {
+            button.setImage(UIImage(systemName: "mic"), for: .normal)
+        }
+        button.tintColor = .systemBlue
+        button.accessibilityLabel = "Dictate bill value"
+        button.accessibilityHint = "Tap to dictate bill value using your voice"
+        button.addTarget(self, action: #selector(handleMicButtonTapped), for: .touchUpInside)
+        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.contentMode = .center
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -158,6 +193,11 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
                 action: #selector(UIInputViewController.dismissKeyboard)
             )
         )
+        
+        // Add mic button to valueInput
+        valueInput.rightView = micButton
+        valueInput.rightViewMode = .always
+        requestSpeechAuthorization()
     }
     
     deinit {
@@ -174,6 +214,74 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         present(presentTipViewController, animated: true)
     }
     
+    private func requestSpeechAuthorization() {
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            DispatchQueue.main.async {
+                switch authStatus {
+                case .authorized:
+                    self.micButton.isEnabled = true
+                default:
+                    self.micButton.isEnabled = false
+                }
+            }
+        }
+    }
+
+    @objc private func handleMicButtonTapped() {
+        if audioEngine.isRunning {
+            stopDictation()
+        } else {
+            startDictation()
+        }
+    }
+
+    private func startDictation() {
+        if recognitionTask != nil {
+            recognitionTask?.cancel()
+            recognitionTask = nil
+        }
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("Audio session properties weren't set because of an error.")
+            return
+        }
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        guard let recognitionRequest = recognitionRequest else { return }
+        let inputNode = audioEngine.inputNode
+        recognitionRequest.shouldReportPartialResults = true
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
+            if let result = result {
+                self.valueInput.text = result.bestTranscription.formattedString
+                self.changeValue()
+            }
+            if error != nil || (result?.isFinal ?? false) {
+                self.stopDictation()
+            }
+        }
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
+            self.recognitionRequest?.append(buffer)
+        }
+        audioEngine.prepare()
+        do {
+            try audioEngine.start()
+        } catch {
+            print("audioEngine couldn't start because of an error.")
+        }
+        micButton.tintColor = .systemRed // Indicate recording
+    }
+
+    private func stopDictation() {
+        audioEngine.stop()
+        audioEngine.inputNode.removeTap(onBus: 0)
+        recognitionRequest?.endAudio()
+        recognitionTask?.cancel()
+        recognitionTask = nil
+        micButton.tintColor = .systemBlue // Back to normal
+    }
 }
 
 
