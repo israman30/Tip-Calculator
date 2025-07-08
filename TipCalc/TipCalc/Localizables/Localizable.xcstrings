@@ -68,21 +68,24 @@
       }
     },
     "Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set asidet." : {
-
-    },
-    "See all" : {
-      "extractionState" : "stale",
       "localizations" : {
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ver todo"
+            "value" : "Ahorrar dinero es darle a tu yo futuro un regalo: seguridad, libertad y tranquilidad envuelto en cada dólar reservado."
           }
         }
       }
     },
     "See all records.." : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todos los registros.."
+          }
+        }
+      }
     },
     "Tap for saving a bill." : {
       "localizations" : {
@@ -95,7 +98,14 @@
       }
     },
     "Tap to clear all saved bills." : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque para borrar todas las facturas guardadas."
+          }
+        }
+      }
     },
     "Tap to display the list of bills." : {
       "localizations" : {
