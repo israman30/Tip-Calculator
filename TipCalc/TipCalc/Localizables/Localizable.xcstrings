@@ -67,7 +67,11 @@
         }
       }
     },
+    "Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set aside." : {
+
+    },
     "Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set asidet." : {
+      "extractionState" : "stale",
       "localizations" : {
         "es-419" : {
           "stringUnit" : {
@@ -78,6 +82,7 @@
       }
     },
     "See all records.." : {
+      "extractionState" : "stale",
       "localizations" : {
         "es-419" : {
           "stringUnit" : {
@@ -86,6 +91,9 @@
           }
         }
       }
+    },
+    "See all saved records.." : {
+
     },
     "Tap for saving a bill." : {
       "localizations" : {

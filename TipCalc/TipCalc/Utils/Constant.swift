@@ -35,7 +35,7 @@ struct LocalizedString {
     
     static let no_value_to_be_saved = NSLocalizedString("No value to be saved", comment: "No value to be saved!")
     static let initial_bill = NSLocalizedString("initial bill", comment: "initial bill")
-    static let seeAll = NSLocalizedString("See all records..", comment: "")
+    static let seeAll = NSLocalizedString("See all saved records..", comment: "")
     
     static let emptyTableViewTitle = NSLocalizedString("There are currently no saved bills.", comment: "")
     static let emptyTableViewMessage = NSLocalizedString("To add a new bill, enter an amount and tap the pin button.", comment: "")
