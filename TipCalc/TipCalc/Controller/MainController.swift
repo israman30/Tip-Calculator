@@ -137,10 +137,14 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
+    // Customize microphone icon padding size
     private func imageWithPadding(image: UIImage, padding: UIEdgeInsets) -> UIImage? {
-        let newSize = CGSize(width: image.size.width + padding.left + padding.right,
-                             height: image.size.height + padding.top + padding.bottom)
+        let newSize = CGSize(
+            width: image.size.width + padding.left + padding.right,
+            height: image.size.height + padding.top + padding.bottom
+        )
         UIGraphicsBeginImageContextWithOptions(newSize, false, image.scale)
+        
         let origin = CGPoint(x: padding.left, y: padding.top)
         image.draw(at: origin)
         let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -227,6 +231,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         }
     }
 
+    // Dictation handler
     @objc private func handleMicButtonTapped() {
         if audioEngine.isRunning {
             stopDictation()
@@ -235,11 +240,13 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         }
     }
 
+    // Start dictation
     private func startDictation() {
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
         }
+        
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
@@ -248,10 +255,13 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
             print("Audio session properties weren't set because of an error.")
             return
         }
+        
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        
         guard let recognitionRequest = recognitionRequest else { return }
         let inputNode = audioEngine.inputNode
         recognitionRequest.shouldReportPartialResults = true
+        
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
             if let result = result {
                 self.valueInput.text = result.bestTranscription.formattedString
@@ -261,19 +271,23 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
                 self.stopDictation()
             }
         }
+        
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
             self.recognitionRequest?.append(buffer)
         }
+        
         audioEngine.prepare()
         do {
             try audioEngine.start()
         } catch {
             print("audioEngine couldn't start because of an error.")
         }
+        
         micButton.tintColor = .systemRed // Indicate recording
     }
 
+    // Stop dictation 
     private func stopDictation() {
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
