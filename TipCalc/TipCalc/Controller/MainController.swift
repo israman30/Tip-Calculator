@@ -218,6 +218,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         present(presentTipViewController, animated: true)
     }
     
+    // Reques authorization for audio usage
     private func requestSpeechAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in
             DispatchQueue.main.async {
