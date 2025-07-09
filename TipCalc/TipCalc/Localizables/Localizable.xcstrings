@@ -23,6 +23,16 @@
         }
       }
     },
+    "Dictate bill value" : {
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dictar el valor de la factura"
+          }
+        }
+      }
+    },
     "Enter value" : {
       "comment" : "Enter value",
       "localizations" : {
@@ -68,10 +78,6 @@
       }
     },
     "Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set aside." : {
-
-    },
-    "Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set asidet." : {
-      "extractionState" : "stale",
       "localizations" : {
         "es-419" : {
           "stringUnit" : {
@@ -81,19 +87,15 @@
         }
       }
     },
-    "See all records.." : {
-      "extractionState" : "stale",
+    "See all saved records.." : {
       "localizations" : {
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ver todos los registros.."
+            "value" : "Ver todos los registros guardados."
           }
         }
       }
-    },
-    "See all saved records.." : {
-
     },
     "Tap for saving a bill." : {
       "localizations" : {
@@ -111,6 +113,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toque para borrar todas las facturas guardadas."
+          }
+        }
+      }
+    },
+    "Tap to dictate bill value using your voice" : {
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque para dictar el valor de la factura usando su voz"
           }
         }
       }

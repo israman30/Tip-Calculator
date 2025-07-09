@@ -46,4 +46,6 @@ struct AccessibilityLabels {
     static let pintButtonHint = NSLocalizedString("Tap for saving a bill.", comment: "")
     static let seeAllButtonHint = NSLocalizedString("Tap to display the list of bills.", comment: "")
     static let clearButtonHint = NSLocalizedString("Tap to clear all saved bills.", comment: "")
+    static let dictateBillValueLabel = NSLocalizedString("Dictate bill value", comment: "")
+    static let dictateTipValueHint = NSLocalizedString("Tap to dictate bill value using your voice", comment: "")
 }
