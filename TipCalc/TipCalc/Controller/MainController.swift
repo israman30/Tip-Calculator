@@ -26,6 +26,12 @@ protocol TableViewProtocol {
     var tableView: UITableView { get }
 }
 
+protocol SpeechControllerProtocol {
+    func requestSpeechAuthorization()
+    func startDictation()
+    func stopDictation()
+}
+
 class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
@@ -218,8 +224,20 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         present(presentTipViewController, animated: true)
     }
     
+    /// `Dictation handler`
+    @objc private func handleMicButtonTapped() {
+        if audioEngine.isRunning {
+            stopDictation()
+        } else {
+            startDictation()
+        }
+    }
+
+}
+
+extension MainController: SpeechControllerProtocol {
     // Reques authorization for audio usage
-    private func requestSpeechAuthorization() {
+    func requestSpeechAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in
             DispatchQueue.main.async {
                 switch authStatus {
@@ -231,18 +249,9 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
             }
         }
     }
-
-    // Dictation handler
-    @objc private func handleMicButtonTapped() {
-        if audioEngine.isRunning {
-            stopDictation()
-        } else {
-            startDictation()
-        }
-    }
-
+    
     // Start dictation
-    private func startDictation() {
+    func startDictation() {
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
@@ -288,8 +297,8 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         micButton.tintColor = .systemRed // Indicate recording
     }
 
-    // Stop dictation 
-    private func stopDictation() {
+    // Stop dictation
+    func stopDictation() {
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
         recognitionRequest?.endAudio()
@@ -308,3 +317,4 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         MainController()
     }
 }
+
