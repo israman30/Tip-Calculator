@@ -232,7 +232,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
             startDictation()
         }
     }
-
+    
 }
 
 extension MainController: SpeechControllerProtocol {
@@ -296,7 +296,7 @@ extension MainController: SpeechControllerProtocol {
         
         micButton.tintColor = .systemRed // Indicate recording
     }
-
+    
     // Stop dictation
     func stopDictation() {
         audioEngine.stop()
@@ -308,10 +308,7 @@ extension MainController: SpeechControllerProtocol {
     }
 }
 
-
 // MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
-
-
 #Preview {
     UIViewControllerPreview {
         MainController()

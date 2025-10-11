@@ -79,8 +79,8 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
 }
 
 extension String {
-
-/// formatting text for currency textField
+    
+    /// formatting text for currency textField
     func currencyInputFormatting() -> String {
         var number: NSNumber!
         let formatter = NumberFormatter()
@@ -101,7 +101,6 @@ extension String {
         
         let double = (amountWithPrefix as NSString).doubleValue
         number = NSNumber(value: (double / 100))
-        
         
         guard number != 0 as NSNumber else {
             return ""
