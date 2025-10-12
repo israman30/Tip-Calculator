@@ -160,11 +160,11 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     
     private lazy var micButton: UIButton = {
         let button = UIButton(type: .system)
-        if let micImage = UIImage(systemName: "mic"),
+        if let micImage = UIImage(systemName: Constant.mic),
            let paddedImage = imageWithPadding(image: micImage, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)) {
             button.setImage(paddedImage, for: .normal)
         } else {
-            button.setImage(UIImage(systemName: "mic"), for: .normal)
+            button.setImage(UIImage(systemName: Constant.mic), for: .normal)
         }
         button.tintColor = .systemBlue
         button.accessibilityLabel = AccessibilityLabels.dictateBillValueLabel
