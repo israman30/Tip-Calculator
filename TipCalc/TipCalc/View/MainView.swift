@@ -21,7 +21,7 @@ extension MainController {
         navigationItem.accessibilityTraits.insert(.header)
         
         let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
-        let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
         pinView.isAccessibilityElement = true
         pinView.accessibilityHint = Constant.pin_icon
         pinView.accessibilityTraits.insert(.button)
