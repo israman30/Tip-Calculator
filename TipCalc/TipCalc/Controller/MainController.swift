@@ -144,7 +144,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     private let audioEngine = AVAudioEngine()
     
     // Customize microphone icon padding size
-    private func imageWithPadding(image: UIImage, padding: UIEdgeInsets) -> UIImage? {
+    private func imageWithPadding(for image: UIImage, padding: UIEdgeInsets) -> UIImage? {
         let newSize = CGSize(
             width: image.size.width + padding.left + padding.right,
             height: image.size.height + padding.top + padding.bottom
@@ -161,7 +161,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     private lazy var micButton: UIButton = {
         let button = UIButton(type: .system)
         if let micImage = UIImage(systemName: Constant.mic),
-           let paddedImage = imageWithPadding(image: micImage, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)) {
+           let paddedImage = imageWithPadding(for: micImage, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)) {
             button.setImage(paddedImage, for: .normal)
         } else {
             button.setImage(UIImage(systemName: Constant.mic), for: .normal)
