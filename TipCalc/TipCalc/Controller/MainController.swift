@@ -32,23 +32,6 @@ protocol SpeechControllerProtocol {
     func stopDictation()
 }
 
-extension UIImage {
-    // Customize microphone icon padding size
-    func withPadding(_ padding: UIEdgeInsets) -> UIImage? {
-        let newSize = CGSize(
-            width: self.size.width + padding.left + padding.right,
-            height: self.size.height + padding.top + padding.bottom
-        )
-        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
-        
-        let origin = CGPoint(x: padding.left, y: padding.top)
-        self.draw(at: origin)
-        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return paddedImage
-    }
-}
-
 class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
@@ -307,6 +290,23 @@ extension MainController: SpeechControllerProtocol {
         recognitionTask?.cancel()
         recognitionTask = nil
         micButton.tintColor = .systemBlue // Back to normal
+    }
+}
+
+extension UIImage {
+    // Customize microphone icon padding size
+    func withPadding(_ padding: UIEdgeInsets) -> UIImage? {
+        let newSize = CGSize(
+            width: self.size.width + padding.left + padding.right,
+            height: self.size.height + padding.top + padding.bottom
+        )
+        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+        
+        let origin = CGPoint(x: padding.left, y: padding.top)
+        self.draw(at: origin)
+        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return paddedImage
     }
 }
 
