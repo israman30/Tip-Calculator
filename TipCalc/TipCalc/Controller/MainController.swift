@@ -32,6 +32,23 @@ protocol SpeechControllerProtocol {
     func stopDictation()
 }
 
+extension UIImage {
+    // Customize microphone icon padding size
+    func withPadding(_ padding: UIEdgeInsets) -> UIImage? {
+        let newSize = CGSize(
+            width: self.size.width + padding.left + padding.right,
+            height: self.size.height + padding.top + padding.bottom
+        )
+        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+        
+        let origin = CGPoint(x: padding.left, y: padding.top)
+        self.draw(at: origin)
+        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return paddedImage
+    }
+}
+
 class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
@@ -143,25 +160,10 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
-    // Customize microphone icon padding size
-    private func imageWithPadding(for image: UIImage, padding: UIEdgeInsets) -> UIImage? {
-        let newSize = CGSize(
-            width: image.size.width + padding.left + padding.right,
-            height: image.size.height + padding.top + padding.bottom
-        )
-        UIGraphicsBeginImageContextWithOptions(newSize, false, image.scale)
-        
-        let origin = CGPoint(x: padding.left, y: padding.top)
-        image.draw(at: origin)
-        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return paddedImage
-    }
-    
     private lazy var micButton: UIButton = {
         let button = UIButton(type: .system)
-        if let micImage = UIImage(systemName: Constant.mic),
-           let paddedImage = imageWithPadding(for: micImage, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)) {
+        if let micImage = UIImage(systemName: Constant.mic) {
+            let paddedImage = micImage.withPadding(.init(top: 0, left: 8, bottom: 0, right: 0))
             button.setImage(paddedImage, for: .normal)
         } else {
             button.setImage(UIImage(systemName: Constant.mic), for: .normal)
