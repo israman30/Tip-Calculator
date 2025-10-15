@@ -66,9 +66,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
     // After the object is saved, is appended to an array container
     // MARK - NOTE: PersistanceServices.saveContext() is always called in the AppDelegate when application is terminated
     func savingInLocalstorage(with input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?) {
-
         let bill = Bill(context: PersistanceServices.context)
-        
         bill.input = "$\(input) \(LocalizedString.initial_bill)"
         bill.tip = "\(tip) tip"
         bill.total = "\(total) total"

@@ -21,6 +21,17 @@ protocol SetUIProtocol {
 
 class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     
+    private let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 12
+        view.layer.shadowColor = UIColor.label.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 4
+        view.layer.shadowOpacity = 0.1
+        return view
+    }()
+    
     private let totalLabel: UILabel = {
         let label = UILabel()
         label.setBoldDynamicFont(font: .preferredFont(forTextStyle: .extraLargeTitle2))
@@ -91,6 +102,19 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     }
     
     func setUI() {
+        // Configure cell appearance
+        backgroundColor = .clear
+        selectionStyle = .none
+        
+        // Add container view with shadow
+        addSubview(containerView)
+        containerView.anchor(
+            top: topAnchor,
+            left: leftAnchor,
+            bottom: bottomAnchor,
+            right: rightAnchor,
+            padding: .init(top: 8, left: 16, bottom: 8, right: 16)
+        )
         
         lineView.frame = .init(x: 0, y: 0, width: 5, height: frame.height)
         
@@ -122,16 +146,17 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         stackView.distribution = .fillProportionally
         stackView.spacing = 3
         
-        addSubViews(stackView, lineView)
+        // Add views to container instead of directly to cell
+        containerView.addSubViews(stackView, lineView)
         
-        lineView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, padding: .init(top: 5, left: 0, bottom: 5, right: 0), size: .init(width: 3, height: 0))
+        lineView.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: nil, padding: .init(top: 5, left: 0, bottom: 5, right: 0), size: .init(width: 3, height: 0))
         lineView.backgroundColor = .random
         
         stackView.anchor(
             top: lineView.topAnchor,
             left: lineView.rightAnchor,
             bottom: lineView.bottomAnchor,
-            right: rightAnchor,
+            right: containerView.rightAnchor,
             padding: .init(top: 10, left: 5, bottom: 10, right: 5)
         )
     }

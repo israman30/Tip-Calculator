@@ -9,7 +9,6 @@
 import UIKit
 
 extension MainController {
-    
     @objc func changeValue() {
         calculationsViewModel?.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue)
     }

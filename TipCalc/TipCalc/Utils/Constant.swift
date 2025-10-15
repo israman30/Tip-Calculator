@@ -23,6 +23,8 @@ struct Constant {
     
     static let alert_ok = "Ok"
     static let alert_cancel = "Cancel"
+    
+    static let mic = "mic"
 }
 
 struct LocalizedString {

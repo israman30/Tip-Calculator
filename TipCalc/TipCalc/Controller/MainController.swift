@@ -26,6 +26,12 @@ protocol TableViewProtocol {
     var tableView: UITableView { get }
 }
 
+protocol SpeechControllerProtocol {
+    func requestSpeechAuthorization()
+    func startDictation()
+    func stopDictation()
+}
+
 class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
@@ -137,28 +143,13 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
-    // Customize microphone icon padding size
-    private func imageWithPadding(image: UIImage, padding: UIEdgeInsets) -> UIImage? {
-        let newSize = CGSize(
-            width: image.size.width + padding.left + padding.right,
-            height: image.size.height + padding.top + padding.bottom
-        )
-        UIGraphicsBeginImageContextWithOptions(newSize, false, image.scale)
-        
-        let origin = CGPoint(x: padding.left, y: padding.top)
-        image.draw(at: origin)
-        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return paddedImage
-    }
-    
     private lazy var micButton: UIButton = {
         let button = UIButton(type: .system)
-        if let micImage = UIImage(systemName: "mic"),
-           let paddedImage = imageWithPadding(image: micImage, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)) {
+        if let micImage = UIImage(systemName: Constant.mic) {
+            let paddedImage = micImage.withPadding(.init(top: 0, left: 8, bottom: 0, right: 0))
             button.setImage(paddedImage, for: .normal)
         } else {
-            button.setImage(UIImage(systemName: "mic"), for: .normal)
+            button.setImage(UIImage(systemName: Constant.mic), for: .normal)
         }
         button.tintColor = .systemBlue
         button.accessibilityLabel = AccessibilityLabels.dictateBillValueLabel
@@ -218,8 +209,20 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         present(presentTipViewController, animated: true)
     }
     
+    /// `Dictation handler`
+    @objc private func handleMicButtonTapped() {
+        if audioEngine.isRunning {
+            stopDictation()
+        } else {
+            startDictation()
+        }
+    }
+    
+}
+
+extension MainController: SpeechControllerProtocol {
     // Reques authorization for audio usage
-    private func requestSpeechAuthorization() {
+    func requestSpeechAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in
             DispatchQueue.main.async {
                 switch authStatus {
@@ -231,18 +234,9 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
             }
         }
     }
-
-    // Dictation handler
-    @objc private func handleMicButtonTapped() {
-        if audioEngine.isRunning {
-            stopDictation()
-        } else {
-            startDictation()
-        }
-    }
-
+    
     // Start dictation
-    private func startDictation() {
+    func startDictation() {
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
@@ -287,9 +281,9 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         
         micButton.tintColor = .systemRed // Indicate recording
     }
-
-    // Stop dictation 
-    private func stopDictation() {
+    
+    // Stop dictation
+    func stopDictation() {
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
         recognitionRequest?.endAudio()
@@ -299,12 +293,27 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     }
 }
 
+extension UIImage {
+    // Customize microphone icon padding size
+    func withPadding(_ padding: UIEdgeInsets) -> UIImage? {
+        let newSize = CGSize(
+            width: self.size.width + padding.left + padding.right,
+            height: self.size.height + padding.top + padding.bottom
+        )
+        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+        
+        let origin = CGPoint(x: padding.left, y: padding.top)
+        self.draw(at: origin)
+        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return paddedImage
+    }
+}
 
 // MARK: - PREVIEW SECTION BLOCK USING SWIFT UI API PREVIEW PROVIDER + SWIFT VERSION SUPPORT
-
-
 #Preview {
     UIViewControllerPreview {
         MainController()
     }
 }
+
