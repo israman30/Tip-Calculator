@@ -17,8 +17,21 @@ extension MainController {
     
     // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
-        navigationItem.title = LocalizedString.calculate_bill
-        navigationItem.accessibilityTraits.insert(.header)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let appTitle = UILabel()
+        appTitle.text = LocalizedString.calculate_bill
+        appTitle.font = .preferredFont(forTextStyle: .title1)
+        appTitle.sizeToFit()
+        appTitle.accessibilityTraits.insert(.header)
+        let leftTitle = UIBarButtonItem(customView: appTitle)
+        if #available(iOS 26.0, *) {
+            leftTitle.hidesSharedBackground = true
+        } else {
+            // Fallback on earlier versions
+            // TODO: update earlier versions
+        }
+        navigationItem.leftBarButtonItem = leftTitle
         
         let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
