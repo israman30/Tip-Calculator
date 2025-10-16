@@ -1,18 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Calculate tip" : {
-      "comment" : "Calculate tip",
-      "extractionState" : "stale",
-      "localizations" : {
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Calcular propina"
-          }
-        }
-      }
-    },
     "Clear values" : {
       "comment" : "CLEAR VALUES",
       "localizations" : {
@@ -149,7 +137,15 @@
       }
     },
     "Tip Calculator" : {
-      "comment" : "Calculate tip"
+      "comment" : "Calculate tip",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tip Calculadora"
+          }
+        }
+      }
     },
     "Tip value" : {
       "comment" : "Tip value",
