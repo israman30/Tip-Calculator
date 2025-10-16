@@ -149,7 +149,14 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         // Add views to container instead of directly to cell
         containerView.addSubViews(stackView, lineView)
         
-        lineView.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: nil, padding: .init(top: 5, left: 0, bottom: 5, right: 0), size: .init(width: 3, height: 0))
+        lineView.anchor(
+            top: containerView.topAnchor,
+            left: containerView.leftAnchor,
+            bottom: containerView.bottomAnchor,
+            right: nil,
+            padding: .init(top: 5, left: 0, bottom: 5, right: 0),
+            size: .init(width: 3, height: 0)
+        )
         lineView.backgroundColor = .random
         
         stackView.anchor(
