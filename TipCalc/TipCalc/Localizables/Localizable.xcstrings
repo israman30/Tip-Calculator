@@ -137,7 +137,7 @@
       }
     },
     "Tip Calculator" : {
-      "comment" : "Calculate tip",
+      "comment" : "Tip Calculator",
       "localizations" : {
         "es-419" : {
           "stringUnit" : {
