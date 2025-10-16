@@ -1,17 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Calculate tip" : {
-      "comment" : "Calculate tip",
-      "localizations" : {
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Calcular propina"
-          }
-        }
-      }
-    },
     "Clear values" : {
       "comment" : "CLEAR VALUES",
       "localizations" : {
@@ -143,6 +132,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualmente no hay facturas guardadas."
+          }
+        }
+      }
+    },
+    "Tip Calculator" : {
+      "comment" : "Tip Calculator",
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tip Calculadora"
           }
         }
       }

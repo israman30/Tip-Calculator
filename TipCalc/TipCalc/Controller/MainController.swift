@@ -46,7 +46,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
             ]
         )
         tf.accessibilityHint = LocalizedString.textField_hint
-        tf.setDynamicFont(font: .preferredFont(forTextStyle: .title1))
+        tf.setDynamicFont(font: .preferredFont(forTextStyle: .largeTitle))
         tf.textAlignment = .right
         tf.isUserInteractionEnabled = true
         tf.keyboardType = .decimalPad

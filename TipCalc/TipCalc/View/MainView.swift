@@ -17,8 +17,21 @@ extension MainController {
     
     // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
     func setNavbar() {
-        navigationItem.title = LocalizedString.calculate_bill
-        navigationItem.accessibilityTraits.insert(.header)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let appTitle = UILabel()
+        appTitle.text = LocalizedString.calculate_bill
+        appTitle.font = .preferredFont(forTextStyle: .title1)
+        appTitle.sizeToFit()
+        appTitle.accessibilityTraits.insert(.header)
+        let leftTitle = UIBarButtonItem(customView: appTitle)
+        if #available(iOS 26.0, *) {
+            leftTitle.hidesSharedBackground = true
+        } else {
+            // Fallback on earlier versions
+            // TODO: update earlier versions
+        }
+        navigationItem.leftBarButtonItem = leftTitle
         
         let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
         let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
@@ -48,8 +61,6 @@ extension MainController {
         let contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
-        bottomView.backgroundColor = .systemGray5
-        
         // Add scroll view to main view
         view.addSubview(scrollView)
         
@@ -57,7 +68,7 @@ extension MainController {
         scrollView.addSubview(contentView)
         
         // Add all UI elements to content view instead of main view
-        contentView.addSubViews(valueInput, bottomView)
+        contentView.addSubViews(valueInput)
         
         // Setup scroll view constraints - Fix: Use safeAreaLayoutGuide for bottom
         scrollView.anchor(
@@ -91,15 +102,12 @@ extension MainController {
         
         valueInput.addSubview(toastMessage.view)
         toastMessage.view.translatesAutoresizingMaskIntoConstraints = true
-        toastMessage.view.anchor(top: valueInput.topAnchor, left: valueInput.leftAnchor, bottom: valueInput.bottomAnchor, right: valueInput.rightAnchor, padding: .init(top: 0, left: 0, bottom: 35, right: 0))
-        
-        bottomView.anchor(
-            top: valueInput.bottomAnchor,
+        toastMessage.view.anchor(
+            top: valueInput.topAnchor,
             left: valueInput.leftAnchor,
-            bottom: nil,
+            bottom: valueInput.bottomAnchor,
             right: valueInput.rightAnchor,
-            padding: .init(top: 0, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 1)
+            padding: .init(top: 0, left: 0, bottom: 35, right: 0)
         )
         
         outputValues(contentView: contentView)
@@ -153,10 +161,10 @@ extension MainController {
         contentView.addSubViews(stackView, segment)
 
         stackView.anchor(
-            top: bottomView.bottomAnchor,
-            left: bottomView.leftAnchor,
+            top: valueInput.bottomAnchor,
+            left: valueInput.leftAnchor,
             bottom: nil,
-            right: bottomView.rightAnchor,
+            right: valueInput.rightAnchor,
             padding: .init(top: 10, left: 0, bottom: 0, right: 0),
             size: .init(width: 0, height: 280)
         )
