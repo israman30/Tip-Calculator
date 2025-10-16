@@ -28,7 +28,7 @@ struct Constant {
 }
 
 struct LocalizedString {
-    static let calculate_bill = NSLocalizedString("Tip Calculator", comment: "Calculate tip")
+    static let calculate_bill = NSLocalizedString("Tip Calculator", comment: "Tip Calculator")
     static let textField_placeholder = NSLocalizedString("Enter value", comment: "Enter value")
     static let textField_hint = NSLocalizedString("Input bill value", comment: "Input the bill value")
     static let tip_value_hint = NSLocalizedString("Tip value", comment: "Tip value")
