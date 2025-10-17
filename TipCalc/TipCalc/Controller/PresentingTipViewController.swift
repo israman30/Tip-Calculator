@@ -125,6 +125,10 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
                 saveViewModel?.bills.remove(at: index)
             }
             
+            if let billsCount = saveViewModel?.bills.count {
+                NotificationCenter.default.post(name: .didSaveBill, object: nil, userInfo: ["billsCount": billsCount])
+            }
+            
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
             PersistanceServices.context.delete(billToDelete)
             PersistanceServices.saveContext()

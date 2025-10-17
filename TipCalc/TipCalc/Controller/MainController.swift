@@ -184,7 +184,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleBillsCount), name: .didSaveBill, object: nil)
         
-        if let savedBills = saveViewModel?.bills.count {
+        if let savedBills = saveViewModel?.sortedBills.count {
             presentSheetButton.setTitle("\(savedBills) \(LocalizedString.seeAll)", for: .normal)
         }
         

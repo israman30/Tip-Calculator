@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 extension Notification.Name {
     static let didSaveBill: Notification.Name = .init("didSaveBill")
 }
@@ -37,7 +35,7 @@ extension MainController {
                            
         saveViewModel?.displayToast(toastMessage.view)
         
-        if let billsCount = saveViewModel?.bills.count {
+        if let billsCount = saveViewModel?.sortedBills.count {
             postBillsCountNotification(billsCount)
         }
         
