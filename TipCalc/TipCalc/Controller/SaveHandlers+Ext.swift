@@ -38,8 +38,14 @@ extension MainController {
         saveViewModel?.displayToast(toastMessage.view)
         
         if let billsCount = saveViewModel?.bills.count {
-            NotificationCenter.default.post(name: .didSaveBill, object: nil, userInfo: ["billsCount": billsCount])
+            postBillsCountNotification(billsCount)
         }
+        
+    }
+    
+    // Broadcast bills count
+    func postBillsCountNotification(_ billsCount: Int) {
+        NotificationCenter.default.post(name: .didSaveBill, object: nil, userInfo: ["billsCount": billsCount])
     }
     
     /// `Accessibility announcement when bill is added`

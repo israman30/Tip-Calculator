@@ -183,6 +183,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         toastMessage.view.alpha = 0.0
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleBillsCount), name: .didSaveBill, object: nil)
+        
         if let savedBills = saveViewModel?.bills.count {
             presentSheetButton.setTitle("\(savedBills) \(LocalizedString.seeAll)", for: .normal)
         }
