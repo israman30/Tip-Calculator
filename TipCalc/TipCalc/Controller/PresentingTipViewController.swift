@@ -20,6 +20,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
         let tv = UITableView()
         tv.rowHeight = UITableView.automaticDimension
         tv.showsVerticalScrollIndicator = false
+        tv.separatorColor = .clear
         tv.allowsSelection = false
         return tv
     }()
@@ -123,6 +124,10 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
             // Remove from the original bills array
             if let index = saveViewModel?.bills.firstIndex(of: billToDelete) {
                 saveViewModel?.bills.remove(at: index)
+            }
+            
+            if let billsCount = saveViewModel?.bills.count {
+                NotificationCenter.default.post(name: .didSaveBill, object: nil, userInfo: ["billsCount": billsCount])
             }
             
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)

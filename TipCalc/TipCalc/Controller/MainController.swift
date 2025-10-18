@@ -42,7 +42,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         tf.attributedPlaceholder = NSAttributedString(
             string: LocalizedString.textField_placeholder,
             attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.systemGray
+                NSAttributedString.Key.foregroundColor: UIColor.systemGray3
             ]
         )
         tf.accessibilityHint = LocalizedString.textField_hint
@@ -182,6 +182,12 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         saveViewModel?.fetchItems()
         toastMessage.view.alpha = 0.0
         
+        NotificationCenter.default.addObserver(self, selector: #selector(handleBillsCount), name: .didSaveBill, object: nil)
+        
+        if let savedBills = saveViewModel?.sortedBills.count {
+            presentSheetButton.setTitle("\(savedBills) \(LocalizedString.seeAll)", for: .normal)
+        }
+        
         view.addGestureRecognizer(
             UITapGestureRecognizer(
                 target: self,
@@ -198,6 +204,17 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     deinit {
         calculationsViewModel = nil
         saveViewModel = nil
+        removeObserver()
+    }
+    
+    @objc func handleBillsCount(_ notification: Notification) {
+        if let userData = notification.userInfo, let billsCount = userData["billsCount"] as? Int {
+            presentSheetButton.setTitle("\(billsCount) \(LocalizedString.seeAll)", for: .normal)
+        }
+    }
+    
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self, name: .didSaveBill, object: nil)
     }
     
     @objc func dismissKeyboard() {
