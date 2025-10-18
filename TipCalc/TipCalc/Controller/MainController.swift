@@ -42,7 +42,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         tf.attributedPlaceholder = NSAttributedString(
             string: LocalizedString.textField_placeholder,
             attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.systemGray
+                NSAttributedString.Key.foregroundColor: UIColor.systemGray3
             ]
         )
         tf.accessibilityHint = LocalizedString.textField_hint
