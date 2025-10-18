@@ -20,6 +20,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
         let tv = UITableView()
         tv.rowHeight = UITableView.automaticDimension
         tv.showsVerticalScrollIndicator = false
+        tv.separatorColor = .clear
         tv.allowsSelection = false
         return tv
     }()
