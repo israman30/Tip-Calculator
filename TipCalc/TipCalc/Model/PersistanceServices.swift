@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+// MARK: - Core Data Error Handling
+// Custom error types for Core Data operations with detailed error information
 enum PersistenceError: Error {
     case saveError(NSError, userInfo: [String:Any])
     case loadPersistentStoreError(NSError, userInfo: [String:Any])
@@ -23,8 +25,12 @@ enum PersistenceError: Error {
     }
 }
 
+// MARK: - Core Data Management
+// Singleton service for managing Core Data stack and operations
 class PersistanceServices {
     
+    // MARK: - Core Data Context
+    // Provides access to the main managed object context for data operations
     static var context: NSManagedObjectContext {
         return persitantContrainer.viewContext
     }
@@ -40,6 +46,9 @@ class PersistanceServices {
         return container
     }()
     
+    // MARK: - Save Context
+    // Saves all pending changes to the persistent store
+    // Handles save errors with detailed error logging
     static func saveContext() {
         let context = persitantContrainer.viewContext
         if context.hasChanges {

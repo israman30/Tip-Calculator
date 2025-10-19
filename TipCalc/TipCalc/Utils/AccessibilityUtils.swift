@@ -9,7 +9,9 @@
 import UIKit
 
 /**
- `Accessibility` extension for enhancing `UIKit` components with improved accessibility support.
+ MARK: - Accessibility Enhancements
+ Accessibility extension for enhancing UIKit components with improved accessibility support.
+ Provides dynamic font scaling, accessibility labels, and VoiceOver optimization.
  */
 extension UILabel {
     func makeFontAccessible(textStyle: UIFont.TextStyle, label: String? = nil, hint: String? = nil, trait: UIAccessibilityTraits? = nil) {
@@ -34,6 +36,8 @@ extension UITextField {
 }
 
 
+// MARK: - Dynamic Font Support
+// Extensions for dynamic type support and font scaling
 extension UILabel {
     func makeFontDynamic() {
         adjustsFontForContentSizeCategory = true
@@ -47,6 +51,8 @@ extension UILabel {
     }
 }
 
+// MARK: - Universal Font Management
+// UIView extension for applying dynamic fonts to various UI components
 extension UIView {
     func setDynamicFont(font: UIFont) {
         if let adjustable = self as? UIContentSizeCategoryAdjusting {

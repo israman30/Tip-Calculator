@@ -36,9 +36,11 @@ protocol ViewModelBillCalculationsProtocol {
 
 final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     var mainBill: Double = 0.0
-    // MARK: - This function calculate the entry with the percentage picked by the user, by defult the percentage is 18%
-    // Percentage is picked by the segmented controller selected index then is added to the entry
-    // guard statement check if the entry has a valid value if not, display default value of $0.0
+    
+    // MARK: - Core Tip Calculation Logic
+    // Calculates tip amount and total bill based on user input and selected percentage
+    // Updates UI labels in real-time as user types or changes percentage
+    // Handles invalid input gracefully by resetting to $0.00
     func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel) {
         let tipPerc = [0.10, 0.15, 0.20, 0.25]
         
@@ -61,7 +63,9 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
         
     }
     
-    // MARK: - Reset the fields when user needs to reset it or/and after entry is saved into db
+    // MARK: - Reset All Calculation Fields
+    // Clears all input fields and resets calculations to default state
+    // Called when user taps clear button or after successful save operation
     func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, totalByPerson: UILabel, peopleQuantity: UILabel) {
         valueInput.text = ""
         tipValue.text = Constant.zero
@@ -71,6 +75,9 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
         mainBill = 0
     }
     
+    // MARK: - Bill Splitting Logic
+    // Calculates per-person amount when splitting bill among multiple people
+    // Updates UI to show split information and per-person cost
     func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel) {
         people.text = "\(Int(bill))x"
         people.accessibilityLabel = "\(Int(bill)) people"
@@ -80,7 +87,8 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
 
 extension String {
     
-    /// formatting text for currency textField
+    /// Formats text input as currency with proper symbol and decimal places
+    /// Handles regex-based number extraction and locale-aware formatting
     func currencyInputFormatting() -> String {
         var number: NSNumber!
         let formatter = NumberFormatter()

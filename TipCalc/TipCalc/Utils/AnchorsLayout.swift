@@ -54,7 +54,9 @@ extension UIView {
 }
 
 /**
- UIView extension with an anchor method for setting `constraints` on the view.
+ MARK: - Auto Layout Helper
+ UIView extension with an anchor method for setting constraints on the view.
+ Provides simplified Auto Layout API for common constraint scenarios.
  */
 struct AnchoredConstraints {
     var top, left, bottom, right, width, height: NSLayoutConstraint?
@@ -62,6 +64,9 @@ struct AnchoredConstraints {
 
 extension UIView {
     
+    // MARK: - Primary Anchor Method
+    // Simplified Auto Layout constraint setup with padding and size support
+    // Returns AnchoredConstraints for further constraint modifications
     @discardableResult
     func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
         
@@ -118,6 +123,8 @@ extension UIView {
         return anchoredConstraints
     }
     
+    // MARK: - Fill Superview
+    // Constrains view to fill its superview with optional padding
     func fillSuperview(padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewTopAnchor = superview?.topAnchor {
@@ -149,6 +156,8 @@ extension UIView {
         }
     }
     
+    // MARK: - Center in Superview
+    // Centers view within its superview with optional size constraints
     func centerInSuperview(size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewCenterXAnchor = superview?.centerXAnchor {

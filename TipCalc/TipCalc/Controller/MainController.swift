@@ -36,7 +36,8 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
     
-    // MARK: - TextField with editingChanged event, that allows to interact with the label tip and total
+    // MARK: - Primary input field for bill amount with real-time calculation updates
+    // This text field triggers tip and total calculations as the user types
     let valueInput: UITextField = {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(
@@ -101,7 +102,8 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         return st
     }()
     
-    // MARK: - Segmented Controller with value changed event for tip percentage
+    // MARK: - Tip percentage selector with predefined options (10%, 15%, 20%, 25%)
+    // Automatically recalculates tip and total when selection changes
     let segment: UISegmentedControl = {
         let sc = UISegmentedControl(
             items: Percentages.allCases.map { $0.description.capitalized }
@@ -137,7 +139,8 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     var calculationsViewModel: CalculationsViewModel?
     var saveViewModel: SaveViewModel?
     
-    // Speech recognition properties
+    // MARK: - Speech Recognition Components
+    // These properties handle voice input functionality for hands-free bill entry
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -226,7 +229,8 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         present(presentTipViewController, animated: true)
     }
     
-    /// `Dictation handler`
+    /// Handles microphone button tap for voice input
+    /// Toggles between start/stop dictation based on current audio engine state
     @objc private func handleMicButtonTapped() {
         if audioEngine.isRunning {
             stopDictation()
@@ -238,7 +242,8 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
 }
 
 extension MainController: SpeechControllerProtocol {
-    // Reques authorization for audio usage
+    // Requests microphone permission for speech recognition
+    // Enables/disables mic button based on authorization status
     func requestSpeechAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in
             DispatchQueue.main.async {
@@ -252,7 +257,8 @@ extension MainController: SpeechControllerProtocol {
         }
     }
     
-    // Start dictation
+    // Initiates speech recognition session
+    // Sets up audio session and begins real-time transcription
     func startDictation() {
         if recognitionTask != nil {
             recognitionTask?.cancel()
@@ -299,7 +305,8 @@ extension MainController: SpeechControllerProtocol {
         micButton.tintColor = .systemRed // Indicate recording
     }
     
-    // Stop dictation
+    // Stops speech recognition and cleans up audio resources
+    // Resets microphone button to normal state
     func stopDictation() {
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
