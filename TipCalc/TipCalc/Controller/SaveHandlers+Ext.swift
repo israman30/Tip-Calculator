@@ -8,10 +8,6 @@
 
 import UIKit
 
-extension Notification.Name {
-    static let didSaveBill: Notification.Name = .init("didSaveBill")
-}
-
 extension MainController {
     @objc func handleSaveBill() {
         saveViewModel?.save(
@@ -35,15 +31,6 @@ extension MainController {
                            
         saveViewModel?.displayToast(toastMessage.view)
         
-        if let billsCount = saveViewModel?.sortedBills.count {
-            postBillsCountNotification(billsCount)
-        }
-        
-    }
-    
-    // Broadcast bills count
-    func postBillsCountNotification(_ billsCount: Int) {
-        NotificationCenter.default.post(name: .didSaveBill, object: nil, userInfo: ["billsCount": billsCount])
     }
     
     /// `Accessibility announcement when bill is added`
@@ -53,4 +40,5 @@ extension MainController {
         }
     }
 }
+
 
