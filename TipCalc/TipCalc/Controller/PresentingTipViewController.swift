@@ -122,12 +122,8 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
             let billToDelete = sortedBills[indexPath.row]
             
             // Remove from the original bills array
-            if let index = saveViewModel?.bills.firstIndex(of: billToDelete) {
+            if let index = saveViewModel?.sortedBills.firstIndex(of: billToDelete) {
                 saveViewModel?.bills.remove(at: index)
-            }
-            
-            if let billsCount = saveViewModel?.bills.count {
-                NotificationCenter.default.post(name: .didSaveBill, object: nil, userInfo: ["billsCount": billsCount])
             }
             
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)

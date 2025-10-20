@@ -26,14 +26,16 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
     var bills = [Bill]()
     var isTotastVisible: Bool = false
     
-    // MARK: - Get sorted bills (newest first)
+    // MARK: - Sorted Bills Property
+    // Returns bills sorted by date (newest first) for display in table view
     var sortedBills: [Bill] {
         return bills.sorted(by: { $0.date ?? "" < $1.date ?? "" })
     }
     
-    // MARK: - Handler checks for input before saves on local storage
-    // saveToBD function handles to save input after input is authentificated
-    // After input is saved into db, the fields are reseted and keyboard dismissed
+    // MARK: - Save Bill Calculation
+    // Validates input before saving to Core Data
+    // Shows alert if no valid input, otherwise saves and shows success feedback
+    // Dismisses keyboard after save operation
     func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?) {
         guard let input = valueInput.text,
               let tip = tipValue.text,
@@ -61,10 +63,10 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
         isTotastVisible = false
     }
     
-    // MARK: - This function saves into db input and calculations using context
-    // Functino uses Core Data Persistance class to save object created by the context
-    // After the object is saved, is appended to an array container
-    // MARK - NOTE: PersistanceServices.saveContext() is always called in the AppDelegate when application is terminated
+    // MARK: - Core Data Persistence
+    // Creates new Bill entity and saves to Core Data with all calculation details
+    // Adds timestamp and split information if applicable
+    // Appends to local array for immediate UI updates
     func savingInLocalstorage(with input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?) {
         let bill = Bill(context: PersistanceServices.context)
         bill.input = "$\(input) \(LocalizedString.initial_bill)"
@@ -78,7 +80,9 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
         bills.append(bill)
     }
     
-    // MARK: - This function fetch data saved from db using the context the assigned to the array container to be display it in the UI
+    // MARK: - Fetch Saved Bills
+    // Retrieves all saved bills from Core Data and updates local array
+    // Handles fetch errors gracefully with console logging
     func fetchItems() {
         let fetchRequest: NSFetchRequest<Bill> = Bill.fetchRequest()
         do {

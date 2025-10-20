@@ -81,6 +81,9 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         return label
     }()
     
+    // MARK: - Cell Configuration
+    // Populates cell with bill data including amounts, tip, total, and split information
+    // Handles optional bill data gracefully with guard statements
     func configure(bill: Bill?) {
         guard let total = bill?.total,
               let inputBill = bill?.input,
@@ -92,7 +95,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         billLabel.text = inputBill
         tipLabel.text = tip
         dateLabel.text = date
-        /// Statement checks if bill is been splitted by number of people or none
+        /// Determines split display logic - shows split info only when bill is divided among multiple people
         if splitQuantity == "1x" {
             tagSplitLabel.text = ""
         } else {
@@ -101,6 +104,9 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         }
     }
     
+    // MARK: - UI Setup
+    // Configures cell layout with container view, shadows, and stack views
+    // Creates hierarchical layout for bill information display
     func setUI() {
         // Configure cell appearance
         backgroundColor = .clear
