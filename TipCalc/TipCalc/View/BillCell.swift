@@ -24,11 +24,11 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBackground
-        view.layer.cornerRadius = 12
-        view.layer.shadowColor = UIColor.label.cgColor
+        view.layer.cornerRadius = 16
+        view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowRadius = 4
-        view.layer.shadowOpacity = 0.1
+        view.layer.shadowRadius = 8
+        view.layer.shadowOpacity = 0.06
         return view
     }()
     
@@ -59,24 +59,26 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = Constant.defaultDate
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
-        label.textColor = .darkGray
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .footnote))
+        label.textColor = .secondaryLabel
         return label
     }()
     
     private let lineView: UIView = {
         let view = UIView()
+        view.layer.cornerRadius = 1.5
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         return view
     }()
     
     private let tagSplitLabel: UILabel = {
         let label = UILabel()
         label.text = Constant.zero
-        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .footnote))
         label.textAlignment = .center
-        label.textColor = .label
-        label.backgroundColor = .black.withAlphaComponent(0.07)
-        label.layer.cornerRadius = 10
+        label.textColor = .secondaryLabel
+        label.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.12)
+        label.layer.cornerRadius = 8
         label.clipsToBounds = true
         return label
     }()
@@ -122,8 +124,6 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
             padding: .init(top: 8, left: 16, bottom: 8, right: 16)
         )
         
-        lineView.frame = .init(x: 0, y: 0, width: 5, height: frame.height)
-        
         let horizontalViewTips = UIStackView(arrangedSubviews: [tipLabel, UIView(), dateLabel])
         
         let bodyStackView = UIStackView(
@@ -133,7 +133,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         )
         bodyStackView.axis = .vertical
         bodyStackView.distribution = .fillProportionally
-        bodyStackView.spacing = 5
+        bodyStackView.spacing = 8
         
         let totalStackView = UIStackView(
             arrangedSubviews: [
@@ -150,7 +150,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         )
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
-        stackView.spacing = 3
+        stackView.spacing = 8
         
         // Add views to container instead of directly to cell
         containerView.addSubViews(stackView, lineView)
@@ -163,14 +163,14 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
             padding: .init(top: 5, left: 0, bottom: 5, right: 0),
             size: .init(width: 3, height: 0)
         )
-        lineView.backgroundColor = .random
+        lineView.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.85)
         
         stackView.anchor(
             top: lineView.topAnchor,
             left: lineView.rightAnchor,
             bottom: lineView.bottomAnchor,
             right: containerView.rightAnchor,
-            padding: .init(top: 10, left: 5, bottom: 10, right: 5)
+            padding: .init(top: 14, left: 12, bottom: 14, right: 14)
         )
     }
     

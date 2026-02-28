@@ -108,22 +108,27 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         let sc = UISegmentedControl(
             items: Percentages.allCases.map { $0.description.capitalized }
         )
-        let font = UIFont.preferredFont(forTextStyle: .title2)
+        let font = UIFont.preferredFont(forTextStyle: .subheadline)
         sc.setTitleTextAttributes([
-            NSAttributedString.Key.font : font,
+            NSAttributedString.Key.font: font,
             NSAttributedString.Key.foregroundColor: UIColor.label
         ], for: .selected)
+        sc.setTitleTextAttributes([
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel
+        ], for: .normal)
         sc.selectedSegmentIndex = 0
+        sc.backgroundColor = .secondarySystemFill
         return sc
     }()
     
     let clearValuesButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle(LocalizedString.clear_value_button_title, for: .normal)
-        btn.setTitleColor(.red, for: .normal)
+        btn.setTitleColor(.systemRed, for: .normal)
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
-        btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        btn.layer.cornerRadius = 8
+        btn.backgroundColor = UIColor.systemRed.withAlphaComponent(0.08)
+        btn.layer.cornerRadius = 12
         btn.accessibilityHint = AccessibilityLabels.clearButtonHint
         return btn
     }()
@@ -131,6 +136,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     let presentSheetButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle(LocalizedString.seeAll, for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
         btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
         btn.accessibilityHint = AccessibilityLabels.seeAllButtonHint
         return btn
@@ -169,8 +175,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         calculationsViewModel = CalculationsViewModel()
         saveViewModel = SaveViewModel()
         
-        view.backgroundColor = UIColor(named: "backgroundPrimary")
-        view.backgroundColor = UIColor(named: "backgroundSecondary")
+        view.backgroundColor = UIColor(named: "backgroundSecondary") ?? .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)

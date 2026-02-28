@@ -10,6 +10,14 @@ import SwiftUI
 
 class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIProtocol, SaveViewModelProtocol {
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("Saved Bills", comment: "Saved bills title")
+        label.font = .preferredFont(forTextStyle: .title2)
+        label.textColor = .label
+        return label
+    }()
+    
     let topView: UIView = {
         let view = UIView()
         view.backgroundColor = .secondarySystemBackground
@@ -67,21 +75,26 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
             left: view.leftAnchor,
             bottom: view.bottomAnchor,
             right: view.rightAnchor,
-            padding: .init(top: 0, left: 5, bottom: 0, right: 5)
+            padding: .init(top: 8, left: 16, bottom: 0, right: 16)
         )
         
-        let navBarStackView = UIStackView(
-            arrangedSubviews: [UIView(), UIView(), dismissButton]
-        )
-        navBarStackView.translatesAutoresizingMaskIntoConstraints = false
-        topView.addSubview(navBarStackView)
+        topView.addSubViews(titleLabel, dismissButton)
         
-        navBarStackView.anchor(
+        titleLabel.anchor(
             top: topView.topAnchor,
             left: topView.leftAnchor,
             bottom: topView.bottomAnchor,
+            right: nil,
+            padding: .init(top: 12, left: 20, bottom: 12, right: 0)
+        )
+        
+        dismissButton.anchor(
+            top: topView.topAnchor,
+            left: nil,
+            bottom: topView.bottomAnchor,
             right: topView.rightAnchor,
-            padding: .init(top: 0, left: 10, bottom: 0, right: 10)
+            padding: .init(top: 8, left: 0, bottom: 8, right: 16),
+            size: .init(width: 44, height: 44)
         )
     }
     

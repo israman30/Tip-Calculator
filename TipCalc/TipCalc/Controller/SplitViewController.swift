@@ -41,26 +41,39 @@ class SplitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .systemGroupedBackground
         setDetailView()
     }
     
     func setDetailView() {
+        let containerView = UIView()
+        containerView.backgroundColor = .systemBackground
+        containerView.layer.cornerRadius = 16
+        
         let stackView = UIStackView(
             arrangedSubviews: [
                 totalLabel, billLabel, tipLabel, dateLabel
             ]
         )
-        view.addSubview(stackView)
-        stackView.backgroundColor = .red
+        view.addSubview(containerView)
+        containerView.addSubview(stackView)
         stackView.axis = .vertical
-        stackView.anchor(
+        stackView.spacing = 8
+        containerView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             bottom: nil,
             right: view.rightAnchor,
-            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 120)
+            padding: .init(top: 20, left: 20, bottom: 0, right: 20),
+            size: .init(width: 0, height: 140)
+        )
+        
+        stackView.anchor(
+            top: containerView.topAnchor,
+            left: containerView.leftAnchor,
+            bottom: containerView.bottomAnchor,
+            right: containerView.rightAnchor,
+            padding: .init(top: 16, left: 20, bottom: 16, right: 20)
         )
     }
     

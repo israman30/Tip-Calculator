@@ -67,10 +67,14 @@ extension MainController {
         // Add content view to scroll view
         scrollView.addSubview(contentView)
         
-        // Add all UI elements to content view instead of main view
-        contentView.addSubViews(valueInput)
+        // Input card container
+        let inputCard = createCardView()
+        inputCard.addSubview(valueInput)
         
-        // Setup scroll view constraints - Fix: Use safeAreaLayoutGuide for bottom
+        // Add all UI elements to content view
+        contentView.addSubViews(inputCard)
+        
+        // Setup scroll view constraints
         scrollView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
@@ -79,7 +83,6 @@ extension MainController {
             padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
         
-        // Setup content view constraints
         contentView.anchor(
             top: scrollView.topAnchor,
             left: scrollView.leftAnchor,
@@ -87,17 +90,23 @@ extension MainController {
             right: scrollView.rightAnchor,
             padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
-        
-        // Ensure content view width matches scroll view width
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
-        valueInput.anchor(
+        inputCard.anchor(
             top: contentView.topAnchor,
             left: contentView.leftAnchor,
             bottom: nil,
             right: contentView.rightAnchor,
             padding: .init(top: 10, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 50)
+            size: .init(width: 0, height: 70)
+        )
+        
+        valueInput.anchor(
+            top: inputCard.topAnchor,
+            left: inputCard.leftAnchor,
+            bottom: inputCard.bottomAnchor,
+            right: inputCard.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 12, right: 10)
         )
         
         valueInput.addSubview(toastMessage.view)
@@ -107,75 +116,99 @@ extension MainController {
             left: valueInput.leftAnchor,
             bottom: valueInput.bottomAnchor,
             right: valueInput.rightAnchor,
-            padding: .init(top: 0, left: 0, bottom: 35, right: 0)
+            padding: .init(top: 0, left: 0, bottom: 15, right: 0)
         )
         
-        outputValues(contentView: contentView)
+        outputValues(contentView: contentView, inputCard: inputCard)
+    }
+    
+    private func createCardView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 16
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 8
+        view.layer.shadowOpacity = 0.06
+        return view
     }
     
     // MARK: - Set the output components
-    private func outputValues(contentView: UIView) {
+    private func outputValues(contentView: UIView, inputCard: UIView) {
         let tipLabel = UILabel()
         tipLabel.text = Constant.tip
-        tipLabel.textAlignment = .right
-        tipLabel.textColor = .gray
+        tipLabel.textAlignment = .left
+        tipLabel.textColor = .secondaryLabel
         tipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         tipLabel.isAccessibilityElement = false
         
         let totalLabel = UILabel()
         totalLabel.text = Constant.total
-        totalLabel.textAlignment = .right
-        totalLabel.textColor = .gray
+        totalLabel.textAlignment = .left
+        totalLabel.textColor = .secondaryLabel
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         totalLabel.isAccessibilityElement = false
         
         let splitLabel = UILabel()
         splitLabel.text = Constant.split_bill
         splitLabel.textAlignment = .left
-        splitLabel.textColor = .gray
+        splitLabel.textColor = .secondaryLabel
         splitLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         splitLabel.isAccessibilityElement = false
         
-        let tipStackView = UIStackView(arrangedSubviews: [tipLabel, tipValue])
+        let tipStackView = UIStackView(arrangedSubviews: [tipLabel, UIView(), tipValue])
         tipStackView.axis = .horizontal
-        tipStackView.accessibilityLabel = "\(tipLabel) \(tipValue)"
+        tipStackView.alignment = .center
+        tipStackView.accessibilityLabel = "\(tipLabel.text ?? "") \(tipValue.text ?? "")"
         
-        let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, totalValue])
+        let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, UIView(), totalValue])
         totalpStackView.axis = .horizontal
-        totalpStackView.accessibilityLabel = "\(totalLabel) \(totalValue)"
+        totalpStackView.alignment = .center
+        totalpStackView.accessibilityLabel = "\(totalLabel.text ?? "") \(totalValue.text ?? "")"
         
         let splitValuesStackView = UIStackView(arrangedSubviews: [splitTotal, splitPeopleQuantity])
         splitValuesStackView.axis = .horizontal
-        splitValuesStackView.spacing = 25
+        splitValuesStackView.spacing = 12
         
         let splitBillStackView = UIStackView(arrangedSubviews: [splitLabel, UIView(), splitValuesStackView])
         splitBillStackView.axis = .horizontal
+        splitBillStackView.alignment = .center
         
-        let stackView = UIStackView(arrangedSubviews:
+        let resultsCard = createCardView()
+        let resultsStackView = UIStackView(arrangedSubviews:
             [tipStackView, totalpStackView, splitBillStackView, splitStepper]
         )
-        stackView.distribution = .fillProportionally
-        stackView.axis = .vertical
-        stackView.spacing = 0
+        resultsStackView.distribution = .fillProportionally
+        resultsStackView.axis = .vertical
+        resultsStackView.spacing = 10
         
-        contentView.addSubViews(stackView, segment)
-
-        stackView.anchor(
-            top: valueInput.bottomAnchor,
-            left: valueInput.leftAnchor,
+        resultsCard.addSubview(resultsStackView)
+        contentView.addSubViews(resultsCard, segment)
+        
+        resultsCard.anchor(
+            top: inputCard.bottomAnchor,
+            left: contentView.leftAnchor,
             bottom: nil,
-            right: valueInput.rightAnchor,
-            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 280)
+            right: contentView.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 260)
         )
         
+        resultsStackView.anchor(
+            top: resultsCard.topAnchor,
+            left: resultsCard.leftAnchor,
+            bottom: resultsCard.bottomAnchor,
+            right: resultsCard.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 20, right: 10)
+        )
+
         segment.anchor(
-            top: stackView.bottomAnchor,
-            left: stackView.leftAnchor,
+            top: resultsCard.bottomAnchor,
+            left: contentView.leftAnchor,
             bottom: nil,
-            right: stackView.rightAnchor,
-            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 35)
+            right: contentView.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 40)
         )
         
         resetButton(contentView: contentView)
@@ -186,8 +219,9 @@ extension MainController {
         let mesageLabel = UILabel()
         mesageLabel.numberOfLines = 0
         mesageLabel.text = LocalizedString.messageView
-        mesageLabel.textColor = .systemGray
-        mesageLabel.font = .preferredFont(forTextStyle: .title2)
+        mesageLabel.textColor = .secondaryLabel
+        mesageLabel.font = .preferredFont(forTextStyle: .body)
+        mesageLabel.textAlignment = .center
         
         let horizontalStackView = UIStackView(arrangedSubviews: [UIView(), presentSheetButton])
         horizontalStackView.axis = .horizontal
@@ -195,26 +229,26 @@ extension MainController {
         let stackView = UIStackView(arrangedSubviews: [clearValuesButton, horizontalStackView])
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
+        stackView.spacing = 12
         
         contentView.addSubViews(stackView, mesageLabel)
         
         stackView.anchor(
             top: segment.bottomAnchor,
-            left: segment.leftAnchor,
+            left: contentView.leftAnchor,
             bottom: nil,
-            right: segment.rightAnchor,
-            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 85)
+            right: contentView.rightAnchor,
+            padding: .init(top: 20, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 90)
         )
         
         mesageLabel.anchor(
             top: stackView.bottomAnchor,
-            left: stackView.leftAnchor,
+            left: contentView.leftAnchor,
             bottom: contentView.bottomAnchor,
-            right: stackView.rightAnchor,
-            padding: .init(top: 10, left: 10, bottom: 0, right: 10)
+            right: contentView.rightAnchor,
+            padding: .init(top: 24, left: 24, bottom: 32, right: 24)
         )
-        
     }
     
 }
