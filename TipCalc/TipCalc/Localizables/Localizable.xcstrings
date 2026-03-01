@@ -12,6 +12,9 @@
         }
       }
     },
+    "Close" : {
+      "comment" : "Close button"
+    },
     "Dictate bill value" : {
       "localizations" : {
         "es-419" : {
@@ -21,6 +24,9 @@
           }
         }
       }
+    },
+    "Dismiss saved bills list" : {
+      "comment" : "Dismiss hint"
     },
     "Enter value" : {
       "comment" : "Enter value",
@@ -66,6 +72,9 @@
         }
       }
     },
+    "Saved Bills" : {
+      "comment" : "Saved bills title"
+    },
     "saved records.." : {
       "comment" : "Text displayed in a button that shows the user how many saved bills there are.",
       "extractionState" : "stale",
@@ -92,6 +101,9 @@
           }
         }
       }
+    },
+    "Swipe left to delete" : {
+      "comment" : "Swipe hint for saved bills"
     },
     "Tap for saving a bill." : {
       "localizations" : {

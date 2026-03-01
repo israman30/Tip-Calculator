@@ -64,11 +64,13 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveViewModel = SaveViewModel()
+        if saveViewModel == nil {
+            saveViewModel = SaveViewModel()
+            saveViewModel?.fetchItems()
+        }
         setUI()
         dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         tableViewHandlers()
-        saveViewModel?.fetchItems()
         tableView.reloadData()
     }
     
@@ -96,7 +98,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
             left: view.leftAnchor,
             bottom: view.bottomAnchor,
             right: view.rightAnchor,
-            padding: .init(top: 0, left: 16, bottom: 0, right: 16)
+            padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
 
         topView.addSubViews(titleLabel, subtitleLabel, dismissButton, topSeparatorView)
@@ -184,7 +186,41 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
-#Preview {
+// MARK: - Mock Data for SwiftUI Preview
+extension PresentingTipViewController {
+    static func makeMockBills() -> [Bill] {
+        let context = PersistanceServices.context
+        let bill1 = Bill(context: context)
+        bill1.input = "$75.00 \(LocalizedString.initial_bill)"
+        bill1.tip = "$15.00 tip"
+        bill1.total = "$90.00 total"
+        bill1.date = "Feb 28, 2025"
+        bill1.splitPeopleQuantity = "1x"
+        bill1.splitTotal = "$90.00"
+
+        let bill2 = Bill(context: context)
+        bill2.input = "$120.50 \(LocalizedString.initial_bill)"
+        bill2.tip = "$24.10 tip"
+        bill2.total = "$144.60 total"
+        bill2.date = "Feb 27, 2025"
+        bill2.splitPeopleQuantity = "2x"
+        bill2.splitTotal = "$72.30"
+
+        return [bill1, bill2]
+    }
+}
+
+#Preview("With mock cells") {
+    UIViewControllerPreview {
+        let vc = PresentingTipViewController()
+        let vm = SaveViewModel()
+        vm.bills = PresentingTipViewController.makeMockBills()
+        vc.saveViewModel = vm
+        return vc
+    }
+}
+
+#Preview("Empty state") {
     UIViewControllerPreview {
         PresentingTipViewController()
     }
