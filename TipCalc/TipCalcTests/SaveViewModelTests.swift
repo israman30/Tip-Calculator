@@ -95,7 +95,7 @@ final class SaveViewModelTests: XCTestCase {
         splitPeopleQuantity.text = "2x"
         
         // When
-        savingViewModel.save(mockViewController, valueInput: valueInput, tipValue: tipValue, totalValue: totalValue, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity)
+        savingViewModel.save(mockViewController, valueInput: valueInput, tipValue: tipValue, totalValue: totalValue, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity, category: nil)
         
         // Then
         XCTAssertNotNil(mockViewController.presentedAlert, "An alert should be presented when the input is empty")

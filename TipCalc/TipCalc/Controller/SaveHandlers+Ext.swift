@@ -19,7 +19,8 @@ extension MainController {
             tipValue: tipValue,
             totalValue: totalValue,
             splitTotal: splitTotal,
-            splitPeopleQuantity: splitPeopleQuantity
+            splitPeopleQuantity: splitPeopleQuantity,
+            category: selectedCategory
         )
         handleResetFields()
         

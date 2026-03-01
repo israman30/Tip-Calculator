@@ -126,8 +126,53 @@ extension MainController {
             right: valueInput.rightAnchor,
             padding: .init(top: 0, left: 0, bottom: 15, right: 0)
         )
-        
-        outputValues(contentView: contentView, inputCard: inputCard)
+
+        setupCategoryPicker(contentView: contentView, inputCard: inputCard)
+    }
+
+    private func setupCategoryPicker(contentView: UIView, inputCard: UIView) {
+        let categoryLabel = UILabel()
+        categoryLabel.text = NSLocalizedString("Category", comment: "Bill category label")
+        categoryLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        categoryLabel.textColor = .secondaryLabel
+
+        categoryScrollView.addSubview(categoryStackView)
+        categoryStackView.anchor(
+            top: categoryScrollView.topAnchor,
+            left: categoryScrollView.leftAnchor,
+            bottom: categoryScrollView.bottomAnchor,
+            right: categoryScrollView.rightAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 12)
+        )
+        categoryStackView.heightAnchor.constraint(equalTo: categoryScrollView.heightAnchor).isActive = true
+
+        let categoryCard = createCardView()
+        let categoryHeaderStack = UIStackView(arrangedSubviews: [categoryLabel])
+        categoryHeaderStack.axis = .horizontal
+        let categoryStack = UIStackView(arrangedSubviews: [categoryHeaderStack, categoryScrollView])
+        categoryStack.axis = .vertical
+        categoryStack.spacing = 8
+        categoryCard.addSubview(categoryStack)
+
+        contentView.addSubview(categoryCard)
+        categoryCard.anchor(
+            top: inputCard.bottomAnchor,
+            left: contentView.leftAnchor,
+            bottom: nil,
+            right: contentView.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 56)
+        )
+        categoryStack.anchor(
+            top: categoryCard.topAnchor,
+            left: categoryCard.leftAnchor,
+            bottom: categoryCard.bottomAnchor,
+            right: categoryCard.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 10, right: 10)
+        )
+
+        refreshCategoryChips()
+        outputValues(contentView: contentView, inputCard: inputCard, categoryCard: categoryCard)
     }
     
     private func createCardView() -> UIView {
@@ -142,7 +187,7 @@ extension MainController {
     }
     
     // MARK: - Set the output components
-    private func outputValues(contentView: UIView, inputCard: UIView) {
+    private func outputValues(contentView: UIView, inputCard: UIView, categoryCard: UIView? = nil) {
         let tipLabel = UILabel()
         tipLabel.text = Constant.tip
         tipLabel.textAlignment = .left
@@ -193,8 +238,9 @@ extension MainController {
         resultsCard.addSubview(resultsStackView)
         contentView.addSubViews(resultsCard, segment, tipSliderContainerView)
         
+        let topAnchorView = categoryCard ?? inputCard
         resultsCard.anchor(
-            top: inputCard.bottomAnchor,
+            top: topAnchorView.bottomAnchor,
             left: contentView.leftAnchor,
             bottom: nil,
             right: contentView.rightAnchor,
