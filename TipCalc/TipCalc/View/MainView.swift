@@ -33,20 +33,28 @@ extension MainController {
         }
         navigationItem.leftBarButtonItem = leftTitle
         
-        let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
-        let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
+        let pinConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .semibold)
+        let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle, withConfiguration: pinConfig))
+        pin.tintColor = .systemBlue
+        pin.contentMode = .scaleAspectFit
+        
+        let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        pinView.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.12)
+        pinView.layer.cornerRadius = 20
         pinView.isAccessibilityElement = true
-        pinView.accessibilityHint = Constant.pin_icon
+        pinView.accessibilityLabel = NSLocalizedString("Save bill", comment: "Save button label")
         pinView.accessibilityTraits.insert(.button)
         pinView.accessibilityHint = AccessibilityLabels.pintButtonHint
         
         pinView.addSubViews(pin)
-        pin.frame = pinView.frame
+        pin.translatesAutoresizingMaskIntoConstraints = false
+        pin.centerXAnchor.constraint(equalTo: pinView.centerXAnchor).isActive = true
+        pin.centerYAnchor.constraint(equalTo: pinView.centerYAnchor).isActive = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pinView)
         
-        pin.isUserInteractionEnabled = true
-        pin.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSaveBill)))
+        pinView.isUserInteractionEnabled = true
+        pinView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSaveBill)))
     }
     
     // MARK: - Set the MainView components

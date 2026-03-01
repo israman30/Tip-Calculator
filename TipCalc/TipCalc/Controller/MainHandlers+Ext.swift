@@ -14,6 +14,8 @@ extension MainController {
     }
     
     @objc func handleResetFields() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
         calculationsViewModel?.reset(
             valueInput: valueInput,
             tipValue: tipValue,
@@ -21,6 +23,8 @@ extension MainController {
             totalByPerson: splitTotal,
             peopleQuantity: splitPeopleQuantity
         )
+        splitStepper.value = 1
+        splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
     }
     
     @objc func changeStepperQuantity() {

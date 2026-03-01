@@ -124,20 +124,42 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     
     let clearValuesButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(LocalizedString.clear_value_button_title, for: .normal)
-        btn.setTitleColor(.systemRed, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
-        btn.backgroundColor = UIColor.systemRed.withAlphaComponent(0.08)
-        btn.layer.cornerRadius = 12
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "arrow.counterclockwise")
+        config.imagePlacement = .leading
+        config.imagePadding = 8
+        config.baseForegroundColor = .systemOrange
+        config.background.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.12)
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+        config.title = LocalizedString.clear_value_button_title
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
+            var attributes = AttributeContainer()
+            attributes.font = .preferredFont(forTextStyle: .body)
+            return attributes
+        }
+        btn.configuration = config
         btn.accessibilityHint = AccessibilityLabels.clearButtonHint
         return btn
     }()
     
     let presentSheetButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(LocalizedString.seeAll, for: .normal)
-        btn.setTitleColor(.systemBlue, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "list.bullet.rectangle.fill")
+        config.imagePlacement = .leading
+        config.imagePadding = 8
+        config.baseForegroundColor = .systemBlue
+        config.background.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.12)
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+        config.title = LocalizedString.seeAll
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
+            var attributes = AttributeContainer()
+            attributes.font = .preferredFont(forTextStyle: .body)
+            return attributes
+        }
+        btn.configuration = config
         btn.accessibilityHint = AccessibilityLabels.seeAllButtonHint
         return btn
     }()
@@ -188,6 +210,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         setNavbar()
         setUI()
         saveViewModel?.fetchItems()
+        updateSavedRecordsButton()
         toastMessage.view.alpha = 0.0
         
         view.addGestureRecognizer(
@@ -212,8 +235,24 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         view.endEditing(true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        saveViewModel?.fetchItems()
+        updateSavedRecordsButton()
+    }
+
+    /// Updates the saved records button title with current count for better engagement
+    func updateSavedRecordsButton() {
+        let count = saveViewModel?.bills.count ?? 0
+        let title = count > 0
+            ? String(format: LocalizedString.savedRecordsCount, count)
+            : LocalizedString.seeAll
+        presentSheetButton.configuration?.title = title
+    }
+
     @objc func handlePresentSheet() {
         let presentTipViewController = PresentingTipViewController()
+        presentTipViewController.saveViewModel = saveViewModel
         present(presentTipViewController, animated: true)
     }
     

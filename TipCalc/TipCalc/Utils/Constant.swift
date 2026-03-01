@@ -38,6 +38,7 @@ struct LocalizedString {
     static let no_value_to_be_saved = NSLocalizedString("No value to be saved", comment: "No value to be saved!")
     static let initial_bill = NSLocalizedString("initial bill", comment: "initial bill")
     static let seeAll = NSLocalizedString("Saved records..", comment: "")
+    static let savedRecordsCount = NSLocalizedString("View saved bills (%d)", comment: "Button title with count of saved bills")
     
     static let emptyTableViewTitle = NSLocalizedString("There are currently no saved bills.", comment: "")
     static let emptyTableViewMessage = NSLocalizedString("To add a new bill, enter an amount and tap the pin button.", comment: "")
@@ -48,7 +49,7 @@ struct LocalizedString {
 struct AccessibilityLabels {
     static let pintButtonHint = NSLocalizedString("Tap for saving a bill.", comment: "")
     static let seeAllButtonHint = NSLocalizedString("Tap to display the list of bills.", comment: "")
-    static let clearButtonHint = NSLocalizedString("Tap to clear all saved bills.", comment: "")
+    static let clearButtonHint = NSLocalizedString("Tap to reset bill amount and tip values.", comment: "")
     static let dictateBillValueLabel = NSLocalizedString("Dictate bill value", comment: "")
     static let dictateTipValueHint = NSLocalizedString("Tap to dictate bill value using your voice", comment: "")
 }
