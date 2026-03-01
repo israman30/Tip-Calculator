@@ -8,6 +8,9 @@
     "Bar" : {
       "comment" : "Bar category"
     },
+    "Bill saved!" : {
+      "comment" : "Toast when bill is saved\nVoiceOver announcement when bill is saved"
+    },
     "Category" : {
       "comment" : "Bill category label"
     },

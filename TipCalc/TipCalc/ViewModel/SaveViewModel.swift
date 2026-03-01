@@ -53,13 +53,12 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
     
     func displayToast(_ view: UIView) {
         if isTotastVisible {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-                UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn, animations: {
                     view.alpha = 0.0
                 }, completion: nil)
             }
         }
-        
         isTotastVisible = false
     }
     

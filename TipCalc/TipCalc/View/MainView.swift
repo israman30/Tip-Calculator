@@ -117,15 +117,11 @@ extension MainController {
             padding: .init(top: 10, left: 10, bottom: 12, right: 10)
         )
         
-        valueInput.addSubview(toastMessage.view)
-        toastMessage.view.translatesAutoresizingMaskIntoConstraints = true
-        toastMessage.view.anchor(
-            top: valueInput.topAnchor,
-            left: valueInput.leftAnchor,
-            bottom: valueInput.bottomAnchor,
-            right: valueInput.rightAnchor,
-            padding: .init(top: 0, left: 0, bottom: 15, right: 0)
-        )
+        view.addSubview(toastMessage.view)
+        toastMessage.view.translatesAutoresizingMaskIntoConstraints = false
+        toastMessage.view.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        toastMessage.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
+        toastMessage.view.setContentHuggingPriority(.required, for: .horizontal)
 
         setupCategoryPicker(contentView: contentView, inputCard: inputCard)
     }

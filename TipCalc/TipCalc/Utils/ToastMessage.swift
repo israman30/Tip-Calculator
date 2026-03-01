@@ -10,17 +10,28 @@ import SwiftUI
 
 struct ToastMessage: View {
     var message: String?
-    
+
     var body: some View {
-        Text(message ?? "Amount added!")
-            .font(.subheadline)
-            .fontWeight(.medium)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
-            .background(Color(.systemBackground))
-            .foregroundStyle(Color(.label))
-            .cornerRadius(12)
-            .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 2)
+        HStack(spacing: 10) {
+            Image(systemName: "checkmark.circle.fill")
+                .font(.title2)
+                .foregroundStyle(.white)
+            Text(message ?? NSLocalizedString("Bill saved!", comment: "Toast when bill is saved"))
+                .font(.body)
+                .fontWeight(.semibold)
+                .foregroundStyle(.white)
+        }
+        .padding(.horizontal, 24)
+        .padding(.vertical, 16)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(Color(.systemGreen))
+        )
+        .shadow(color: Color.black.opacity(0.2), radius: 12, x: 0, y: 4)
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(Color.white.opacity(0.3), lineWidth: 1)
+        )
     }
 }
 
