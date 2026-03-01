@@ -75,6 +75,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         label.setSizeFont(sizeFont: 70)
         label.textColor = .label
         label.textAlignment = .right
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -121,6 +122,39 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         sc.backgroundColor = .secondarySystemFill
         return sc
     }()
+    
+    // MARK: - Custom tip slider (0–30%) toggled by double-tap on total bill label
+    let tipSlider: UISlider = {
+        let slider = UISlider()
+        slider.minimumValue = 0
+        slider.maximumValue = 30
+        if let saved = UserDefaults.standard.object(forKey: Constant.savedCustomTipPercentKey) as? Int {
+            slider.value = Float(saved)
+        } else {
+            slider.value = 15
+        }
+        slider.minimumTrackTintColor = .systemTeal
+        slider.maximumTrackTintColor = .secondarySystemFill
+        return slider
+    }()
+    
+    let tipSliderPercentLabel: UILabel = {
+        let label = UILabel()
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        label.textColor = .secondaryLabel
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let tipSliderContainerView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        view.alpha = 0
+        return view
+    }()
+    
+    var isCustomTipSliderVisible = false
+    var tipSliderHeightConstraint: NSLayoutConstraint?
     
     let clearValuesButton: UIButton = {
         let btn = UIButton(type: .system)
@@ -210,6 +244,8 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         splitPeopleQuantity.accessibilityLabel = "\(Int(splitStepper.value)) people"
         setNavbar()
         setUI()
+        setupTipSlider()
+        setupTotalValueDoubleTap()
         saveViewModel?.fetchItems()
         updateSavedRecordsButton()
         toastMessage.view.alpha = 0.0

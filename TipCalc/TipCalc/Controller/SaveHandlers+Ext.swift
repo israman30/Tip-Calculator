@@ -10,6 +10,9 @@ import UIKit
 
 extension MainController {
     @objc func handleSaveBill() {
+        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedback.impactOccurred()
+        
         saveViewModel?.save(
             self,
             valueInput: valueInput,

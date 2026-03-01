@@ -26,6 +26,8 @@ struct Constant {
     
     static let mic = "mic.fill"
     static let micStop = "stop.fill"
+    
+    static let savedCustomTipPercentKey = "savedCustomTipPercent"
 }
 
 struct LocalizedString {
@@ -34,6 +36,7 @@ struct LocalizedString {
     static let textField_hint = NSLocalizedString("Input bill value", comment: "Input the bill value")
     static let tip_value_hint = NSLocalizedString("Tip value", comment: "Tip value")
     static let total_value_hint = NSLocalizedString("Total value tip", comment: "Total value, tip plus initial value")
+    static let total_value_double_tap_hint = NSLocalizedString("Double tap for custom tip slider", comment: "Accessibility hint for custom tip")
     static let clear_value_button_title = NSLocalizedString("Clear values", comment: "CLEAR VALUES")
     
     static let no_value_to_be_saved = NSLocalizedString("No value to be saved", comment: "No value to be saved!")
