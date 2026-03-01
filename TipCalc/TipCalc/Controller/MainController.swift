@@ -176,17 +176,18 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     
     private lazy var micButton: UIButton = {
         let button = UIButton(type: .system)
-        if let micImage = UIImage(systemName: Constant.mic) {
-            let paddedImage = micImage.withPadding(.init(top: 0, left: 8, bottom: 0, right: 0))
-            button.setImage(paddedImage, for: .normal)
-        } else {
-            button.setImage(UIImage(systemName: Constant.mic), for: .normal)
-        }
-        button.tintColor = .systemBlue
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: Constant.mic)
+        config.baseForegroundColor = .systemBlue
+        config.background.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.12)
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10)
+        config.imagePadding = 4
+        button.configuration = config
         button.accessibilityLabel = AccessibilityLabels.dictateBillValueLabel
         button.accessibilityHint = AccessibilityLabels.dictateTipValueHint
         button.addTarget(self, action: #selector(handleMicButtonTapped), for: .touchUpInside)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         button.contentMode = .center
         return button
     }()
@@ -259,11 +260,25 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     /// Handles microphone button tap for voice input
     /// Toggles between start/stop dictation based on current audio engine state
     @objc private func handleMicButtonTapped() {
+        let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+        impactFeedback.impactOccurred()
+        
         if audioEngine.isRunning {
             stopDictation()
         } else {
             startDictation()
         }
+    }
+    
+    /// Updates mic button appearance based on recording state for clearer user feedback
+    private func updateMicButtonAppearance(isRecording: Bool) {
+        var config = micButton.configuration ?? UIButton.Configuration.plain()
+        config.image = UIImage(systemName: isRecording ? Constant.micStop : Constant.mic)
+        config.baseForegroundColor = isRecording ? .systemRed : .systemBlue
+        config.background.backgroundColor = (isRecording ? UIColor.systemRed : UIColor.systemBlue).withAlphaComponent(0.12)
+        micButton.configuration = config
+        micButton.accessibilityLabel = isRecording ? AccessibilityLabels.stopDictationLabel : AccessibilityLabels.dictateBillValueLabel
+        micButton.accessibilityHint = isRecording ? AccessibilityLabels.stopDictationHint : AccessibilityLabels.dictateTipValueHint
     }
     
 }
@@ -329,7 +344,7 @@ extension MainController: SpeechControllerProtocol {
             print("audioEngine couldn't start because of an error.")
         }
         
-        micButton.tintColor = .systemRed // Indicate recording
+        updateMicButtonAppearance(isRecording: true)
     }
     
     // Stops speech recognition and cleans up audio resources
@@ -340,7 +355,7 @@ extension MainController: SpeechControllerProtocol {
         recognitionRequest?.endAudio()
         recognitionTask?.cancel()
         recognitionTask = nil
-        micButton.tintColor = .systemBlue // Back to normal
+        updateMicButtonAppearance(isRecording: false)
     }
 }
 

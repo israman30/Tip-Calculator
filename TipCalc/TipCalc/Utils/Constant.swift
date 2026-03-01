@@ -24,7 +24,8 @@ struct Constant {
     static let alert_ok = "Ok"
     static let alert_cancel = "Cancel"
     
-    static let mic = "mic"
+    static let mic = "mic.fill"
+    static let micStop = "stop.fill"
 }
 
 struct LocalizedString {
@@ -52,4 +53,6 @@ struct AccessibilityLabels {
     static let clearButtonHint = NSLocalizedString("Tap to reset bill amount and tip values.", comment: "")
     static let dictateBillValueLabel = NSLocalizedString("Dictate bill value", comment: "")
     static let dictateTipValueHint = NSLocalizedString("Tap to dictate bill value using your voice", comment: "")
+    static let stopDictationLabel = NSLocalizedString("Stop dictation", comment: "")
+    static let stopDictationHint = NSLocalizedString("Tap to stop voice input", comment: "")
 }
