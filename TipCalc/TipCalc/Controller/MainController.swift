@@ -200,6 +200,23 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     
     var calculationsViewModel: CalculationsViewModel?
     var saveViewModel: SaveViewModel?
+
+    // MARK: - Bill Category Selection
+    var selectedCategory: String? = BillCategory.restaurant.rawValue
+    let categoryScrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.showsHorizontalScrollIndicator = false
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    let categoryStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .horizontal
+        sv.spacing = 8
+        sv.alignment = .center
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
     
     // MARK: - Speech Recognition Components
     // These properties handle voice input functionality for hands-free bill entry

@@ -71,6 +71,18 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         return view
     }()
     
+    private let categoryLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .caption1))
+        label.textAlignment = .center
+        label.textColor = .secondaryLabel
+        label.backgroundColor = UIColor.systemIndigo.withAlphaComponent(0.12)
+        label.layer.cornerRadius = 6
+        label.clipsToBounds = true
+        return label
+    }()
+
     private let tagSplitLabel: UILabel = {
         let label = UILabel()
         label.text = Constant.zero
@@ -97,6 +109,9 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         billLabel.text = inputBill
         tipLabel.text = tip
         dateLabel.text = date
+        let category = bill?.category ?? ""
+        categoryLabel.text = category.isEmpty ? nil : category
+        categoryLabel.isHidden = category.isEmpty
         /// Determines split display logic - shows split info only when bill is divided among multiple people
         if splitQuantity == "1x" {
             tagSplitLabel.text = ""
@@ -137,7 +152,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
         
         let totalStackView = UIStackView(
             arrangedSubviews: [
-                totalLabel, tagSplitLabel
+                totalLabel, categoryLabel, tagSplitLabel
             ]
         )
         totalStackView.axis = .horizontal

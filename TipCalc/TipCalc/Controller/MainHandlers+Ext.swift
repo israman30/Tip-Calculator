@@ -93,5 +93,83 @@ extension MainController {
         totalValue.addGestureRecognizer(doubleTap)
         totalValue.accessibilityHint = "\(LocalizedString.total_value_hint). \(LocalizedString.total_value_double_tap_hint)."
     }
+
+    @objc func handleCategoryTapped(_ sender: UIButton) {
+        guard let title = sender.configuration?.title else { return }
+        selectedCategory = title
+        refreshCategoryChips()
+    }
+
+    @objc func handleAddCustomCategory() {
+        let alert = UIAlertController(
+            title: NSLocalizedString("Custom Category", comment: "Custom category alert title"),
+            message: NSLocalizedString("Enter a custom tag for this bill", comment: "Custom category alert message"),
+            preferredStyle: .alert
+        )
+        alert.addTextField { textField in
+            textField.placeholder = NSLocalizedString("e.g. Coffee, Grocery", comment: "Custom tag placeholder")
+            textField.autocapitalizationType = .words
+        }
+        alert.addAction(UIAlertAction(title: Constant.alert_cancel, style: .cancel))
+        alert.addAction(UIAlertAction(title: Constant.alert_ok, style: .default) { [weak self] _ in
+            guard let tag = alert.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+                  !tag.isEmpty else { return }
+            CustomCategoryStorage.addTag(tag)
+            self?.selectedCategory = tag
+            self?.refreshCategoryChips()
+        })
+        present(alert, animated: true)
+    }
+
+    func refreshCategoryChips() {
+        categoryStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        let allCategories = BillCategory.predefinedCategories.map { $0.rawValue } + CustomCategoryStorage.tags
+        for category in allCategories {
+            let chip = categoryChip(for: category)
+            categoryStackView.addArrangedSubview(chip)
+        }
+        let addCustomButton = addCustomCategoryButton()
+        categoryStackView.addArrangedSubview(addCustomButton)
+    }
+
+    private func categoryChip(for title: String) -> UIButton {
+        let button = UIButton(type: .system)
+        var config = UIButton.Configuration.plain()
+        config.title = title
+        config.baseForegroundColor = selectedCategory == title ? .white : .label
+        config.background.backgroundColor = selectedCategory == title
+            ? UIColor.systemTeal
+            : UIColor.secondarySystemFill
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 14, bottom: 8, trailing: 14)
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
+            var attrs = AttributeContainer()
+            attrs.font = .preferredFont(forTextStyle: .subheadline)
+            return attrs
+        }
+        button.configuration = config
+        button.addTarget(self, action: #selector(handleCategoryTapped(_:)), for: .touchUpInside)
+        return button
+    }
+
+    private func addCustomCategoryButton() -> UIButton {
+        let button = UIButton(type: .system)
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "plus.circle")
+        config.title = NSLocalizedString("Custom", comment: "Add custom category")
+        config.baseForegroundColor = .systemTeal
+        config.background.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.12)
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12)
+        config.imagePadding = 4
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
+            var attrs = AttributeContainer()
+            attrs.font = .preferredFont(forTextStyle: .subheadline)
+            return attrs
+        }
+        button.configuration = config
+        button.addTarget(self, action: #selector(handleAddCustomCategory), for: .touchUpInside)
+        return button
+    }
 }
 

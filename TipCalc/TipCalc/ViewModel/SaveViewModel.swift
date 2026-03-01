@@ -12,13 +12,13 @@ import CoreData
 /// `ViewModelBillImplementationProtocol` Implementation for Saving data
 protocol ViewModelBillImplementationProtocol {
     func fetchItems()
-    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?)
+    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?, category: String?)
 }
 
 /// `SaveBillProtocol` Implementation for Saving data in local storage
 protocol SaveBillProtocol {
     var bills: [Bill] { get set }
-    func savingInLocalstorage(with input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?)
+    func savingInLocalstorage(with input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?, category: String?)
 }
 
 final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol {
@@ -36,7 +36,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
     // Validates input before saving to Core Data
     // Shows alert if no valid input, otherwise saves and shows success feedback
     // Dismisses keyboard after save operation
-    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?) {
+    func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?, category: String?) {
         guard let input = valueInput.text,
               let tip = tipValue.text,
               let total = totalValue.text else { return }
@@ -45,7 +45,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
         if input.isEmpty {
             AlertController.alert(vc, title: "😵", message: LocalizedString.no_value_to_be_saved)
         } else {
-            savingInLocalstorage(with: input, tip: tip, total: total, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity)
+            savingInLocalstorage(with: input, tip: tip, total: total, splitTotal: splitTotal, splitPeopleQuantity: splitPeopleQuantity, category: category)
             isTotastVisible = true
         }
         valueInput.resignFirstResponder()
@@ -53,13 +53,12 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
     
     func displayToast(_ view: UIView) {
         if isTotastVisible {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-                UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn, animations: {
                     view.alpha = 0.0
                 }, completion: nil)
             }
         }
-        
         isTotastVisible = false
     }
     
@@ -67,7 +66,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
     // Creates new Bill entity and saves to Core Data with all calculation details
     // Adds timestamp and split information if applicable
     // Appends to local array for immediate UI updates
-    func savingInLocalstorage(with input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?) {
+    func savingInLocalstorage(with input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?, category: String?) {
         let bill = Bill(context: PersistanceServices.context)
         bill.input = "$\(input) \(LocalizedString.initial_bill)"
         bill.tip = "\(tip) tip"
@@ -75,6 +74,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
         bill.date = TimeString.setDate()
         bill.splitPeopleQuantity = splitPeopleQuantity
         bill.splitTotal = splitTotal
+        bill.category = category ?? BillCategory.restaurant.rawValue
         
         PersistanceServices.saveContext()
         bills.append(bill)

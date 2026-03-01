@@ -17,6 +17,7 @@ extension Bill {
         return NSFetchRequest<Bill>(entityName: "Bill")
     }
 
+    @NSManaged public var category: String?
     @NSManaged public var input: String?
     @NSManaged public var tip: String?
     @NSManaged public var total: String?

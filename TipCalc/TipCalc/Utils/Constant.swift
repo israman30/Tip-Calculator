@@ -28,6 +28,51 @@ struct Constant {
     static let micStop = "stop.fill"
     
     static let savedCustomTipPercentKey = "savedCustomTipPercent"
+    static let customCategoryTagsKey = "customCategoryTags"
+}
+
+/// Bill categories: Restaurant, Bar, Delivery, or custom user-defined tags
+enum BillCategory: String, CaseIterable {
+    case restaurant = "Restaurant"
+    case bar = "Bar"
+    case delivery = "Delivery"
+    case custom = "Custom"
+
+    var displayName: String {
+        switch self {
+        case .restaurant: return NSLocalizedString("Restaurant", comment: "Restaurant category")
+        case .bar: return NSLocalizedString("Bar", comment: "Bar category")
+        case .delivery: return NSLocalizedString("Delivery", comment: "Delivery category")
+        case .custom: return NSLocalizedString("Custom", comment: "Custom category")
+        }
+    }
+
+    static var predefinedCategories: [BillCategory] {
+        [.restaurant, .bar, .delivery]
+    }
+}
+
+/// Manages custom category tags stored in UserDefaults
+struct CustomCategoryStorage {
+    static var tags: [String] {
+        get {
+            UserDefaults.standard.stringArray(forKey: Constant.customCategoryTagsKey) ?? []
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Constant.customCategoryTagsKey)
+        }
+    }
+
+    static func addTag(_ tag: String) {
+        let trimmed = tag.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        var current = tags
+        if let index = current.firstIndex(of: trimmed) {
+            current.remove(at: index)
+        }
+        current.insert(trimmed, at: 0)
+        tags = Array(current.prefix(20))
+    }
 }
 
 struct LocalizedString {
