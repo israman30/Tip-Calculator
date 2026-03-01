@@ -9,25 +9,54 @@ import UIKit
 import SwiftUI
 
 class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIProtocol, SaveViewModelProtocol {
-    
-    let topView: UIView = {
+
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("Saved Bills", comment: "Saved bills title")
+        label.font = .systemFont(ofSize: 22, weight: .semibold)
+        label.textColor = .label
+        return label
+    }()
+
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = LocalizedString.swipeToDeleteHint
+        label.font = .preferredFont(forTextStyle: .footnote)
+        label.textColor = .tertiaryLabel
+        return label
+    }()
+
+    private let topView: UIView = {
         let view = UIView()
         view.backgroundColor = .secondarySystemBackground
         return view
     }()
-    
+
+    private let topSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .separator.withAlphaComponent(0.5)
+        return view
+    }()
+
     var tableView: UITableView = {
         let tv = UITableView()
         tv.rowHeight = UITableView.automaticDimension
+        tv.estimatedRowHeight = 120
         tv.showsVerticalScrollIndicator = false
         tv.separatorColor = .clear
         tv.allowsSelection = false
+        tv.backgroundColor = .systemGroupedBackground
+        tv.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 24, right: 0)
         return tv
     }()
-    
-    let dismissButton: UIButton = {
+
+    private let dismissButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: Constant.xmark_circle), for: .normal)
+        let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .medium)
+        button.setImage(UIImage(systemName: Constant.xmark_circle, withConfiguration: config), for: .normal)
+        button.tintColor = .secondaryLabel
+        button.accessibilityLabel = NSLocalizedString("Close", comment: "Close button")
+        button.accessibilityHint = NSLocalizedString("Dismiss saved bills list", comment: "Dismiss hint")
         return button
     }()
     
@@ -35,12 +64,14 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveViewModel = SaveViewModel()
-        tableView.reloadData()
+        if saveViewModel == nil {
+            saveViewModel = SaveViewModel()
+            saveViewModel?.fetchItems()
+        }
         setUI()
         dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         tableViewHandlers()
-        saveViewModel?.fetchItems()
+        tableView.reloadData()
     }
     
     deinit {
@@ -48,40 +79,60 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
     }
     
     func setUI() {
-        view.backgroundColor = .systemBackground
-        
+        view.backgroundColor = .systemGroupedBackground
+
         view.addSubViews(topView, tableView)
-        
+
         topView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         topView.anchor(
-            top: view.topAnchor,
+            top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             bottom: nil,
             right: view.rightAnchor,
-            size: .init(width: 0, height: 60)
+            size: .init(width: 0, height: 76)
         )
         tableView.anchor(
             top: topView.bottomAnchor,
             left: view.leftAnchor,
             bottom: view.bottomAnchor,
             right: view.rightAnchor,
-            padding: .init(top: 0, left: 5, bottom: 0, right: 5)
+            padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
-        
-        let navBarStackView = UIStackView(
-            arrangedSubviews: [UIView(), UIView(), dismissButton]
-        )
-        navBarStackView.translatesAutoresizingMaskIntoConstraints = false
-        topView.addSubview(navBarStackView)
-        
-        navBarStackView.anchor(
+
+        topView.addSubViews(titleLabel, subtitleLabel, dismissButton, topSeparatorView)
+
+        titleLabel.anchor(
             top: topView.topAnchor,
+            left: topView.leftAnchor,
+            bottom: nil,
+            right: nil,
+            padding: .init(top: 16, left: 20, bottom: 0, right: 0)
+        )
+        subtitleLabel.anchor(
+            top: titleLabel.bottomAnchor,
+            left: topView.leftAnchor,
+            bottom: nil,
+            right: nil,
+            padding: .init(top: 4, left: 20, bottom: 0, right: 0)
+        )
+        dismissButton.anchor(
+            top: nil,
+            left: nil,
+            bottom: nil,
+            right: topView.rightAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 16),
+            size: .init(width: 44, height: 44)
+        )
+        dismissButton.centerYAnchor.constraint(equalTo: topView.centerYAnchor).isActive = true
+        topSeparatorView.anchor(
+            top: nil,
             left: topView.leftAnchor,
             bottom: topView.bottomAnchor,
             right: topView.rightAnchor,
-            padding: .init(top: 0, left: 10, bottom: 0, right: 10)
+            padding: .zero,
+            size: .init(width: 0, height: 1.0 / UIScreen.main.scale)
         )
     }
     
@@ -135,7 +186,41 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
-#Preview {
+// MARK: - Mock Data for SwiftUI Preview
+extension PresentingTipViewController {
+    static func makeMockBills() -> [Bill] {
+        let context = PersistanceServices.context
+        let bill1 = Bill(context: context)
+        bill1.input = "$75.00 \(LocalizedString.initial_bill)"
+        bill1.tip = "$15.00 tip"
+        bill1.total = "$90.00 total"
+        bill1.date = "Feb 28, 2025"
+        bill1.splitPeopleQuantity = "1x"
+        bill1.splitTotal = "$90.00"
+
+        let bill2 = Bill(context: context)
+        bill2.input = "$120.50 \(LocalizedString.initial_bill)"
+        bill2.tip = "$24.10 tip"
+        bill2.total = "$144.60 total"
+        bill2.date = "Feb 27, 2025"
+        bill2.splitPeopleQuantity = "2x"
+        bill2.splitTotal = "$72.30"
+
+        return [bill1, bill2]
+    }
+}
+
+#Preview("With mock cells") {
+    UIViewControllerPreview {
+        let vc = PresentingTipViewController()
+        let vm = SaveViewModel()
+        vm.bills = PresentingTipViewController.makeMockBills()
+        vc.saveViewModel = vm
+        return vc
+    }
+}
+
+#Preview("Empty state") {
     UIViewControllerPreview {
         PresentingTipViewController()
     }

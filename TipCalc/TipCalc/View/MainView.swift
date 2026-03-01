@@ -15,7 +15,7 @@ extension MainController {
         self.view.endEditing(true)
     }
     
-    // MARK: - Navbar holds a icon, when user taps a UITapGesture that triggers a save fcuntion
+    // MARK: - Navbar with prominent Save button (icon + label) for visibility and better UX
     func setNavbar() {
         navigationController?.navigationBar.prefersLargeTitles = false
         
@@ -33,20 +33,28 @@ extension MainController {
         }
         navigationItem.leftBarButtonItem = leftTitle
         
-        let pin = UIImageView(image: UIImage(systemName: Constant.pin_circle))
-        let pinView = UIView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
-        pinView.isAccessibilityElement = true
-        pinView.accessibilityHint = Constant.pin_icon
-        pinView.accessibilityTraits.insert(.button)
-        pinView.accessibilityHint = AccessibilityLabels.pintButtonHint
+        let saveButton = UIButton(type: .system)
+        var config = UIButton.Configuration.filled()
+        config.image = UIImage(systemName: Constant.pin_circle)
+        config.imagePlacement = .leading
+        config.imagePadding = 6
+        config.baseForegroundColor = .white
+        config.background.backgroundColor = .systemGreen
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 14, bottom: 8, trailing: 14)
+        config.title = NSLocalizedString("Save", comment: "Save button title")
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
+            var attributes = AttributeContainer()
+            attributes.font = .systemFont(ofSize: 15, weight: .semibold)
+            return attributes
+        }
+        saveButton.configuration = config
+        saveButton.accessibilityLabel = NSLocalizedString("Save bill", comment: "Save button label")
+        saveButton.accessibilityHint = AccessibilityLabels.pintButtonHint
+        saveButton.addTarget(self, action: #selector(handleSaveBill), for: .touchUpInside)
         
-        pinView.addSubViews(pin)
-        pin.frame = pinView.frame
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pinView)
-        
-        pin.isUserInteractionEnabled = true
-        pin.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSaveBill)))
+        let saveBarButton = UIBarButtonItem(customView: saveButton)
+        navigationItem.rightBarButtonItem = saveBarButton
     }
     
     // MARK: - Set the MainView components
@@ -67,10 +75,14 @@ extension MainController {
         // Add content view to scroll view
         scrollView.addSubview(contentView)
         
-        // Add all UI elements to content view instead of main view
-        contentView.addSubViews(valueInput)
+        // Input card container
+        let inputCard = createCardView()
+        inputCard.addSubview(valueInput)
         
-        // Setup scroll view constraints - Fix: Use safeAreaLayoutGuide for bottom
+        // Add all UI elements to content view
+        contentView.addSubViews(inputCard)
+        
+        // Setup scroll view constraints
         scrollView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
@@ -79,7 +91,6 @@ extension MainController {
             padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
         
-        // Setup content view constraints
         contentView.anchor(
             top: scrollView.topAnchor,
             left: scrollView.leftAnchor,
@@ -87,17 +98,23 @@ extension MainController {
             right: scrollView.rightAnchor,
             padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
-        
-        // Ensure content view width matches scroll view width
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
-        valueInput.anchor(
+        inputCard.anchor(
             top: contentView.topAnchor,
             left: contentView.leftAnchor,
             bottom: nil,
             right: contentView.rightAnchor,
             padding: .init(top: 10, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 50)
+            size: .init(width: 0, height: 70)
+        )
+        
+        valueInput.anchor(
+            top: inputCard.topAnchor,
+            left: inputCard.leftAnchor,
+            bottom: inputCard.bottomAnchor,
+            right: inputCard.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 12, right: 10)
         )
         
         valueInput.addSubview(toastMessage.view)
@@ -107,76 +124,140 @@ extension MainController {
             left: valueInput.leftAnchor,
             bottom: valueInput.bottomAnchor,
             right: valueInput.rightAnchor,
-            padding: .init(top: 0, left: 0, bottom: 35, right: 0)
+            padding: .init(top: 0, left: 0, bottom: 15, right: 0)
         )
         
-        outputValues(contentView: contentView)
+        outputValues(contentView: contentView, inputCard: inputCard)
+    }
+    
+    private func createCardView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 16
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 8
+        view.layer.shadowOpacity = 0.06
+        return view
     }
     
     // MARK: - Set the output components
-    private func outputValues(contentView: UIView) {
+    private func outputValues(contentView: UIView, inputCard: UIView) {
         let tipLabel = UILabel()
         tipLabel.text = Constant.tip
-        tipLabel.textAlignment = .right
-        tipLabel.textColor = .gray
+        tipLabel.textAlignment = .left
+        tipLabel.textColor = .secondaryLabel
         tipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         tipLabel.isAccessibilityElement = false
         
         let totalLabel = UILabel()
         totalLabel.text = Constant.total
-        totalLabel.textAlignment = .right
-        totalLabel.textColor = .gray
+        totalLabel.textAlignment = .left
+        totalLabel.textColor = .secondaryLabel
         totalLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         totalLabel.isAccessibilityElement = false
         
         let splitLabel = UILabel()
         splitLabel.text = Constant.split_bill
         splitLabel.textAlignment = .left
-        splitLabel.textColor = .gray
+        splitLabel.textColor = .secondaryLabel
         splitLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         splitLabel.isAccessibilityElement = false
         
-        let tipStackView = UIStackView(arrangedSubviews: [tipLabel, tipValue])
+        let tipStackView = UIStackView(arrangedSubviews: [tipLabel, UIView(), tipValue])
         tipStackView.axis = .horizontal
-        tipStackView.accessibilityLabel = "\(tipLabel) \(tipValue)"
+        tipStackView.alignment = .center
+        tipStackView.accessibilityLabel = "\(tipLabel.text ?? "") \(tipValue.text ?? "")"
         
-        let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, totalValue])
+        let totalpStackView = UIStackView(arrangedSubviews: [totalLabel, UIView(), totalValue])
         totalpStackView.axis = .horizontal
-        totalpStackView.accessibilityLabel = "\(totalLabel) \(totalValue)"
+        totalpStackView.alignment = .center
+        totalpStackView.accessibilityLabel = "\(totalLabel.text ?? "") \(totalValue.text ?? "")"
         
         let splitValuesStackView = UIStackView(arrangedSubviews: [splitTotal, splitPeopleQuantity])
         splitValuesStackView.axis = .horizontal
-        splitValuesStackView.spacing = 25
+        splitValuesStackView.spacing = 12
         
         let splitBillStackView = UIStackView(arrangedSubviews: [splitLabel, UIView(), splitValuesStackView])
         splitBillStackView.axis = .horizontal
+        splitBillStackView.alignment = .center
         
-        let stackView = UIStackView(arrangedSubviews:
+        let resultsCard = createCardView()
+        let resultsStackView = UIStackView(arrangedSubviews:
             [tipStackView, totalpStackView, splitBillStackView, splitStepper]
         )
-        stackView.distribution = .fillProportionally
-        stackView.axis = .vertical
-        stackView.spacing = 0
+        resultsStackView.distribution = .fillProportionally
+        resultsStackView.axis = .vertical
+        resultsStackView.spacing = 10
         
-        contentView.addSubViews(stackView, segment)
+        resultsCard.addSubview(resultsStackView)
+        contentView.addSubViews(resultsCard, segment, tipSliderContainerView)
+        
+        resultsCard.anchor(
+            top: inputCard.bottomAnchor,
+            left: contentView.leftAnchor,
+            bottom: nil,
+            right: contentView.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 260)
+        )
+        
+        resultsStackView.anchor(
+            top: resultsCard.topAnchor,
+            left: resultsCard.leftAnchor,
+            bottom: resultsCard.bottomAnchor,
+            right: resultsCard.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 20, right: 10)
+        )
 
-        stackView.anchor(
-            top: valueInput.bottomAnchor,
-            left: valueInput.leftAnchor,
+        segment.anchor(
+            top: resultsCard.bottomAnchor,
+            left: contentView.leftAnchor,
             bottom: nil,
-            right: valueInput.rightAnchor,
-            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 280)
+            right: contentView.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 40)
         )
         
-        segment.anchor(
-            top: stackView.bottomAnchor,
-            left: stackView.leftAnchor,
+        // Custom tip slider positioned under segmented control
+        tipSliderPercentLabel.text = "\(Int(tipSlider.value))%"
+        let sliderRowStack = UIStackView(arrangedSubviews: [tipSlider, tipSliderPercentLabel])
+        sliderRowStack.axis = .horizontal
+        sliderRowStack.spacing = 12
+        sliderRowStack.alignment = .center
+        tipSliderPercentLabel.setContentHuggingPriority(.required, for: .horizontal)
+        
+        let customTipLabel = UILabel()
+        customTipLabel.text = NSLocalizedString("Custom tip", comment: "Custom tip slider label")
+        customTipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        customTipLabel.textColor = .secondaryLabel
+        
+        let sliderContainerStack = UIStackView(arrangedSubviews: [customTipLabel, sliderRowStack])
+        sliderContainerStack.axis = .horizontal
+        sliderContainerStack.alignment = .center
+        sliderContainerStack.distribution = .fill
+        tipSliderContainerView.addSubview(sliderContainerStack)
+        
+        tipSliderContainerView.translatesAutoresizingMaskIntoConstraints = false
+        tipSliderContainerView.anchor(
+            top: segment.bottomAnchor,
+            left: contentView.leftAnchor,
             bottom: nil,
-            right: stackView.rightAnchor,
-            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 35)
+            right: contentView.rightAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10)
         )
+        
+        sliderContainerStack.translatesAutoresizingMaskIntoConstraints = false
+        sliderContainerStack.anchor(
+            top: tipSliderContainerView.topAnchor,
+            left: tipSliderContainerView.leftAnchor,
+            bottom: tipSliderContainerView.bottomAnchor,
+            right: tipSliderContainerView.rightAnchor,
+            padding: .init(top: 8, left: 0, bottom: 8, right: 0)
+        )
+        
+        tipSliderHeightConstraint = tipSliderContainerView.heightAnchor.constraint(equalToConstant: 0)
+        tipSliderHeightConstraint?.isActive = true
         
         resetButton(contentView: contentView)
     }
@@ -186,8 +267,9 @@ extension MainController {
         let mesageLabel = UILabel()
         mesageLabel.numberOfLines = 0
         mesageLabel.text = LocalizedString.messageView
-        mesageLabel.textColor = .systemGray
-        mesageLabel.font = .preferredFont(forTextStyle: .title2)
+        mesageLabel.textColor = .secondaryLabel
+        mesageLabel.font = .preferredFont(forTextStyle: .body)
+        mesageLabel.textAlignment = .center
         
         let horizontalStackView = UIStackView(arrangedSubviews: [UIView(), presentSheetButton])
         horizontalStackView.axis = .horizontal
@@ -195,26 +277,26 @@ extension MainController {
         let stackView = UIStackView(arrangedSubviews: [clearValuesButton, horizontalStackView])
         stackView.distribution = .fillProportionally
         stackView.axis = .vertical
+        stackView.spacing = 12
         
         contentView.addSubViews(stackView, mesageLabel)
         
         stackView.anchor(
-            top: segment.bottomAnchor,
-            left: segment.leftAnchor,
+            top: tipSliderContainerView.bottomAnchor,
+            left: contentView.leftAnchor,
             bottom: nil,
-            right: segment.rightAnchor,
-            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 85)
+            right: contentView.rightAnchor,
+            padding: .init(top: 20, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 90)
         )
         
         mesageLabel.anchor(
             top: stackView.bottomAnchor,
-            left: stackView.leftAnchor,
+            left: contentView.leftAnchor,
             bottom: contentView.bottomAnchor,
-            right: stackView.rightAnchor,
-            padding: .init(top: 10, left: 10, bottom: 0, right: 10)
+            right: contentView.rightAnchor,
+            padding: .init(top: 24, left: 24, bottom: 32, right: 24)
         )
-        
     }
     
 }

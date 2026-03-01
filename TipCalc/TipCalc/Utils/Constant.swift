@@ -24,7 +24,10 @@ struct Constant {
     static let alert_ok = "Ok"
     static let alert_cancel = "Cancel"
     
-    static let mic = "mic"
+    static let mic = "mic.fill"
+    static let micStop = "stop.fill"
+    
+    static let savedCustomTipPercentKey = "savedCustomTipPercent"
 }
 
 struct LocalizedString {
@@ -33,21 +36,26 @@ struct LocalizedString {
     static let textField_hint = NSLocalizedString("Input bill value", comment: "Input the bill value")
     static let tip_value_hint = NSLocalizedString("Tip value", comment: "Tip value")
     static let total_value_hint = NSLocalizedString("Total value tip", comment: "Total value, tip plus initial value")
+    static let total_value_double_tap_hint = NSLocalizedString("Double tap for custom tip slider", comment: "Accessibility hint for custom tip")
     static let clear_value_button_title = NSLocalizedString("Clear values", comment: "CLEAR VALUES")
     
     static let no_value_to_be_saved = NSLocalizedString("No value to be saved", comment: "No value to be saved!")
     static let initial_bill = NSLocalizedString("initial bill", comment: "initial bill")
     static let seeAll = NSLocalizedString("Saved records..", comment: "")
+    static let savedRecordsCount = NSLocalizedString("View saved bills (%d)", comment: "Button title with count of saved bills")
     
     static let emptyTableViewTitle = NSLocalizedString("There are currently no saved bills.", comment: "")
     static let emptyTableViewMessage = NSLocalizedString("To add a new bill, enter an amount and tap the pin button.", comment: "")
+    static let swipeToDeleteHint = NSLocalizedString("Swipe left to delete", comment: "Swipe hint for saved bills")
     static let messageView = NSLocalizedString("Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set aside.", comment: "")
 }
 
 struct AccessibilityLabels {
     static let pintButtonHint = NSLocalizedString("Tap for saving a bill.", comment: "")
     static let seeAllButtonHint = NSLocalizedString("Tap to display the list of bills.", comment: "")
-    static let clearButtonHint = NSLocalizedString("Tap to clear all saved bills.", comment: "")
+    static let clearButtonHint = NSLocalizedString("Tap to reset bill amount and tip values.", comment: "")
     static let dictateBillValueLabel = NSLocalizedString("Dictate bill value", comment: "")
     static let dictateTipValueHint = NSLocalizedString("Tap to dictate bill value using your voice", comment: "")
+    static let stopDictationLabel = NSLocalizedString("Stop dictation", comment: "")
+    static let stopDictationHint = NSLocalizedString("Tap to stop voice input", comment: "")
 }

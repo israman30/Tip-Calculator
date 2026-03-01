@@ -13,11 +13,14 @@ struct ToastMessage: View {
     
     var body: some View {
         Text(message ?? "Amount added!")
-            .padding(.horizontal)
-            .padding(.vertical, 8)
-            .background(Color(.systemGray4))
+            .font(.subheadline)
+            .fontWeight(.medium)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(Color(.systemBackground))
             .foregroundStyle(Color(.label))
-            .cornerRadius(10)
+            .cornerRadius(12)
+            .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 2)
     }
 }
 

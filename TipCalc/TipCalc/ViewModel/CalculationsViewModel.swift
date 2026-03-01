@@ -29,7 +29,7 @@ enum Percentages: Int, CaseIterable {
 }
 
 protocol ViewModelBillCalculationsProtocol {
-    func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel)
+    func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel, customTipPercent: Double?)
     func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, totalByPerson: UILabel, peopleQuantity: UILabel)
     func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel)
 }
@@ -41,26 +41,32 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     // Calculates tip amount and total bill based on user input and selected percentage
     // Updates UI labels in real-time as user types or changes percentage
     // Handles invalid input gracefully by resetting to $0.00
-    func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel) {
+    // When customTipPercent is provided (from slider), uses that; otherwise uses segment
+    func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel, customTipPercent: Double? = nil) {
         let tipPerc = [0.10, 0.15, 0.20, 0.25]
         
         guard let input = valueInput.text else { return }
         
-        let bill =  Double(input)
+        let bill = Double(input)
         
         if let bill = bill {
+            let tipMultiplier: Double
+            if let custom = customTipPercent {
+                tipMultiplier = custom / 100.0
+            } else {
+                tipMultiplier = tipPerc[segment.selectedSegmentIndex]
+            }
             
-            let tip = bill * tipPerc[segment.selectedSegmentIndex]
+            let tip = bill * tipMultiplier
             let total = bill + tip
             mainBill = total
             
-            tipValue.text = String(format: "$%.2f", tip).currencyInputFormatting()
+            tipValue.text = tip == 0 ? Constant.zero : String(format: "$%.2f", tip).currencyInputFormatting()
             totalValue.text = String(format: "$%.2f", total).currencyInputFormatting()
         } else {
             tipValue.text = Constant.zero
             totalValue.text = Constant.zero
         }
-        
     }
     
     // MARK: - Reset All Calculation Fields

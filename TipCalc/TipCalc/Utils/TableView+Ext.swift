@@ -10,31 +10,38 @@ import UIKit
 
 extension UITableView {
     func tableViewEmpty(with title: String, message: String) {
-        let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
+        let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        
+        let iconView = UIImageView(image: UIImage(systemName: "doc.text.magnifyingglass"))
+        iconView.tintColor = .tertiaryLabel
+        iconView.contentMode = .scaleAspectFit
         
         let titleLabel = UILabel()
         let messageLabel = UILabel()
         
+        iconView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        titleLabel.textColor = .systemGray2
+        titleLabel.textColor = .secondaryLabel
         titleLabel.textAlignment = .center
-        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        titleLabel.font = .preferredFont(forTextStyle: .title2)
         titleLabel.numberOfLines = 2
-        messageLabel.textColor = .gray
+        messageLabel.textColor = .tertiaryLabel
         messageLabel.textAlignment = .center
-        messageLabel.numberOfLines = 2
+        messageLabel.numberOfLines = 3
         messageLabel.font = .preferredFont(forTextStyle: .body)
         
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, messageLabel])
+        let stackView = UIStackView(arrangedSubviews: [iconView, titleLabel, messageLabel])
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.spacing = 12
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         emptyView.addSubview(stackView)
-        stackView.centerInSuperview(size: .init(width: emptyView.bounds.size.width, height: 0))
+        stackView.centerInSuperview(size: .init(width: emptyView.bounds.size.width - 48, height: 0))
+        
+        iconView.anchor(top: nil, left: nil, bottom: nil, right: nil, size: .init(width: 64, height: 64))
         
         titleLabel.text = title
         messageLabel.text = message

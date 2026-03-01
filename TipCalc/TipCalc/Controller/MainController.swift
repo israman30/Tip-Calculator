@@ -75,6 +75,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         label.setSizeFont(sizeFont: 70)
         label.textColor = .label
         label.textAlignment = .right
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -108,30 +109,91 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         let sc = UISegmentedControl(
             items: Percentages.allCases.map { $0.description.capitalized }
         )
-        let font = UIFont.preferredFont(forTextStyle: .title2)
+        let font = UIFont.preferredFont(forTextStyle: .subheadline)
         sc.setTitleTextAttributes([
-            NSAttributedString.Key.font : font,
+            NSAttributedString.Key.font: font,
             NSAttributedString.Key.foregroundColor: UIColor.label
         ], for: .selected)
+        sc.setTitleTextAttributes([
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel
+        ], for: .normal)
         sc.selectedSegmentIndex = 0
+        sc.backgroundColor = .secondarySystemFill
         return sc
     }()
     
+    // MARK: - Custom tip slider (0–30%) toggled by double-tap on total bill label
+    let tipSlider: UISlider = {
+        let slider = UISlider()
+        slider.minimumValue = 0
+        slider.maximumValue = 30
+        if let saved = UserDefaults.standard.object(forKey: Constant.savedCustomTipPercentKey) as? Int {
+            slider.value = Float(saved)
+        } else {
+            slider.value = 15
+        }
+        slider.minimumTrackTintColor = .systemTeal
+        slider.maximumTrackTintColor = .secondarySystemFill
+        return slider
+    }()
+    
+    let tipSliderPercentLabel: UILabel = {
+        let label = UILabel()
+        label.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
+        label.textColor = .secondaryLabel
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let tipSliderContainerView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        view.alpha = 0
+        return view
+    }()
+    
+    var isCustomTipSliderVisible = false
+    var tipSliderHeightConstraint: NSLayoutConstraint?
+    
     let clearValuesButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(LocalizedString.clear_value_button_title, for: .normal)
-        btn.setTitleColor(.red, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
-        btn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        btn.layer.cornerRadius = 8
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "arrow.counterclockwise")
+        config.imagePlacement = .leading
+        config.imagePadding = 8
+        config.baseForegroundColor = .systemOrange
+        config.background.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.12)
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+        config.title = LocalizedString.clear_value_button_title
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
+            var attributes = AttributeContainer()
+            attributes.font = .preferredFont(forTextStyle: .body)
+            return attributes
+        }
+        btn.configuration = config
         btn.accessibilityHint = AccessibilityLabels.clearButtonHint
         return btn
     }()
     
     let presentSheetButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(LocalizedString.seeAll, for: .normal)
-        btn.titleLabel?.setDynamicFont(font: .preferredFont(forTextStyle: .body))
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "list.bullet.rectangle.fill")
+        config.imagePlacement = .leading
+        config.imagePadding = 8
+        config.baseForegroundColor = .systemBlue
+        config.background.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.12)
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+        config.title = LocalizedString.seeAll
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
+            var attributes = AttributeContainer()
+            attributes.font = .preferredFont(forTextStyle: .body)
+            return attributes
+        }
+        btn.configuration = config
         btn.accessibilityHint = AccessibilityLabels.seeAllButtonHint
         return btn
     }()
@@ -148,17 +210,18 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     
     private lazy var micButton: UIButton = {
         let button = UIButton(type: .system)
-        if let micImage = UIImage(systemName: Constant.mic) {
-            let paddedImage = micImage.withPadding(.init(top: 0, left: 8, bottom: 0, right: 0))
-            button.setImage(paddedImage, for: .normal)
-        } else {
-            button.setImage(UIImage(systemName: Constant.mic), for: .normal)
-        }
-        button.tintColor = .systemBlue
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: Constant.mic)
+        config.baseForegroundColor = .systemBlue
+        config.background.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.12)
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10)
+        config.imagePadding = 4
+        button.configuration = config
         button.accessibilityLabel = AccessibilityLabels.dictateBillValueLabel
         button.accessibilityHint = AccessibilityLabels.dictateTipValueHint
         button.addTarget(self, action: #selector(handleMicButtonTapped), for: .touchUpInside)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         button.contentMode = .center
         return button
     }()
@@ -169,8 +232,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         calculationsViewModel = CalculationsViewModel()
         saveViewModel = SaveViewModel()
         
-        view.backgroundColor = UIColor(named: "backgroundPrimary")
-        view.backgroundColor = UIColor(named: "backgroundSecondary")
+        view.backgroundColor = UIColor(named: "backgroundSecondary") ?? .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         valueInput.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         segment.addTarget(self, action: #selector(changeValue), for: .valueChanged)
@@ -182,7 +244,10 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         splitPeopleQuantity.accessibilityLabel = "\(Int(splitStepper.value)) people"
         setNavbar()
         setUI()
+        setupTipSlider()
+        setupTotalValueDoubleTap()
         saveViewModel?.fetchItems()
+        updateSavedRecordsButton()
         toastMessage.view.alpha = 0.0
         
         view.addGestureRecognizer(
@@ -207,19 +272,49 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         view.endEditing(true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        saveViewModel?.fetchItems()
+        updateSavedRecordsButton()
+    }
+
+    /// Updates the saved records button title with current count for better engagement
+    func updateSavedRecordsButton() {
+        let count = saveViewModel?.bills.count ?? 0
+        let title = count > 0
+            ? String(format: LocalizedString.savedRecordsCount, count)
+            : LocalizedString.seeAll
+        presentSheetButton.configuration?.title = title
+    }
+
     @objc func handlePresentSheet() {
         let presentTipViewController = PresentingTipViewController()
+        presentTipViewController.saveViewModel = saveViewModel
         present(presentTipViewController, animated: true)
     }
     
     /// Handles microphone button tap for voice input
     /// Toggles between start/stop dictation based on current audio engine state
     @objc private func handleMicButtonTapped() {
+        let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+        impactFeedback.impactOccurred()
+        
         if audioEngine.isRunning {
             stopDictation()
         } else {
             startDictation()
         }
+    }
+    
+    /// Updates mic button appearance based on recording state for clearer user feedback
+    private func updateMicButtonAppearance(isRecording: Bool) {
+        var config = micButton.configuration ?? UIButton.Configuration.plain()
+        config.image = UIImage(systemName: isRecording ? Constant.micStop : Constant.mic)
+        config.baseForegroundColor = isRecording ? .systemRed : .systemBlue
+        config.background.backgroundColor = (isRecording ? UIColor.systemRed : UIColor.systemBlue).withAlphaComponent(0.12)
+        micButton.configuration = config
+        micButton.accessibilityLabel = isRecording ? AccessibilityLabels.stopDictationLabel : AccessibilityLabels.dictateBillValueLabel
+        micButton.accessibilityHint = isRecording ? AccessibilityLabels.stopDictationHint : AccessibilityLabels.dictateTipValueHint
     }
     
 }
@@ -285,7 +380,7 @@ extension MainController: SpeechControllerProtocol {
             print("audioEngine couldn't start because of an error.")
         }
         
-        micButton.tintColor = .systemRed // Indicate recording
+        updateMicButtonAppearance(isRecording: true)
     }
     
     // Stops speech recognition and cleans up audio resources
@@ -296,7 +391,7 @@ extension MainController: SpeechControllerProtocol {
         recognitionRequest?.endAudio()
         recognitionTask?.cancel()
         recognitionTask = nil
-        micButton.tintColor = .systemBlue // Back to normal
+        updateMicButtonAppearance(isRecording: false)
     }
 }
 
