@@ -50,6 +50,25 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
         return tv
     }()
 
+    private let insightsButton: UIButton = {
+        let button = UIButton(type: .system)
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "chart.bar.doc.horizontal")
+        config.imagePlacement = .leading
+        config.imagePadding = 6
+        config.baseForegroundColor = .systemTeal
+        config.title = NSLocalizedString("Insights", comment: "Spending insights button")
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
+            var attrs = AttributeContainer()
+            attrs.font = .preferredFont(forTextStyle: .subheadline)
+            return attrs
+        }
+        button.configuration = config
+        button.accessibilityLabel = NSLocalizedString("Spending insights", comment: "")
+        button.accessibilityHint = NSLocalizedString("View spending insights dashboard", comment: "")
+        return button
+    }()
+
     private let dismissButton: UIButton = {
         let button = UIButton(type: .system)
         let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .medium)
@@ -70,6 +89,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
         }
         setUI()
         dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+        insightsButton.addTarget(self, action: #selector(handleInsightsTapped), for: .touchUpInside)
         tableViewHandlers()
         tableView.reloadData()
     }
@@ -101,7 +121,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
             padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
 
-        topView.addSubViews(titleLabel, subtitleLabel, dismissButton, topSeparatorView)
+        topView.addSubViews(titleLabel, subtitleLabel, insightsButton, dismissButton, topSeparatorView)
 
         titleLabel.anchor(
             top: topView.topAnchor,
@@ -117,6 +137,17 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
             right: nil,
             padding: .init(top: 4, left: 20, bottom: 0, right: 0)
         )
+        insightsButton.translatesAutoresizingMaskIntoConstraints = false
+        insightsButton.anchor(
+            top: nil,
+            left: nil,
+            bottom: nil,
+            right: nil,
+            padding: .zero
+        )
+        insightsButton.centerYAnchor.constraint(equalTo: topView.centerYAnchor).isActive = true
+        insightsButton.trailingAnchor.constraint(equalTo: dismissButton.leadingAnchor, constant: -8).isActive = true
+
         dismissButton.anchor(
             top: nil,
             left: nil,
@@ -138,6 +169,13 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
     
     @objc func handleDismiss() {
         dismiss(animated: true)
+    }
+
+    @objc private func handleInsightsTapped() {
+        let insightsVC = SpendingInsightsViewController()
+        insightsVC.saveViewModel = saveViewModel
+        insightsVC.modalPresentationStyle = .pageSheet
+        present(insightsVC, animated: true)
     }
     
 }

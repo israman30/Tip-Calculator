@@ -37,6 +37,8 @@
 		4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */; };
 		8DA6815226C613B10091DBD0 /* CalculationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6815126C613B10091DBD0 /* CalculationsViewModel.swift */; };
 		8DA6815426C618610091DBD0 /* SaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6815326C618610091DBD0 /* SaveViewModel.swift */; };
+		4D7FA8002E99F00000AA2377 /* SpendingInsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */; };
+		4D7FA8022E99F00000AA2377 /* SpendingInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delegates+Datasource+Ext.swift"; sourceTree = "<group>"; };
 		8DA6815126C613B10091DBD0 /* CalculationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsViewModel.swift; sourceTree = "<group>"; };
 		8DA6815326C618610091DBD0 /* SaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewModel.swift; sourceTree = "<group>"; };
+		4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewModel.swift; sourceTree = "<group>"; };
+		4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 				4DD83CC422EFCFC8002933DE /* AppDelegate.swift */,
 				4DD83CC622EFCFC8002933DE /* MainController.swift */,
 				4D7FA76D2D73F2FE00EBFDEE /* PresentingTipViewController.swift */,
+				4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */,
 				4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */,
 				4DCA1F282A03520300107312 /* SplitViewController.swift */,
 				4DD83CE522F124E7002933DE /* SaveHandlers+Ext.swift */,
@@ -210,6 +215,7 @@
 			children = (
 				8DA6815126C613B10091DBD0 /* CalculationsViewModel.swift */,
 				8DA6815326C618610091DBD0 /* SaveViewModel.swift */,
+				4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -351,6 +357,8 @@
 				4DCA1F292A03520300107312 /* SplitViewController.swift in Sources */,
 				4D7FA7742D77E85C00EBFDEE /* TableView+Ext.swift in Sources */,
 				4DD83CE622F124E7002933DE /* SaveHandlers+Ext.swift in Sources */,
+				4D7FA8002E99F00000AA2377 /* SpendingInsightsViewModel.swift in Sources */,
+				4D7FA8022E99F00000AA2377 /* SpendingInsightsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
