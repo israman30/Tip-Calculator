@@ -10,8 +10,8 @@ import UIKit
 
 extension MainController {
     @objc func handleSaveBill() {
-        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
-        impactFeedback.impactOccurred()
+        let feedback = UINotificationFeedbackGenerator()
+        feedback.notificationOccurred(.success)
         
         saveViewModel?.save(
             self,
@@ -26,12 +26,17 @@ extension MainController {
         
         if saveViewModel?.isTotastVisible == true {
             displayAccessibilityToastMessage()
-            toastMessage.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            toastMessage.view.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+            toastMessage.view.alpha = 0
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 0.6, options: .curveEaseOut, animations: {
                     self.toastMessage.view.alpha = 1
-                    self.toastMessage.view.transform = .identity
-                }, completion: nil)
+                    self.toastMessage.view.transform = CGAffineTransform(scaleX: 1.02, y: 1.02)
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.2) {
+                        self.toastMessage.view.transform = .identity
+                    }
+                })
             }
         }
         saveViewModel?.displayToast(toastMessage.view)

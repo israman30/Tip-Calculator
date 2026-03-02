@@ -156,6 +156,10 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     var isCustomTipSliderVisible = false
     var tipSliderHeightConstraint: NSLayoutConstraint?
     
+    /// Throttles haptic feedback during rapid calculations (e.g. typing)
+    var lastCalculationHapticTime: Date = .distantPast
+    let calculationHapticThrottle: TimeInterval = 0.35
+    
     let clearValuesButton: UIButton = {
         let btn = UIButton(type: .system)
         var config = UIButton.Configuration.plain()
