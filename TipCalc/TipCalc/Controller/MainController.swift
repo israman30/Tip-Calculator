@@ -32,7 +32,7 @@ protocol SpeechControllerProtocol {
     func stopDictation()
 }
 
-class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol {
+class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol, UIAdaptivePresentationControllerDelegate {
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
     
@@ -297,6 +297,31 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         super.viewWillAppear(animated)
         saveViewModel?.fetchItems()
         updateSavedRecordsButton()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presentOnboardingIfNeeded()
+    }
+
+    /// Presents onboarding tips on first launch; skips if user has already dismissed
+    func presentOnboardingIfNeeded() {
+        guard !UserDefaults.standard.bool(forKey: Constant.onboardingDismissedKey) else { return }
+        let onboarding = OnboardingViewController()
+        onboarding.modalPresentationStyle = .pageSheet
+        present(onboarding, animated: true) { [weak self] in
+            onboarding.presentationController?.delegate = self
+        }
+    }
+
+    @objc func handleInfoTapped() {
+        let onboarding = OnboardingViewController()
+        onboarding.modalPresentationStyle = .pageSheet
+        present(onboarding, animated: true)
+    }
+
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        UserDefaults.standard.set(true, forKey: Constant.onboardingDismissedKey)
     }
 
     /// Updates the saved records button title with current count for better engagement
