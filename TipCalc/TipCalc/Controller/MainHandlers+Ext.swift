@@ -15,7 +15,16 @@ extension MainController {
         // Update split display so saved values (via nav bar button) reflect current tip/total
         if let input = valueInput.text, !input.isEmpty {
             calculationsViewModel?.splitBiil(people: splitPeopleQuantity, bill: splitStepper.value, totalByPerson: splitTotal)
+            triggerCalculationHaptic()
         }
+    }
+    
+    /// Light haptic when calculation produces valid result; throttled to avoid rapid firing during typing
+    func triggerCalculationHaptic() {
+        guard Date().timeIntervalSince(lastCalculationHapticTime) >= calculationHapticThrottle else { return }
+        lastCalculationHapticTime = Date()
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
     }
     
     @objc func handleResetFields() {
@@ -38,6 +47,7 @@ extension MainController {
             return
         }
         calculationsViewModel?.splitBiil(people: splitPeopleQuantity, bill: splitStepper.value, totalByPerson: splitTotal)
+        triggerCalculationHaptic()
     }
     
     @objc func handleTipSliderValueChanged(_ sender: UISlider) {

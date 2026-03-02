@@ -100,4 +100,12 @@ extension UILabel {
         font = sizeFont
         sizeToFit()
     }
+    
+    /// Updates text with a smooth crossfade for micro-interaction polish
+    func setTextWithAnimation(_ text: String, duration: TimeInterval = 0.2) {
+        guard text != self.text else { return }
+        UIView.transition(with: self, duration: duration, options: [.transitionCrossDissolve, .curveEaseOut]) {
+            self.text = text
+        }
+    }
 }

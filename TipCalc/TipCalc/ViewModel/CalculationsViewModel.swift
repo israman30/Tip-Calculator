@@ -61,11 +61,13 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
             let total = bill + tip
             mainBill = total
             
-            tipValue.text = tip == 0 ? Constant.zero : String(format: "$%.2f", tip).currencyInputFormatting()
-            totalValue.text = String(format: "$%.2f", total).currencyInputFormatting()
+            let tipStr = tip == 0 ? Constant.zero : String(format: "$%.2f", tip).currencyInputFormatting()
+            let totalStr = String(format: "$%.2f", total).currencyInputFormatting()
+            tipValue.setTextWithAnimation(tipStr)
+            totalValue.setTextWithAnimation(totalStr)
         } else {
-            tipValue.text = Constant.zero
-            totalValue.text = Constant.zero
+            tipValue.setTextWithAnimation(Constant.zero)
+            totalValue.setTextWithAnimation(Constant.zero)
         }
     }
     
@@ -85,9 +87,10 @@ final class CalculationsViewModel: ViewModelBillCalculationsProtocol {
     // Calculates per-person amount when splitting bill among multiple people
     // Updates UI to show split information and per-person cost
     func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel) {
-        people.text = "\(Int(bill))x"
+        let peopleStr = "\(Int(bill))x"
+        people.setTextWithAnimation(peopleStr)
         people.accessibilityLabel = "\(Int(bill)) people"
-        totalByPerson.text = String(format: "$%.2f", (mainBill / bill)).currencyInputFormatting()
+        totalByPerson.setTextWithAnimation(String(format: "$%.2f", (mainBill / bill)).currencyInputFormatting())
     }
 }
 
