@@ -31,8 +31,17 @@ extension MainController {
             // Fallback on earlier versions
             // TODO: update earlier versions
         }
-        navigationItem.leftBarButtonItem = leftTitle
-        
+
+        let infoButton = UIBarButtonItem(
+            image: UIImage(systemName: "info.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(handleInfoTapped)
+        )
+        infoButton.accessibilityLabel = NSLocalizedString("How to use", comment: "Info button label")
+        infoButton.accessibilityHint = NSLocalizedString("View tips on how to use the app", comment: "Info button hint")
+        navigationItem.leftBarButtonItems = [infoButton, leftTitle]
+
         let saveButton = UIButton(type: .system)
         var config = UIButton.Configuration.filled()
         config.image = UIImage(systemName: Constant.pin_circle)

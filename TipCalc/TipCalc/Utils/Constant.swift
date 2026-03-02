@@ -29,6 +29,7 @@ struct Constant {
     
     static let savedCustomTipPercentKey = "savedCustomTipPercent"
     static let customCategoryTagsKey = "customCategoryTags"
+    static let onboardingDismissedKey = "onboardingDismissed"
 }
 
 /// Bill categories: Restaurant, Bar, Delivery, or custom user-defined tags
