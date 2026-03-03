@@ -16,6 +16,9 @@
 		4D7FA76E2D73F30F00EBFDEE /* PresentingTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA76D2D73F2FE00EBFDEE /* PresentingTipViewController.swift */; };
 		4D7FA7702D754A7600EBFDEE /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA76F2D754A7600EBFDEE /* ToastMessage.swift */; };
 		4D7FA7742D77E85C00EBFDEE /* TableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA7732D77E85C00EBFDEE /* TableView+Ext.swift */; };
+		4D7FA8002E99F00000AA2377 /* SpendingInsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */; };
+		4D7FA8022E99F00000AA2377 /* SpendingInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */; };
+		4D7FA8102E99F00100AA2377 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA80F2E99F00100AA2377 /* OnboardingViewController.swift */; };
 		4D8EE8B32BE466E400E5BD28 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D8EE8B22BE466E400E5BD28 /* Localizable.xcstrings */; };
 		4D9778AA2BF6E31200809A8A /* TipCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9778A92BF6E31200809A8A /* TipCalcTests.swift */; };
 		4D9778B12BF9702D00809A8A /* SaveViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9778B02BF9702D00809A8A /* SaveViewModelTests.swift */; };
@@ -37,9 +40,6 @@
 		4DD83CE822F1250D002933DE /* Delegates+Datasource+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */; };
 		8DA6815226C613B10091DBD0 /* CalculationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6815126C613B10091DBD0 /* CalculationsViewModel.swift */; };
 		8DA6815426C618610091DBD0 /* SaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6815326C618610091DBD0 /* SaveViewModel.swift */; };
-		4D7FA8002E99F00000AA2377 /* SpendingInsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */; };
-		4D7FA8022E99F00000AA2377 /* SpendingInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */; };
-		4D7FA8102E99F00100AA2377 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA80F2E99F00100AA2377 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +62,9 @@
 		4D7FA76D2D73F2FE00EBFDEE /* PresentingTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingTipViewController.swift; sourceTree = "<group>"; };
 		4D7FA76F2D754A7600EBFDEE /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
 		4D7FA7732D77E85C00EBFDEE /* TableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Ext.swift"; sourceTree = "<group>"; };
+		4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewModel.swift; sourceTree = "<group>"; };
+		4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewController.swift; sourceTree = "<group>"; };
+		4D7FA80F2E99F00100AA2377 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4D8EE8B22BE466E400E5BD28 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D9778A72BF6E31200809A8A /* TipCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9778A92BF6E31200809A8A /* TipCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalcTests.swift; sourceTree = "<group>"; };
@@ -86,9 +89,6 @@
 		4DD83CE722F1250D002933DE /* Delegates+Datasource+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delegates+Datasource+Ext.swift"; sourceTree = "<group>"; };
 		8DA6815126C613B10091DBD0 /* CalculationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsViewModel.swift; sourceTree = "<group>"; };
 		8DA6815326C618610091DBD0 /* SaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewModel.swift; sourceTree = "<group>"; };
-		4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewModel.swift; sourceTree = "<group>"; };
-		4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewController.swift; sourceTree = "<group>"; };
-		4D7FA80F2E99F00100AA2377 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -572,7 +572,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.israelmanzo.map.tipcalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -596,7 +596,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.israelmanzo.map.tipcalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
