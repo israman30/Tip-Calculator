@@ -1,101 +1,155 @@
-# Tip-Calculator
+# 💰 Tip Calculator
 
 [![Build](https://github.com/israman30/Tip-Calculator/actions/workflows/build.yml/badge.svg)](https://github.com/israman30/Tip-Calculator/actions/workflows/build.yml)
 
-### Description
+Version 1.4
 
-Compute your tip effortlessly by entering the bill amount. The application provides a breakdown of your tip, the total tip amount, and the original bill. Additionally, you can save the bill for future reference and delete it as needed.
+
+Tip Calculator is a modern, intuitive iOS application designed to simplify bill splitting and tip calculation. Built with a clean financial-focused interface, the app allows users to quickly calculate tips, split totals among friends, and track spending insights — all within a streamlined SwiftUI experience.
+
+The goal of the app is clarity, speed, and precision. Whether dining out, grabbing coffee, or splitting a group bill, Tip Calculator delivers accurate results instantly with minimal friction.
 
 <p align="center">
-<img src="/img/one.png" width="250"> <img src="/img/two.png" width="250"> <img src="/img/three.png" width="250">
+<img src="/img/one.png" width="250"> <img src="/img/two.png" width="250"> <img src="/img/three.png" width="250"> <img src="/img/four.png" width="250">
+<img src="/img/five.png" width="250"> <img src="/img/six.png" width="250">
 </p>
 
-#### Description of the project:
+## ✨ Features
+💵 Real-Time Bill & Tip Calculation
 
-- ```Xcode``` & ```UIKit``` for autolayout
+- Instant calculation as values are entered
 
-- Persist data with ```Core Data``` when saving some numbers
-    ```swift
-        private func saveToDB(input: String, tip: String, total: String, splitTotal: String?, splitPeopleQuantity: String?) { ... }
-    ```
+- Clear display of:
 
-- ```MVVM``` as Architecture structure
-- ```protocols```and```delegate```
-    <strong>_Calculating data_</strong>
-    ```swift
-    protocol ViewModelBillCalculationsProtocol {
-        func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel)
-        func reset(valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, totalByPerson: UILabel, peopleQuantity: UILabel)
-        func splitBiil(people: UILabel, bill: Double, totalByPerson: UILabel)
-    }
-    ```
-    ```swift
-    final class CalculationsViewModel: ViewModelBillCalculationsProtocol { ... }
-    ```
-    <strong>_Saving data_</strong>
-    ```swift
-    protocol ViewModelBillImplementationProtocol {
-        func fetchItems()
-        func save(_ vc: UIViewController, valueInput: UITextField, tipValue: UILabel, totalValue: UILabel, splitTotal: UILabel?, splitPeopleQuantity: UILabel?)
-    }
-    ```
-    ```swift
-    final class SaveViewModel: ViewModelBillImplementationProtocol { ... }
-    ```
-- ```SwiftUI``` preview implemented for ```UIViewController``` and ```UIVIew```
-    ```swift
-    struct UIViewControllerPreview<ViewController: UIViewController>: UIViewControllerRepresentable {
-    
-        let viewController: ViewController
-    
-        init(with builder: @escaping() -> ViewController) {
-            self.viewController = builder()
-        }
-    
-        func makeUIViewController(context: Context) -> UIViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
-    }
-    ```
-    ```swift
-    struct UIViewPreview<View: UIView>: UIViewRepresentable {
-   
-        let view: View
-        
-        init(with builder: @escaping() -> View) {
-            self.view = builder()
-        }
-        
-        func makeUIView(context: Context) -> UIView {
-            return view
-        }
-        
-        func updateUIView(_ uiView: UIViewType, context: Context) { }
-    }
-    ```
-- Accessibility
+- Bill amount
 
-- Localized language
+  - Tip percentage
 
-- No Modularity (coming soon)
+  - Tip amount
 
-- ```Unit Testing``` 
+  - Final total
 
- _Build <strong>GitHub</strong> CI/CD_
+- Clean financial typography for improved readability
+
+
+## 🎚 Tip Percentage Selection
+
+- Adjustable slider for selecting tip percentage
+
+- Preset-style interaction for quick adjustments
+
+- Live updates to totals while sliding
+
+## 👥 Split Between Up to 10 People
+
+- Evenly divide total bill among up to 10 people
+
+- Clear per-person total display
+
+- Dynamic recalculation when adjusting tip or group size
+
+## 🎤 Voice Recognition Input
+
+- Enter bill amount using voice commands
+
+- Fast, hands-free interaction
+
+- Seamless integration into the calculation flow
+
+## 🏷 Place Tagging
+
+- Tag saved bills by location or place (e.g., Restaurant, Coffee Shop, Bar)
+
+- Organized tracking of expenses
+
+- Easy filtering based on tags
+
+## 💾 Save Bill Records
+
+- Persist bill history locally
+
+- View detailed breakdown of past calculations
+
+- Quick access to previously entered data
+
+## 📊 Insights & Spending Overview
+
+- View cumulative totals
+
+- Analyze tip percentages over time
+
+- Track spending patterns by tagged places
+
+- Lightweight financial insight dashboard
+
+## 🛠 Tech Stack
+
+- Swift
+
+- SwiftUI
+
+- MVVM Architecture
+
+- Speech Framework (Voice Recognition)
+
+- Local Data Persistence
+
+- Unit Testing (XCTest)
+
+## 🧪 Testing
+
+- The project includes unit tests covering:
+
+- Tip calculation logic
+
+- Bill splitting accuracy
+
+- Data persistence validation
+
+- Insight aggregation logic
+
+- Testing ensures financial accuracy and long-term maintainability.
+
+The application follows clean architecture principles with emphasis on state management, performance, and predictable UI updates.
+
+## 🎯 Design Philosophy
+
+- Tip Calculator is built around:
+
+- Financial clarity
+
+- Precision in numerical display
+
+- Minimal UI distractions
+
+- Fast, intuitive interaction
+
+The interface prioritizes strong typography hierarchy and right-aligned numeric presentation to improve readability and user trust.
+
+## 🚀 Future Improvements
+
+- Potential future enhancements include:
+
+- iCloud sync
+
+- Exportable financial reports (CSV / PDF)
+
+- Biometric app lock
+
+- Advanced analytics dashboard
+
+- Custom tip presets
+
+## 📌 Version
+
+Current Version: 1.4
 
 #### Launch :rocket:
-- First release on early 2017
+Release on early 2017, 2019, 2023, 2026
 
-- Second release on later 2019
+App Store: [Tip Calculator](https://itunes.apple.com/us/app/my-new-news/id1210234219?mt=8).
 
-- Third release on 2023
+<p align="center">
+© Copyright, Israel Manzo. All rights reserved.
+</p>
 
-[Tip Calculator](https://itunes.apple.com/us/app/my-new-news/id1210234219?mt=8).
-
-#### Media
-- [LinkedIn](https://www.linkedin.com/in/israel-manzo/) 
-- [Twitter](https://twitter.com/israman30)
-
-_Copyright &copy; 2023, Israel Manzo_
