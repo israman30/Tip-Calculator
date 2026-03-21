@@ -290,6 +290,7 @@
 				Base,
 				"es-419",
 				fr,
+				de,
 			);
 			mainGroup = 4DD83CB822EFCFC8002933DE;
 			productRefGroup = 4DD83CC222EFCFC8002933DE /* Products */;

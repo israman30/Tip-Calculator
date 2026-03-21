@@ -16,6 +16,12 @@
             "state" : "translated",
             "value" : "Pourcentage moyen de pourboire %"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchschnittlicher Trinkgeldanteil %"
+          }
         }
       }
     },
@@ -29,6 +35,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bar"
+          }
+        },
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bar"
@@ -50,6 +62,12 @@
             "state" : "translated",
             "value" : "Addition enregistrée !"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechnung gespeichert!"
+          }
         }
       }
     },
@@ -66,6 +84,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Catégorie"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategorie"
           }
         }
       }
@@ -84,6 +108,12 @@
             "state" : "translated",
             "value" : "Catégorie et sujets personnalisés"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategorie und benutzerdefinierte Themen"
+          }
         }
       }
     },
@@ -100,6 +130,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Effacer les valeurs"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werte löschen"
           }
         }
       }
@@ -118,6 +154,12 @@
             "state" : "translated",
             "value" : "Fermer"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
         }
       }
     },
@@ -134,6 +176,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Personnalisé"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerdefiniert"
           }
         }
       }
@@ -152,6 +200,12 @@
             "state" : "translated",
             "value" : "Catégorie personnalisée"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerdefinierte Kategorie"
+          }
         }
       }
     },
@@ -168,6 +222,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pourboire personnalisé"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerdefiniertes Trinkgeld"
           }
         }
       }
@@ -186,6 +246,12 @@
             "state" : "translated",
             "value" : "Livraison"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lieferung"
+          }
         }
       }
     },
@@ -201,6 +267,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dicter le montant de l'addition"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechnungsbetrag diktieren"
           }
         }
       }
@@ -219,6 +291,12 @@
             "state" : "translated",
             "value" : "Fermer les statistiques"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistiken schließen"
+          }
         }
       }
     },
@@ -235,6 +313,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fermer la liste des additions enregistrées"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste gespeicherter Rechnungen schließen"
           }
         }
       }
@@ -253,6 +337,12 @@
             "state" : "translated",
             "value" : "Fermer les astuces"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipps schließen"
+          }
         }
       }
     },
@@ -269,6 +359,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Double-tap pour afficher le curseur de pourboire personnalisé"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doppeltippen für Trinkgeld-Schieberegler"
           }
         }
       }
@@ -287,6 +383,12 @@
             "state" : "translated",
             "value" : "ex. Café, Épicerie"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "z. B. Café, Lebensmittel"
+          }
         }
       }
     },
@@ -303,6 +405,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Entrez une étiquette personnalisée pour cette addition"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigenes Schlagwort für diese Rechnung eingeben"
           }
         }
       }
@@ -321,6 +429,12 @@
             "state" : "translated",
             "value" : "Saisir le montant"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Betrag eingeben"
+          }
         }
       }
     },
@@ -337,6 +451,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Comment utiliser"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "So funktioniert's"
           }
         }
       }
@@ -355,6 +475,12 @@
             "state" : "translated",
             "value" : "Comment utiliser"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "So funktioniert's"
+          }
         }
       }
     },
@@ -371,6 +497,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "addition initiale"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ursprüngliche Rechnung"
           }
         }
       }
@@ -389,6 +521,12 @@
             "state" : "translated",
             "value" : "Saisir le montant de l'addition"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechnungsbetrag eingeben"
+          }
         }
       }
     },
@@ -405,6 +543,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Statistiques"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistiken"
           }
         }
       }
@@ -423,6 +567,12 @@
             "state" : "translated",
             "value" : "Vue des statistiques"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistik-Ansicht"
+          }
         }
       }
     },
@@ -439,6 +589,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucune valeur à enregistrer"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Wert zum Speichern"
           }
         }
       }
@@ -457,6 +613,12 @@
             "state" : "translated",
             "value" : "Ouvrez les additions enregistrées et touchez « Statistiques » pour voir votre récapitulatif de dépenses : total des dépenses, pourboires versés et additions partagées par catégorie."
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffne gespeicherte Rechnungen und tippe auf „Statistiken“, um deine Auswertung zu sehen: Gesamtausgaben, Trinkgelder und geteilte Rechnungen nach Kategorie."
+          }
         }
       }
     },
@@ -474,6 +636,12 @@
             "state" : "translated",
             "value" : "Astuces pour tirer le meilleur parti de l'application"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipps, um das Beste aus der App herauszuholen"
+          }
         }
       }
     },
@@ -487,6 +655,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurant"
+          }
+        },
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restaurant"
@@ -508,6 +682,12 @@
             "state" : "translated",
             "value" : "Enregistrer"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern"
+          }
         }
       }
     },
@@ -525,6 +705,12 @@
             "state" : "translated",
             "value" : "Enregistrer l'addition"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechnung speichern"
+          }
         }
       }
     },
@@ -541,6 +727,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Additions enregistrées"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gespeicherte Rechnungen"
           }
         }
       }
@@ -560,6 +752,12 @@
             "state" : "translated",
             "value" : "Enregistrements sauvegardés.."
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gespeicherte Einträge.."
+          }
         }
       }
     },
@@ -575,6 +773,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Épargner, c'est offrir à votre futur moi un cadeau : sécurité, liberté et sérénité dans chaque dollar mis de côté."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sparen ist ein Geschenk an dein zukünftiges Ich: Sicherheit, Freiheit und Gelassenheit in jedem zurückgelegten Dollar."
           }
         }
       }
@@ -592,6 +796,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choisissez une catégorie (Restaurant, Bar, Livraison) ou touchez « Personnalisé » pour ajouter vos propres étiquettes et suivre vos additions par type."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle eine Kategorie (Restaurant, Bar, Lieferung) oder tippe auf „Benutzerdefiniert“, um eigene Schlagwörter für die Rechnungsverfolgung hinzuzufügen."
           }
         }
       }
@@ -611,6 +821,12 @@
             "state" : "translated",
             "value" : "Statistiques de dépenses"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgabenübersicht"
+          }
         }
       }
     },
@@ -628,6 +844,12 @@
             "state" : "translated",
             "value" : "Statistiques de dépenses"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgabenübersicht"
+          }
         }
       }
     },
@@ -644,6 +866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Partager l'addition jusqu'à 10 personnes"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechnung für bis zu 10 Personen teilen"
           }
         }
       }
@@ -663,6 +891,12 @@
             "state" : "translated",
             "value" : "Arrêter la dictée"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diktat beenden"
+          }
         }
       }
     },
@@ -680,6 +914,12 @@
             "state" : "translated",
             "value" : "Balayez vers la gauche pour supprimer"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach links wischen zum Löschen"
+          }
         }
       }
     },
@@ -695,6 +935,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Touchez pour enregistrer une addition"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen zum Speichern einer Rechnung"
           }
         }
       }
@@ -712,6 +958,12 @@
             "state" : "translated",
             "value" : "Touchez pour dicter le montant de l'addition à la voix"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen zum Diktieren des Rechnungsbetrags"
+          }
         }
       }
     },
@@ -727,6 +979,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Touchez pour afficher la liste des additions"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen, um die Rechnungsliste anzuzeigen"
           }
         }
       }
@@ -746,6 +1004,12 @@
             "state" : "translated",
             "value" : "Touchez pour réinitialiser le montant et les pourboires"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen zum Zurücksetzen von Betrag und Trinkgeld"
+          }
         }
       }
     },
@@ -764,6 +1028,12 @@
             "state" : "translated",
             "value" : "Touchez pour arrêter la saisie vocale"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen zum Beenden der Spracheingabe"
+          }
         }
       }
     },
@@ -779,6 +1049,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucune addition enregistrée pour le moment."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktuell sind keine Rechnungen gespeichert."
           }
         }
       }
@@ -797,6 +1073,12 @@
             "state" : "translated",
             "value" : "Calculateur de pourboire"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trinkgeld-Rechner"
+          }
         }
       }
     },
@@ -813,6 +1095,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pourcentages de pourboire et curseur"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trinkgeld-Prozente & Schieberegler"
           }
         }
       }
@@ -831,6 +1119,12 @@
             "state" : "translated",
             "value" : "Montant du pourboire"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trinkgeldbetrag"
+          }
         }
       }
     },
@@ -846,6 +1140,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pour ajouter une addition, saisissez un montant et touchez le bouton épingler"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zum Hinzufügen einer Rechnung Betrag eingeben und Pin-Button antippen"
           }
         }
       }
@@ -865,6 +1165,12 @@
             "state" : "translated",
             "value" : "Total dépensé ce mois"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamtausgaben diesen Monat"
+          }
         }
       }
     },
@@ -882,6 +1188,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Total dépensé cette semaine"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamtausgaben diese Woche"
           }
         }
       }
@@ -901,6 +1213,12 @@
             "state" : "translated",
             "value" : "Total des pourboires donnés"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamtes Trinkgeld gegeben"
+          }
         }
       }
     },
@@ -917,6 +1235,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Total avec pourboire"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamtbetrag inkl. Trinkgeld"
           }
         }
       }
@@ -935,6 +1259,12 @@
             "state" : "translated",
             "value" : "Utilisez les segments pour les pourcentages rapides (10 %, 15 %, 20 %, 25 %). Double-tap sur le total pour afficher le curseur de pourboire personnalisé (0–30 %)."
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutze die Segmente für schnelle Prozente (10 %, 15 %, 20 %, 25 %). Doppeltippen auf den Gesamtbetrag öffnet den benutzerdefinierten Trinkgeld-Schieberegler (0–30 %)."
+          }
         }
       }
     },
@@ -952,6 +1282,12 @@
             "state" : "translated",
             "value" : "Utilisez le sélecteur sous la section partage pour diviser l'addition entre jusqu'à 10 personnes. Le total par personne se met à jour automatiquement."
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutze den Schalter unter dem Teilen-Bereich, um die Rechnung auf bis zu 10 Personen zu verteilen. Der Betrag pro Person wird automatisch aktualisiert."
+          }
         }
       }
     },
@@ -968,6 +1304,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voir les additions enregistrées (%d)"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gespeicherte Rechnungen anzeigen (%d)"
           }
         }
       }
@@ -987,6 +1329,12 @@
             "state" : "translated",
             "value" : "Voir le tableau de bord des statistiques de dépenses"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgaben-Dashboard anzeigen"
+          }
         }
       }
     },
@@ -1003,6 +1351,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voir les astuces d'utilisation de l'application"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipps zur App-Nutzung anzeigen"
           }
         }
       }
@@ -1022,6 +1376,12 @@
             "state" : "translated",
             "value" : "Semaine / Mois"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Woche / Monat"
+          }
         }
       }
     },
@@ -1038,6 +1398,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Récapitulatif de vos pourboires et dépenses"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersicht deiner Trinkgelder und Ausgaben"
           }
         }
       }
