@@ -22,6 +22,12 @@
             "state" : "translated",
             "value" : "Durchschnittlicher Trinkgeldanteil %"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均チップ率 %"
+          }
         }
       }
     },
@@ -44,6 +50,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bar"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バー"
           }
         }
       }
@@ -68,6 +80,12 @@
             "state" : "translated",
             "value" : "Rechnung gespeichert!"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お会計を保存しました！"
+          }
         }
       }
     },
@@ -90,6 +108,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kategorie"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カテゴリ"
           }
         }
       }
@@ -114,6 +138,12 @@
             "state" : "translated",
             "value" : "Kategorie und benutzerdefinierte Themen"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カテゴリとカスタム項目"
+          }
         }
       }
     },
@@ -136,6 +166,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Werte löschen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "値をクリア"
           }
         }
       }
@@ -160,6 +196,12 @@
             "state" : "translated",
             "value" : "Schließen"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
+          }
         }
       }
     },
@@ -182,6 +224,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benutzerdefiniert"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタム"
           }
         }
       }
@@ -206,6 +254,12 @@
             "state" : "translated",
             "value" : "Benutzerdefinierte Kategorie"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタムカテゴリ"
+          }
         }
       }
     },
@@ -228,6 +282,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benutzerdefiniertes Trinkgeld"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタムチップ"
           }
         }
       }
@@ -252,6 +312,12 @@
             "state" : "translated",
             "value" : "Lieferung"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デリバリー"
+          }
         }
       }
     },
@@ -273,6 +339,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechnungsbetrag diktieren"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お会計の金額を音声入力"
           }
         }
       }
@@ -297,6 +369,12 @@
             "state" : "translated",
             "value" : "Statistiken schließen"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "統計を閉じる"
+          }
         }
       }
     },
@@ -319,6 +397,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Liste gespeicherter Rechnungen schließen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存したお会計一覧を閉じる"
           }
         }
       }
@@ -343,6 +427,12 @@
             "state" : "translated",
             "value" : "Tipps schließen"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ヒントを閉じる"
+          }
         }
       }
     },
@@ -365,6 +455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Doppeltippen für Trinkgeld-Schieberegler"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダブルタップでカスタムチップスライダーを表示"
           }
         }
       }
@@ -389,6 +485,12 @@
             "state" : "translated",
             "value" : "z. B. Café, Lebensmittel"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "例：コーヒー、食料品"
+          }
         }
       }
     },
@@ -411,6 +513,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eigenes Schlagwort für diese Rechnung eingeben"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このお会計のタグを入力"
           }
         }
       }
@@ -435,6 +543,12 @@
             "state" : "translated",
             "value" : "Betrag eingeben"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金額を入力"
+          }
         }
       }
     },
@@ -457,6 +571,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "So funktioniert's"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使い方"
           }
         }
       }
@@ -481,6 +601,12 @@
             "state" : "translated",
             "value" : "So funktioniert's"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使い方"
+          }
         }
       }
     },
@@ -503,6 +629,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ursprüngliche Rechnung"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "元のお会計"
           }
         }
       }
@@ -527,6 +659,12 @@
             "state" : "translated",
             "value" : "Rechnungsbetrag eingeben"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お会計の金額を入力"
+          }
         }
       }
     },
@@ -549,6 +687,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Statistiken"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "統計"
           }
         }
       }
@@ -573,6 +717,12 @@
             "state" : "translated",
             "value" : "Statistik-Ansicht"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "統計ビュー"
+          }
         }
       }
     },
@@ -595,6 +745,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kein Wert zum Speichern"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存する値がありません"
           }
         }
       }
@@ -619,6 +775,12 @@
             "state" : "translated",
             "value" : "Öffne gespeicherte Rechnungen und tippe auf „Statistiken“, um deine Auswertung zu sehen: Gesamtausgaben, Trinkgelder und geteilte Rechnungen nach Kategorie."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存したお会計を開き「統計」をタップして支出の概要を確認：総支出、支払ったチップ、カテゴリ別の割り勘。"
+          }
         }
       }
     },
@@ -641,6 +803,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tipps, um das Beste aus der App herauszuholen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを最大限に活用するヒント"
           }
         }
       }
@@ -665,6 +833,12 @@
             "state" : "translated",
             "value" : "Restaurant"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レストラン"
+          }
         }
       }
     },
@@ -687,6 +861,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Speichern"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
           }
         }
       }
@@ -711,6 +891,12 @@
             "state" : "translated",
             "value" : "Rechnung speichern"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お会計を保存"
+          }
         }
       }
     },
@@ -733,6 +919,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gespeicherte Rechnungen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存したお会計"
           }
         }
       }
@@ -758,6 +950,12 @@
             "state" : "translated",
             "value" : "Gespeicherte Einträge.."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存した記録.."
+          }
         }
       }
     },
@@ -779,6 +977,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sparen ist ein Geschenk an dein zukünftiges Ich: Sicherheit, Freiheit und Gelassenheit in jedem zurückgelegten Dollar."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "貯金は未来の自分への贈り物。貯めたひとつひとつのドルに、安心、自由、心の平和が込められています。"
           }
         }
       }
@@ -802,6 +1006,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wähle eine Kategorie (Restaurant, Bar, Lieferung) oder tippe auf „Benutzerdefiniert“, um eigene Schlagwörter für die Rechnungsverfolgung hinzuzufügen."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カテゴリ（レストラン、バー、デリバリー）を選ぶか「カスタム」をタップして、お会計を種類別に追跡するタグを追加。"
           }
         }
       }
@@ -827,6 +1037,12 @@
             "state" : "translated",
             "value" : "Ausgabenübersicht"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出の概要"
+          }
         }
       }
     },
@@ -850,6 +1066,12 @@
             "state" : "translated",
             "value" : "Ausgabenübersicht"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出の概要"
+          }
         }
       }
     },
@@ -872,6 +1094,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechnung für bis zu 10 Personen teilen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大10人でお会計を割り勘"
           }
         }
       }
@@ -897,6 +1125,12 @@
             "state" : "translated",
             "value" : "Diktat beenden"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "音声入力を停止"
+          }
         }
       }
     },
@@ -920,6 +1154,12 @@
             "state" : "translated",
             "value" : "Nach links wischen zum Löschen"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左にスワイプして削除"
+          }
         }
       }
     },
@@ -941,6 +1181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tippen zum Speichern einer Rechnung"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップしてお会計を保存"
           }
         }
       }
@@ -964,6 +1210,12 @@
             "state" : "translated",
             "value" : "Tippen zum Diktieren des Rechnungsbetrags"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップして音声でお会計の金額を入力"
+          }
         }
       }
     },
@@ -985,6 +1237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tippen, um die Rechnungsliste anzuzeigen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップしてお会計の一覧を表示"
           }
         }
       }
@@ -1010,6 +1268,12 @@
             "state" : "translated",
             "value" : "Tippen zum Zurücksetzen von Betrag und Trinkgeld"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップしてお会計とチップの値をリセット"
+          }
         }
       }
     },
@@ -1034,6 +1298,12 @@
             "state" : "translated",
             "value" : "Tippen zum Beenden der Spracheingabe"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップして音声入力を停止"
+          }
         }
       }
     },
@@ -1055,6 +1325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aktuell sind keine Rechnungen gespeichert."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在、保存されたお会計はありません。"
           }
         }
       }
@@ -1079,6 +1355,12 @@
             "state" : "translated",
             "value" : "Trinkgeld-Rechner"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チップ計算機"
+          }
         }
       }
     },
@@ -1101,6 +1383,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Trinkgeld-Prozente & Schieberegler"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チップ率とスライダー"
           }
         }
       }
@@ -1125,6 +1413,12 @@
             "state" : "translated",
             "value" : "Trinkgeldbetrag"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チップの金額"
+          }
         }
       }
     },
@@ -1146,6 +1440,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zum Hinzufügen einer Rechnung Betrag eingeben und Pin-Button antippen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいお会計を追加するには金額を入力してピンボタンをタップ"
           }
         }
       }
@@ -1171,6 +1471,12 @@
             "state" : "translated",
             "value" : "Gesamtausgaben diesen Monat"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今月の総支出"
+          }
         }
       }
     },
@@ -1194,6 +1500,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gesamtausgaben diese Woche"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今週の総支出"
           }
         }
       }
@@ -1219,6 +1531,12 @@
             "state" : "translated",
             "value" : "Gesamtes Trinkgeld gegeben"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支払ったチップ合計"
+          }
         }
       }
     },
@@ -1241,6 +1559,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gesamtbetrag inkl. Trinkgeld"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チップ込み合計"
           }
         }
       }
@@ -1265,6 +1589,12 @@
             "state" : "translated",
             "value" : "Nutze die Segmente für schnelle Prozente (10 %, 15 %, 20 %, 25 %). Doppeltippen auf den Gesamtbetrag öffnet den benutzerdefinierten Trinkgeld-Schieberegler (0–30 %)."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "セグメントでクイック選択（10%、15%、20%、25%）。合計をダブルタップするとカスタムチップスライダー（0–30%）が表示されます。"
+          }
         }
       }
     },
@@ -1288,6 +1618,12 @@
             "state" : "translated",
             "value" : "Nutze den Schalter unter dem Teilen-Bereich, um die Rechnung auf bis zu 10 Personen zu verteilen. Der Betrag pro Person wird automatisch aktualisiert."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "割り勘セクション下のステッパーで最大10人まで分配。1人あたりの金額は自動で更新されます。"
+          }
         }
       }
     },
@@ -1310,6 +1646,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gespeicherte Rechnungen anzeigen (%d)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存したお会計を表示（%d件）"
           }
         }
       }
@@ -1335,6 +1677,12 @@
             "state" : "translated",
             "value" : "Ausgaben-Dashboard anzeigen"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出ダッシュボードを表示"
+          }
         }
       }
     },
@@ -1357,6 +1705,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tipps zur App-Nutzung anzeigen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリの使い方のヒントを表示"
           }
         }
       }
@@ -1382,6 +1736,12 @@
             "state" : "translated",
             "value" : "Woche / Monat"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "週 / 月"
+          }
         }
       }
     },
@@ -1404,6 +1764,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Übersicht deiner Trinkgelder und Ausgaben"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チップと支出の概要"
           }
         }
       }
