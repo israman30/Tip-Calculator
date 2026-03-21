@@ -28,6 +28,18 @@
             "state" : "translated",
             "value" : "平均チップ率 %"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均小费比例 %"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均小費比例 %"
+          }
         }
       }
     },
@@ -56,6 +68,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バー"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "酒吧"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "酒吧"
           }
         }
       }
@@ -86,6 +110,18 @@
             "state" : "translated",
             "value" : "お会計を保存しました！"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账单已保存！"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "帳單已儲存！"
+          }
         }
       }
     },
@@ -114,6 +150,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "カテゴリ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "类别"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "類別"
           }
         }
       }
@@ -144,6 +192,18 @@
             "state" : "translated",
             "value" : "カテゴリとカスタム項目"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "类别和自定义项目"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "類別和自訂項目"
+          }
         }
       }
     },
@@ -172,6 +232,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "値をクリア"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清除数值"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清除數值"
           }
         }
       }
@@ -202,6 +274,18 @@
             "state" : "translated",
             "value" : "閉じる"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉"
+          }
         }
       }
     },
@@ -230,6 +314,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "カスタム"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自訂"
           }
         }
       }
@@ -260,6 +356,18 @@
             "state" : "translated",
             "value" : "カスタムカテゴリ"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义类别"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自訂類別"
+          }
         }
       }
     },
@@ -288,6 +396,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "カスタムチップ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义小费"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自訂小費"
           }
         }
       }
@@ -318,6 +438,18 @@
             "state" : "translated",
             "value" : "デリバリー"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外卖"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外賣"
+          }
         }
       }
     },
@@ -345,6 +477,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "お会計の金額を音声入力"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语音输入账单金额"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "語音輸入帳單金額"
           }
         }
       }
@@ -375,6 +519,18 @@
             "state" : "translated",
             "value" : "統計を閉じる"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭统计"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉統計"
+          }
         }
       }
     },
@@ -403,6 +559,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存したお会計一覧を閉じる"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭已保存账单列表"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉已儲存帳單列表"
           }
         }
       }
@@ -433,6 +601,18 @@
             "state" : "translated",
             "value" : "ヒントを閉じる"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭提示"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉提示"
+          }
         }
       }
     },
@@ -461,6 +641,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ダブルタップでカスタムチップスライダーを表示"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "双击显示自定义小费滑块"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雙擊顯示自訂小費滑桿"
           }
         }
       }
@@ -491,6 +683,18 @@
             "state" : "translated",
             "value" : "例：コーヒー、食料品"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "例如：咖啡、食品杂货"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "例如：咖啡、食品雜貨"
+          }
         }
       }
     },
@@ -519,6 +723,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "このお会計のタグを入力"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入此账单的自定义标签"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸入此帳單的自訂標籤"
           }
         }
       }
@@ -549,6 +765,18 @@
             "state" : "translated",
             "value" : "金額を入力"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入金额"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸入金額"
+          }
         }
       }
     },
@@ -577,6 +805,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使い方"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何使用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何使用"
           }
         }
       }
@@ -607,6 +847,18 @@
             "state" : "translated",
             "value" : "使い方"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用指南"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用指南"
+          }
         }
       }
     },
@@ -635,6 +887,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "元のお会計"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原始账单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原始帳單"
           }
         }
       }
@@ -665,6 +929,18 @@
             "state" : "translated",
             "value" : "お会計の金額を入力"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入账单金额"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸入帳單金額"
+          }
         }
       }
     },
@@ -690,6 +966,18 @@
           }
         },
         "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "統計"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "统计"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "統計"
@@ -723,6 +1011,18 @@
             "state" : "translated",
             "value" : "統計ビュー"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "统计视图"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "統計檢視"
+          }
         }
       }
     },
@@ -751,6 +1051,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存する値がありません"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有可保存的值"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沒有可儲存的值"
           }
         }
       }
@@ -781,6 +1093,18 @@
             "state" : "translated",
             "value" : "保存したお会計を開き「統計」をタップして支出の概要を確認：総支出、支払ったチップ、カテゴリ別の割り勘。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开已保存账单并点击「统计」查看支出概览：总支出、已付小费以及按类别分摊的账单。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟已儲存帳單並點擊「統計」查看支出概覽：總支出、已付小費以及按類別分攤的帳單。"
+          }
         }
       }
     },
@@ -809,6 +1133,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "アプリを最大限に活用するヒント"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充分利用 App 的快捷提示"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充分利用 App 的快捷提示"
           }
         }
       }
@@ -839,6 +1175,18 @@
             "state" : "translated",
             "value" : "レストラン"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "餐厅"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "餐廳"
+          }
         }
       }
     },
@@ -867,6 +1215,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存"
           }
         }
       }
@@ -897,6 +1257,18 @@
             "state" : "translated",
             "value" : "お会計を保存"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存账单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存帳單"
+          }
         }
       }
     },
@@ -925,6 +1297,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存したお会計"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已保存账单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已儲存帳單"
           }
         }
       }
@@ -956,6 +1340,18 @@
             "state" : "translated",
             "value" : "保存した記録.."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已保存记录.."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已儲存記錄.."
+          }
         }
       }
     },
@@ -983,6 +1379,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "貯金は未来の自分への贈り物。貯めたひとつひとつのドルに、安心、自由、心の平和が込められています。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "存钱是送给未来自己的礼物：安全、自由和心安，藏在每一分储蓄里。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "存錢是送給未來自己的禮物：安全、自由和心安，藏在每一分儲蓄裡。"
           }
         }
       }
@@ -1012,6 +1420,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "カテゴリ（レストラン、バー、デリバリー）を選ぶか「カスタム」をタップして、お会計を種類別に追跡するタグを追加。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择类别（餐厅、酒吧、外卖）或点击「自定义」添加标签以按类型跟踪账单。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇類別（餐廳、酒吧、外賣）或點擊「自訂」新增標籤以按類型追蹤帳單。"
           }
         }
       }
@@ -1043,6 +1463,18 @@
             "state" : "translated",
             "value" : "支出の概要"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出概览"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出概覽"
+          }
         }
       }
     },
@@ -1072,6 +1504,18 @@
             "state" : "translated",
             "value" : "支出の概要"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出概览"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出概覽"
+          }
         }
       }
     },
@@ -1100,6 +1544,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最大10人でお会計を割り勘"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最多 10 人分摊账单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最多 10 人分攤帳單"
           }
         }
       }
@@ -1131,6 +1587,18 @@
             "state" : "translated",
             "value" : "音声入力を停止"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止听写"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止聽寫"
+          }
         }
       }
     },
@@ -1160,6 +1628,18 @@
             "state" : "translated",
             "value" : "左にスワイプして削除"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左滑删除"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左滑刪除"
+          }
         }
       }
     },
@@ -1187,6 +1667,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "タップしてお会計を保存"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击保存账单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊儲存帳單"
           }
         }
       }
@@ -1216,6 +1708,18 @@
             "state" : "translated",
             "value" : "タップして音声でお会計の金額を入力"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击用语音输入账单金额"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊用語音輸入帳單金額"
+          }
         }
       }
     },
@@ -1243,6 +1747,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "タップしてお会計の一覧を表示"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击显示账单列表"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊顯示帳單列表"
           }
         }
       }
@@ -1274,6 +1790,18 @@
             "state" : "translated",
             "value" : "タップしてお会計とチップの値をリセット"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击重置账单金额和小费"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊重設帳單金額和小費"
+          }
         }
       }
     },
@@ -1304,6 +1832,18 @@
             "state" : "translated",
             "value" : "タップして音声入力を停止"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击停止语音输入"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊停止語音輸入"
+          }
         }
       }
     },
@@ -1331,6 +1871,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "現在、保存されたお会計はありません。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目前没有已保存的账单。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目前沒有已儲存的帳單。"
           }
         }
       }
@@ -1361,6 +1913,18 @@
             "state" : "translated",
             "value" : "チップ計算機"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小费计算器"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小費計算機"
+          }
         }
       }
     },
@@ -1389,6 +1953,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "チップ率とスライダー"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小费比例和滑块"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小費比例和滑桿"
           }
         }
       }
@@ -1419,6 +1995,18 @@
             "state" : "translated",
             "value" : "チップの金額"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小费金额"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小費金額"
+          }
         }
       }
     },
@@ -1446,6 +2034,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "新しいお会計を追加するには金額を入力してピンボタンをタップ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要添加新账单，请输入金额并点击图钉按钮"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要新增帳單，請輸入金額並點擊圖釘按鈕"
           }
         }
       }
@@ -1477,6 +2077,18 @@
             "state" : "translated",
             "value" : "今月の総支出"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本月总支出"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本月總支出"
+          }
         }
       }
     },
@@ -1506,6 +2118,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "今週の総支出"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本周总支出"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本週總支出"
           }
         }
       }
@@ -1537,6 +2161,18 @@
             "state" : "translated",
             "value" : "支払ったチップ合計"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已付小费总计"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已付小費總計"
+          }
         }
       }
     },
@@ -1565,6 +2201,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "チップ込み合計"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "含小费总计"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "含小費總計"
           }
         }
       }
@@ -1595,6 +2243,18 @@
             "state" : "translated",
             "value" : "セグメントでクイック選択（10%、15%、20%、25%）。合計をダブルタップするとカスタムチップスライダー（0–30%）が表示されます。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用分段快速选择（10%、15%、20%、25%）。双击账单总额可显示自定义小费滑块（0–30%）。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用分段快速選擇（10%、15%、20%、25%）。雙擊帳單總額可顯示自訂小費滑桿（0–30%）。"
+          }
         }
       }
     },
@@ -1624,6 +2284,18 @@
             "state" : "translated",
             "value" : "割り勘セクション下のステッパーで最大10人まで分配。1人あたりの金額は自動で更新されます。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用分摊下方的步进器将账单分给最多 10 人。每人金额会自动更新。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用分攤下方的步進器將帳單分給最多 10 人。每人金額會自動更新。"
+          }
         }
       }
     },
@@ -1652,6 +2324,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存したお会計を表示（%d件）"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看已保存账单（%d）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看已儲存帳單（%d）"
           }
         }
       }
@@ -1683,6 +2367,18 @@
             "state" : "translated",
             "value" : "支出ダッシュボードを表示"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看支出统计仪表板"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看支出統計儀表板"
+          }
         }
       }
     },
@@ -1712,6 +2408,18 @@
             "state" : "translated",
             "value" : "アプリの使い方のヒントを表示"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看 App 使用提示"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看 App 使用提示"
+          }
         }
       }
     },
@@ -1738,6 +2446,18 @@
           }
         },
         "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "週 / 月"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "周 / 月"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "週 / 月"
@@ -1770,6 +2490,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "チップと支出の概要"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小费和支出概览"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小費和支出概覽"
           }
         }
       }
