@@ -10,6 +10,12 @@
             "state" : "translated",
             "value" : "Porcentaje promedio de propina %"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourcentage moyen de pourboire %"
+          }
         }
       }
     },
@@ -17,6 +23,12 @@
       "comment" : "Bar category",
       "localizations" : {
         "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bar"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bar"
@@ -32,6 +44,12 @@
             "state" : "translated",
             "value" : "¡Bill salvado!"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Addition enregistrée !"
+          }
         }
       }
     },
@@ -42,6 +60,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Categoría"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Catégorie"
           }
         }
       }
@@ -54,6 +78,12 @@
             "state" : "translated",
             "value" : "Categoría y temas personalizados"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Catégorie et sujets personnalisés"
+          }
         }
       }
     },
@@ -64,6 +94,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Borrar valores"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effacer les valeurs"
           }
         }
       }
@@ -76,6 +112,12 @@
             "state" : "translated",
             "value" : "Cerrar"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer"
+          }
         }
       }
     },
@@ -86,6 +128,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Categoría"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personnalisé"
           }
         }
       }
@@ -98,6 +146,12 @@
             "state" : "translated",
             "value" : "Categoría personalizada"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Catégorie personnalisée"
+          }
         }
       }
     },
@@ -108,6 +162,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Propina personalizada"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourboire personnalisé"
           }
         }
       }
@@ -120,6 +180,12 @@
             "state" : "translated",
             "value" : "Entrega"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Livraison"
+          }
         }
       }
     },
@@ -129,6 +195,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dictar el valor de la factura"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dicter le montant de l'addition"
           }
         }
       }
@@ -141,6 +213,12 @@
             "state" : "translated",
             "value" : "Descartar información"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer les statistiques"
+          }
         }
       }
     },
@@ -151,6 +229,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Descartar la lista de facturas guardadas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer la liste des additions enregistrées"
           }
         }
       }
@@ -163,6 +247,12 @@
             "state" : "translated",
             "value" : "Descartar consejos"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer les astuces"
+          }
         }
       }
     },
@@ -173,6 +263,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toca dos veces para el control deslizante de propina personalizada."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double-tap pour afficher le curseur de pourboire personnalisé"
           }
         }
       }
@@ -185,6 +281,12 @@
             "state" : "translated",
             "value" : "p. ej., café, comestibles"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ex. Café, Épicerie"
+          }
         }
       }
     },
@@ -195,6 +297,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introduzca una etiqueta personalizada para esta factura."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrez une étiquette personnalisée pour cette addition"
           }
         }
       }
@@ -207,6 +315,12 @@
             "state" : "translated",
             "value" : "Introducir valor"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saisir le montant"
+          }
         }
       }
     },
@@ -217,6 +331,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cómo usar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comment utiliser"
           }
         }
       }
@@ -229,6 +349,12 @@
             "state" : "translated",
             "value" : "Cómo usar"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comment utiliser"
+          }
         }
       }
     },
@@ -239,6 +365,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "factura inicial"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "addition initiale"
           }
         }
       }
@@ -251,6 +383,12 @@
             "state" : "translated",
             "value" : "Ingrese el valor de la factura"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saisir le montant de l'addition"
+          }
         }
       }
     },
@@ -261,6 +399,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Perspectivas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistiques"
           }
         }
       }
@@ -273,6 +417,12 @@
             "state" : "translated",
             "value" : "Vista de información estratégica"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vue des statistiques"
+          }
         }
       }
     },
@@ -283,6 +433,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hay ningún valor que guardar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune valeur à enregistrer"
           }
         }
       }
@@ -295,6 +451,12 @@
             "state" : "translated",
             "value" : "Abre las facturas guardadas y toca «Insights» para ver tu resumen de gastos: gastos totales, propinas pagadas y facturas desglosadas por categorías."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrez les additions enregistrées et touchez « Statistiques » pour voir votre récapitulatif de dépenses : total des dépenses, pourboires versés et additions partagées par catégorie."
+          }
         }
       }
     },
@@ -306,6 +468,12 @@
             "state" : "translated",
             "value" : "Consejos rápidos para sacar el máximo provecho de la aplicación"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Astuces pour tirer le meilleur parti de l'application"
+          }
         }
       }
     },
@@ -313,6 +481,12 @@
       "comment" : "Restaurant category",
       "localizations" : {
         "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurant"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restaurant"
@@ -328,6 +502,12 @@
             "state" : "translated",
             "value" : "Salvar"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
+          }
         }
       }
     },
@@ -339,6 +519,12 @@
             "state" : "translated",
             "value" : "Salvar cuenta"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer l'addition"
+          }
         }
       }
     },
@@ -349,6 +535,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Salvar cuentas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Additions enregistrées"
           }
         }
       }
@@ -362,6 +554,12 @@
             "state" : "translated",
             "value" : "Salvar records.."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrements sauvegardés.."
+          }
         }
       }
     },
@@ -371,6 +569,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ahorrar dinero es darle a tu yo futuro un regalo: seguridad, libertad y tranquilidad envuelto en cada dólar reservado."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Épargner, c'est offrir à votre futur moi un cadeau : sécurité, liberté et sérénité dans chaque dollar mis de côté."
           }
         }
       }
@@ -382,6 +586,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selecciona una categoría (Restaurante, Bar, Domicilio) o toca «Personalizado» para añadir tus propias etiquetas y realizar un seguimiento de las facturas por tipo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez une catégorie (Restaurant, Bar, Livraison) ou touchez « Personnalisé » pour ajouter vos propres étiquettes et suivre vos additions par type."
           }
         }
       }
@@ -395,6 +605,12 @@
             "state" : "translated",
             "value" : "Información sobre gastos"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistiques de dépenses"
+          }
         }
       }
     },
@@ -406,6 +622,12 @@
             "state" : "translated",
             "value" : "Información sobre gastos"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistiques de dépenses"
+          }
         }
       }
     },
@@ -416,6 +638,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dividir la cuenta entre hasta 10 personas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partager l'addition jusqu'à 10 personnes"
           }
         }
       }
@@ -429,6 +657,12 @@
             "state" : "translated",
             "value" : "Detener dictado"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrêter la dictée"
+          }
         }
       }
     },
@@ -440,6 +674,12 @@
             "state" : "translated",
             "value" : "Desliza hacia la izquierda para eliminar."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balayez vers la gauche pour supprimer"
+          }
         }
       }
     },
@@ -449,6 +689,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toque para guardar una factura."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Touchez pour enregistrer une addition"
           }
         }
       }
@@ -460,6 +706,12 @@
             "state" : "translated",
             "value" : "Toque para dictar el valor de la factura usando su voz"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Touchez pour dicter le montant de l'addition à la voix"
+          }
         }
       }
     },
@@ -469,6 +721,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toque para mostrar la lista de facturas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Touchez pour afficher la liste des additions"
           }
         }
       }
@@ -482,6 +740,12 @@
             "state" : "translated",
             "value" : "Toca para restablecer el importe de la cuenta y los valores de la propina."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Touchez pour réinitialiser le montant et les pourboires"
+          }
         }
       }
     },
@@ -494,6 +758,12 @@
             "state" : "translated",
             "value" : "Toca para detener la entrada de voz."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Touchez pour arrêter la saisie vocale"
+          }
         }
       }
     },
@@ -503,6 +773,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualmente no hay facturas guardadas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune addition enregistrée pour le moment."
           }
         }
       }
@@ -515,6 +791,12 @@
             "state" : "translated",
             "value" : "Tip Calculadora"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calculateur de pourboire"
+          }
         }
       }
     },
@@ -525,6 +807,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Porcentajes de propina y deslizador"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourcentages de pourboire et curseur"
           }
         }
       }
@@ -537,6 +825,12 @@
             "state" : "translated",
             "value" : "Valor de propina"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Montant du pourboire"
+          }
         }
       }
     },
@@ -546,6 +840,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Para agregar una nueva factura, ingrese un monto y toque el botón PIN."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour ajouter une addition, saisissez un montant et touchez le bouton épingler"
           }
         }
       }
@@ -559,6 +859,12 @@
             "state" : "translated",
             "value" : "Total gastado este mes"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total dépensé ce mois"
+          }
         }
       }
     },
@@ -570,6 +876,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Total gastado esta semana"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total dépensé cette semaine"
           }
         }
       }
@@ -583,6 +895,12 @@
             "state" : "translated",
             "value" : "Total de propinas otorgadas"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total des pourboires donnés"
+          }
         }
       }
     },
@@ -593,6 +911,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Propina de valor total"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total avec pourboire"
           }
         }
       }
@@ -605,6 +929,12 @@
             "state" : "translated",
             "value" : "Utilice el segmento para porcentajes rápidos (10%, 15%, 20%, 25%). Toque dos veces el valor total de la cuenta para mostrar un control deslizante de propina personalizado (0–30%)."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisez les segments pour les pourcentages rapides (10 %, 15 %, 20 %, 25 %). Double-tap sur le total pour afficher le curseur de pourboire personnalisé (0–30 %)."
+          }
         }
       }
     },
@@ -616,6 +946,12 @@
             "state" : "translated",
             "value" : "Utilice el selector situado debajo de la sección de división para repartir la cuenta entre hasta 10 personas. El total por persona se actualiza automáticamente."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisez le sélecteur sous la section partage pour diviser l'addition entre jusqu'à 10 personnes. Le total par personne se met à jour automatiquement."
+          }
         }
       }
     },
@@ -626,6 +962,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ver facturas guardadas (%d)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir les additions enregistrées (%d)"
           }
         }
       }
@@ -639,6 +981,12 @@
             "state" : "translated",
             "value" : "Ver el panel de información sobre gastos"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir le tableau de bord des statistiques de dépenses"
+          }
         }
       }
     },
@@ -649,6 +997,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ver consejos sobre cómo usar la aplicación"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir les astuces d'utilisation de l'application"
           }
         }
       }
@@ -662,6 +1016,12 @@
             "state" : "translated",
             "value" : "Semana / Mes"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semaine / Mois"
+          }
         }
       }
     },
@@ -672,6 +1032,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Resumen de tus propinas y gastos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Récapitulatif de vos pourboires et dépenses"
           }
         }
       }
