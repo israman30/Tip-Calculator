@@ -163,7 +163,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     let clearValuesButton: UIButton = {
         let btn = UIButton(type: .system)
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "arrow.counterclockwise")
+        config.image = UIImage(systemName: Constant.Icon.arrow_counterclockwise)
         config.imagePlacement = .leading
         config.imagePadding = 8
         config.baseForegroundColor = .systemOrange
@@ -184,7 +184,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
     let presentSheetButton: UIButton = {
         let btn = UIButton(type: .system)
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "list.bullet.rectangle.fill")
+        config.image = UIImage(systemName: Constant.Icon.list_bullet_rectangle_fill)
         config.imagePlacement = .leading
         config.imagePadding = 8
         config.baseForegroundColor = .systemBlue
