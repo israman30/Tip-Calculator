@@ -119,6 +119,9 @@ struct LocalizedString {
     
     static let category = NSLocalizedString("Category", comment: "Bill category label")
     static let cusomtTip = NSLocalizedString("Custom tip", comment: "Custom tip slider label")
+    
+    static let onboardingTitle = NSLocalizedString("How to Use", comment: "Onboarding title")
+    static let onboardingSubtitle = NSLocalizedString("Quick tips to get the most out of the app", comment: "Onboarding subtitle")
 }
 
 struct AccessibilityLabels {
@@ -137,4 +140,5 @@ struct AccessibilityLabels {
     static let infoButtonLabel = NSLocalizedString("How to use", comment: "Info button label")
     static let infoButtonHint = NSLocalizedString("View tips on how to use the app", comment: "Info button hint")
     static let saveBillLabel = NSLocalizedString("Save bill", comment: "Save button label")
+    static let dismissButtonTipsHint = NSLocalizedString("Dismiss tips", comment: "Dismiss hint")
 }

@@ -13,7 +13,7 @@ class OnboardingViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("How to Use", comment: "Onboarding title")
+        label.text = LocalizedString.onboardingTitle
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.textColor = .label
         return label
@@ -21,7 +21,7 @@ class OnboardingViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("Quick tips to get the most out of the app", comment: "Onboarding subtitle")
+        label.text = LocalizedString.onboardingSubtitle
         label.font = .preferredFont(forTextStyle: .footnote)
         label.textColor = .tertiaryLabel
         return label
@@ -44,8 +44,8 @@ class OnboardingViewController: UIViewController {
         let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .medium)
         button.setImage(UIImage(systemName: Constant.xmark_circle, withConfiguration: config), for: .normal)
         button.tintColor = .secondaryLabel
-        button.accessibilityLabel = NSLocalizedString("Close", comment: "Close button")
-        button.accessibilityHint = NSLocalizedString("Dismiss tips", comment: "Dismiss hint")
+        button.accessibilityLabel = AccessibilityLabels.dismissButtonLabel
+        button.accessibilityHint = AccessibilityLabels.dismissButtonTipsHint
         return button
     }()
 
