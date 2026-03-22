@@ -39,6 +39,7 @@ struct Constant {
         static let list_bullet_rectangle_fill = "list.bullet.rectangle.fill"
         static let chart_bar_doc_horizontal = "chart.bar.doc.horizontal"
         static let plus_circle = "plus.circle"
+        static let info_circle = "info.circle"
     }
 }
 
@@ -114,6 +115,10 @@ struct LocalizedString {
     static let placeholderCategory = NSLocalizedString("e.g. Coffee, Grocery", comment: "Custom tag placeholder")
     
     static let custom = NSLocalizedString("Custom", comment: "Add custom category")
+    static let save = NSLocalizedString("Save", comment: "Save button title")
+    
+    static let category = NSLocalizedString("Category", comment: "Bill category label")
+    static let cusomtTip = NSLocalizedString("Custom tip", comment: "Custom tip slider label")
 }
 
 struct AccessibilityLabels {
@@ -129,4 +134,7 @@ struct AccessibilityLabels {
     static let dismissButtonLabel = NSLocalizedString("Close", comment: "Close button")
     static let dismissButtonHint = NSLocalizedString("Dismiss saved bills list", comment: "Dismiss hint")
     static let dismissInsights = NSLocalizedString("Dismiss insights", comment: "Dismiss hint")
+    static let infoButtonLabel = NSLocalizedString("How to use", comment: "Info button label")
+    static let infoButtonHint = NSLocalizedString("View tips on how to use the app", comment: "Info button hint")
+    static let saveBillLabel = NSLocalizedString("Save bill", comment: "Save button label")
 }
