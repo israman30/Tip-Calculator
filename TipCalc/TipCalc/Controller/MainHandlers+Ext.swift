@@ -112,12 +112,12 @@ extension MainController {
 
     @objc func handleAddCustomCategory() {
         let alert = UIAlertController(
-            title: NSLocalizedString("Custom Category", comment: "Custom category alert title"),
-            message: NSLocalizedString("Enter a custom tag for this bill", comment: "Custom category alert message"),
+            title: LocalizedString.customCategoryTitle,
+            message: LocalizedString.messageCategory,
             preferredStyle: .alert
         )
         alert.addTextField { textField in
-            textField.placeholder = NSLocalizedString("e.g. Coffee, Grocery", comment: "Custom tag placeholder")
+            textField.placeholder = LocalizedString.placeholderCategory
             textField.autocapitalizationType = .words
         }
         alert.addAction(UIAlertAction(title: Constant.alert_cancel, style: .cancel))
@@ -165,8 +165,8 @@ extension MainController {
     private func addCustomCategoryButton() -> UIButton {
         let button = UIButton(type: .system)
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "plus.circle")
-        config.title = NSLocalizedString("Custom", comment: "Add custom category")
+        config.image = UIImage(systemName: Constant.Icon.plus_circle)
+        config.title = LocalizedString.custom
         config.baseForegroundColor = .systemTeal
         config.background.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.12)
         config.cornerStyle = .medium

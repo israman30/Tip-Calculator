@@ -38,6 +38,7 @@ struct Constant {
         static let arrow_counterclockwise = "arrow.counterclockwise"
         static let list_bullet_rectangle_fill = "list.bullet.rectangle.fill"
         static let chart_bar_doc_horizontal = "chart.bar.doc.horizontal"
+        static let plus_circle = "plus.circle"
     }
 }
 
@@ -107,6 +108,12 @@ struct LocalizedString {
     static let insightsButtonTitle = NSLocalizedString("Insights", comment: "Spending insights button")
     static let spendingInsights = NSLocalizedString("Spending Insights", comment: "Insights dashboard title")
     static let yourTipAndSpendingOverview = NSLocalizedString("Your tip and spending overview", comment: "Insights subtitle")
+    static let billSaved = NSLocalizedString("Bill saved!", comment: "VoiceOver announcement when bill is saved")
+    static let customCategoryTitle = NSLocalizedString("Custom Category", comment: "Custom category alert title")
+    static let messageCategory = NSLocalizedString("Enter a custom tag for this bill", comment: "Custom category alert message")
+    static let placeholderCategory = NSLocalizedString("e.g. Coffee, Grocery", comment: "Custom tag placeholder")
+    
+    static let custom = NSLocalizedString("Custom", comment: "Add custom category")
 }
 
 struct AccessibilityLabels {
