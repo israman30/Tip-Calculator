@@ -199,7 +199,7 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
         guard let sortedBills = saveViewModel?.sortedBills else { return cell }
-        cell.configure(bill: sortedBills[indexPath.row])
+        cell.bind(bill: sortedBills[indexPath.row])
         return cell
     }
     
