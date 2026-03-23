@@ -32,7 +32,7 @@ protocol SpeechControllerProtocol {
     func stopDictation()
 }
 
-class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol, UIAdaptivePresentationControllerDelegate {
+class MainController: UIViewController, SetupUIProtocol, CalculationsViewModelProtocol, SaveViewModelProtocol, UIAdaptivePresentationControllerDelegate {
     
     let toastMessage = UIHostingController(rootView: ToastMessage())
     
@@ -264,7 +264,7 @@ class MainController: UIViewController, SetUIProtocol, CalculationsViewModelProt
         splitPeopleQuantity.text = "\(Int(splitStepper.value))x"
         splitPeopleQuantity.accessibilityLabel = "\(Int(splitStepper.value)) people"
         setNavbar()
-        setUI()
+        setupUI()
         setupTipSlider()
         setupTotalValueDoubleTap()
         saveViewModel?.fetchItems()

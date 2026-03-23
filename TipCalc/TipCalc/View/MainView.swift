@@ -67,7 +67,7 @@ extension MainController {
     }
     
     // MARK: - Set the MainView components
-    func setUI() {
+    func setupUI() {
         // Create scroll view as main container
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true

@@ -15,11 +15,11 @@ protocol BillCellProtocol {
 }
 
 /// `SetUIProtocol` is responsible for defining and applying the user interface elements within a view.
-protocol SetUIProtocol {
-    func setUI()
+protocol SetupUIProtocol {
+    func setupUI()
 }
 
-class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
+class BillCell: UITableViewCell, BillCellProtocol, SetupUIProtocol {
     
     private let containerView: UIView = {
         let view = UIView()
@@ -122,7 +122,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     // MARK: - UI Setup
     // Configures cell layout with container view, shadows, and stack views
     // Creates hierarchical layout for bill information display
-    func setUI() {
+    func setupUI() {
         // Configure cell appearance
         backgroundColor = .clear
         selectionStyle = .none
@@ -189,7 +189,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setUI()
+        setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
