@@ -30,6 +30,17 @@ struct Constant {
     static let savedCustomTipPercentKey = "savedCustomTipPercent"
     static let customCategoryTagsKey = "customCategoryTags"
     static let onboardingDismissedKey = "onboardingDismissed"
+    
+    static let savedBills = "Saved Bills"
+    static let savedBillsTitle = "Saved bills title"
+    
+    struct Icon {
+        static let arrow_counterclockwise = "arrow.counterclockwise"
+        static let list_bullet_rectangle_fill = "list.bullet.rectangle.fill"
+        static let chart_bar_doc_horizontal = "chart.bar.doc.horizontal"
+        static let plus_circle = "plus.circle"
+        static let info_circle = "info.circle"
+    }
 }
 
 /// Bill categories: Restaurant, Bar, Delivery, or custom user-defined tags
@@ -94,6 +105,23 @@ struct LocalizedString {
     static let emptyTableViewMessage = NSLocalizedString("To add a new bill, enter an amount and tap the pin button.", comment: "")
     static let swipeToDeleteHint = NSLocalizedString("Swipe left to delete", comment: "Swipe hint for saved bills")
     static let messageView = NSLocalizedString("Saving money is giving your future self a gift security, freedom, and peace of mind wrapped in every dollar set aside.", comment: "")
+    
+    static let insightsButtonTitle = NSLocalizedString("Insights", comment: "Spending insights button")
+    static let spendingInsights = NSLocalizedString("Spending Insights", comment: "Insights dashboard title")
+    static let yourTipAndSpendingOverview = NSLocalizedString("Your tip and spending overview", comment: "Insights subtitle")
+    static let billSaved = NSLocalizedString("Bill saved!", comment: "VoiceOver announcement when bill is saved")
+    static let customCategoryTitle = NSLocalizedString("Custom Category", comment: "Custom category alert title")
+    static let messageCategory = NSLocalizedString("Enter a custom tag for this bill", comment: "Custom category alert message")
+    static let placeholderCategory = NSLocalizedString("e.g. Coffee, Grocery", comment: "Custom tag placeholder")
+    
+    static let custom = NSLocalizedString("Custom", comment: "Add custom category")
+    static let save = NSLocalizedString("Save", comment: "Save button title")
+    
+    static let category = NSLocalizedString("Category", comment: "Bill category label")
+    static let cusomtTip = NSLocalizedString("Custom tip", comment: "Custom tip slider label")
+    
+    static let onboardingTitle = NSLocalizedString("How to Use", comment: "Onboarding title")
+    static let onboardingSubtitle = NSLocalizedString("Quick tips to get the most out of the app", comment: "Onboarding subtitle")
 }
 
 struct AccessibilityLabels {
@@ -104,4 +132,13 @@ struct AccessibilityLabels {
     static let dictateTipValueHint = NSLocalizedString("Tap to dictate bill value using your voice", comment: "")
     static let stopDictationLabel = NSLocalizedString("Stop dictation", comment: "")
     static let stopDictationHint = NSLocalizedString("Tap to stop voice input", comment: "")
+    static let insightsButtonLabel = NSLocalizedString("Spending insights", comment: "")
+    static let insightsButtonHint = NSLocalizedString("View spending insights dashboard", comment: "")
+    static let dismissButtonLabel = NSLocalizedString("Close", comment: "Close button")
+    static let dismissButtonHint = NSLocalizedString("Dismiss saved bills list", comment: "Dismiss hint")
+    static let dismissInsights = NSLocalizedString("Dismiss insights", comment: "Dismiss hint")
+    static let infoButtonLabel = NSLocalizedString("How to use", comment: "Info button label")
+    static let infoButtonHint = NSLocalizedString("View tips on how to use the app", comment: "Info button hint")
+    static let saveBillLabel = NSLocalizedString("Save bill", comment: "Save button label")
+    static let dismissButtonTipsHint = NSLocalizedString("Dismiss tips", comment: "Dismiss hint")
 }

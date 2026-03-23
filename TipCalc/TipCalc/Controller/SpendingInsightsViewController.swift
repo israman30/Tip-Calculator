@@ -14,7 +14,7 @@ class SpendingInsightsViewController: UIViewController, SetUIProtocol, SaveViewM
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("Spending Insights", comment: "Insights dashboard title")
+        label.text = LocalizedString.spendingInsights
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.textColor = .label
         return label
@@ -22,7 +22,7 @@ class SpendingInsightsViewController: UIViewController, SetUIProtocol, SaveViewM
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("Your tip and spending overview", comment: "Insights subtitle")
+        label.text = LocalizedString.yourTipAndSpendingOverview
         label.font = .preferredFont(forTextStyle: .footnote)
         label.textColor = .tertiaryLabel
         return label
@@ -55,8 +55,8 @@ class SpendingInsightsViewController: UIViewController, SetUIProtocol, SaveViewM
         let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .medium)
         button.setImage(UIImage(systemName: Constant.xmark_circle, withConfiguration: config), for: .normal)
         button.tintColor = .secondaryLabel
-        button.accessibilityLabel = NSLocalizedString("Close", comment: "Close button")
-        button.accessibilityHint = NSLocalizedString("Dismiss insights", comment: "Dismiss hint")
+        button.accessibilityLabel = AccessibilityLabels.dismissButtonLabel
+        button.accessibilityHint = AccessibilityLabels.dismissInsights
         return button
     }()
 

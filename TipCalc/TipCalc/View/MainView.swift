@@ -33,13 +33,13 @@ extension MainController {
         }
 
         let infoButton = UIBarButtonItem(
-            image: UIImage(systemName: "info.circle"),
+            image: UIImage(systemName: Constant.Icon.info_circle),
             style: .plain,
             target: self,
             action: #selector(handleInfoTapped)
         )
-        infoButton.accessibilityLabel = NSLocalizedString("How to use", comment: "Info button label")
-        infoButton.accessibilityHint = NSLocalizedString("View tips on how to use the app", comment: "Info button hint")
+        infoButton.accessibilityLabel = AccessibilityLabels.infoButtonLabel
+        infoButton.accessibilityHint = AccessibilityLabels.infoButtonHint
         navigationItem.leftBarButtonItems = [infoButton, leftTitle]
 
         let saveButton = UIButton(type: .system)
@@ -51,14 +51,14 @@ extension MainController {
         config.background.backgroundColor = .systemGreen
         config.cornerStyle = .medium
         config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 14, bottom: 8, trailing: 14)
-        config.title = NSLocalizedString("Save", comment: "Save button title")
+        config.title = LocalizedString.save
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
             var attributes = AttributeContainer()
             attributes.font = .systemFont(ofSize: 15, weight: .semibold)
             return attributes
         }
         saveButton.configuration = config
-        saveButton.accessibilityLabel = NSLocalizedString("Save bill", comment: "Save button label")
+        saveButton.accessibilityLabel = AccessibilityLabels.saveBillLabel
         saveButton.accessibilityHint = AccessibilityLabels.pintButtonHint
         saveButton.addTarget(self, action: #selector(handleSaveBill), for: .touchUpInside)
         
@@ -137,7 +137,7 @@ extension MainController {
 
     private func setupCategoryPicker(contentView: UIView, inputCard: UIView) {
         let categoryLabel = UILabel()
-        categoryLabel.text = NSLocalizedString("Category", comment: "Bill category label")
+        categoryLabel.text = LocalizedString.category
         categoryLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         categoryLabel.textColor = .secondaryLabel
 
@@ -279,7 +279,7 @@ extension MainController {
         tipSliderPercentLabel.setContentHuggingPriority(.required, for: .horizontal)
         
         let customTipLabel = UILabel()
-        customTipLabel.text = NSLocalizedString("Custom tip", comment: "Custom tip slider label")
+        customTipLabel.text = LocalizedString.cusomtTip
         customTipLabel.setDynamicFont(font: .preferredFont(forTextStyle: .subheadline))
         customTipLabel.textColor = .secondaryLabel
         

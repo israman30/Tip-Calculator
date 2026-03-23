@@ -12,7 +12,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("Saved Bills", comment: "Saved bills title")
+        label.text = NSLocalizedString(Constant.savedBills, comment: Constant.savedBillsTitle)
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.textColor = .label
         return label
@@ -53,19 +53,19 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
     private let insightsButton: UIButton = {
         let button = UIButton(type: .system)
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "chart.bar.doc.horizontal")
+        config.image = UIImage(systemName: Constant.Icon.chart_bar_doc_horizontal)
         config.imagePlacement = .leading
         config.imagePadding = 6
         config.baseForegroundColor = .systemTeal
-        config.title = NSLocalizedString("Insights", comment: "Spending insights button")
+        config.title = LocalizedString.insightsButtonTitle
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { _ in
             var attrs = AttributeContainer()
             attrs.font = .preferredFont(forTextStyle: .subheadline)
             return attrs
         }
         button.configuration = config
-        button.accessibilityLabel = NSLocalizedString("Spending insights", comment: "")
-        button.accessibilityHint = NSLocalizedString("View spending insights dashboard", comment: "")
+        button.accessibilityLabel = AccessibilityLabels.insightsButtonLabel
+        button.accessibilityHint = AccessibilityLabels.insightsButtonHint
         return button
     }()
 
@@ -74,8 +74,8 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
         let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .medium)
         button.setImage(UIImage(systemName: Constant.xmark_circle, withConfiguration: config), for: .normal)
         button.tintColor = .secondaryLabel
-        button.accessibilityLabel = NSLocalizedString("Close", comment: "Close button")
-        button.accessibilityHint = NSLocalizedString("Dismiss saved bills list", comment: "Dismiss hint")
+        button.accessibilityLabel = AccessibilityLabels.dismissButtonLabel
+        button.accessibilityHint = AccessibilityLabels.dismissButtonHint
         return button
     }()
     

@@ -46,7 +46,10 @@ extension MainController {
     /// `Accessibility announcement when bill is added`
     func displayAccessibilityToastMessage() {
         if saveViewModel?.isTotastVisible == true {
-            UIAccessibility.post(notification: .announcement, argument: NSLocalizedString("Bill saved!", comment: "VoiceOver announcement when bill is saved"))
+            UIAccessibility.post(
+                notification: .announcement,
+                argument: LocalizedString.billSaved
+            )
         }
     }
 }
