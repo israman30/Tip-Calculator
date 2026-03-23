@@ -74,43 +74,27 @@ extension UIView {
         var anchoredConstraints = AnchoredConstraints()
         
         if let top = top {
-            anchoredConstraints.top = topAnchor.constraint(
-                equalTo: top,
-                constant: padding.top
-            )
+            anchoredConstraints.top = topAnchor.constraint(equalTo: top, constant: padding.top)
         }
         
         if let left = left {
-            anchoredConstraints.left = leftAnchor.constraint(
-                equalTo: left,
-                constant: padding.left
-            )
+            anchoredConstraints.left = leftAnchor.constraint(equalTo: left, constant: padding.left)
         }
         
         if let bottom = bottom {
-            anchoredConstraints.bottom = bottomAnchor.constraint(
-                equalTo: bottom,
-                constant: -padding.bottom
-            )
+            anchoredConstraints.bottom = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
         }
         
         if let right = right {
-            anchoredConstraints.right = rightAnchor.constraint(
-                equalTo: right,
-                constant: -padding.right
-            )
+            anchoredConstraints.right = rightAnchor.constraint(equalTo: right, constant: -padding.right)
         }
         
         if size.width != 0 {
-            anchoredConstraints.width = widthAnchor.constraint(
-                equalToConstant: size.width
-            )
+            anchoredConstraints.width = widthAnchor.constraint(equalToConstant: size.width)
         }
         
         if size.height != 0 {
-            anchoredConstraints.height = heightAnchor.constraint(
-                equalToConstant: size.height
-            )
+            anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
         }
         
         [anchoredConstraints.top,
@@ -128,31 +112,19 @@ extension UIView {
     func fillSuperview(padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewTopAnchor = superview?.topAnchor {
-            topAnchor.constraint(
-                equalTo: superviewTopAnchor,
-                constant: padding.top
-            ).isActive = true
+            topAnchor.constraint(equalTo: superviewTopAnchor, constant: padding.top).isActive = true
         }
         
         if let superviewBottomAnchor = superview?.bottomAnchor {
-            bottomAnchor.constraint(
-                equalTo: superviewBottomAnchor,
-                constant: -padding.bottom
-            ).isActive = true
+            bottomAnchor.constraint(equalTo: superviewBottomAnchor, constant: -padding.bottom).isActive = true
         }
         
         if let superviewLeadingAnchor = superview?.leadingAnchor {
-            leadingAnchor.constraint(
-                equalTo: superviewLeadingAnchor,
-                constant: padding.left
-            ).isActive = true
+            leadingAnchor.constraint(equalTo: superviewLeadingAnchor, constant: padding.left).isActive = true
         }
         
         if let superviewTrailingAnchor = superview?.trailingAnchor {
-            trailingAnchor.constraint(
-                equalTo: superviewTrailingAnchor,
-                constant: -padding.right
-            ).isActive = true
+            trailingAnchor.constraint(equalTo: superviewTrailingAnchor, constant: -padding.right).isActive = true
         }
     }
     
