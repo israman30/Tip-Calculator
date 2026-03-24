@@ -29,7 +29,7 @@ final class SaveViewModel: ViewModelBillImplementationProtocol, SaveBillProtocol
     // MARK: - Sorted Bills Property
     // Returns bills sorted by date (newest first) for display in table view
     var sortedBills: [Bill] {
-        return bills.sorted(by: { $0.date ?? "" < $1.date ?? "" })
+        bills.sorted(by: { $0.date ?? "" < $1.date ?? "" })
     }
     
     // MARK: - Save Bill Calculation

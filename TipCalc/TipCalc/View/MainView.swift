@@ -349,7 +349,6 @@ extension MainController {
             padding: .init(top: 24, left: 24, bottom: 32, right: 24)
         )
     }
-    
 }
 
 
