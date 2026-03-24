@@ -10,6 +10,41 @@ import UIKit
 import SwiftUI
 import Speech
 
+/// Error cases for Speech recognition operations
+enum SpeechError: Error {
+    case authorizationDenied
+    case authorizationRestricted
+    case authorizationNotDetermined
+    case recognizerUnavailable
+    case recognitionRequestFailed
+    case audioSessionFailed(Error)
+    case audioEngineStartFailed(Error)
+    case recognitionTaskFailed(Error)
+}
+
+extension SpeechError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .authorizationDenied:
+            return "Speech recognition access was denied."
+        case .authorizationRestricted:
+            return "Speech recognition is restricted on this device."
+        case .authorizationNotDetermined:
+            return "Speech recognition authorization has not been determined."
+        case .recognizerUnavailable:
+            return "Speech recognizer is not available for this locale."
+        case .recognitionRequestFailed:
+            return "Failed to create speech recognition request."
+        case .audioSessionFailed(let error):
+            return "Audio session error: \(error.localizedDescription)"
+        case .audioEngineStartFailed(let error):
+            return "Failed to start audio engine: \(error.localizedDescription)"
+        case .recognitionTaskFailed(let error):
+            return "Recognition failed: \(error.localizedDescription)"
+        }
+    }
+}
+
 /**
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
  - USING SWIFTUI API TO PREVIEW APP VIEW
@@ -366,24 +401,42 @@ class MainController: UIViewController, SetupUIProtocol, CalculationsViewModelPr
 }
 
 extension MainController: SpeechControllerProtocol {
-    // Requests microphone permission for speech recognition
-    // Enables/disables mic button based on authorization status
+    /// Requests microphone permission for speech recognition
+    /// Enables/disables mic button based on authorization status
     func requestSpeechAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in
             DispatchQueue.main.async {
                 switch authStatus {
                 case .authorized:
                     self.micButton.isEnabled = true
-                default:
+                case .denied:
+                    self.micButton.isEnabled = false
+                    // Error surfaced when user attempts startDictation()
+                case .restricted:
+                    self.micButton.isEnabled = false
+                    // Error surfaced when user attempts startDictation()
+                case .notDetermined:
+                    self.micButton.isEnabled = false
+                @unknown default:
                     self.micButton.isEnabled = false
                 }
             }
         }
     }
     
-    // Initiates speech recognition session
-    // Sets up audio session and begins real-time transcription
+    /// Initiates speech recognition session
+    /// Sets up audio session and begins real-time transcription
     func startDictation() {
+        guard speechRecognizer != nil else {
+            handleSpeechError(.recognizerUnavailable)
+            return
+        }
+        
+        guard SFSpeechRecognizer.authorizationStatus() == .authorized else {
+            handleSpeechError(.authorizationDenied)
+            return
+        }
+        
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
@@ -394,13 +447,16 @@ extension MainController: SpeechControllerProtocol {
             try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
-            print("Audio session properties weren't set because of an error.")
+            handleSpeechError(.audioSessionFailed(error))
             return
         }
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
-        guard let recognitionRequest = recognitionRequest else { return }
+        guard let recognitionRequest = recognitionRequest else {
+            handleSpeechError(.recognitionRequestFailed)
+            return
+        }
         let inputNode = audioEngine.inputNode
         recognitionRequest.shouldReportPartialResults = true
         
@@ -408,6 +464,11 @@ extension MainController: SpeechControllerProtocol {
             if let result = result {
                 self.valueInput.text = result.bestTranscription.formattedString
                 self.changeValue()
+            }
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.handleSpeechError(.recognitionTaskFailed(error))
+                }
             }
             if error != nil || (result?.isFinal ?? false) {
                 self.stopDictation()
@@ -423,14 +484,30 @@ extension MainController: SpeechControllerProtocol {
         do {
             try audioEngine.start()
         } catch {
-            print("audioEngine couldn't start because of an error.")
+            handleSpeechError(.audioEngineStartFailed(error))
+            return
         }
         
         updateMicButtonAppearance(isRecording: true)
     }
     
-    // Stops speech recognition and cleans up audio resources
-    // Resets microphone button to normal state
+    /// Presents or logs Speech errors; override point for custom handling
+    private func handleSpeechError(_ error: SpeechError) {
+        let message = error.localizedDescription
+        #if DEBUG
+        print("[Speech] \(message)")
+        #endif
+        let alert = UIAlertController(
+            title: "Speech Error",
+            message: message,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
+    /// Stops speech recognition and cleans up audio resources
+    /// Resets microphone button to normal state
     func stopDictation() {
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
