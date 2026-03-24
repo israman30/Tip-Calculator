@@ -19,6 +19,9 @@
 		4D7FA8002E99F00000AA2377 /* SpendingInsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */; };
 		4D7FA8022E99F00000AA2377 /* SpendingInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */; };
 		4D7FA8102E99F00100AA2377 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FA80F2E99F00100AA2377 /* OnboardingViewController.swift */; };
+		4D8BE1EB2F7238230034DE5D /* SpendingInsightsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE1EA2F7238230034DE5D /* SpendingInsightsViewModelTests.swift */; };
+		4DC0DC012F7238260034DE60 /* CalculationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0DC022F7238260034DE60 /* CalculationsViewModelTests.swift */; };
+		4DC0DC042F7238280034DE62 /* MainControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0DC052F7238280034DE62 /* MainControllerTests.swift */; };
 		4D8EE8B32BE466E400E5BD28 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D8EE8B22BE466E400E5BD28 /* Localizable.xcstrings */; };
 		4D9778AA2BF6E31200809A8A /* TipCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9778A92BF6E31200809A8A /* TipCalcTests.swift */; };
 		4D9778B12BF9702D00809A8A /* SaveViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9778B02BF9702D00809A8A /* SaveViewModelTests.swift */; };
@@ -65,6 +68,9 @@
 		4D7FA7FF2E99F00000AA2377 /* SpendingInsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewModel.swift; sourceTree = "<group>"; };
 		4D7FA8012E99F00000AA2377 /* SpendingInsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewController.swift; sourceTree = "<group>"; };
 		4D7FA80F2E99F00100AA2377 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4D8BE1EA2F7238230034DE5D /* SpendingInsightsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingInsightsViewModelTests.swift; sourceTree = "<group>"; };
+		4DC0DC022F7238260034DE60 /* CalculationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsViewModelTests.swift; sourceTree = "<group>"; };
+		4DC0DC052F7238280034DE62 /* MainControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerTests.swift; sourceTree = "<group>"; };
 		4D8EE8B22BE466E400E5BD28 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D9778A72BF6E31200809A8A /* TipCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9778A92BF6E31200809A8A /* TipCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalcTests.swift; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 			children = (
 				4D9778A92BF6E31200809A8A /* TipCalcTests.swift */,
 				4D9778B02BF9702D00809A8A /* SaveViewModelTests.swift */,
+				4D8BE1EA2F7238230034DE5D /* SpendingInsightsViewModelTests.swift */,
+				4DC0DC022F7238260034DE60 /* CalculationsViewModelTests.swift */,
+				4DC0DC052F7238280034DE62 /* MainControllerTests.swift */,
 				4D6EB8882E99FADE00AA2377 /* SpeechTest.swift */,
 			);
 			path = TipCalcTests;
@@ -334,6 +343,9 @@
 				4D9778AA2BF6E31200809A8A /* TipCalcTests.swift in Sources */,
 				4D6EB8892E99FADE00AA2377 /* SpeechTest.swift in Sources */,
 				4D9778B12BF9702D00809A8A /* SaveViewModelTests.swift in Sources */,
+				4D8BE1EB2F7238230034DE5D /* SpendingInsightsViewModelTests.swift in Sources */,
+				4DC0DC012F7238260034DE60 /* CalculationsViewModelTests.swift in Sources */,
+				4DC0DC042F7238280034DE62 /* MainControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

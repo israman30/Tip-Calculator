@@ -11,11 +11,12 @@ import XCTest
 
 // Mock ViewModel implementing ViewModelBillCalculationsProtocol
 class MockViewModel: ViewModelBillCalculationsProtocol {
+    
     var calculateTipCalled = false
     var resetCalled = false
     var splitBillCalled = false
     
-    func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel) {
+    func calculateTip(with valueInput: UITextField, segment: UISegmentedControl, tipValue: UILabel, totalValue: UILabel, customTipPercent: Double?) {
         calculateTipCalled = true
     }
     
@@ -61,7 +62,7 @@ final class TipCalcTests: XCTestCase {
     
     func test_ViewModel_Bill_Calculations() {
         // When
-        mockViewModel.calculateTip(with: UITextField(), segment: UISegmentedControl(), tipValue: UILabel(), totalValue: UILabel())
+        mockViewModel.calculateTip(with: UITextField(), segment: UISegmentedControl(), tipValue: UILabel(), totalValue: UILabel(), customTipPercent: 0.10)
         mockViewModel.reset(valueInput: UITextField(), tipValue: UILabel(), totalValue: UILabel(), totalByPerson: UILabel(), peopleQuantity: UILabel())
         mockViewModel.splitBiil(people: UILabel(), bill: 100.0, totalByPerson: UILabel())
         

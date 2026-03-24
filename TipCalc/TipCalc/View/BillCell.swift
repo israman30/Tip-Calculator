@@ -195,6 +195,18 @@ class BillCell: UITableViewCell, BillCellProtocol, SetupUIProtocol {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        totalLabel.text = Constant.zero
+        billLabel.text = Constant.zero
+        tipLabel.text = Constant.zero
+        dateLabel.text = Constant.defaultDate
+        categoryLabel.text = ""
+        categoryLabel.isHidden = true
+        tagSplitLabel.text = Constant.zero
+        tagSplitLabel.accessibilityLabel = nil
+    }
 }
 
 #Preview {
