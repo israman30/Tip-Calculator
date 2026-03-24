@@ -11,15 +11,15 @@ import SwiftUI
 
 /// `BillCellProtocol` is responsible for configuring the appearance and content of table view cells within a `UITableView`.
 protocol BillCellProtocol {
-    func configure(bill: Bill?)
+    func bind(bill: Bill?)
 }
 
 /// `SetUIProtocol` is responsible for defining and applying the user interface elements within a view.
-protocol SetUIProtocol {
-    func setUI()
+protocol SetupUIProtocol {
+    func setupUI()
 }
 
-class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
+class BillCell: UITableViewCell, BillCellProtocol, SetupUIProtocol {
     
     private let containerView: UIView = {
         let view = UIView()
@@ -98,17 +98,15 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     // MARK: - Cell Configuration
     // Populates cell with bill data including amounts, tip, total, and split information
     // Handles optional bill data gracefully with guard statements
-    func configure(bill: Bill?) {
-        guard let total = bill?.total,
-              let inputBill = bill?.input,
-              let tip = bill?.tip,
-              let date = bill?.date,
-              let splitTotal = bill?.splitTotal,
+    func bind(bill: Bill?) {
+        guard let total = bill?.total, let inputBill = bill?.input,
+              let tip = bill?.tip, let date = bill?.date, let splitTotal = bill?.splitTotal,
               let splitQuantity = bill?.splitPeopleQuantity else { return }
         totalLabel.text = total
         billLabel.text = inputBill
         tipLabel.text = tip
         dateLabel.text = date
+        
         let category = bill?.category ?? ""
         categoryLabel.text = category.isEmpty ? nil : category
         categoryLabel.isHidden = category.isEmpty
@@ -124,7 +122,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     // MARK: - UI Setup
     // Configures cell layout with container view, shadows, and stack views
     // Creates hierarchical layout for bill information display
-    func setUI() {
+    func setupUI() {
         // Configure cell appearance
         backgroundColor = .clear
         selectionStyle = .none
@@ -191,7 +189,7 @@ class BillCell: UITableViewCell, BillCellProtocol, SetUIProtocol {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setUI()
+        setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {

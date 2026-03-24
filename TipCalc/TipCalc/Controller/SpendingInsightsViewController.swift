@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 /// Displays spending insights: total spent, total tips, and average tip percentage
-class SpendingInsightsViewController: UIViewController, SetUIProtocol, SaveViewModelProtocol {
+class SpendingInsightsViewController: UIViewController, SetupUIProtocol, SaveViewModelProtocol {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -65,7 +65,7 @@ class SpendingInsightsViewController: UIViewController, SetUIProtocol, SaveViewM
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        setupUI()
         dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         refreshInsights()
     }
@@ -196,7 +196,7 @@ class SpendingInsightsViewController: UIViewController, SetUIProtocol, SaveViewM
         return formatter.string(from: NSNumber(value: value)) ?? "$0.00"
     }
 
-    func setUI() {
+    func setupUI() {
         view.backgroundColor = .systemGroupedBackground
 
         view.addSubViews(topView, scrollView)

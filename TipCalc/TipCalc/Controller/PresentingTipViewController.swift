@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIProtocol, SaveViewModelProtocol {
+class PresentingTipViewController: UIViewController, TableViewProtocol, SetupUIProtocol, SaveViewModelProtocol {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -87,7 +87,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
             saveViewModel = SaveViewModel()
             saveViewModel?.fetchItems()
         }
-        setUI()
+        setupUI()
         dismissButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         insightsButton.addTarget(self, action: #selector(handleInsightsTapped), for: .touchUpInside)
         tableViewHandlers()
@@ -98,7 +98,7 @@ class PresentingTipViewController: UIViewController, TableViewProtocol, SetUIPro
         saveViewModel = nil
     }
     
-    func setUI() {
+    func setupUI() {
         view.backgroundColor = .systemGroupedBackground
 
         view.addSubViews(topView, tableView)
@@ -199,14 +199,13 @@ extension PresentingTipViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellId.cell.rawValue) as! BillCell
         guard let sortedBills = saveViewModel?.sortedBills else { return cell }
-        cell.configure(bill: sortedBills[indexPath.row])
+        cell.bind(bill: sortedBills[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let sortedBills = saveViewModel?.sortedBills,
-                  indexPath.row < sortedBills.count else { return }
+            guard let sortedBills = saveViewModel?.sortedBills, indexPath.row < sortedBills.count else { return }
             
             let billToDelete = sortedBills[indexPath.row]
             

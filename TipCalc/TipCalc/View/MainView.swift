@@ -67,7 +67,7 @@ extension MainController {
     }
     
     // MARK: - Set the MainView components
-    func setUI() {
+    func setupUI() {
         // Create scroll view as main container
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
@@ -349,7 +349,6 @@ extension MainController {
             padding: .init(top: 24, left: 24, bottom: 32, right: 24)
         )
     }
-    
 }
 
 

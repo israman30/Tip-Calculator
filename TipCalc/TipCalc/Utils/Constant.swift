@@ -40,6 +40,7 @@ struct Constant {
         static let chart_bar_doc_horizontal = "chart.bar.doc.horizontal"
         static let plus_circle = "plus.circle"
         static let info_circle = "info.circle"
+        static let checkmark_circle_fill = "checkmark.circle.fill"
     }
 }
 
@@ -122,6 +123,8 @@ struct LocalizedString {
     
     static let onboardingTitle = NSLocalizedString("How to Use", comment: "Onboarding title")
     static let onboardingSubtitle = NSLocalizedString("Quick tips to get the most out of the app", comment: "Onboarding subtitle")
+    
+    static let toastMessage = NSLocalizedString("Bill saved!", comment: "Toast when bill is saved")
 }
 
 struct AccessibilityLabels {

@@ -14,7 +14,7 @@ struct ToastMessage: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            Image(systemName: "checkmark.circle.fill")
+            Image(systemName: Constant.Icon.checkmark_circle_fill)
                 .font(.title2)
                 .foregroundStyle(.white)
                 .scaleEffect(checkmarkScale)
@@ -23,7 +23,7 @@ struct ToastMessage: View {
                         checkmarkScale = 1.0
                     }
                 }
-            Text(message ?? NSLocalizedString("Bill saved!", comment: "Toast when bill is saved"))
+            Text(message ?? LocalizedString.toastMessage)
                 .font(.body)
                 .fontWeight(.semibold)
                 .foregroundStyle(.white)
