@@ -238,6 +238,43 @@ final class MainControllerTests: XCTestCase {
         XCTAssertTrue(sut.isCustomTipSliderVisible)
     }
 
+    // MARK: - applyQuickLaunchTipPercent (widget / deep link)
+
+    func test_ApplyQuickLaunchTipPercent_ValidPercents_SelectsMatchingSegment() {
+        let mapping: [(percent: Int, segmentIndex: Int)] = [
+            (10, Percentages.ten_percent.rawValue),
+            (15, Percentages.fifteen_percent.rawValue),
+            (20, Percentages.twienty_percent.rawValue),
+            (25, Percentages.twientyfive_percent.rawValue),
+        ]
+        for item in mapping {
+            sut.segment.selectedSegmentIndex = Percentages.twientyfive_percent.rawValue
+            sut.applyQuickLaunchTipPercent(item.percent)
+            XCTAssertEqual(sut.segment.selectedSegmentIndex, item.segmentIndex, "percent \(item.percent)")
+        }
+    }
+
+    func test_ApplyQuickLaunchTipPercent_InvalidPercent_DoesNotChangeSegment() {
+        sut.segment.selectedSegmentIndex = Percentages.twienty_percent.rawValue
+        sut.applyQuickLaunchTipPercent(18)
+        XCTAssertEqual(sut.segment.selectedSegmentIndex, Percentages.twienty_percent.rawValue)
+    }
+
+    func test_ApplyQuickLaunchTipPercent_WithBill_RecomputesTotal() {
+        sut.valueInput.text = "100"
+        sut.applyQuickLaunchTipPercent(20)
+        XCTAssertEqual(sut.calculationsViewModel?.mainBill ?? 0, 120, accuracy: 0.01)
+    }
+
+    func test_ApplyQuickLaunchTipPercent_CollapsesCustomTipSlider() {
+        sut.handleTotalValueDoubleTap()
+        XCTAssertTrue(sut.isCustomTipSliderVisible)
+
+        sut.applyQuickLaunchTipPercent(15)
+
+        XCTAssertFalse(sut.isCustomTipSliderVisible)
+    }
+
     // MARK: - triggerCalculationHaptic
 
     func test_TriggerCalculationHaptic_UpdatesLastCalculationTime() {

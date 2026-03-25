@@ -20,6 +20,20 @@
                ReferencedContainer = "container:TipCalc.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4DC0DD112F7239000034E002"
+               BuildableName = "TipCalcWidget.appex"
+               BlueprintName = "TipCalcWidget"
+               ReferencedContainer = "container:TipCalc.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

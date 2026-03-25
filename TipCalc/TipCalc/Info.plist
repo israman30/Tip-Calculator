@@ -45,5 +45,18 @@
 	<string>This app uses speech recognition to let you dictate the bill value.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app needs access to the microphone for voice dictation.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.israelmanzo.map.tipcalculator</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tipcalc</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
