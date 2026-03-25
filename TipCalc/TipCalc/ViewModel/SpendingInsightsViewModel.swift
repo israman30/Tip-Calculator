@@ -48,15 +48,18 @@ final class SpendingInsightsViewModel {
         return nil
     }
 
-    /// Returns bills within the given calendar period
+    /// Returns bills within the given rolling window (last week / last month).
+    /// Uses start-of-day for the window boundary so date-only saved strings (e.g. `MMM d, yyyy`)
+    /// are not excluded when they fall on the first calendar day of the window.
     private func bills(in period: Calendar.Component, value: Int, from bills: [Bill]) -> [Bill] {
         let calendar = Calendar.current
         guard let periodStart = calendar.date(byAdding: period, value: -value, to: Date()) else { return [] }
         let now = Date()
+        let windowStart = calendar.startOfDay(for: periodStart)
 
         return bills.filter { bill in
             guard let date = parseDate(from: bill.date) else { return false }
-            return date >= periodStart && date <= now
+            return date >= windowStart && date <= now
         }
     }
 
@@ -65,28 +68,28 @@ final class SpendingInsightsViewModel {
     /// Total amount spent (bill total) this week
     func totalSpentThisWeek(from allBills: [Bill]) -> Double {
         bills(in: Calendar.Component.weekOfYear, value: 1, from: allBills)
-            .compactMap { parseCurrency(from: $0.total) }
+            .map { parseCurrency(from: $0.total) }
             .reduce(0, +)
     }
 
     /// Total amount spent (bill total) this month
     func totalSpentThisMonth(from allBills: [Bill]) -> Double {
         bills(in: Calendar.Component.month, value: 1, from: allBills)
-            .compactMap { parseCurrency(from: $0.total) }
+            .map { parseCurrency(from: $0.total) }
             .reduce(0, +)
     }
 
     /// Total tips given this week
     func totalTipsThisWeek(from allBills: [Bill]) -> Double {
         bills(in: Calendar.Component.weekOfYear, value: 1, from: allBills)
-            .compactMap { parseCurrency(from: $0.tip) }
+            .map { parseCurrency(from: $0.tip) }
             .reduce(0, +)
     }
 
     /// Total tips given this month
     func totalTipsThisMonth(from allBills: [Bill]) -> Double {
         bills(in: Calendar.Component.month, value: 1, from: allBills)
-            .compactMap { parseCurrency(from: $0.tip) }
+            .map { parseCurrency(from: $0.tip) }
             .reduce(0, +)
     }
 

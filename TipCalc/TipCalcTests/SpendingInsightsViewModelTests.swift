@@ -193,6 +193,20 @@ final class SpendingInsightsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.totalSpentThisWeek(from: [bill]), 0)
     }
 
+    /// Saved bills use date-only strings; the rolling-week anchor is a full `Date`, so we normalize
+    /// the window to start-of-day. Otherwise a bill on the first calendar day of the window could be excluded.
+    func testTotalSpentThisWeek_IncludesBillOnWindowStartCalendarDay() {
+        let calendar = Calendar.current
+        guard let anchor = calendar.date(byAdding: .weekOfYear, value: -1, to: Date()) else {
+            XCTFail("Could not compute window anchor")
+            return
+        }
+        let dayStart = calendar.startOfDay(for: anchor)
+        let dateStr = dateString(for: dayStart)
+        let bill = makeBill(input: "25", tip: "5", total: "30", dateString: dateStr)
+        XCTAssertEqual(sut.totalSpentThisWeek(from: [bill]), 30)
+    }
+
     func testTotalTipsThisWeek_IncludesOnlyBillsInCurrentWeek() {
         let billInWeek = makeBill(input: "100", tip: "20", total: "120", dateString: todayDateString)
         let billOutOfWeek = makeBill(
@@ -222,6 +236,18 @@ final class SpendingInsightsViewModelTests: XCTestCase {
             dateString: dateOutsideCurrentMonthString
         )
         XCTAssertEqual(sut.totalSpentThisMonth(from: [bill]), 0)
+    }
+
+    func testTotalSpentThisMonth_IncludesBillOnWindowStartCalendarDay() {
+        let calendar = Calendar.current
+        guard let anchor = calendar.date(byAdding: .month, value: -1, to: Date()) else {
+            XCTFail("Could not compute window anchor")
+            return
+        }
+        let dayStart = calendar.startOfDay(for: anchor)
+        let dateStr = dateString(for: dayStart)
+        let bill = makeBill(input: "40", tip: "8", total: "48", dateString: dateStr)
+        XCTAssertEqual(sut.totalSpentThisMonth(from: [bill]), 48)
     }
 
     func testTotalTipsThisMonth_IncludesOnlyBillsInCurrentMonth() {
