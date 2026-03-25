@@ -21,18 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
-        guard url.scheme?.lowercased() == Constant.deepLinkScheme else { return false }
-        guard url.host?.lowercased() == "open" else { return false }
-        let percent = URLComponents(url: url, resolvingAgainstBaseURL: false)?
-            .queryItems?
-            .first { $0.name == "percent" }?
-            .value
-            .flatMap { Int($0) }
+        guard let kind = TipCalcDeepLink.parseOpenURL(url) else { return false }
 
         DispatchQueue.main.async { [weak self] in
             guard let nav = self?.window?.rootViewController as? UINavigationController else { return }
             nav.popToRootViewController(animated: false)
-            if let percent {
+            if case .withTipPercentQuery(let percent) = kind {
                 (nav.viewControllers.first as? MainController)?.applyQuickLaunchTipPercent(percent)
             }
         }
