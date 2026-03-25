@@ -13,6 +13,7 @@ import CoreData
 final class SpendingInsightsViewModelTests: XCTestCase {
 
     var sut: SpendingInsightsViewModel!
+    let calendar = Calendar.current
 
     override func setUpWithError() throws {
         sut = SpendingInsightsViewModel()
@@ -58,7 +59,6 @@ final class SpendingInsightsViewModelTests: XCTestCase {
     }
 
     private var dateInCurrentMonthString: String {
-        let calendar = Calendar.current
         guard let date = calendar.date(byAdding: .day, value: -10, to: Date()) else {
             return todayDateString
         }
@@ -66,7 +66,6 @@ final class SpendingInsightsViewModelTests: XCTestCase {
     }
 
     private var dateOutsideCurrentWeekString: String {
-        let calendar = Calendar.current
         guard let date = calendar.date(byAdding: .day, value: -10, to: Date()) else {
             return dateString(for: Date.distantPast)
         }
@@ -74,7 +73,6 @@ final class SpendingInsightsViewModelTests: XCTestCase {
     }
 
     private var dateOutsideCurrentMonthString: String {
-        let calendar = Calendar.current
         guard let date = calendar.date(byAdding: .month, value: -2, to: Date()) else {
             return dateString(for: Date.distantPast)
         }
