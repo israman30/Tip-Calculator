@@ -4,152 +4,99 @@
 
 Version 1.4
 
+Tip Calculator is an iOS app for fast bill entry, tip math, splitting checks, and a lightweight view of your saved spending. The main screen is built in **UIKit** (card-style layout, scrollable content) with **SwiftUI** used for the save toast, SwiftUI previews, and the **WidgetKit** extension.
 
-Tip Calculator is a modern, intuitive iOS application designed to simplify bill splitting and tip calculation. Built with a clean financial-focused interface, the app allows users to quickly calculate tips, split totals among friends, and track spending insights — all within a streamlined SwiftUI experience.
-
-The goal of the app is clarity, speed, and precision. Whether dining out, grabbing coffee, or splitting a group bill, Tip Calculator delivers accurate results instantly with minimal friction.
+The focus is clarity and speed: large, right-aligned amounts, preset tip controls, optional fine-grained tipping, and local history with simple insights.
 
 <p align="center">
 <img src="/img/one.png" width="250"> <img src="/img/two.png" width="250"> <img src="/img/three.png" width="250"> <img src="/img/four.png" width="250">
 <img src="/img/five.png" width="250"> <img src="/img/six.png" width="250">
 </p>
 
-## ✨ Features
-💵 Real-Time Bill & Tip Calculation
+## ✨ Core functionality
 
-- Instant calculation as values are entered
+- **Real-time calculation** — Tip and total update as you type; invalid input clears to `$0.00` safely.
+- **Preset tip percentages** — Segmented control for **10%, 15%, 20%, and 25%** with immediate recalculation.
+- **Custom tip (0–30%)** — Double-tap the **total** to show or hide a slider for any whole percent in that range; the last custom value is **remembered** (UserDefaults).
+- **Split bill** — UIStepper for **1–10 people**; per-person share updates with the bill, tip, and party size.
+- **Haptic feedback** — Light impact when a valid calculation runs, **throttled** so typing does not buzz constantly.
+- **Quick reset** — Clear all fields and reset the split stepper to one person.
 
-- Clear display of:
+## 🏠 Home screen & input
 
-- Bill amount
+- **Scrollable layout** — Bill amount sits in a card-style area; tap outside the keyboard to dismiss it.
+- **Voice input** — Microphone on the bill field uses the **Speech** framework for hands-free amount entry (with clear error handling when authorization or hardware is unavailable).
+- **Categories** — Horizontal chips for **Restaurant**, **Bar**, **Delivery**, plus **user-defined custom tags** stored locally and reused when saving.
 
-  - Tip percentage
+## 💾 Saved bills & data
 
-  - Tip amount
+- **Core Data** — Bills are persisted on device (amount, tip, total, metadata, date string, category/tag).
+- **Saved Bills sheet** — Review history from **See all**; rows show saved breakdowns; **swipe to delete** updates the store.
+- **Save affordance** — Prominent green **Save** control in the navigation bar; SwiftUI **toast** confirms a successful save.
 
-  - Final total
+## 📊 Spending insights
 
-- Clean financial typography for improved readability
+Open **Saved Bills** and tap **Insights** for a simple dashboard driven by `SpendingInsightsViewModel`:
 
+- **Total spent this week / this month** (from saved bill totals)
+- **Total tips given** — week and month side by side
+- **Average tip %** across saved bills (weighted by bill input amounts)
 
-## 🎚 Tip Percentage Selection
+Insights refresh when the screen appears and use the same saved bill dataset as the list.
 
-- Adjustable slider for selecting tip percentage
+## 📲 Widget, deep links & discovery
 
-- Preset-style interaction for quick adjustments
+- **Home Screen & Lock Screen widget** — Small and medium layouts with tappable shortcuts for **10%, 15%, 20%,** and **25%** (medium also includes **Open app**). Taps use a custom URL scheme to open the app and, when applicable, **align the tip segment** with that percentage.
+- **URL scheme** — `tipcalc://open` opens the app; `tipcalc://open?percent=<n>` applies quick launch when `n` is **10, 15, 20, or 25** (other values still open the app). Useful for widgets and Shortcuts.
+- **Onboarding** — **How to Use** tips on first launch (sheet); the **info** button in the nav bar opens the same content anytime.
 
-- Live updates to totals while sliding
+## ♿ Accessibility & localization
 
-## 👥 Split Between Up to 10 People
+- **VoiceOver** — Labels and hints on nav actions, save, insights, dismiss controls, dictation, and key values.
+- **String Catalog** — Copy is centralized in `Localizable.xcstrings` for localization.
 
-- Evenly divide total bill among up to 10 people
+## 🛠 Tech stack
 
-- Clear per-person total display
-
-- Dynamic recalculation when adjusting tip or group size
-
-## 🎤 Voice Recognition Input
-
-- Enter bill amount using voice commands
-
-- Fast, hands-free interaction
-
-- Seamless integration into the calculation flow
-
-## 🏷 Place Tagging
-
-- Tag saved bills by location or place (e.g., Restaurant, Coffee Shop, Bar)
-
-- Organized tracking of expenses
-
-- Easy filtering based on tags
-
-## 💾 Save Bill Records
-
-- Persist bill history locally
-
-- View detailed breakdown of past calculations
-
-- Quick access to previously entered data
-
-## 📊 Insights & Spending Overview
-
-- View cumulative totals
-
-- Analyze tip percentages over time
-
-- Track spending patterns by tagged places
-
-- Lightweight financial insight dashboard
-
-## 🛠 Tech Stack
-
-- Swift
-
-- SwiftUI
-
-- MVVM Architecture
-
-- Speech Framework (Voice Recognition)
-
-- Local Data Persistence
-
-- Unit Testing (XCTest)
+| Area | Technology |
+|------|------------|
+| UI | UIKit (primary), SwiftUI (toast, previews, widget UI) |
+| Architecture | MVVM (`CalculationsViewModel`, `SaveViewModel`, `SpendingInsightsViewModel`) |
+| Persistence | Core Data |
+| Speech | `Speech` / `AVFoundation` |
+| Widgets | WidgetKit |
+| Tests | XCTest |
 
 ## 🧪 Testing
 
-- The project includes unit tests covering:
+Unit tests cover **tip math**, **split totals**, **persistence-related behavior**, **insight aggregation**, **deep link parsing**, **main handler flows**, and **onboarding flags**, so calculations and summaries stay predictable as the app evolves.
 
-- Tip calculation logic
+GitHub Actions runs a **CI workflow** (Xcode 15 on macOS) on pushes and pull requests to `main` (see `.github/workflows/build.yml`).
 
-- Bill splitting accuracy
+## 🎯 Design philosophy
 
-- Data persistence validation
+- Financial clarity: strong type hierarchy and **right-aligned** money amounts.
+- Low friction: presets first, optional slider for power users, quick save and history.
+- Local-first: history and insights stay on device unless you add sync later.
 
-- Insight aggregation logic
+## 🚀 Future improvements
 
-- Testing ensures financial accuracy and long-term maintainability.
+Ideas that are not in the app today:
 
-The application follows clean architecture principles with emphasis on state management, performance, and predictable UI updates.
-
-## 🎯 Design Philosophy
-
-- Tip Calculator is built around:
-
-- Financial clarity
-
-- Precision in numerical display
-
-- Minimal UI distractions
-
-- Fast, intuitive interaction
-
-The interface prioritizes strong typography hierarchy and right-aligned numeric presentation to improve readability and user trust.
-
-## 🚀 Future Improvements
-
-- Potential future enhancements include:
-
-- iCloud sync
-
-- Exportable financial reports (CSV / PDF)
-
+- iCloud or other sync
+- Export (CSV / PDF)
 - Biometric app lock
+- Richer analytics beyond the current insight cards
 
-- Advanced analytics dashboard
+**Note:** Custom tip control is already available via the **segment control** and the **0–30% slider**; deeper “preset management” could still be added (e.g. user-named favorites).
 
-- Custom tip presets
+## 📌 Version & availability
 
-## 📌 Version
+Current version: **1.4**
 
-Current Version: 1.4
-
-#### Launch :rocket:
-Release on early 2017, 2019, 2023, 2026
+Release history: early 2017, 2019, 2023, 2026
 
 App Store: [Tip Calculator](https://itunes.apple.com/us/app/my-new-news/id1210234219?mt=8).
 
 <p align="center">
 © Copyright, Israel Manzo. All rights reserved.
 </p>
-
