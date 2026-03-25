@@ -9,6 +9,35 @@
 import UIKit
 
 extension MainController {
+    /// Called from the widget via `tipcalc://open?percent=…` (10, 15, 20, or 25).
+    func applyQuickLaunchTipPercent(_ percent: Int) {
+        let index: Int?
+        switch percent {
+        case 10: index = 0
+        case 15: index = 1
+        case 20: index = 2
+        case 25: index = 3
+        default: index = nil
+        }
+        guard let index else { return }
+        collapseCustomTipSliderIfNeeded()
+        segment.selectedSegmentIndex = index
+        changeValue()
+    }
+
+    private func collapseCustomTipSliderIfNeeded() {
+        guard isCustomTipSliderVisible else { return }
+        isCustomTipSliderVisible = false
+        tipSliderContainerView.isHidden = false
+        tipSliderHeightConstraint?.constant = 0
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+            self.tipSliderContainerView.alpha = 0
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.tipSliderContainerView.isHidden = true
+        }
+    }
+
     @objc func changeValue() {
         let customPercent: Double? = isCustomTipSliderVisible ? Double(tipSlider.value) : nil
         calculationsViewModel?.calculateTip(with: valueInput, segment: segment, tipValue: tipValue, totalValue: totalValue, customTipPercent: customPercent)

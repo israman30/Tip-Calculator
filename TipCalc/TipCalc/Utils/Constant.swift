@@ -31,6 +31,9 @@ struct Constant {
     static let customCategoryTagsKey = "customCategoryTags"
     static let onboardingDismissedKey = "onboardingDismissed"
     
+    /// Custom URL scheme for widget / Shortcuts: `tipcalc://open?percent=15`
+    static let deepLinkScheme = "tipcalc"
+    
     static let savedBills = "Saved Bills"
     static let savedBillsTitle = "Saved bills title"
     
