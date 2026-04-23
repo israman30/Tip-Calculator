@@ -75,7 +75,7 @@ struct TipCalcWidgetEntryView: View {
                 Image(systemName: "percent")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(Color.teal)
-                Text("TipCalc")
+                Text("Tip Calc")
                     .font(.subheadline.weight(.bold))
             }
             HStack(spacing: 8) {

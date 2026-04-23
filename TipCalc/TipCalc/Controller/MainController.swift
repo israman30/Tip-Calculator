@@ -10,41 +10,6 @@ import UIKit
 import SwiftUI
 import Speech
 
-/// Error cases for Speech recognition operations
-enum SpeechError: Error {
-    case authorizationDenied
-    case authorizationRestricted
-    case authorizationNotDetermined
-    case recognizerUnavailable
-    case recognitionRequestFailed
-    case audioSessionFailed(Error)
-    case audioEngineStartFailed(Error)
-    case recognitionTaskFailed(Error)
-}
-
-extension SpeechError: LocalizedError {
-    var errorDescription: String? {
-        switch self {
-        case .authorizationDenied:
-            return "Speech recognition access was denied."
-        case .authorizationRestricted:
-            return "Speech recognition is restricted on this device."
-        case .authorizationNotDetermined:
-            return "Speech recognition authorization has not been determined."
-        case .recognizerUnavailable:
-            return "Speech recognizer is not available for this locale."
-        case .recognitionRequestFailed:
-            return "Failed to create speech recognition request."
-        case .audioSessionFailed(let error):
-            return "Audio session error: \(error.localizedDescription)"
-        case .audioEngineStartFailed(let error):
-            return "Failed to start audio engine: \(error.localizedDescription)"
-        case .recognitionTaskFailed(let error):
-            return "Recognition failed: \(error.localizedDescription)"
-        }
-    }
-}
-
 /**
  - TIP CALCULATOR USES CORE DATA  API AS DATABASE
  - USING SWIFTUI API TO PREVIEW APP VIEW
@@ -515,23 +480,6 @@ extension MainController: SpeechControllerProtocol {
         recognitionTask?.cancel()
         recognitionTask = nil
         updateMicButtonAppearance(isRecording: false)
-    }
-}
-
-extension UIImage {
-    // Customize microphone icon padding size
-    func withPadding(_ padding: UIEdgeInsets) -> UIImage? {
-        let newSize = CGSize(
-            width: self.size.width + padding.left + padding.right,
-            height: self.size.height + padding.top + padding.bottom
-        )
-        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
-        
-        let origin = CGPoint(x: padding.left, y: padding.top)
-        self.draw(at: origin)
-        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return paddedImage
     }
 }
 
