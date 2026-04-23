@@ -1,10 +1,10 @@
-# 💰 Tip Calculator
+# 💰 TipCalc (Tip Calculator)
 
 [![Build](https://github.com/israman30/Tip-Calculator/actions/workflows/build.yml/badge.svg)](https://github.com/israman30/Tip-Calculator/actions/workflows/build.yml)
 
-Version 1.4
+Current version: **1.4.1** (previous: **1.4**)
 
-Tip Calculator is an iOS app for fast bill entry, tip math, splitting checks, and a lightweight view of your saved spending. The main screen is built in **UIKit** (card-style layout, scrollable content) with **SwiftUI** used for the save toast, SwiftUI previews, and the **WidgetKit** extension.
+TipCalc is an iOS app for fast bill entry, tip math, splitting checks, and a lightweight view of your saved spending. The main screen is built in **UIKit** (card-style layout, scrollable content) with **SwiftUI** used for the save toast, SwiftUI previews, and the **WidgetKit** extension.
 
 The focus is clarity and speed: large, right-aligned amounts, preset tip controls, optional fine-grained tipping, and local history with simple insights.
 
@@ -12,6 +12,33 @@ The focus is clarity and speed: large, right-aligned amounts, preset tip control
 <img src="/img/one.png" width="250"> <img src="/img/two.png" width="250"> <img src="/img/three.png" width="250"> <img src="/img/four.png" width="250">
 <img src="/img/five.png" width="250"> <img src="/img/six.png" width="250">
 </p>
+
+## 📦 Repository layout (multiple apps)
+
+This repo contains a few historical iOS projects. The actively maintained app described in this README is:
+
+- **`TipCalc/`** — UIKit + SwiftUI (toast/previews) + WidgetKit, Core Data persistence, insights dashboard.
+
+Other folders are kept as reference:
+
+- **`TipCalculator/`** — older app variant (storyboard-based).
+- **`TipIt/`** — SwiftUI-based experiment/app.
+
+## ✅ Requirements
+
+- **Xcode**: 15.x (CI pins `15.0.1`)
+- **iOS Deployment Target (TipCalc)**: 18.0
+- **Swift**: 5.x
+
+## 🚀 Run locally
+
+1. Open `TipCalc/TipCalc.xcodeproj` in Xcode.
+2. Select the **`TipCalc`** scheme.
+3. Run on a simulator or device.
+
+Notes:
+- **Voice input** uses Speech + Microphone permissions; the app will prompt when needed.
+- The scheme also builds the **`TipCalcWidget`** extension (Home/Lock Screen widget).
 
 ## ✨ Core functionality
 
@@ -70,7 +97,23 @@ Insights refresh when the screen appears and use the same saved bill dataset as 
 
 Unit tests cover **tip math**, **split totals**, **persistence-related behavior**, **insight aggregation**, **deep link parsing**, **main handler flows**, and **onboarding flags**, so calculations and summaries stay predictable as the app evolves.
 
-GitHub Actions runs a **CI workflow** (Xcode 15 on macOS) on pushes and pull requests to `main` (see `.github/workflows/build.yml`).
+To run tests locally:
+
+- In Xcode: **Product → Test**
+- Or via CLI (example):
+
+```bash
+xcodebuild test \
+  -project "TipCalc/TipCalc.xcodeproj" \
+  -scheme "TipCalc" \
+  -destination "platform=iOS Simulator,name=iPhone 15"
+```
+
+## 🤖 CI
+
+The badge links to `.github/workflows/build.yml`. At the moment, the workflow **sets up Xcode and prints `xcodebuild -version`**, but it does **not** run a full build/test yet.
+
+If you want CI to execute tests, a good next step is adding an `xcodebuild test` step using the shared `TipCalc` scheme.
 
 ## 🎯 Design philosophy
 
@@ -91,11 +134,17 @@ Ideas that are not in the app today:
 
 ## 📌 Version & availability
 
-Current version: **1.4**
+Current version: **1.4.1** (previous release: **1.4**)
 
 Release history: early 2017, 2019, 2023, 2026
 
 App Store: [Tip Calculator](https://itunes.apple.com/us/app/my-new-news/id1210234219?mt=8).
+
+## 📚 Technical documentation
+
+For a deeper implementation walkthrough (architecture, controllers, view models, persistence, utilities, and test areas), see:
+
+- `TipCalc/TipCalc_Documentation.md`
 
 <p align="center">
 © Copyright, Israel Manzo. All rights reserved.

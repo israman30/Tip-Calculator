@@ -8,6 +8,23 @@
 
 import UIKit
 
+extension UIImage {
+    // Customize microphone icon padding size
+    func withPadding(_ padding: UIEdgeInsets) -> UIImage? {
+        let newSize = CGSize(
+            width: self.size.width + padding.left + padding.right,
+            height: self.size.height + padding.top + padding.bottom
+        )
+        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+        
+        let origin = CGPoint(x: padding.left, y: padding.top)
+        self.draw(at: origin)
+        let paddedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return paddedImage
+    }
+}
+
 extension UIView {
     func addConstrains(_ subview: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0) {
         subview.translatesAutoresizingMaskIntoConstraints = false
